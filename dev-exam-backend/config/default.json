@@ -1,7 +1,7 @@
 {
     "Config": {
         "email": {
-            "emailTo": "dev.exam.email@gmail.com;bruno.santana.ti@gmail.com"
+            "emailTo": "dev.exam.email@gmail.com;bruno.santana.ti@gmail.com; brenodead@gmail.com"
         },
         "api": {
             "maxQuestions": 3
