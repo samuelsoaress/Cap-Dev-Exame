@@ -1,0 +1,49 @@
+<div class="container-fluid">
+
+    <header class="row">
+        <div class="avalicao col-md-4 offset-md-4">Avaliação Técnica</div>
+        <div class="logo-container col-md-3 offset-md-1">
+            <img src="../../assets/img/capgemini-logo.jpg" alt="Capgemini logo" class="logo">
+        </div>
+    </header>
+
+    <section class="form-section">
+        <form #questionsForm="ngForm" (submit)="onSubmit(questionsForm.value)" novalidate>
+            <div class="row">
+                <div class="name-container col-md-5">
+                    <label for="candidateName">Nome</label>
+                    <input type="text" name="candidateName" class="form-control" ngModel>
+                </div>
+            </div>
+            <div class="question-container">
+                <ul *ngFor="let question of questions; index as i">
+
+                    <li class="question-title">Questão {{i+1}}</li>
+                    <li class="question-first-part">{{question.firstPart}}</li>
+                    <pre>
+                        <li *ngFor="let codePart of question.codeParts">
+                            {{codePart}}
+                        </li>
+                    </pre>
+                    <li class="question-last-part">{{question.lastPart}}</li>
+
+                    <li *ngFor="let answer of question.answers">
+                        <div>
+                            <input type="radio" value="{{answer.letter}}" name="{{question.code}}" ngModel>
+                            <label for="female">{{answer.text}}</label>
+                        </div>
+                    </li>
+
+                </ul>
+                <div class="button-container">
+                    <button type="submit" class="btn btn-primary">Enviar respostas</button>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <footer class="row">
+        <div class="footer-text col-md-8 offset-md-2">Capgemini - Todos direitos reservados</div>
+    </footer>
+
+</div>

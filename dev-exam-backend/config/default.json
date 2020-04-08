@@ -1,0 +1,10 @@
+{
+    "Config": {
+        "email": {
+            "emailTo": "dev.exam.email@gmail.com;bruno.santana.ti@gmail.com"
+        },
+        "api": {
+            "maxQuestions": 3
+        }
+    }
+}

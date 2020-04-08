@@ -1,0 +1,75 @@
+[
+    {
+        "code": "1",
+        "firstPart": "Dado o código:",
+        "codeParts": [
+            "public static synchronized void(String[] args) throws",
+            "InterruptedException {",
+            "   Thread t = new Thread();",
+            "   t.start();",
+            "   System.out.println(\"X\")",
+            "   t.wait(10000);",
+            "   System.out.println(\"Y\")",
+            "}"
+        ],
+        "lastPart": "Qual é o resultado?",
+        "answers": [
+            {"letter": "A", "text": "Exibe X e finaliza."},
+            {"letter": "B", "text": "Exibe X e nunca finaliza"},
+            {"letter": "C", "text": "Exibe XY e finaliza quase imediatamente."},
+            {"letter": "D", "text": "Exibe XY com um atraso de 10 segundos entre X e Y."},
+            {"letter": "E", "text": "Exibe XY com um atraso de 10000 segundos entre X e Y."},
+            {"letter": "F", "text": "O código não compila."},
+            {"letter": "G", "text": "É lançada uma exceção no tempo de execução."}
+        ],
+        "correctAnswer": "G"
+    }, {
+        "code": "2",
+        "firstPart": "",
+        "codeParts": [
+            "public static synchronized void(String[] args) throws",
+            "InterruptedException {",
+            "   Thread t = new Thread();",
+            "   t.start();",
+            "   System.out.println(\"X\")",
+            "   t.wait(10000);",
+            "   System.out.println(\"Y\")",
+            "}"
+        ],
+        "lastPart": "Qual é o resultado desse código?",
+        "answers": [
+            {"letter": "A", "text": "Exibe X e finaliza."},
+            {"letter": "B", "text": "Exibe X e nunca finaliza"},
+            {"letter": "C", "text": "Exibe XY e finaliza quase imediatamente."},
+            {"letter": "D", "text": "Exibe XY com um atraso de 10 segundos entre X e Y."},
+            {"letter": "E", "text": "Exibe XY com um atraso de 10000 segundos entre X e Y."},
+            {"letter": "F", "text": "O código não compila."},
+            {"letter": "G", "text": "É lançada uma exceção no tempo de execução."}
+        ],
+        "correctAnswer": "A"
+    }, {
+        "code": "3",
+        "firstPart": "",
+        "codeParts": [
+            "public static synchronized void(String[] args) throws",
+            "InterruptedException {",
+            "   Thread t = new Thread();",
+            "   t.start();",
+            "   System.out.println(\"X\")",
+            "   t.wait(10000);",
+            "   System.out.println(\"Y\")",
+            "}"
+        ],
+        "lastPart": "Qual é o resultado desse código?",
+        "answers": [
+            {"letter": "A", "text": "Exibe X e finaliza."},
+            {"letter": "B", "text": "Exibe X e nunca finaliza"},
+            {"letter": "C", "text": "Exibe XY e finaliza quase imediatamente."},
+            {"letter": "D", "text": "Exibe XY com um atraso de 10 segundos entre X e Y."},
+            {"letter": "E", "text": "Exibe XY com um atraso de 10000 segundos entre X e Y."},
+            {"letter": "F", "text": "O código não compila."},
+            {"letter": "G", "text": "É lançada uma exceção no tempo de execução."}
+        ],
+        "correctAnswer": "B"
+    }
+]
