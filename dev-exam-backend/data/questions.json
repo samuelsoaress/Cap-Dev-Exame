@@ -1,6 +1,9 @@
+/*1 = java, 2 = angular */
+
 [
     {
         "code": "1",
+        "tipo": "1",
         "firstPart": "Dado o código:",
         "codeParts": [
             "public static synchronized void(String[] args) throws",
@@ -25,6 +28,7 @@
         "correctAnswer": "G"
     }, {
         "code": "2",
+        "tipo":"1",
         "firstPart": "",
         "codeParts": [
             "public static synchronized void(String[] args) throws",
@@ -49,6 +53,7 @@
         "correctAnswer": "A"
     }, {
         "code": "3",
+        "tipo":"1",
         "firstPart": "O código abaixo sequer compila.",
         "codeParts": [
             "public class Jogo {",
@@ -70,6 +75,7 @@
         "correctAnswer": "D"
     }, {
         "code": "4",
+        "tipo":"1",
         "firstPart": "A partir desta classe, diga o que imprime o código:",
         "codeParts": [
             "public class Teste {",
