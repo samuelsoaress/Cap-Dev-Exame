@@ -1,4 +1,5 @@
 const questions = require('./questions')
+const exams = require('./exams')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const config = require('config')
@@ -13,6 +14,17 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 // Enable cors
 app.options('*', cors())
+
+app.get('/exam', cors(), (req, res, next) => {
+
+    if(!req.query.code){
+        return res.send({
+            error: 'Voce precisa fornecer um codigo de exame.'
+        })
+    }
+
+    res.send(exams.getExam(req.query.code))
+})
 
 app.get('/questions', cors(), (req, res, next) => {
     res.send(questions.getQuestions(MAX_QUESTIONS))

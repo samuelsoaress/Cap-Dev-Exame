@@ -11,16 +11,11 @@ export class QuestionsService {
 
   constructor(private http: HttpClient) { }
 
-  getQuestions(): Observable<any> {
-    return this.http.request('GET', this.apiUrl + 'questions');
+  getQuestions(examCode: string): Observable<any> {
+    return this.http.request('GET', this.apiUrl + 'exam?code=' + examCode);
   }
 
   sendAnswers(body: any){
-    // this.http.request('POST', this.apiUrl + 'answers', {
-    //   body,
-    //   headers: new HttpHeaders()
-    //     .set('Content-Type', 'application/json')
-    // })
 
     this.http.post(this.apiUrl + 'answers', JSON.parse(body), {
         headers: new HttpHeaders().set('Content-Type', 'application/json')

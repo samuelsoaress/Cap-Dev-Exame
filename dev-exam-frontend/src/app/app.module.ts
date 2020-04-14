@@ -10,11 +10,11 @@ import { FormsModule } from '@angular/forms';
 import { SuccessComponent } from './success/success.component';
 
 const appRoutes: Routes = [
-  { path: 'questions', component: QuestionsComponent },
+  { path: 'exam', component: QuestionsComponent },
   { path: 'success', component: SuccessComponent },
   {
     path: '',
-    redirectTo: '/questions',
+    redirectTo: '/exam?code=d59792e19ef574ce662c13f2c6c78de4',
     pathMatch: 'full'
   },
   { path: '**', component: QuestionsComponent }

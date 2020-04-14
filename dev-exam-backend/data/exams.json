@@ -1,89 +1,56 @@
 [
     {
-        "codigo_prova": 1,
-        "questoes":[
+        "code": "d59792e19ef574ce662c13f2c6c78de4",
+        "questionsConfig":[
             {
-            "tecnologia": 1,
-            "qtd_perguntas":8,
-            "complexidade":1
+                "technology": "Java",
+                "numberOfQuestions":2,
+                "complexity":"basic"
             },
             {
-            "tecnologia":1,
-            "qtd_perguntas":2,
-            "complexidade":2    
+                "technology":"Spring",
+                "numberOfQuestions":2,
+                "complexity":"basic"   
             },
             {
-            "tecnologia":1,
-            "qtd_perguntas":1,
-            "complexidade":3    
+                "technology":"Spring",
+                "numberOfQuestions":1,
+                "complexity":"medium"   
             },
             {
-            "tecnologia":2,
-            "qtd_perguntas":3,
-            "complexidade":1    
+                "technology":"JSF",
+                "numberOfQuestions":1,
+                "complexity":"hard"  
+            }
+        ]
+    }, {
+        "code": "f94d9e16d0c959791a6e8e7d5b8b2216",
+        "questionsConfig":[
+            {
+                "technology": "Java",
+                "numberOfQuestions":2,
+                "complexity":"basic"
             },
             {
-            "tecnologia":1,
-            "qtd_perguntas":1,
-            "complexidade":3    
-            }]
-    },
-    {
-        "codigo_prova": 2,
-        "questoes":[
-            {
-            "tecnologia": 1,
-            "qtd_perguntas":6,
-            "complexidade":1
+                "technology":"Spring",
+                "numberOfQuestions":2,
+                "complexity":"basic"   
             },
             {
-            "tecnologia":1,
-            "qtd_perguntas":5,
-            "complexidade":2    
+                "technology":"JSF",
+                "numberOfQuestions":2,
+                "complexity":"basic"  
             },
             {
-            "tecnologia":1,
-            "qtd_perguntas":3,
-            "complexidade":3    
+                "technology":"JSF",
+                "numberOfQuestions":1,
+                "complexity":"medium"  
             },
             {
-            "tecnologia":2,
-            "qtd_perguntas":4,
-            "complexidade":1    
-            },
-            {
-            "tecnologia":1,
-            "qtd_perguntas":5,
-            "complexidade":3    
-            }]
-    },
-    {
-        "codigo_prova": 3,
-        "questoes":[
-            {
-            "tecnologia": 1,
-            "qtd_perguntas":4,
-            "complexidade":1
-            },
-            {
-            "tecnologia":1,
-            "qtd_perguntas":4,
-            "complexidade":2    
-            },
-            {
-            "tecnologia":1,
-            "qtd_perguntas":6,
-            "complexidade":3    
-            },
-            {
-            "tecnologia":2,
-            "qtd_perguntas":4,
-            "complexidade":1    
-            },
-            {
-            "tecnologia":1,
-            "qtd_perguntas":5,
-            "complexidade":3    
-            }]
+                "technology":"JSF",
+                "numberOfQuestions":1,
+                "complexity":"hard"  
+            }
+        ]
     }
 ]
