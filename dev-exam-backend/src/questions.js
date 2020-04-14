@@ -32,6 +32,11 @@ const randomQuestions = (questions, maxQuestions) => {
     return randomQuestions
 }
 
+const getAllQuestions = () => {
+    let questions = loadQuestionsFromfile()
+    return questions = removeCorrectAnswer(questions)
+}
+
 const validateAnswers = (requestData) => {
     let questions = loadQuestionsFromfile()
     let candidateName = requestData['candidateName']
@@ -72,5 +77,6 @@ const calculateHitPercentage = (totalQuestions, candidateRightAnswers) => {
 
 module.exports = {
     getQuestions: getQuestions,
+    getAllQuestions: getAllQuestions,
     validateAnswers: validateAnswers
 }

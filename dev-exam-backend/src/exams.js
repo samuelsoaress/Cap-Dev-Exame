@@ -1,27 +1,40 @@
 const fs = require('fs')
 const path = require('path')
+const questions = require('./questions')
 
-const getExams = () => {
-    let exams = loadExamsFromfile()
-    return exams
-}
- 
-const getExamRight = (codeExam) => {
-    let questions = []
-    const exams = path.join(__dirname, '../data/exams.json')
-    const questions = path.join(__dirname, '../data/questions.json')
-    for(var i=0; i<exams[codeExam-1]["questoes"].length; i++){
+const getExam = (examCode) => {
 
-        var tecnologia = exams[codeExam-1]["questoes"][i]["tecnologia"]
-        var qtd_perguntas = exams[codeExam-1]["questoes"][i]["qtd_perguntas"]
-        var complexidade = exams[codeExam-1]["questoes"][i]["complexidade"]
+    const exam = getExamByCode(examCode)
+    const allQuestions = questions.getAllQuestions()
 
-        for(var j=0; j<questions.length; j++){
-            
-            //Falta terminar a logica de percorrer os questions.json
+    let examQuestions = []
+    
+    for(let i=0; i < exam.questionsConfig.length; i++){
+
+        let technology = exam.questionsConfig[i].technology
+        let numberOfQuestions = exam.questionsConfig[i].numberOfQuestions
+        let complexity = exam.questionsConfig[i].complexity
+
+        for(let j=0; j < allQuestions.length; j++){
+            let counter = 0
+            let question = allQuestions[j]
+            if(technology === question.technology && complexity === question.complexity){
+                examQuestions.push(question)
+                counter = counter + 1
+                if(counter === numberOfQuestions){
+                    break;
+                }
+            }
         }
+
     }
-    return JSON.parse(fs.readFileSync(dataPath))
+
+    return examQuestions
+}
+
+const getExamByCode = (examCode) => {
+    const exams = loadExamsFromfile()
+    return exams.find((exam) => exam.code === examCode)
 }
 
 const loadExamsFromfile = () => {
@@ -30,5 +43,5 @@ const loadExamsFromfile = () => {
 }
 
 module.exports = {
-    getExams: getExams,
+    getExam: getExam,
 }

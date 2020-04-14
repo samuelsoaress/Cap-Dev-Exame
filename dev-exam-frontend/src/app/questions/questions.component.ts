@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { QuestionsService } from 'src/app/services/questions.service'
+import { ActivatedRoute } from '@angular/router'
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -12,11 +13,12 @@ export class QuestionsComponent implements OnInit {
 
   questions: any
 
-  constructor(private questionsService: QuestionsService, private router: Router) {
+  constructor(private questionsService: QuestionsService, private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.questionsService.getQuestions()
+    const examCode: string = this.route.snapshot.queryParamMap.get('code');
+    this.questionsService.getQuestions(examCode)
       .subscribe(questions => {
         console.log(questions)
         this.questions = questions
