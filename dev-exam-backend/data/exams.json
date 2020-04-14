@@ -14,8 +14,8 @@
             },
             {
                 "technology": "JSF",
-                "numberOfQuestions": 1,
-                "complexity": "hard"
+                "numberOfQuestions": 2,
+                "complexity": "basic"
             },
             {
                 "technology": "Spring",
@@ -29,13 +29,13 @@
         "questionsConfig": [
             {
                 "technology": "Java",
-                "numberOfQuestions": 4,
-                "complexity": "basic"
+                "numberOfQuestions": 2,
+                "complexity": "medium"
             },
             {
                 "technology": "Spring",
                 "numberOfQuestions": 2,
-                "complexity": "basic"
+                "complexity": "medium"
             },
             {
                 "technology": "JSF",
