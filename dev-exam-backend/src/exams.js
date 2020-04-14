@@ -14,9 +14,10 @@ const getExam = (examCode) => {
         let technology = exam.questionsConfig[i].technology
         let numberOfQuestions = exam.questionsConfig[i].numberOfQuestions
         let complexity = exam.questionsConfig[i].complexity
+        
+        let counter = 0
 
         for(let j=0; j < allQuestions.length; j++){
-            let counter = 0
             let question = allQuestions[j]
             if(technology === question.technology && complexity === question.complexity){
                 examQuestions.push(question)
