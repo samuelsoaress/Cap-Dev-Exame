@@ -55,6 +55,7 @@ const validateAnswers = (requestData) => {
     let emailBody = '<p><b>Resultado Avaliação Candidato</b></p>'
     emailBody += `<p>Candidato: ${candidateName}</p>`
 
+
     _.forOwn(answersFromCandidate, function(value, key) {
         let correctAnswer = questions.find((question) => question.code === (key.toString())).correctAnswer
         let question = questions.find((question) => question.code === (key.toString())).lastPart
@@ -67,7 +68,7 @@ const validateAnswers = (requestData) => {
         emailBody += '<p>' + answers[2].letter + ' ' +answers[2].text  + '</p>'
         emailBody += '<p>' + answers[3].letter + ' ' +answers[3].text + '</p>'
         emailBody += '<p>Resposta do candidato: ' + value + '</p>'
-        emailBody += '<p style="color:green ">Resposta certa: ' + correctAnswer + '</p>'
+        emailBody += '<p style="color:#98FB98 ">Resposta certa: ' + correctAnswer + '</p>'
 
         correctAnswer === value ? candidateRightAnswers++ : candidateWrongAnswers++
         totalQuestions += 1
