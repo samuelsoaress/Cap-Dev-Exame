@@ -37,6 +37,14 @@ const getAllQuestions = () => {
     return questions = removeCorrectAnswer(questions)
 }
 
+const replace= (array) => {
+    let coding = ""
+    for(let i =0;i<array.length;i++){
+        coding += array[i] +"<br>"
+    }
+    return coding
+}
+
 const validateAnswers = (requestData) => {
     let questions = loadQuestionsFromfile()
     let candidateName = requestData['candidateName']
@@ -45,14 +53,16 @@ const validateAnswers = (requestData) => {
     let candidateWrongAnswers = 0
     let totalQuestions = 0
     let emailBody = '<p><b>Resultado Avaliação Candidato</b></p>'
-
     emailBody += `<p>Candidato: ${candidateName}</p>`
 
     _.forOwn(answersFromCandidate, function(value, key) {
         let correctAnswer = questions.find((question) => question.code === (key.toString())).correctAnswer
-        emailBody += '<p>Questão número: ' + key + '</p>'
+        let question = questions.find((question) => question.code === (key.toString())).lastPart
+        let code = questions.find((question) => question.code === (key.toString())).codeParts
+        emailBody += '<p>Pergunta: ' + key +" "+  question+ '</p>'
+        emailBody += '<p> ' + replace(code) + '</p>'
         emailBody += '<p>Resposta do candidato: ' + value + '</p>'
-        emailBody += '<p>Resposta certa: ' + correctAnswer + '</p>'
+        emailBody += '<p style="color:green ">Resposta certa: ' + correctAnswer + '</p>'
 
         correctAnswer === value ? candidateRightAnswers++ : candidateWrongAnswers++
         totalQuestions += 1
