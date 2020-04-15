@@ -1243,11 +1243,11 @@
     },
     {
         "code": "29",
-        "technology": "Spring",
+        "technology": "Cobol",
         "complexity": "basic",
         "firstPart": "Spring basic 2 enunciado",
         "codeParts": [
-            "TESTE29 BASIC",
+            "TESTE29 Cobol",
             "TESTE29 BASIC",
             "TESTE29 BASIC",
             "TESTE29 BASIC",
