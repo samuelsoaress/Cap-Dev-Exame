@@ -59,8 +59,13 @@ const validateAnswers = (requestData) => {
         let correctAnswer = questions.find((question) => question.code === (key.toString())).correctAnswer
         let question = questions.find((question) => question.code === (key.toString())).lastPart
         let code = questions.find((question) => question.code === (key.toString())).codeParts
+        let answers = questions.find((question) => question.code === (key.toString())).answers
         emailBody += '<p>Pergunta: ' + key +" "+  question+ '</p>'
         emailBody += '<p> ' + replace(code) + '</p>'
+        emailBody += '<p>' + answers[0].letter + ' ' +answers[0].text + '</p>'
+        emailBody += '<p>' + answers[1].letter + ' ' +answers[1].text  + '</p>'
+        emailBody += '<p>' + answers[2].letter + ' ' +answers[2].text  + '</p>'
+        emailBody += '<p>' + answers[3].letter + ' ' +answers[3].text + '</p>'
         emailBody += '<p>Resposta do candidato: ' + value + '</p>'
         emailBody += '<p style="color:green ">Resposta certa: ' + correctAnswer + '</p>'
 
