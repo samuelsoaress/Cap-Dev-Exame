@@ -6,7 +6,7 @@ const email = require('./email')
 const getQuestions = (maxQuestions) => {
     let questions = loadQuestionsFromfile()
 
-    if(maxQuestions > questions.length){
+    if (maxQuestions > questions.length) {
         throw "erro: requisitando número de questões maior do que o número de questões no banco!"
     }
 
@@ -21,11 +21,11 @@ const removeCorrectAnswer = (questions) => {
 
 const randomQuestions = (questions, maxQuestions) => {
     let randomQuestions = []
-    while(randomQuestions.length < maxQuestions){
+    while (randomQuestions.length < maxQuestions) {
         let randomNumber = Math.floor(Math.random() * questions.length);;
         let randomQuestion = questions[randomNumber]
         let found = randomQuestions.find((q) => q.code === randomQuestion.code)
-        if(found === undefined){
+        if (found === undefined) {
             randomQuestions.push(randomQuestion)
         }
     }
@@ -37,10 +37,10 @@ const getAllQuestions = () => {
     return questions = removeCorrectAnswer(questions)
 }
 
-const replace= (array) => {
+const replace = (array) => {
     let coding = ""
-    for(let i =0;i<array.length;i++){
-        coding += array[i] +"<br>"
+    for (let i = 0; i < array.length; i++) {
+        coding += array[i] + "<br>"
     }
     return coding
 }
@@ -52,34 +52,51 @@ const validateAnswers = (requestData) => {
     let candidateRightAnswers = 0
     let candidateWrongAnswers = 0
     let totalQuestions = 0
-    let emailBody = '<p><b>Resultado Avaliação Candidato</b></p>'
-    emailBody += `<p>Candidato: ${candidateName}</p>`
+    let emailBody2 = '<p><b>Resultado Avaliação Candidato</b></p>'
+    let emailBody = '<br>'
+    emailBody2 += `<p>Candidato: ${candidateName}</p>`
+    let contQuestion = 1
 
-
-    _.forOwn(answersFromCandidate, function(value, key) {
+    _.forOwn(answersFromCandidate, function (value, key) {
         let correctAnswer = questions.find((question) => question.code === (key.toString())).correctAnswer
         let question = questions.find((question) => question.code === (key.toString())).lastPart
         let code = questions.find((question) => question.code === (key.toString())).codeParts
-        let answers = questions.find((question) => question.code === (key.toString())).answers
-        emailBody += '<p>Pergunta: ' + key +" "+  question+ '</p>'
-        emailBody += '<p> ' + replace(code) + '</p>'
-        emailBody += '<p>' + answers[0].letter + ' ' +answers[0].text + '</p>'
-        emailBody += '<p>' + answers[1].letter + ' ' +answers[1].text  + '</p>'
-        emailBody += '<p>' + answers[2].letter + ' ' +answers[2].text  + '</p>'
-        emailBody += '<p>' + answers[3].letter + ' ' +answers[3].text + '</p>'
-        emailBody += '<p>Resposta do candidato: ' + value + '</p>'
-        emailBody += '<p style="color:#98FB98 ">Resposta certa: ' + correctAnswer + '</p>'
+        let answers = questions.find((question) => question.code === (key.toString())).answers                
+        emailBody += '<p style="color:#000000 "><b>Pergunta: ' + contQuestion + " " + question + '</b></p>'
+        emailBody += '<p style="color:#000000 "><b>' + replace(code) + '</b></p>'
 
+        for (let j = 0; j < answers.length; j++) {
+            if (answers[j].letter === correctAnswer) {
+                if (answers[j].letter === value) {
+                    emailBody += '<p style="color:#009000 " ><b>(X) ' + answers[j].letter + ' ' + answers[j].text + '</b></p>'
+                }
+                else {
+                    emailBody += '<p style="color:#009000 " ><b>( ) ' + answers[j].letter + ' ' + answers[j].text + '</b></p>'
+                }
+
+            } else {
+                if (answers[j].letter === value) {
+                    emailBody += '<p style="color:#900000 " ><b>(X) ' + answers[j].letter + ' ' + answers[j].text + '</b></p>'
+                }
+                else {
+                    emailBody += '<p style="color:#000000 "><b>( ) ' + answers[j].letter + ' ' + answers[j].text + '</b></p>'
+                }
+
+            }
+
+        }
         correctAnswer === value ? candidateRightAnswers++ : candidateWrongAnswers++
         totalQuestions += 1
+        contQuestion += 1
     });
-
-    emailBody += '<p><b>Total de respostas certas: ' + candidateRightAnswers + '</b></p>'
-    emailBody += '<p><b>Total de respostas erradas: ' + candidateWrongAnswers + '</b></p>'
-    emailBody += '<p><b>Porcentagem de acertos: ' 
+    emailBody2 += '<p><b>Total de respostas certas: ' + candidateRightAnswers + '</b></p>'
+    emailBody2 += '<p><b>Total de respostas erradas: ' + candidateWrongAnswers + '</b></p>'
+    emailBody2 += '<p><b>Porcentagem de acertos: '
         + calculateHitPercentage(totalQuestions, candidateRightAnswers) + ' %</b></p>'
 
-    email.sendEmail(emailBody)
+    emailBody2 += emailBody
+
+    email.sendEmail(emailBody2)
 }
 
 const loadQuestionsFromfile = () => {
@@ -88,7 +105,7 @@ const loadQuestionsFromfile = () => {
 }
 
 const calculateHitPercentage = (totalQuestions, candidateRightAnswers) => {
-    return ((candidateRightAnswers*100)/totalQuestions).toFixed(2)
+    return ((candidateRightAnswers * 100) / totalQuestions).toFixed(2)
 }
 
 module.exports = {

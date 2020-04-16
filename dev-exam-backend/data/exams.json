@@ -81,11 +81,6 @@
                 "technology": "JSF",
                 "numberOfQuestions": 2,
                 "complexity": "medium"
-            },
-            {
-                "technology": "Cobol",
-                "numberOfQuestions": 2,
-                "complexity": "medium"
             }
         ]
     }
