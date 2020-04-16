@@ -69,7 +69,7 @@ const validateAnswers = (requestData) => {
             examComplexity.push(complexity)
             technologys.add(technology)
             emailBody += '<p style="color:#000000 "><b>Pergunta: ' + contQuestion + " " + question + '</b></p>'
-            emailBody += '<p style="color:#000000 "><b>' + replace(code) + '</b></p>'
+            emailBody += '<p style="color:#000000;background-color:#eeeff5;border-radius:10px;box-shadow:1px 2px 4px rgba(0, 0, 0, 0.5);width:700px;"><b>' + replace(code) + '</b></p>'
 
             for (let j = 0; j < answers.length; j++) {
                 if (answers[j].letter === correctAnswer) {
