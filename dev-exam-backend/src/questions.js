@@ -56,12 +56,16 @@ const validateAnswers = (requestData) => {
     let emailBody = '<br>'
     emailBody2 += `<p>Candidato: ${candidateName}</p>`
     let contQuestion = 1
+    let technologys = new Set();
+    let examCompexity = []
 
     _.forOwn(answersFromCandidate, function (value, key) {
         let correctAnswer = questions.find((question) => question.code === (key.toString())).correctAnswer
         let question = questions.find((question) => question.code === (key.toString())).lastPart
         let code = questions.find((question) => question.code === (key.toString())).codeParts
         let answers = questions.find((question) => question.code === (key.toString())).answers                
+        let technology = questions.find((question) => question.code === (key.toString())).technology 
+        technologys.add(technology)
         emailBody += '<p style="color:#000000 "><b>Pergunta: ' + contQuestion + " " + question + '</b></p>'
         emailBody += '<p style="color:#000000 "><b>' + replace(code) + '</b></p>'
 
@@ -89,10 +93,17 @@ const validateAnswers = (requestData) => {
         totalQuestions += 1
         contQuestion += 1
     });
+    let technology = ""
+    for (let item of technologys){
+        technology += ", " + item
+    }
+    
+    emailBody2 += '<p><b> Tipo de prova' + technology + '</p></b>'
     emailBody2 += '<p><b>Total de respostas certas: ' + candidateRightAnswers + '</b></p>'
     emailBody2 += '<p><b>Total de respostas erradas: ' + candidateWrongAnswers + '</b></p>'
     emailBody2 += '<p><b>Porcentagem de acertos: '
         + calculateHitPercentage(totalQuestions, candidateRightAnswers) + ' %</b></p>'
+    
 
     emailBody2 += emailBody
 
