@@ -97,9 +97,9 @@
     },
     {
         "code": "3",
-        "technology": "JSF",
+        "technology": "Java",
         "complexity": "basic",
-        "firstPart": "JSF basic enunciado",
+        "firstPart": "Java basic enunciado",
         "codeParts": [
             "public class Jogo {",
             "//Código omitido",
@@ -218,9 +218,9 @@
     },
     {
         "code": "6",
-        "technology": "JSF",
+        "technology": "Java",
         "complexity": "medium",
-        "firstPart": "JSF medium enunciado",
+        "firstPart": "Java medium enunciado",
         "codeParts": [
             "public class Teste {",
             "   public static void main(String [] args) {",
@@ -341,9 +341,9 @@
     },
     {
         "code": "9",
-        "technology": "JSF",
+        "technology": "Java",
         "complexity": "hard",
-        "firstPart": "JSF hard enunciado",
+        "firstPart": "Java hard enunciado",
         "codeParts": [
             "public class Teste {",
             "   public static void main(String [] args) {",
@@ -478,9 +478,9 @@
     },
     {
         "code": "12",
-        "technology": "JSF",
+        "technology": "Java",
         "complexity": "basic",
-        "firstPart": "JSF basic 2 enunciado",
+        "firstPart": "Java basic 2 enunciado",
         "codeParts": [
             "public static synchronized void(String[] args) throws",
             "InterruptedException {",
@@ -622,9 +622,9 @@
     },
     {
         "code": "15",
-        "technology": "JSF",
+        "technology": "Java",
         "complexity": "basic",
-        "firstPart": "JSF basic enunciado",
+        "firstPart": "Java basic enunciado",
         "codeParts": [
             "public class Jogo {",
             "//Código omitido",
@@ -743,9 +743,9 @@
     },
     {
         "code": "18",
-        "technology": "JSF",
+        "technology": "Java",
         "complexity": "medium",
-        "firstPart": "JSF medium enunciado",
+        "firstPart": "Java medium enunciado",
         "codeParts": [
             "TESTE18 MEDIUM",
             "TESTE18 MEDIUM",
@@ -834,7 +834,7 @@
             "TESTE20 HARD",
             "TESTE20 HARD",
             "TESTE20 HARD",
-            "TESTE20 HARD",            
+            "TESTE20 HARD",
             "TESTE20 HARD",
             "TESTE20 HARD",
             "TESTE20 HARD"
@@ -866,9 +866,9 @@
     },
     {
         "code": "21",
-        "technology": "JSF",
+        "technology": "Java",
         "complexity": "hard",
-        "firstPart": "JSF hard enunciado",
+        "firstPart": "Java hard enunciado",
         "codeParts": [
             "TESTE21 HARD",
             "TESTE21 HARD",
@@ -1003,9 +1003,9 @@
     },
     {
         "code": "24",
-        "technology": "JSF",
+        "technology": "Java",
         "complexity": "basic",
-        "firstPart": "JSF basic 2 enunciado",
+        "firstPart": "Java basic 2 enunciado",
         "codeParts": [
             "TESTE24 BASIC",
             "TESTE24 BASIC",
@@ -1099,9 +1099,9 @@
     },
     {
         "code": "26",
-        "technology": "JSF",
+        "technology": "Java",
         "complexity": "basic",
-        "firstPart": "JSF basic 2 enunciado",
+        "firstPart": "Java basic 2 enunciado",
         "codeParts": [
             "TESTE26 BASIC",
             "TESTE26 BASIC",
@@ -1195,9 +1195,9 @@
     },
     {
         "code": "28",
-        "technology": "JSF",
+        "technology": "Java",
         "complexity": "basic",
-        "firstPart": "JSF basic 2 enunciado",
+        "firstPart": "Java basic 2 enunciado",
         "codeParts": [
             "TESTE28 BASIC",
             "TESTE28 BASIC",
@@ -1291,9 +1291,9 @@
     },
     {
         "code": "30",
-        "technology": "JSF",
+        "technology": "Java",
         "complexity": "basic",
-        "firstPart": "JSF basic 2 enunciado",
+        "firstPart": "Java basic 2 enunciado",
         "codeParts": [
             "TESTE30 BASIC",
             "TESTE30 BASIC",
@@ -1336,6 +1336,275 @@
             }
         ],
         "correctAnswer": "C"
+    },
+    {
+        "code": "31",
+        "technology": "JSF",
+        "complexity": "medium",
+        "firstPart": "Como é possível acessar o valor de um managed bean em uma página XHTML?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Através dos elementos ${bean.elemento} na página"
+            },
+            {
+                "letter": "B",
+                "text": "Através do elemento #{bean.elemento} na página"
+            },
+            {
+                "letter": "C",
+                "text": "Através de um scriptlet (<%=bean.elemento%>)"
+            },
+            {
+                "letter": "D",
+                "text": "Através de um scriptlet (<%bean.elemento%>)"
+            }
+        ],
+        "correctAnswer": "B"
+    },
+    {
+        "code": "32",
+        "technology": "JSF",
+        "complexity": "medium",
+        "firstPart": "Quais das seguintes formas não é uma maneira válida de declarar um bean JSF?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Através da tag “managed-bean” no faces-config.xml"
+            },
+            {
+                "letter": "B",
+                "text": "Através da annotation “@ManagedBean”"
+            },
+            {
+                "letter": "C",
+                "text": "Declarando-o como um bean CDI com a annotation “@Named”"
+            },
+            {
+                "letter": "D",
+                "text": "Declarando o no web.xml com a tag “managed-bean”"
+            }
+        ],
+        "correctAnswer": "D"
+    },
+    {
+        "code": "33",
+        "technology": "JSF",
+        "complexity": "medium",
+        "firstPart": "Qual dos seguintes componentes abaixo é um componente de entrada no JSF?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "   f:view"
+            },
+            {
+                "letter": "B",
+                "text": "h:selectOneMenu"
+            },
+            {
+                "letter": "C",
+                "text": "h:outputText"
+            },
+            {
+                "letter": "D",
+                "text": "h:panelGrid"
+            }
+        ],
+        "correctAnswer": "B"
+    },
+    {
+        "code": "34",
+        "technology": "JSF",
+        "complexity": "medium",
+        "firstPart": "Action e actionListener são elementos JSF utilizados para execução de comandos da aplicação. Qual deles aciona navegação?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "action"
+            },
+            {
+                "letter": "B",
+                "text": "actionListener"
+            },
+            {
+                "letter": "C",
+                "text": "Ambos"
+            },
+            {
+                "letter": "D",
+                "text": "Nenhum"
+            }
+        ],
+        "correctAnswer": "A"
+    },
+    {
+        "code": "35",
+        "technology": "JSF",
+        "complexity": "medium",
+        "firstPart": "JSF possui diferente escopos para seus managed beans. Qual escopo dentre os listados abaixo é o mais duradouro (ou seja, permanece mais tempo ativo na aplicação)?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Request scoped"
+            },
+            {
+                "letter": "B",
+                "text": "View scroped"
+            },
+            {
+                "letter": "C",
+                "text": "Application scoped"
+            },
+            {
+                "letter": "D",
+                "text": "Session scoped"
+            }
+        ],
+        "correctAnswer": "C"
+    },
+    {
+        "code": "36",
+        "technology": "JSF",
+        "complexity": "medium",
+        "firstPart": "Qual a forma mais simples de tornar um campo obrigatório no JSF?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Efetuar a validação do mesmo no método actionListener do managed bean"
+            },
+            {
+                "letter": "B",
+                "text": "Efetuar a validação do mesmo por Javascript"
+            },
+            {
+                "letter": "C",
+                "text": "Implementar um validador"
+            },
+            {
+                "letter": "D",
+                "text": "Utilizar o atributo required"
+            }
+        ],
+        "correctAnswer": "D"
+    },
+    {
+        "code": "37",
+        "technology": "JSF",
+        "complexity": "medium",
+        "firstPart": "Como é possível redirecionar um usuário durante a execução de um método de “action” da aplicação no JSF?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Executar um comando getServletContext().getRequestDispatcher('acao');"
+            },
+            {
+                "letter": "B",
+                "text": "Executar um comando FacesContext.getCurrentInstance().redirect(“acao”)"
+            },
+            {
+                "letter": "C",
+                "text": "Retomar a ação"
+            },
+            {
+                "letter": "D",
+                "text": "Configurar a ação como parte do parâmetro fornecido"
+            }
+        ],
+        "correctAnswer": "C"
+    },
+    {
+        "code": "38",
+        "technology": "JSF",
+        "complexity": "medium",
+        "firstPart": "É possível desativar a exibição de um componente JSF?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Sim, pelo atributo “rendered”"
+            },
+            {
+                "letter": "B",
+                "text": "Não"
+            },
+            {
+                "letter": "C",
+                "text": "Sim, apenas programaticamente"
+            },
+            {
+                "letter": "D",
+                "text": "Sim, pelo atributo “display”"
+            }
+        ],
+        "correctAnswer": "A"
+    },
+    {
+        "code": "39",
+        "technology": "JSF",
+        "complexity": "medium",
+        "firstPart": "Que componente é utilizado para exibição de mensagens de erro em páginas JSF?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "h:inputText"
+            },
+            {
+                "letter": "B",
+                "text": "h:panelGroup"
+            },
+            {
+                "letter": "C",
+                "text": "h:outputText"
+            },
+            {
+                "letter": "D",
+                "text": "h:messages"
+            }
+        ],
+        "correctAnswer": "D"
+    },
+    {
+        "code": "40",
+        "technology": "JSF",
+        "complexity": "medium",
+        "firstPart": "Para que serve a tag f:view no JSF?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Para indicar uma página JSF"
+            },
+            {
+                "letter": "B",
+                "text": "Para indicar um trecho renderizável pelo JSF"
+            },
+            {
+                "letter": "C",
+                "text": "Para indicar um componente JSF"
+            },
+            {
+                "letter": "D",
+                "text": "Para indicar uma tela interna em frame com uma página JSF"
+            }
+        ],
+        "correctAnswer": "B"
     }
-
 ]

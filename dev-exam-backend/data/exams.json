@@ -15,7 +15,7 @@
             {
                 "technology": "JSF",
                 "numberOfQuestions": 2,
-                "complexity": "basic"
+                "complexity": "medium"
             },
             {
                 "technology": "Spring",
@@ -66,20 +66,20 @@
                 "technology": "Spring",
                 "numberOfQuestions": 2,
                 "complexity": "hard"
-            },
+            },        
             {
                 "technology": "JSF",
                 "numberOfQuestions": 2,
-                "complexity": "hard"
-            },
+                "complexity": "medium"
+            }
+        ]
+    },
+    {
+        "code": "h3j2k4h234dd123112312ghjgg10",
+        "questionsConfig": [
             {
                 "technology": "JSF",
-                "numberOfQuestions": 2,
-                "complexity": "basic"
-            },
-            {
-                "technology": "JSF",
-                "numberOfQuestions": 2,
+                "numberOfQuestions": 10,
                 "complexity": "medium"
             }
         ]
