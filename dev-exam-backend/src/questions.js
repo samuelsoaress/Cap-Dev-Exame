@@ -71,7 +71,7 @@ const validateAnswers = (requestData) => {
         emailBody += '<p style="color:#000000 "><b>Pergunta: ' + contQuestion + " " + question + '</b></p>'
 
         if (code.length <= 1) {
-            emailBody += "<br>"
+            emailBody += ""
 
         } else {
             emailBody += '<pre style="color:#000000;background-color:#eeeff5;border-radius:10px;box-shadow:1px 2px 4px rgba(0, 0, 0, 0.5);width:700px;"><b><p style="margin-left: 10em;">' + replace(code) + '</p></b></pre>'
