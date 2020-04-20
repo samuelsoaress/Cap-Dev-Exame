@@ -12,8 +12,16 @@ import { NgForm } from '@angular/forms';
 export class QuestionsComponent implements OnInit {
 
   questions: any
+  timeLeft: number = 60;
+  timeOut: boolean;
+  interval;
 
   constructor(private questionsService: QuestionsService, private router: Router, private route: ActivatedRoute) {
+  }
+
+
+  pauseTimer() {
+    clearInterval(this.interval);
   }
 
   ngOnInit() {
@@ -29,5 +37,18 @@ export class QuestionsComponent implements OnInit {
     this.questionsService.sendAnswers(JSON.stringify(value))
     this.router.navigateByUrl('/success');
   }
+
+  startTimer() {
+    this.interval = setInterval(() => {
+      if(this.timeLeft > 0) {
+        this.timeLeft--;
+      } else {
+        this.timeLeft = 60;
+      }
+      if(this.timeLeft == 0)
+        this.timeOut = true;
+    },1000)
+  }
+
 
 }
