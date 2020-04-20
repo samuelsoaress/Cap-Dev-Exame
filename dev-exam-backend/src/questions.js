@@ -59,47 +59,22 @@ const validateAnswers = (requestData) => {
     let technologys = new Set();
     let examComplexity = []
 
-        _.forOwn(answersFromCandidate, function (value, key) {
-            let correctAnswer = questions.find((question) => question.code === (key.toString())).correctAnswer
-            let question = questions.find((question) => question.code === (key.toString())).lastPart
-            let code = questions.find((question) => question.code === (key.toString())).codeParts
-            let answers = questions.find((question) => question.code === (key.toString())).answers
-            let technology = questions.find((question) => question.code === (key.toString())).technology
-            let complexity = questions.find((question) => question.code === (key.toString())).complexity
-            examComplexity.push(complexity)
-            technologys.add(technology)
-            emailBody += '<p style="color:#000000 "><b>Pergunta: ' + contQuestion + " " + question + '</b></p>'
-            emailBody += '<pre style="color:#000000;background-color:#eeeff5;border-radius:10px;box-shadow:1px 2px 4px rgba(0, 0, 0, 0.5);width:700px;"><b><p style="margin-left: 10em;">' + replace(code) + '</p></b></pre>'
-
-            for (let j = 0; j < answers.length; j++) {
-                if (answers[j].letter === correctAnswer) {
-                    if (answers[j].letter === value) {
-                        emailBody += '<p style="color:#009000 " ><b>(X) ' + answers[j].letter + ' ' + answers[j].text + '</b></p>'
-                    }
-                    else {
-                        emailBody += '<p style="color:#009000 " ><b>( ) ' + answers[j].letter + ' ' + answers[j].text + '</b></p>'
-                    }
-
-                } else {
-                    if (answers[j].letter === value) {
-                        emailBody += '<p style="color:#900000 " ><b>(X) ' + answers[j].letter + ' ' + answers[j].text + '</b></p>'
-                    }
-                    else {
-                        emailBody += '<p style="color:#000000 "><b>( ) ' + answers[j].letter + ' ' + answers[j].text + '</b></p>'
-                    }
-
     _.forOwn(answersFromCandidate, function (value, key) {
         let correctAnswer = questions.find((question) => question.code === (key.toString())).correctAnswer
         let question = questions.find((question) => question.code === (key.toString())).lastPart
         let code = questions.find((question) => question.code === (key.toString())).codeParts
         let answers = questions.find((question) => question.code === (key.toString())).answers
+        let technology = questions.find((question) => question.code === (key.toString())).technology
+        let complexity = questions.find((question) => question.code === (key.toString())).complexity
+        examComplexity.push(complexity)
+        technologys.add(technology)
         emailBody += '<p style="color:#000000 "><b>Pergunta: ' + contQuestion + " " + question + '</b></p>'
 
         if (code.length <= 1) {
             emailBody += "<br>"
 
         } else {
-            emailBody += '<p style="color:#000000 "><b>' + replace(code) + '</b></p>'
+            emailBody += '<pre style="color:#000000;background-color:#eeeff5;border-radius:10px;box-shadow:1px 2px 4px rgba(0, 0, 0, 0.5);width:700px;"><b><p style="margin-left: 10em;">' + replace(code) + '</p></b></pre>'
         }
 
         for (let j = 0; j < answers.length; j++) {
@@ -120,10 +95,12 @@ const validateAnswers = (requestData) => {
                 }
 
             }
-            correctAnswer === value ? candidateRightAnswers++ : candidateWrongAnswers++
-            totalQuestions += 1
-            contQuestion += 1
-        });
+
+        }
+        correctAnswer === value ? candidateRightAnswers++ : candidateWrongAnswers++
+        totalQuestions += 1
+        contQuestion += 1
+    });
 
     let basic = 0;
     let medium = 0;
