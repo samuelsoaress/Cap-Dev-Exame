@@ -2,6 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const _ = require('lodash');
 const email = require('./email')
+const conversion = require("phantom-html-to-pdf")();
 
 const getQuestions = (maxQuestions) => {
     let questions = loadQuestionsFromfile()
@@ -52,7 +53,8 @@ const validateAnswers = (requestData) => {
     let candidateRightAnswers = 0
     let candidateWrongAnswers = 0
     let totalQuestions = 0
-    let emailBody2 = '<p><b>Resultado Avaliação Candidato</b></p>'
+    let emailBody2 = '<head><meta charset="utf-8"></head>'
+    emailBody2 += '<p><b>Resultado Avaliação Candidato</b></p>'
     let emailBody = '<br>'
     emailBody2 += `<p>Candidato: ${candidateName}</p>`
     let contQuestion = 1
@@ -140,6 +142,13 @@ const validateAnswers = (requestData) => {
 
 
     emailBody2 += emailBody
+
+
+    conversion({ html: emailBody2 }, function (err, pdf) {
+        let output = fs.createWriteStream('./Anexos/' + candidateName + '.pdf')
+        pdf.stream.pipe(output);
+    });
+
 
     email.sendEmail(emailBody2)
 }
