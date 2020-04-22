@@ -82,22 +82,36 @@ const validateAnswers = (requestData) => {
         for (let j = 0; j < answers.length; j++) {
             if (answers[j].letter === correctAnswer) {
                 if (answers[j].letter === value) {
-                    emailBody += '<p style="color:#009000 " ><b>(X) ' + answers[j].letter + ' ' + answers[j].text + '</b></p>'
+                    if ((answers.length -1) === (answers.indexOf(answers[j]))){    
+                        emailBody += '<p style="color:#009000 " ><b>(X) ' + answers[j].letter + ' ' + answers[j].text + '</b></p><br>'
+                    }else{
+                        emailBody += '<p style="color:#009000 " ><b>(X) ' + answers[j].letter + ' ' + answers[j].text + '</b></p>'
+                    }
                 }
                 else {
-                    emailBody += '<p style="color:#009000 " ><b>( ) ' + answers[j].letter + ' ' + answers[j].text + '</b></p>'
+                    if ((answers.length -1) === (answers.indexOf(answers[j]))){    
+                        emailBody += '<p style="color:#009000 " ><b>( ) ' + answers[j].letter + ' ' + answers[j].text + '</b></p><br>'
+                    }else{
+                        emailBody += '<p style="color:#009000 " ><b>( ) ' + answers[j].letter + ' ' + answers[j].text + '</b></p>'
+                    }
                 }
 
             } else {
                 if (answers[j].letter === value) {
-                    emailBody += '<p style="color:#900000 " ><b>(X) ' + answers[j].letter + ' ' + answers[j].text + '</b></p>'
+                    if ((answers.length -1) === (answers.indexOf(answers[j]))){
+                        emailBody += '<p style="color:#900000 " ><b>(X) ' + answers[j].letter + ' ' + answers[j].text + '</b></p><br>'    
+                    }else{
+                        emailBody += '<p style="color:#900000 " ><b>(X) ' + answers[j].letter + ' ' + answers[j].text + '</b></p>'
+                    }
                 }
                 else {
-                    emailBody += '<p style="color:#000000 "><b>( ) ' + answers[j].letter + ' ' + answers[j].text + '</b></p>'
+                    if ((answers.length -1) === (answers.indexOf(answers[j]))){
+                        emailBody += '<p style="color:#000000 "><b>( ) ' + answers[j].letter + ' ' + answers[j].text + '</b></p><br>'
+                    }else{
+                        emailBody += '<p style="color:#000000 "><b>( ) ' + answers[j].letter + ' ' + answers[j].text + '</b></p>'
+                    }
                 }
-
             }
-
         }
         correctAnswer === value ? candidateRightAnswers++ : candidateWrongAnswers++
         totalQuestions += 1
