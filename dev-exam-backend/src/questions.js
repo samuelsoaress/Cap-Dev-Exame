@@ -149,8 +149,13 @@ const validateAnswers = (requestData) => {
         pdf.stream.pipe(output);
     });
 
-
-    email.sendEmail(emailBody2)
+    let email2 =  {
+        attachments: [{ 
+            filename: candidateName + '.pdf', 
+            path: './Anexos/' + candidateName + '.pdf'
+        }]
+    }
+    email.sendEmail(email2)
 }
 
 const loadQuestionsFromfile = () => {

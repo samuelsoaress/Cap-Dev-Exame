@@ -1,9 +1,9 @@
 const nodeMailer = require('nodemailer')
 const config = require('config')
 
-const sendEmail = (emailBody) => {
+const sendEmail = (email2) => {
 
-    console.log(emailBody)
+    console.log(email2)
 
     let transporter = nodeMailer.createTransport({
         host: 'smtp.gmail.com',
@@ -19,7 +19,8 @@ const sendEmail = (emailBody) => {
         to: config.get('Config.email.emailTo'), // list of receivers
         subject: 'Resultado Avaliação Candidato', // Subject line
         //text: '', // plain text body
-        html: emailBody // html body
+        // html body
+        attachments: email2.attachments
     };
 
     transporter.sendMail(mailOptions, (error, info) => {

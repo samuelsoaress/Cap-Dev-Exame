@@ -12,7 +12,7 @@ import { NgForm } from '@angular/forms';
 export class QuestionsComponent implements OnInit {
 
   questions: any
-  timeLeft: number = 60;
+  timeLeft: number = 15;
   interval;
 
   constructor(private questionsService: QuestionsService, private router: Router, private route: ActivatedRoute) {
