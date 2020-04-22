@@ -13,7 +13,7 @@
     <p>{{timeLeft}} Seconds Left....</p> 
 
     <section class="form-section">
-        <form #questionsForm="ngForm" (submit)="onSubmit(questionsForm.value)" novalidate>
+        <form #questionsForm="ngForm" ng-submit="submitForm()" (submit)="onSubmit(questionsForm.value)" novalidate>
             <div class="row">
                 <div class="name-container col-md-5">
                     <label for="candidateName">Nome</label>
@@ -43,7 +43,7 @@
 
                 </ul>
                 <div class="button-container">
-                    <button type="submit" class="btn btn-primary">Enviar respostas</button>
+                    <button id="submit" type="submit" class="btn btn-primary">Enviar respostas</button>
                 </div>
             </div>
         </form>

@@ -13,7 +13,6 @@ export class QuestionsComponent implements OnInit {
 
   questions: any
   timeLeft: number = 60;
-  timeOut: boolean;
   interval;
 
   constructor(private questionsService: QuestionsService, private router: Router, private route: ActivatedRoute) {
@@ -45,8 +44,10 @@ export class QuestionsComponent implements OnInit {
       } else {
         this.timeLeft = 60;
       }
-      if(this.timeLeft == 0)
-        this.timeOut = true;
+      if(this.timeLeft == 0){
+        let element: HTMLElement = document.getElementById('submit') as HTMLElement;
+        element.click();
+      }
     },1000)
   }
 
