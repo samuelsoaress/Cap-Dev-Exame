@@ -12,29 +12,10 @@ import { NgForm } from '@angular/forms';
 export class QuestionsComponent implements OnInit {
 
   questions: any
-  timeLeft: number = 15;
+  timeLeft: number = 65;
   interval;
 
   constructor(private questionsService: QuestionsService, private router: Router, private route: ActivatedRoute) {
-  }
-
-
-  pauseTimer() {
-    clearInterval(this.interval);
-  }
-
-  ngOnInit() {
-    const examCode: string = this.route.snapshot.queryParamMap.get('code');
-    this.questionsService.getQuestions(examCode)
-      .subscribe(questions => {
-        console.log(questions)
-        this.questions = questions
-      });
-  }
-
-  onSubmit(value: any) {
-    this.questionsService.sendAnswers(JSON.stringify(value))
-    this.router.navigateByUrl('/success');
   }
 
   startTimer() {
@@ -50,6 +31,23 @@ export class QuestionsComponent implements OnInit {
       }
     },1000)
   }
+
+  ngOnInit() {
+    const examCode: string = this.route.snapshot.queryParamMap.get('code');
+    this.questionsService.getQuestions(examCode)
+      .subscribe(questions => {
+        console.log(questions)
+        this.questions = questions
+      });
+      this.startTimer()
+  }
+
+  onSubmit(value: any) {
+    this.questionsService.sendAnswers(JSON.stringify(value))
+    this.router.navigateByUrl('/success');
+  }
+
+
 
 
 }
