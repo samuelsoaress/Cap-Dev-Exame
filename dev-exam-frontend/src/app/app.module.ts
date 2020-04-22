@@ -8,10 +8,14 @@ import { AppComponent } from './app.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { FormsModule } from '@angular/forms';
 import { SuccessComponent } from './success/success.component';
+import { ManagerComponent } from './manager/manager.component';
+import { ExamsComponent } from './exams/exams.component';
 
 const appRoutes: Routes = [
   { path: 'exam', component: QuestionsComponent },
   { path: 'success', component: SuccessComponent },
+  { path: 'manager', component: ManagerComponent},
+  { path: 'newexams', component: ExamsComponent},
   {
     path: '',
     redirectTo: '/exam?code=d59792e19ef574ce662c13f2c6c78de4',
@@ -24,7 +28,9 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     QuestionsComponent,
-    SuccessComponent
+    SuccessComponent,
+    ManagerComponent,
+    ExamsComponent
   ],
   imports: [
     BrowserModule,
