@@ -1,1 +1,72 @@
-<p>exams works!</p>
+<div class="container-fluid">
+    <header class="row">
+        <div class="avalicao col-md-4 offset-md-4">Cadastrar novo teste</div>
+        <div class="logo-container col-md-3 offset-md-1">
+            <img src="../../assets/img/capgemini-logo.jpg" alt="Capgemini logo" class="logo">
+        </div>
+    </header>
+
+    <section>
+        <form action="">
+            <div class="">
+                <div class="">
+                    <table class="tableDesign">
+                        <tr>
+                            <td>
+                                <label for="testName">Nome do teste:</label>
+                            </td>
+                            <td>
+                                <input type="text" name="testName" class="form-control" ngModel>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="technology">Tecnologia:</label>
+                            </td>
+                            <td>
+                                <select id="technology" class="form-control" ngModel>
+                                    <option value="java">Java</option>
+                                    <option value="JSF">JSF</option>
+                                    <option value="spring">Spring</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="complexity">Complexidade:</label>
+                            </td>
+                            <td>
+                                <select id="complexity" class="form-control" ngModel>
+                                    <option value="basic">Fácil</option>
+                                    <option value="medium">Médio</option>
+                                    <option value="hard">Difícil</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label for="testAmount">Quantidade de questões:</label>
+                            </td>
+                            <td>
+                                <input type="text" name="testAmount" class="form-control" ngModel>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </form>
+
+    </section>
+
+    <footer class="row">
+        <div class="footer-text col-md-8 offset-md-2">Capgemini - Todos direitos reservados</div>
+    </footer>
+<br>
+    <div class="button-container">
+        <button id="submit" type="submit" class="btn btn-primary">Enviar prova</button>
+    </div>
+
+
+
+</div>

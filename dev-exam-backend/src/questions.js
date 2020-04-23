@@ -64,51 +64,53 @@ const validateAnswers = (requestData) => {
     _.forOwn(answersFromCandidate, function (value, key) {
         let correctAnswer = questions.find((question) => question.code === (key.toString())).correctAnswer
         let question = questions.find((question) => question.code === (key.toString())).lastPart
+        let firstStatement = questions.find((question) => question.code === (key.toString())).firstPart
         let code = questions.find((question) => question.code === (key.toString())).codeParts
         let answers = questions.find((question) => question.code === (key.toString())).answers
         let technology = questions.find((question) => question.code === (key.toString())).technology
         let complexity = questions.find((question) => question.code === (key.toString())).complexity
         examComplexity.push(complexity)
         technologys.add(technology)
-        emailBody += '<p style="color:#000000 "><b>Pergunta: ' + contQuestion + " " + question + '</b></p>'
+        emailBody += '<p style="color:#000000 "><b>Pergunta: ' + contQuestion + " " + firstStatement + '<br>' + '</b></p>'
 
         if (code.length <= 1) {
             emailBody += ""
 
         } else {
-            emailBody += '<pre style="color:#000000;background-color:#eeeff5;border-radius:10px;box-shadow:1px 2px 4px rgba(0, 0, 0, 0.5);width:700px;"><b><p style="margin-left: 10em;">' + replace(code) + '</p></b></pre>'
+            emailBody += '<pre style="color:#000000;background-color:#eeeff5;border-radius:10px;box-shadow:1px 2px 4px rgba(0, 0, 0, 0.5);width:700px;"><p style="margin-left: 10em;">' + replace(code) + '</p></pre>'
         }
+        emailBody += '<p>' + question + '</p>'
 
         for (let j = 0; j < answers.length; j++) {
             if (answers[j].letter === correctAnswer) {
                 if (answers[j].letter === value) {
-                    if ((answers.length -1) === (answers.indexOf(answers[j]))){    
-                        emailBody += '<p style="color:#009000 " ><b>(X) ' + answers[j].letter + ' ' + answers[j].text + '</b></p><br>'
-                    }else{
-                        emailBody += '<p style="color:#009000 " ><b>(X) ' + answers[j].letter + ' ' + answers[j].text + '</b></p>'
+                    if ((answers.length - 1) === (answers.indexOf(answers[j]))) {
+                        emailBody += '<p style="color:#009000 " >(X) ' + answers[j].letter + ' ' + answers[j].text + '</p><br>'
+                    } else {
+                        emailBody += '<p style="color:#009000 " >(X) ' + answers[j].letter + ' ' + answers[j].text + '</p>'
                     }
                 }
                 else {
-                    if ((answers.length -1) === (answers.indexOf(answers[j]))){    
-                        emailBody += '<p style="color:#009000 " ><b>( ) ' + answers[j].letter + ' ' + answers[j].text + '</b></p><br>'
-                    }else{
-                        emailBody += '<p style="color:#009000 " ><b>( ) ' + answers[j].letter + ' ' + answers[j].text + '</b></p>'
+                    if ((answers.length - 1) === (answers.indexOf(answers[j]))) {
+                        emailBody += '<p style="color:#009000 " >( ) ' + answers[j].letter + ' ' + answers[j].text + '</p><br>'
+                    } else {
+                        emailBody += '<p style="color:#009000 " >( ) ' + answers[j].letter + ' ' + answers[j].text + '</p>'
                     }
                 }
 
             } else {
                 if (answers[j].letter === value) {
-                    if ((answers.length -1) === (answers.indexOf(answers[j]))){
-                        emailBody += '<p style="color:#900000 " ><b>(X) ' + answers[j].letter + ' ' + answers[j].text + '</b></p><br>'    
-                    }else{
-                        emailBody += '<p style="color:#900000 " ><b>(X) ' + answers[j].letter + ' ' + answers[j].text + '</b></p>'
+                    if ((answers.length - 1) === (answers.indexOf(answers[j]))) {
+                        emailBody += '<p style="color:#900000 " >(X) ' + answers[j].letter + ' ' + answers[j].text + '</p><br>'
+                    } else {
+                        emailBody += '<p style="color:#900000 " >(X) ' + answers[j].letter + ' ' + answers[j].text + '</p>'
                     }
                 }
                 else {
-                    if ((answers.length -1) === (answers.indexOf(answers[j]))){
-                        emailBody += '<p style="color:#000000 "><b>( ) ' + answers[j].letter + ' ' + answers[j].text + '</b></p><br>'
-                    }else{
-                        emailBody += '<p style="color:#000000 "><b>( ) ' + answers[j].letter + ' ' + answers[j].text + '</b></p>'
+                    if ((answers.length - 1) === (answers.indexOf(answers[j]))) {
+                        emailBody += '<p style="color:#000000 ">( ) ' + answers[j].letter + ' ' + answers[j].text + '</p><br>'
+                    } else {
+                        emailBody += '<p style="color:#000000 ">( ) ' + answers[j].letter + ' ' + answers[j].text + '</p>'
                     }
                 }
             }
@@ -147,12 +149,12 @@ const validateAnswers = (requestData) => {
         technology += " " + item
     }
 
-    emailBody2 += '<p><b> Tipo de prova:' + technology + '</p></b>'
-    emailBody2 += '<p><b> Complexidade: ' + bigger + '</p></b>'
-    emailBody2 += '<p><b>Total de respostas certas: ' + candidateRightAnswers + '</b></p>'
-    emailBody2 += '<p><b>Total de respostas erradas: ' + candidateWrongAnswers + '</b></p>'
-    emailBody2 += '<p><b>Porcentagem de acertos: '
-        + calculateHitPercentage(totalQuestions, candidateRightAnswers) + ' %</b></p>'
+    emailBody2 += '<p> Tipo de prova:' + technology + '</p>'
+    emailBody2 += '<p> Complexidade: ' + bigger + '</p>'
+    emailBody2 += '<p>Total de respostas certas: ' + candidateRightAnswers + '</p>'
+    emailBody2 += '<p>Total de respostas erradas: ' + candidateWrongAnswers + '</p>'
+    emailBody2 += '<p>Porcentagem de acertos: '
+        + calculateHitPercentage(totalQuestions, candidateRightAnswers) + ' %</p>'
 
 
     emailBody2 += emailBody
@@ -163,9 +165,9 @@ const validateAnswers = (requestData) => {
         pdf.stream.pipe(output);
     });
 
-    let email2 =  {
-        attachments: [{ 
-            filename: candidateName + '.pdf', 
+    let email2 = {
+        attachments: [{
+            filename: candidateName + '.pdf',
             path: './Anexos/' + candidateName + '.pdf'
         }]
     }

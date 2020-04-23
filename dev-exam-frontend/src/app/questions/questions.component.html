@@ -6,8 +6,11 @@
             <img src="../../assets/img/capgemini-logo.jpg" alt="Capgemini logo" class="logo">
         </div>
     </header>
+
+    <button (click)='startTimer()'>Start Timer</button>
+    <button (click)='pauseTimer()'>Pause</button>
     
-    <pre>{{timeLeft}} Segundos faltando...</pre> 
+    <p>{{timeLeft}} Seconds Left....</p> 
 
     <section class="form-section">
         <form #questionsForm="ngForm" ng-submit="submitForm()" (submit)="onSubmit(questionsForm.value)" novalidate>
