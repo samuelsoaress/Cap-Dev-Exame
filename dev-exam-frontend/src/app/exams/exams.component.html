@@ -23,10 +23,11 @@
                             <td>
                                 <label for="technology">Tecnologia:</label>
                             </td>
-                            <td >
-                                <select id="technology" class="form-control"  ngModel>
+                            <td>
+                                <select id="technology" class="form-control" ngModel>
                                     <script> console.log(questions)</script>
-                                    <option value="{{technology}}" *ngFor="let technology of technologys">{{ technology }}</option>
+                                    <option value="{{technology}}" *ngFor="let technology of technologys">
+                                        {{ technology }}</option>
                                 </select>
                             </td>
                         </tr>
@@ -35,9 +36,10 @@
                                 <label for="complexity">Complexidade:</label>
                             </td>
                             <td>
-                                <select id="complexity" class="form-control"  ngModel>
+                                <select id="complexity" class="form-control" ngModel>
                                     <script> console.log(questions)</script>
-                                    <option value="{{complexity}}" *ngFor="let complexity of complexity">{{ complexity }}</option>
+                                    <option value="{{complexity}}" *ngFor="let complexity of complexity">
+                                        {{ complexity }}</option>
                                 </select>
                             </td>
                         </tr>
@@ -54,16 +56,18 @@
                 </div>
             </div>
         </form>
+        <br>
 
+        <div class="button-container">
+            <button id="submit" type="submit" class="btn btn-primary" onclick="addLine()">Confirmar</button>
+        </div>
+        
     </section>
 
     <footer class="row">
         <div class="footer-text col-md-8 offset-md-2">Capgemini - Todos direitos reservados</div>
     </footer>
-<br>
-    <div class="button-container">
-        <button id="submit" type="submit" class="btn btn-primary">Enviar prova</button>
-    </div>
+
 
 
 
