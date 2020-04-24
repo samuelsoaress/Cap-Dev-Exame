@@ -61,9 +61,7 @@ export class QuestionsComponent implements OnInit {
     this.startTimer()
 
     $(window).scroll(function () {
-      if ($(this).scrollTop() > 1) {
         $('.timer').fadeIn('slow');
-      }
     });
 
   }
