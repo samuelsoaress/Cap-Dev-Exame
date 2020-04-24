@@ -7,10 +7,8 @@
         </div>
     </header>
 
-    <button (click)='startTimer()'>Start Timer</button>
-    <button (click)='pauseTimer()'>Pause</button>
     
-    <p>{{timeLeft}} Seconds Left....</p> 
+    <a class="timer"><i>{{time}}</i></a>  
 
     <section class="form-section">
         <form #questionsForm="ngForm" ng-submit="submitForm()" (submit)="onSubmit(questionsForm.value)" novalidate>
@@ -43,7 +41,7 @@
 
                 </ul>
                 <div class="button-container">
-                    <button id="submit" type="submit" class="btn btn-primary">Enviar respostas</button>
+                    <button id="submiit" type="submit" class="btn btn-primary">Enviar respostas</button>
                 </div>
             </div>
         </form>

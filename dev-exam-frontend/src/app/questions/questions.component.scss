@@ -81,3 +81,32 @@ footer .footer-text{
     background-color: yellow;
     font-weight: bold;
 }
+
+
+
+.timer {
+    position: fixed;
+    display: none;
+    right: 150px;
+    bottom: 400px;
+    z-index: 99999;
+}
+
+.timer i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    width: 105px;
+    height: 60px;
+    border-radius: 30px;
+    background: #1acc8d;
+    color: #fff;
+    transition: all 0.4s;
+}
+
+.timer i:hover {
+    background: #2be4a2;
+    color: #fff;
+}
+  
