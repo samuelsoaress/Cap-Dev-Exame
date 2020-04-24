@@ -13,7 +13,7 @@ import * as $ from 'jquery';
 export class QuestionsComponent implements OnInit {
 
   questions: any
-  timeLeft: number = 1800;
+  timeLeft: number = 1800; //300
   interval;
   minute: number
   second: number
@@ -47,6 +47,10 @@ export class QuestionsComponent implements OnInit {
       if (this.timeLeft == 0) {
         let element: HTMLElement = document.getElementById('submit') as HTMLElement;
         element.click();
+      }
+      if (this.timeLeft == 299){
+        let elementTime: HTMLElement = document.querySelector('#timer') as HTMLElement
+        elementTime.classList.add("end-timer");
       }
     }, 1000)
   }
