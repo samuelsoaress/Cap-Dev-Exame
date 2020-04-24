@@ -23,11 +23,10 @@
                             <td>
                                 <label for="technology">Tecnologia:</label>
                             </td>
-                            <td>
-                                <select id="technology" class="form-control" ngModel>
-                                    <option value="java">Java</option>
-                                    <option value="JSF">JSF</option>
-                                    <option value="spring">Spring</option>
+                            <td >
+                                <select id="technology" class="form-control"  ngModel>
+                                    <script> console.log(questions)</script>
+                                    <option value="{{technology}}" *ngFor="let technology of technologys">{{ technology }}</option>
                                 </select>
                             </td>
                         </tr>
@@ -36,10 +35,9 @@
                                 <label for="complexity">Complexidade:</label>
                             </td>
                             <td>
-                                <select id="complexity" class="form-control" ngModel>
-                                    <option value="basic">Fácil</option>
-                                    <option value="medium">Médio</option>
-                                    <option value="hard">Difícil</option>
+                                <select id="complexity" class="form-control"  ngModel>
+                                    <script> console.log(questions)</script>
+                                    <option value="{{complexity}}" *ngFor="let complexity of complexity">{{ complexity }}</option>
                                 </select>
                             </td>
                         </tr>
@@ -49,7 +47,7 @@
                                 <label for="testAmount">Quantidade de questões:</label>
                             </td>
                             <td>
-                                <input type="text" name="testAmount" class="form-control" ngModel>
+                                <input type="number" min="0" name="testAmount" class="form-control" ngModel>
                             </td>
                         </tr>
                     </table>

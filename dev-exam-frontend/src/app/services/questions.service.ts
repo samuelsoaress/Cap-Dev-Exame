@@ -1,3 +1,4 @@
+import { QuestionsComponent } from './../questions/questions.component';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -13,6 +14,9 @@ export class QuestionsService {
 
   getQuestions(examCode: string): Observable<any> {
     return this.http.request('GET', this.apiUrl + 'exam?code=' + examCode);
+  }
+  questions(): Observable<any> {
+    return this.http.request('GET', this.apiUrl + 'questions');
   }
 
   sendAnswers(body: any){
