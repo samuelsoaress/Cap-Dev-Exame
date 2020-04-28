@@ -21,37 +21,26 @@ export class ExamsComponent implements OnInit {
   constructor(private questionsService: QuestionsService, private router: Router, private route: ActivatedRoute) {
   }
 
-  forArray(){
-    return this.newExam;
+
+  addLine(arg1,arg2,arg3){
+    var newRow = $("<tr>");
+    var cols = "";	
+    cols += '<td readonly>'+this._inputTechnology.value +'</td>';
+    cols += '<td readonly>'+this._inputComplexity.value +'</td>';
+    cols += '<td readonly >'+this._inputQuantity.value +'</td>';
+    cols += '<td>';	    
+    cols += '<button class="btn-danger btn btn-xs" on click="onDelete(this)">Remover</button>';
+    cols += '</td>';	
+    newRow.append(cols);
+    $("#tabela-pedido").append(newRow);
   }
 
   add(event:Event){
     this._inputQuantity = <HTMLInputElement>document.querySelector('#testAmount');
     this._inputTechnology = <HTMLInputElement>document.querySelector('#technology');
     this._inputComplexity = <HTMLInputElement>document.querySelector('#complexity');
-    const exam = [
-      this._inputQuantity.value,
-      this._inputTechnology.value,
-      this._inputComplexity.value
-    ]
-    console.log(this._inputComplexity.value)
-    console.log("entrou")
-    this.newExam.push(exam)
     
-    for(var index in this.newExam)
-    { 
-        console.log(this.newExam[index]);  // output: Apple Orange Banana
-    }
-    var newRow = $("<tr>");
-    var cols = "";	
-    cols += '<td>'+this._inputTechnology.value +'</td>';
-    cols += '<td>'+this._inputComplexity.value +'</td>';
-    cols += '<td>'+this._inputQuantity.value +'</td>';
-    cols += '<td>';	    
-    cols += '<button onclick="RemoveTableRow(this)" type="button">Remover</button>';
-    cols += '</td>';	
-    newRow.append(cols);
-    $("#tabela-pedido").append(newRow);
+    this.addLine(this._inputTechnology.value,this._inputComplexity.value,this._inputQuantity.value)
   }
 
   

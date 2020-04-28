@@ -16,3 +16,5 @@ e o frontend
         ng serve 
     
 acesse `http://localhost:4200/exam`
+
+![](dev-exam-frontend/src/assets/img/capgemini-logo.jpg)
