@@ -29,7 +29,7 @@ export class ExamsComponent implements OnInit {
     cols += '<td readonly>'+this._inputComplexity.value +'</td>';
     cols += '<td readonly >'+this._inputQuantity.value +'</td>';
     cols += '<td>';	    
-    cols += '<button class="btn-danger btn btn-xs" on click="onDelete(this)">Remover</button>';
+    cols += '<button class="btn-danger btn btn-xs" onclick="onDelete(this)">Remover</button>';
     cols += '</td>';	
     newRow.append(cols);
     $("#tabela-pedido").append(newRow);
