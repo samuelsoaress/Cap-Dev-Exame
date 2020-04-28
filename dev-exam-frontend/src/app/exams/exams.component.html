@@ -37,7 +37,6 @@
                             </td>
                             <td>
                                 <select id="complexity" class="form-control" ngModel>
-                                    <script> console.log(questions)</script>
                                     <option value="{{complexity}}" *ngFor="let complexity of complexity">
                                         {{ complexity }}</option>
                                 </select>
@@ -49,19 +48,40 @@
                                 <label for="testAmount">Quantidade de questões:</label>
                             </td>
                             <td>
-                                <input type="number" min="0" name="testAmount" class="form-control" ngModel>
+                                <input id="testAmount" type="number" min="0" name="testAmount" class="form-control" ngModel>
                             </td>
                         </tr>
                     </table>
                 </div>
             </div>
+            <div class="button-container">
+                <button id="append" (click)="add()" class="btn btn-primary">Adicionar</button>
+            </div><br>
+            <div class="col-sm-12">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover" >
+                        <thead>
+                            <tr>
+                                <th class="text-center">Tecnologia</th>
+                                <th class="text-center">Complexidade</th>
+                                <th class="text-center">Quantidade</th>
+                                <th class="text-center">Remover</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-pedido">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="button-container">
+                <button class="btn btn-primary" type="submit">enviar</button>
+            </div>
         </form>
         <br>
 
-        <div class="button-container">
-            <button id="submit" type="submit" class="btn btn-primary" onclick="addLine()">Confirmar</button>
-        </div>
-        
+    
+
+
     </section>
 
     <footer class="row">
