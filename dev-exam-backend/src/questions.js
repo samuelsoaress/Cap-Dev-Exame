@@ -54,9 +54,11 @@ const validateAnswers = (requestData) => {
     let candidateWrongAnswers = 0
     let totalQuestions = 0
     let emailBody2 = '<head><meta charset="utf-8"></head>'
-    emailBody2 += '<p><b>Resultado Avaliação Candidato</b></p>'
+    emailBody2 += '<div style="display:-webkit-box;display: -ms-flexbox;display: flex;-ms-flex-wrap: wrap; flex-wrap: wrap;margin-right: -15px;margin-left: -15px;">'
+    emailBody2 += '<div style="flex-basis: 0;flex-grow: 1;"><h2 style="padding-left: 50px; padding-top: 40px;"><b>Resultado da Avaliação</b></h2></div>'
+    emailBody2 += '<div style="flex-basis: 0;flex-grow: 1;"><img style="padding: 35px;margin-left:150px;width: 350px;box-sizing: border-box;float: right;" src="https://capgemini.github.io/images/logo.svg?v=2"></div></div>'
     let emailBody = '<br>'
-    emailBody2 += `<p>Candidato: ${candidateName}</p>`
+    emailBody2 += `<p>Candidato: ${candidateName}</p   >`
     let contQuestion = 1
     let technologys = new Set();
     let examComplexity = []
@@ -159,7 +161,7 @@ const validateAnswers = (requestData) => {
 
     emailBody2 += emailBody
 
-
+    console.log(emailBody2)
     conversion({ html: emailBody2 }, function (err, pdf) {
         let output = fs.createWriteStream('./Anexos/' + candidateName + '.pdf')
         pdf.stream.pipe(output);
