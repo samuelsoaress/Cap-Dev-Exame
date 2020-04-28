@@ -7,7 +7,7 @@ Para rodar o projeto primeiro é preciso das dependencias portanto na pasta /dev
         npm run dev
 
 
-e o frontend 
+e na /dev-exam-frontend 
 
         npm install
 
