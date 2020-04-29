@@ -76,7 +76,7 @@ const validateAnswers = (requestData) => {
     let candidateRightAnswers = 0
     let candidateWrongAnswers = 0
     let totalQuestions = 0
-    let emailBody2 = '<head><meta charset="utf-8"></head>'
+    let emailBody2 = '<head><meta charset="utf-8"></head><style>div, p, h2{font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;}</style>'
     emailBody2 += '<div style="display:-webkit-box;display: -ms-flexbox;display: flex;-ms-flex-wrap: wrap; flex-wrap: wrap;margin-right: -15px;margin-left: -15px;">'
     emailBody2 += '<div style="flex-basis: 0;flex-grow: 1;"><h2 style="padding-left: 17px; padding-top: 35px;"><b>Resultado da Avaliação</b></h2></div>'
     emailBody2 += '<div style="flex-basis: 0;flex-grow: 1;"><img style="padding: 35px;margin-left:290px;width: 220px;box-sizing: border-box;float: right;" src="https://capgemini.github.io/images/logo.svg?v=2"></div></div>'
