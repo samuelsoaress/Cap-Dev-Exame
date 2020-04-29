@@ -48,9 +48,9 @@ const replace = (array) => {
 }
 
 const transformEmail = (candidateName) => {
-    console.log("entrou");
+    console.log("entrou na função tranformEmail");
     if (!(fs.existsSync('./Anexos/' + candidateName + '.pdf'))){ 
-        console.log("entrou no if"); 
+        console.log("entrou no if verificando a existencia do pdf"); 
     }
     let cont =0
     while ((fs.existsSync('./Anexos/' + candidateName + '.pdf') === false)) {
@@ -81,7 +81,7 @@ const validateAnswers = (requestData) => {
     emailBody2 += '<div style="flex-basis: 0;flex-grow: 1;"><h2 style="padding-left: 17px; padding-top: 35px;"><b>Resultado da Avaliação</b></h2></div>'
     emailBody2 += '<div style="flex-basis: 0;flex-grow: 1;"><img style="padding: 35px;margin-left:290px;width: 220px;box-sizing: border-box;float: right;" src="https://capgemini.github.io/images/logo.svg?v=2"></div></div>'
     let emailBody = '<br>'
-    emailBody2 += `<p>Candidato: ${candidateName}</p>`
+    emailBody2 += `<p style="border-top:solid #3770ad;">Candidato: ${candidateName}</p>`
     let contQuestion = 1
     let technologys = new Set();
     let examComplexity = []
@@ -178,7 +178,7 @@ const validateAnswers = (requestData) => {
     emailBody2 += '<p> Complexidade: ' + bigger + '</p>'
     emailBody2 += '<p>Total de respostas certas: ' + candidateRightAnswers + '</p>'
     emailBody2 += '<p>Total de respostas erradas: ' + candidateWrongAnswers + '</p>'
-    emailBody2 += '<p>Porcentagem de acertos: '
+    emailBody2 += '<p style="border-bottom:solid #3770ad;">Porcentagem de acertos: '
         + calculateHitPercentage(totalQuestions, candidateRightAnswers) + ' %</p>'
 
     emailBody2 += emailBody
