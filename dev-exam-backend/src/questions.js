@@ -78,8 +78,8 @@ const validateAnswers = (requestData) => {
     let totalQuestions = 0
     let emailBody2 = '<head><meta charset="utf-8"></head><style>div, p, h2{font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;}</style>'
     emailBody2 += '<div style="display:-webkit-box;display: -ms-flexbox;display: flex;-ms-flex-wrap: wrap; flex-wrap: wrap;margin-right: -15px;margin-left: -15px;">'
-    emailBody2 += '<div style="flex-basis: 0;flex-grow: 1;"><h2 style="padding-left: 17px; padding-top: 35px;"><b>Resultado da Avaliação</b></h2></div>'
-    emailBody2 += '<div style="flex-basis: 0;flex-grow: 1;"><img style="padding: 25px;margin-left:500px;width: 220px;box-sizing: border-box;float: right;" src="https://capgemini.github.io/images/logo.svg?v=2"></div></div>'
+    emailBody2 += '<div style="flex-basis: 0;flex-grow: 1;"><h2 style="padding-left: 17px; padding-top: 20px;"><b>Resultado da Avaliação</b></h2></div>'
+    emailBody2 += '<div style="flex-basis: 0;flex-grow: 1;"><img style="padding: 15px;margin-left:500px;width: 220px;box-sizing: border-box;float: right;" src="https://capgemini.github.io/images/logo.svg?v=2"></div></div>'
     let emailBody = '<br>'
     emailBody2 += `<p style="border-top:solid #3770ad;"></p><p style="font-size:18px;"> <b>Candidato:</b> ${candidateName}</p>`
     let contQuestion = 1
