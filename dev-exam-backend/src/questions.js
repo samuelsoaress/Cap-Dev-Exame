@@ -79,9 +79,9 @@ const validateAnswers = (requestData) => {
     let emailBody2 = '<head><meta charset="utf-8"></head><style>div, p, h2{font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;}</style>'
     emailBody2 += '<div style="display:-webkit-box;display: -ms-flexbox;display: flex;-ms-flex-wrap: wrap; flex-wrap: wrap;margin-right: -15px;margin-left: -15px;">'
     emailBody2 += '<div style="flex-basis: 0;flex-grow: 1;"><h2 style="padding-left: 17px; padding-top: 35px;"><b>Resultado da Avaliação</b></h2></div>'
-    emailBody2 += '<div style="flex-basis: 0;flex-grow: 1;"><img style="padding: 35px;margin-left:290px;width: 220px;box-sizing: border-box;float: right;" src="https://capgemini.github.io/images/logo.svg?v=2"></div></div>'
+    emailBody2 += '<div style="flex-basis: 0;flex-grow: 1;"><img style="padding: 25px;margin-left:500px;width: 220px;box-sizing: border-box;float: right;" src="https://capgemini.github.io/images/logo.svg?v=2"></div></div>'
     let emailBody = '<br>'
-    emailBody2 += `<p style="border-top:solid #3770ad;">Candidato: ${candidateName}</p>`
+    emailBody2 += `<p style="border-top:solid #3770ad;"></p><p style="font-size:18px;"> <b>Candidato:</b> ${candidateName}</p>`
     let contQuestion = 1
     let technologys = new Set();
     let examComplexity = []
@@ -174,12 +174,12 @@ const validateAnswers = (requestData) => {
         technology += " " + item
     }
 
-    emailBody2 += '<p> Tipo de prova:' + technology + '</p>'
-    emailBody2 += '<p> Complexidade: ' + bigger + '</p>'
-    emailBody2 += '<p>Total de respostas certas: ' + candidateRightAnswers + '</p>'
-    emailBody2 += '<p>Total de respostas erradas: ' + candidateWrongAnswers + '</p>'
-    emailBody2 += '<p style="border-bottom:solid #3770ad;">Porcentagem de acertos: '
-        + calculateHitPercentage(totalQuestions, candidateRightAnswers) + ' %</p>'
+    emailBody2 += '<p style="font-size: 18px;"><b>Tipo de prova:</b>' + technology + '</p>'
+    emailBody2 += '<p style="font-size: 18px;"><b> Complexidade:</b> ' + bigger + '</p>'
+    emailBody2 += '<p style="font-size: 18px;"><b/>Total de respostas certas:</b> ' + candidateRightAnswers + '</p>'
+    emailBody2 += '<p style="font-size: 18px;"><b>Total de respostas erradas:</b> ' + candidateWrongAnswers + '</p>'
+    emailBody2 += '<p style="font-size: 18px;"><b>Porcentagem de acertos:</b> '
+        + calculateHitPercentage(totalQuestions, candidateRightAnswers) + ' %</p><p style="border-top:solid #3770ad;"></p>'
 
     emailBody2 += emailBody
 
