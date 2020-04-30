@@ -1,45 +1,165 @@
-<div class="container-fluid">
-    <header id="header" class="fixed-top d-flex align-items-center">
-        <div class="container d-flex align-items-center">
-
-            <div class="logo mr-auto">
-                <img src="../../assets/img/capgemini-logo.jpg" alt="Capgemini logo" class="logo">
-            </div>
-
-            <nav class="nav-menu d-none d-lg-block">
-                <ul>
-                    <li class="active"><a href="#header">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li class="drop-down"><a href="">Drop Down</a>
-                        <ul>
-                            <li><a href="#">Drop Down 1</a></li>
-                            <li class="drop-down"><a href="#">Drop Down 2</a>
-                                <ul>
-                                    <li><a href="#">Deep Drop Down 1</a></li>
-                                    <li><a href="#">Deep Drop Down 2</a></li>
-                                    <li><a href="#">Deep Drop Down 3</a></li>
-                                    <li><a href="#">Deep Drop Down 4</a></li>
-                                    <li><a href="#">Deep Drop Down 5</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Drop Down 3</a></li>
-                            <li><a href="#">Drop Down 4</a></li>
-                            <li><a href="#">Drop Down 5</a></li>
+    <div id="wrapper">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                 <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element"> 
+                            <a>
+                                
+                                <div class="content_img">
+                                    <img src="../../assets/img/capgemini-logo.jpg" alt="" class="logo-responsive">
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-user"></i> <span class="nav-label">Exames</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="#">Criar</a></li>
+                            <li><a href="#">Solicitar</a></li>
                         </ul>
                     </li>
-                    <li><a href="#contact">Contact</a></li>
-
+                    <li>
+                        <a href="#"><i class="fa fa-shield"></i> <span class="nav-label">Criar novas questões</span> </a>
+                    </li>
                 </ul>
-            </nav>
-            <!-- .nav-menu -->
+            </div>
+        </nav>
+        
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                    </div>
+                    
+                    <ul class="nav navbar-top-links navbar-right">
+                        
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-sign-out"></i> Sair
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div> <!--parte superior da tela-->
+            
+            <div class="wrapper wrapper-content animated fadeInRight"> 
+                
+                <div class="row m-b-lg">
+                    
+                    <div class="ibox-content panel-body">
+                            
+                        <div class="col-sm-12 m-b-lg">
+                            <h2 class="text-uppercase text-center">
+                                Solicitar Exame 
+                            </h2>
+                        </div>
 
+                        <div class="p-sm">
+                           <div class="row">
+                                   
+                                <form action="#">
+                                     <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="label-control">Tipo de Exame</label>
+                                            <select data-placeholder="Selecione o Exame..." name="type_of_technology" class="chosen-select form-control"  tabindex="1">
+                                                <option value="">Selecione..</option>
+                                                <option value="1">Technology</option>
+                                                <option value="2">Infraestrutura</option>
+                                                <option value="3">Salesforce</option>
+                                                <option value="4">Sap</option>
+                                            </select>   
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="curso_aluno" class="label-control">Curso</label>
+                                            <select data-placeholder="Selecione a Dificuldade..." id="curso_aluno" name="curso_aluno" class="chosen-select form-control"  tabindex="1">
+                                                <option value="">Basica</option>
+                                                <option value="1">Media</option>
+                                                <option value="1">Hardcore mermão</option>
+                                            </select>   
+                                        </div>
+                                    </div>                                   
+                                    
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label class="label-control" for="curso_descricao">Observação</label>
+                                            <textarea name="descricao" class="form-control m-b" id="descricao" placeholder="Observação" cols="30" rows="5" required></textarea> 
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="text-center m-b-md m-t-sm">
+                                            <button id="cancelar" class="btn btn-warning text-uppercase" type="reset" value="Cancelar">Cancelar</button>
+
+                                            <button class="btn  btn-primary text-uppercase" type="button" value="Adicionar">Gerar</button>
+                                        </div>
+                                    </div>
+                                    
+                                </form>
+                                
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+            <!-- Rodapé -->
+            <div class="footer">
+                <strong>Capgemini </strong> &copy; - Copyright  
+                <div class="pull-right">
+                    Todos os Direitos reservados- 2020.
+                </div>
+            </div><!--FIM - Rodapé -->
+            
         </div>
-    </header>
-    <!-- End Header -->
+    </div>
+    
+    <!-- Mainly scripts -->
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    
+    
+     <!-- Switchery -->
+   <script src="js/plugins/switchery/switchery.js"></script>
+    
+    <script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
 
+     <!-- Chosen -->
+     <script src="js/plugins/chosen/chosen.jquery.js"></script>
+    
+    <!-- Jquery Validate -->
+    <script src="js/plugins/validate/jquery.validate.min.js"></script>
+    <script src="js/plugins/jqmask/jquery_mask.js"></script>
+    <script src="js/pages/validator.js"></script>
+    
+    <!-- Custom and plugin javascript -->
+    <script src="js/inspinia.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+    
+    <script>
+        $(document).ready(function(){
 
-</div>
+            $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+            });
+
+            var config = {
+                '.chosen-select'           : {},
+                '.chosen-select-deselect'  : {allow_single_deselect:true},
+                '.chosen-select-no-single' : {disable_search_threshold:30},
+                '.chosen-select-no-results': {no_results_text:'Não encontrado'},
+                '.chosen-select-width'     : {width:"100%"},
+                }
+            for (var selector in config) {
+                $(selector).chosen(config[selector]);
+            }
+
+        })
+    </script>
