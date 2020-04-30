@@ -7,7 +7,7 @@
     </header>
 
     <section class="sectionPrin">
-        <form action="">
+        <form #questionsForm="ngForm" ng-submit="submitForm()" (submit)="onSubmit(questionsForm.value)" novalidate>
             <div class="">
                 <div class="">
                     <table class="tableDesign">
@@ -56,7 +56,7 @@
             </div>
             <br>
             <div class="button-container">
-                <button id="append" (click)="add()" class="btn btn-primary">Adicionar</button>
+                <button id="append" (click)="add()" class="btn btn-primary" type="button">Adicionar</button>
             </div><br>
             <div class="col-sm-12">
                 <div class="table-responsive">
@@ -69,7 +69,7 @@
                                 <th class="text-center">Remover</th>
                             </tr>
                         </thead>
-                        <tbody id="tabela-pedido">
+                        <tbody id="tabela-prova">
                         </tbody>
                     </table>
                 </div>
