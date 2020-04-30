@@ -25,9 +25,9 @@ export class ExamsComponent implements OnInit {
   addLine(arg1,arg2,arg3){
     var newRow = $("<tr>");
     var cols = "";	
-    cols += '<td readonly>'+this._inputTechnology.value +'</td>';
-    cols += '<td readonly>'+this._inputComplexity.value +'</td>';
-    cols += '<td readonly >'+this._inputQuantity.value +'</td>';
+    cols += '<td readonly>'+arg1 +'</td>';
+    cols += '<td readonly>'+arg2 +'</td>';
+    cols += '<td readonly >'+arg3 +'</td>';
     cols += '<td>';	    
     cols += '<button class="btn-danger btn btn-xs" onclick="onDelete(this)">Remover</button>';
     cols += '</td>';	
