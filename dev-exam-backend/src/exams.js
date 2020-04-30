@@ -3,12 +3,9 @@ const path = require('path')
 const questions = require('./questions')
 
 const getNewExam = (requestData) => {
-    let cont = 0
-    while (cont < requestData.length) {
-        console.log(requestData['valor'+cont])
-        cont++
-    }
     
+        console.log(requestData['valor0']) 
+        console.log(requestData['valor1'])
 }
 
 const getExam = (examCode) => {
