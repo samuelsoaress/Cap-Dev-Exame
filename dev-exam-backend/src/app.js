@@ -35,4 +35,9 @@ app.post('/answers', cors(), (req, res, next) => {
     questions.validateAnswers(requestData)
 })
 
+app.post('/newExam', cors(), (req, res, next) => {
+    let requestDict = req.body
+    exams.getNewExam(requestDict)
+})
+
 app.listen(3000, () => console.log('Server listening on port 3000'))

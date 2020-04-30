@@ -2,6 +2,15 @@ const fs = require('fs')
 const path = require('path')
 const questions = require('./questions')
 
+const getNewExam = (requestData) => {
+    let cont = 0
+    while (cont < requestData.length) {
+        console.log(requestData['valor'+cont])
+        cont++
+    }
+    
+}
+
 const getExam = (examCode) => {
 
     const exam = getExamByCode(examCode)
@@ -45,4 +54,5 @@ const loadExamsFromfile = () => {
 
 module.exports = {
     getExam: getExam,
+    getNewExam:getNewExam
 }

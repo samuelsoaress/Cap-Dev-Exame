@@ -30,4 +30,15 @@ export class QuestionsService {
     );
     console.log(this.apiUrl + 'answers' + ' ' + body)
   }
+
+  sendExam(body:any){
+    this.http.post(this.apiUrl + 'newExam', JSON.parse(body), {
+      headers: new HttpHeaders().set('Content-Type', 'application/json')
+    }).subscribe(
+      res=> {
+        console.log(res)
+      }
+    );
+    console.log(this.apiUrl + 'newExam' + ' ' + body)
+  }
 }
