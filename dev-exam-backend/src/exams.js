@@ -1,12 +1,14 @@
 const fs = require('fs')
 const path = require('path')
 const questions = require('./questions')
+const chalk = require('chalk');
+let cont = ""
 
 const getNewExam = (requestData) => {
-    
-        console.log(requestData['valor0']) 
-        console.log(requestData['valor1'])
+    cont = Object.values(requestData)
+    console.log(cont)
 }
+
 
 const getExam = (examCode) => {
 
@@ -14,21 +16,21 @@ const getExam = (examCode) => {
     const allQuestions = questions.getAllQuestions()
 
     let examQuestions = []
-    
-    for(let i=0; i < exam.questionsConfig.length; i++){
+
+    for (let i = 0; i < exam.questionsConfig.length; i++) {
 
         let technology = exam.questionsConfig[i].technology
         let numberOfQuestions = exam.questionsConfig[i].numberOfQuestions
         let complexity = exam.questionsConfig[i].complexity
-        
+
         let counter = 0
 
-        for(let j=0; j < allQuestions.length; j++){
+        for (let j = 0; j < allQuestions.length; j++) {
             let question = allQuestions[j]
-            if(technology === question.technology && complexity === question.complexity){
+            if (technology === question.technology && complexity === question.complexity) {
                 examQuestions.push(question)
                 counter = counter + 1
-                if(counter === numberOfQuestions){
+                if (counter === numberOfQuestions) {
                     break;
                 }
             }
@@ -49,7 +51,8 @@ const loadExamsFromfile = () => {
     return JSON.parse(fs.readFileSync(dataPath))
 }
 
+
 module.exports = {
     getExam: getExam,
-    getNewExam:getNewExam
+    getNewExam: getNewExam
 }
