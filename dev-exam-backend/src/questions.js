@@ -17,6 +17,43 @@ const getQuestions = (maxQuestions) => {
     return questions
 }
 
+const answerCorrect = (answer, value, correctAnswer, answers) => {
+    let emailBody = ''
+    if (answer.letter === correctAnswer) {
+        if (answer.letter === value) {
+            if ((answers.length - 1) === (answers.indexOf(answer))) {
+                emailBody += '<p style="color:#009000 " >(X) ' + answer.letter + ' ' + answer.text + '</p><br><br>'
+            } else {
+                emailBody += '<p style="color:#009000 " >(X) ' + answer.letter + ' ' + answer.text + '</p>'
+            }
+        }
+        else {
+            if ((answers.length - 1) === (answers.indexOf(answer))) {
+                emailBody += '<p style="color:#009000 " >( ) ' + answer.letter + ' ' + answer.text + '</p><br><br>'
+            } else {
+                emailBody += '<p style="color:#009000 " >( ) ' + answer.letter + ' ' + answer.text + '</p>'
+            }
+        }
+        return emailBody
+    }
+    if (answer.letter === value) {
+        if ((answers.length - 1) === (answers.indexOf(answer))) {
+            emailBody += '<p style="color:#900000 " >(X) ' + answer.letter + ' ' + answer.text + '</p><br><br>'
+        } else {
+            emailBody += '<p style="color:#900000 " >(X) ' + answer.letter + ' ' + answer.text + '</p>'
+        }
+    }
+    else {
+        if ((answers.length - 1) === (answers.indexOf(answer))) {
+            emailBody += '<p style="color:#000000 ">( ) ' + answer.letter + ' ' + answer.text + '</p><br><br>'
+        } else {
+            emailBody += '<p style="color:#000000 ">( ) ' + answer.letter + ' ' + answer.text + '</p>'
+        }
+    }
+
+    return emailBody
+}
+
 const removeCorrectAnswer = (questions) => {
     return questions.map((question) => _.omit(question, ['correctAnswer']))
 }
@@ -49,12 +86,12 @@ const replace = (array) => {
 
 const transformEmail = (candidateName) => {
     console.log("entrou na função tranformEmail");
-    if (!(fs.existsSync('./Anexos/' + candidateName + '.pdf'))){ 
-        console.log("entrou no if verificando a existencia do pdf"); 
+    if (!(fs.existsSync('./Anexos/' + candidateName + '.pdf'))) {
+        console.log("entrou no if verificando a existencia do pdf");
     }
-    let cont =0
+    let cont = 0
     while ((fs.existsSync('./Anexos/' + candidateName + '.pdf') === false)) {
-        console.log("pdf ainda não gerado tentativa = "+cont); 
+        console.log("pdf ainda não gerado tentativa = " + cont);
         cont++
     }
     if (fs.existsSync('./Anexos/' + candidateName + '.pdf')) {
@@ -107,38 +144,7 @@ const validateAnswers = (requestData) => {
         emailBody += '<p>' + question + '</p>'
 
         for (let j = 0; j < answers.length; j++) {
-            if (answers[j].letter === correctAnswer) {
-                if (answers[j].letter === value) {
-                    if ((answers.length - 1) === (answers.indexOf(answers[j]))) {
-                        emailBody += '<p style="color:#009000 " >(X) ' + answers[j].letter + ' ' + answers[j].text + '</p><br><br>'
-                    } else {
-                        emailBody += '<p style="color:#009000 " >(X) ' + answers[j].letter + ' ' + answers[j].text + '</p>'
-                    }
-                }
-                else {
-                    if ((answers.length - 1) === (answers.indexOf(answers[j]))) {
-                        emailBody += '<p style="color:#009000 " >( ) ' + answers[j].letter + ' ' + answers[j].text + '</p><br><br>'
-                    } else {
-                        emailBody += '<p style="color:#009000 " >( ) ' + answers[j].letter + ' ' + answers[j].text + '</p>'
-                    }
-                }
-
-            } else {
-                if (answers[j].letter === value) {
-                    if ((answers.length - 1) === (answers.indexOf(answers[j]))) {
-                        emailBody += '<p style="color:#900000 " >(X) ' + answers[j].letter + ' ' + answers[j].text + '</p><br><br>'
-                    } else {
-                        emailBody += '<p style="color:#900000 " >(X) ' + answers[j].letter + ' ' + answers[j].text + '</p>'
-                    }
-                }
-                else {
-                    if ((answers.length - 1) === (answers.indexOf(answers[j]))) {
-                        emailBody += '<p style="color:#000000 ">( ) ' + answers[j].letter + ' ' + answers[j].text + '</p><br><br>'
-                    } else {
-                        emailBody += '<p style="color:#000000 ">( ) ' + answers[j].letter + ' ' + answers[j].text + '</p>'
-                    }
-                }
-            }
+            emailBody += answerCorrect(answers[j], value, correctAnswer, answers)
         }
         correctAnswer === value ? candidateRightAnswers++ : candidateWrongAnswers++
         totalQuestions += 1
@@ -190,7 +196,7 @@ const validateAnswers = (requestData) => {
         transformEmail(candidateName)
     });
 
-    
+
 
 }
 
