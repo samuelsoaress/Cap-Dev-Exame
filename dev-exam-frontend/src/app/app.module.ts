@@ -10,8 +10,11 @@ import { FormsModule } from '@angular/forms';
 import { SuccessComponent } from './success/success.component';
 import { ManagerComponent } from './manager/manager.component';
 import { ExamsComponent } from './exams/exams.component';
+import { SignInComponent } from './home/signin/signin.component'
+import { HomeModule } from './home/home.module'
 
 const appRoutes: Routes = [
+  { path: 'login', component: SignInComponent },
   { path: 'exam', component: QuestionsComponent },
   { path: 'success', component: SuccessComponent },
   { path: 'manager', component: ManagerComponent},
@@ -30,9 +33,10 @@ const appRoutes: Routes = [
     QuestionsComponent,
     SuccessComponent,
     ManagerComponent,
-    ExamsComponent
+    ExamsComponent,
   ],
   imports: [
+    HomeModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

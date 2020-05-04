@@ -61,18 +61,16 @@ export class ExamsComponent implements OnInit {
           this.technologys.add(question.technology)
           this.complexity.add(question.complexity)
         }
-      });
-      
-      
-      
+      });  
   }
+  
   onSubmit(value: any) {
-    let dicionario = {}
+    let dict = {}
     for(let i =0;i<this.newExam.length;i++){
-      dicionario['valor'+i] = this.newExam[i]
+      dict['valor'+i] = this.newExam[i]
     }
-    this.questionsService.sendExam(JSON.stringify(dicionario))
-    console.log(dicionario)
+    this.questionsService.sendExam(JSON.stringify(dict))
+    console.log(dict)
     this.router.navigateByUrl('/success');
   }
 }
