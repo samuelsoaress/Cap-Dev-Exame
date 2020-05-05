@@ -1,14 +1,34 @@
 const fs = require('fs')
 const path = require('path')
 const questions = require('./questions')
-const chalk = require('chalk');
-let cont = ""
+const _ = require('lodash');
+const md5 = require('md5')
 
-const getNewExam = (requestData) => {
-    cont = Object.values(requestData)
-    console.log(cont)
+const dataPath = path.join(__dirname, '../data/exams.json')
+
+const getNewExam = (dataForNewExam) => {
+
+    const exams = loadExamsFromfile()
+    const examCode = 'Exam' + (exams.length + 1)
+
+    let newExam = {
+        code: md5(examCode),
+        questionsConfig: []
+    }
+
+    _.forOwn(dataForNewExam, (value, key) => {
+        let questionConfig = {
+            technology: value[1],
+            numberOfQuestions: value[0],
+            complexity: value[2]
+        }
+
+        newExam.questionsConfig.push(questionConfig)
+    })
+
+    exams.push(newExam)
+    saveExams(exams)
 }
-
 
 const getExam = (examCode) => {
 
@@ -47,10 +67,13 @@ const getExamByCode = (examCode) => {
 }
 
 const loadExamsFromfile = () => {
-    const dataPath = path.join(__dirname, '../data/exams.json')
     return JSON.parse(fs.readFileSync(dataPath))
 }
 
+const saveExams = (exams) => {
+    const dataJSON = JSON.stringify(exams)
+    fs.writeFileSync(dataPath, dataJSON)
+}
 
 module.exports = {
     getExam: getExam,
