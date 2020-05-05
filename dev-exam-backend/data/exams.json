@@ -123,5 +123,20 @@
                 "complexity": "hard"
             }
         ]
+    },
+    {
+        "code": "6ca740508f5662f85c1f731594fd4793",
+        "questionsConfig": [
+            {
+                "technology": "Spring",
+                "numberOfQuestions": "3",
+                "complexity": "basic"
+            },
+            {
+                "technology": "Java",
+                "numberOfQuestions": "3",
+                "complexity": "hard"
+            }
+        ]
     }
 ]
