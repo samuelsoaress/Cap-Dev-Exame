@@ -1,5 +1,6 @@
 const questions = require('./questions')
 const exams = require('./exams')
+const sessionLogin = require('./login')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const config = require('config')
@@ -39,5 +40,10 @@ app.post('/newExam', cors(), (req, res, next) => {
     let requestDict = req.body
     exams.getNewExam(requestDict)
 })
+
+app.post('/user/login', cors(), (req, res, next) => {
+    let request = req.body
+    let autorized = login.getCredentials(request)
+})  
 
 app.listen(3000, () => console.log('Server listening on port 3000'))
