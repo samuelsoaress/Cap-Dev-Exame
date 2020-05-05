@@ -13,19 +13,11 @@
                     <table class="tableDesign">
                         <tr>
                             <td>
-                                <label for="testName">Nome do teste:</label>
-                            </td>
-                            <td>
-                                <input type="text" name="testName" class="form-control" ngModel>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
                                 <label for="technology">Tecnologia:</label>
                             </td>
                             <td>
-                                <select id="technology" class="form-control" ngModel>
-                                    <script> console.log(questions)</script>
+                                <select id="technology" class="form-control" ngModel [(ngModel)]="exame.technology">
+                                    <!--script> console.log(questions)</script-->
                                     <option value="{{technology}}" *ngFor="let technology of technologys">
                                         {{ technology }}</option>
                                 </select>
@@ -36,8 +28,8 @@
                                 <label for="complexity">Complexidade:</label>
                             </td>
                             <td>
-                                <select id="complexity" class="form-control" ngModel>
-                                    <option value="{{complexity}}" *ngFor="let complexity of complexity">
+                                <select id="complexity" class="form-control" ngModel [(ngModel)]="exame.complexity">
+                                    <option value="{{complexity}}" *ngFor="let complexity of complexity" >
                                         {{ complexity }}</option>
                                 </select>
                             </td>
@@ -48,7 +40,8 @@
                                 <label for="testAmount">Quantidade de questões:</label>
                             </td>
                             <td>
-                                <input id="testAmount" type="number" min="0" name="testAmount" class="form-control" ngModel>
+                                <input id="testAmount" type="number" min="0" name="testAmount" class="form-control"
+                                    ngModel [(ngModel)]="exame.testAmount">
                             </td>
                         </tr>
                     </table>

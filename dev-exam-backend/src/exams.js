@@ -1,11 +1,33 @@
 const fs = require('fs')
 const path = require('path')
 const questions = require('./questions')
+const _ = require('lodash');
+const md5 = require('md5')
 
-const getNewExam = (requestData) => {
-    
-        console.log(requestData['valor0']) 
-        console.log(requestData['valor1'])
+const dataPath = path.join(__dirname, '../data/exams.json')
+
+const getNewExam = (dataForNewExam) => {
+
+    const exams = loadExamsFromfile()
+    const examCode = 'Exam' + (exams.length + 1)
+
+    let newExam = {
+        code: md5(examCode),
+        questionsConfig: []
+    }
+
+    _.forOwn(dataForNewExam, (value, key) => {
+        let questionConfig = {
+            technology: value[1],
+            numberOfQuestions: value[0],
+            complexity: value[2]
+        }
+
+        newExam.questionsConfig.push(questionConfig)
+    })
+
+    exams.push(newExam)
+    saveExams(exams)
 }
 
 const getExam = (examCode) => {
@@ -14,21 +36,21 @@ const getExam = (examCode) => {
     const allQuestions = questions.getAllQuestions()
 
     let examQuestions = []
-    
-    for(let i=0; i < exam.questionsConfig.length; i++){
+
+    for (let i = 0; i < exam.questionsConfig.length; i++) {
 
         let technology = exam.questionsConfig[i].technology
         let numberOfQuestions = exam.questionsConfig[i].numberOfQuestions
         let complexity = exam.questionsConfig[i].complexity
-        
+
         let counter = 0
 
-        for(let j=0; j < allQuestions.length; j++){
+        for (let j = 0; j < allQuestions.length; j++) {
             let question = allQuestions[j]
-            if(technology === question.technology && complexity === question.complexity){
+            if (technology === question.technology && complexity === question.complexity) {
                 examQuestions.push(question)
                 counter = counter + 1
-                if(counter === numberOfQuestions){
+                if (counter === numberOfQuestions) {
                     break;
                 }
             }
@@ -45,11 +67,15 @@ const getExamByCode = (examCode) => {
 }
 
 const loadExamsFromfile = () => {
-    const dataPath = path.join(__dirname, '../data/exams.json')
     return JSON.parse(fs.readFileSync(dataPath))
+}
+
+const saveExams = (exams) => {
+    const dataJSON = JSON.stringify(exams)
+    fs.writeFileSync(dataPath, dataJSON)
 }
 
 module.exports = {
     getExam: getExam,
-    getNewExam:getNewExam
+    getNewExam: getNewExam
 }

@@ -18,7 +18,7 @@ app.options('*', cors())
 
 app.get('/exam', cors(), (req, res, next) => {
 
-    if(!req.query.code){
+    if (!req.query.code) {
         return res.send({
             error: 'Voce precisa fornecer um codigo de exame.'
         })
@@ -37,8 +37,8 @@ app.post('/answers', cors(), (req, res, next) => {
 })
 
 app.post('/newExam', cors(), (req, res, next) => {
-    let requestDict = req.body
-    exams.getNewExam(requestDict)
+    let requestData = req.body
+    exams.getNewExam(requestData)
 })
 
 app.post('/user/login', cors(), (req, res, next) => {

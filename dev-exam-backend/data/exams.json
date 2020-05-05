@@ -66,7 +66,7 @@
                 "technology": "Spring",
                 "numberOfQuestions": 2,
                 "complexity": "hard"
-            },        
+            },
             {
                 "technology": "JSF",
                 "numberOfQuestions": 2,
@@ -81,6 +81,46 @@
                 "technology": "JSF",
                 "numberOfQuestions": 10,
                 "complexity": "medium"
+            }
+        ]
+    },
+    {
+        "code": "dca5fdc1d6f35d25dc0f0e0ffa4ba4a7",
+        "questionsConfig": [
+            {
+                "technology": "Java",
+                "numberOfQuestions": "1",
+                "complexity": "basic"
+            },
+            {
+                "technology": "Spring",
+                "numberOfQuestions": "1",
+                "complexity": "basic"
+            }
+        ]
+    },
+    {
+        "code": "9b0a3485f487ca0392757ff6fee0ea9b",
+        "questionsConfig": [
+            {
+                "technology": "Cobol",
+                "numberOfQuestions": "4",
+                "complexity": "hard"
+            },
+            {
+                "technology": "JSF",
+                "numberOfQuestions": "4",
+                "complexity": "hard"
+            },
+            {
+                "technology": "Java",
+                "numberOfQuestions": "4",
+                "complexity": "hard"
+            },
+            {
+                "technology": "Spring",
+                "numberOfQuestions": "4",
+                "complexity": "hard"
             }
         ]
     }

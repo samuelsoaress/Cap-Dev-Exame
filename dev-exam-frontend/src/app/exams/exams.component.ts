@@ -15,6 +15,7 @@ export class ExamsComponent implements OnInit {
   technologys = new Set();
   complexity = new Set();
   exam: Array<any> = []
+  exame: any
   newExam: Array<any> = [];
   _inputTechnology: HTMLInputElement;
   _inputQuantity: HTMLInputElement;
@@ -52,6 +53,7 @@ export class ExamsComponent implements OnInit {
 
 
   ngOnInit() {
+    this.exame = {};
     this.questionsService.questions()
       .subscribe(questions => {
         this.questions = questions
