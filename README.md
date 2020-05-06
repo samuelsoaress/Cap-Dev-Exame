@@ -13,7 +13,7 @@ e na /dev-exam-frontend
 
         ng build 
 
-        ng serve 
+        npm start
     
 acesse `http://localhost:4200/exam`
 
