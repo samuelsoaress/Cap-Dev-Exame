@@ -10,16 +10,19 @@ import { FormsModule } from '@angular/forms';
 import { SuccessComponent } from './success/success.component';
 import { ManagerComponent } from './manager/manager.component';
 import { ExamsComponent } from './exams/exams.component';
-import { SignInComponent } from './home/signin/signin.component'
-import { HomeModule } from './home/home.module';
-import { ManagerTecnologiaComponent } from './manager/manager-tecnologia/manager-tecnologia.component'
+import { LoginComponent } from './login/login.component';
+import { 
+  AuthGuardService as AuthGuard 
+} from './auth-guard.service';
+import { RootComponent } from './root/root.component';
+import { AuthService } from 'src/app/core/auth/auth.service';
+
 
 const appRoutes: Routes = [
-  { path: 'login', component: SignInComponent },
+  { path: 'login', component : LoginComponent},
   { path: 'exam', component: QuestionsComponent },
   { path: 'success', component: SuccessComponent },
-  { path: 'manager', component: ManagerComponent},
-  { path: 'manager/tecnologia', component: ManagerTecnologiaComponent},
+  { path: 'manager', component: ManagerComponent, canActivate : [AuthGuard]},
   { path: 'newexams', component: ExamsComponent},
   {
     path: '',
@@ -36,10 +39,10 @@ const appRoutes: Routes = [
     SuccessComponent,
     ManagerComponent,
     ExamsComponent,
-    ManagerTecnologiaComponent,
+    LoginComponent,
+    RootComponent,
   ],
   imports: [
-    HomeModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -49,7 +52,7 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
