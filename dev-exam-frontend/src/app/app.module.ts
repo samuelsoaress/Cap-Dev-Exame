@@ -11,13 +11,15 @@ import { SuccessComponent } from './success/success.component';
 import { ManagerComponent } from './manager/manager.component';
 import { ExamsComponent } from './exams/exams.component';
 import { SignInComponent } from './home/signin/signin.component'
-import { HomeModule } from './home/home.module'
+import { HomeModule } from './home/home.module';
+import { ManagerTecnologiaComponent } from './manager/manager-tecnologia/manager-tecnologia.component'
 
 const appRoutes: Routes = [
   { path: 'login', component: SignInComponent },
   { path: 'exam', component: QuestionsComponent },
   { path: 'success', component: SuccessComponent },
   { path: 'manager', component: ManagerComponent},
+  { path: 'manager/tecnologia', component: ManagerTecnologiaComponent},
   { path: 'newexams', component: ExamsComponent},
   {
     path: '',
@@ -34,6 +36,7 @@ const appRoutes: Routes = [
     SuccessComponent,
     ManagerComponent,
     ExamsComponent,
+    ManagerTecnologiaComponent,
   ],
   imports: [
     HomeModule,
