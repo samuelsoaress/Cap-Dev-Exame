@@ -138,5 +138,25 @@
                 "complexity": "hard"
             }
         ]
+    },
+    {
+        "code": "344e4b685b44bbc3c717889e01d7e455",
+        "questionsConfig": [
+            {
+                "technology": "Java",
+                "numberOfQuestions": "4",
+                "complexity": "basic"
+            },
+            {
+                "technology": "Java",
+                "numberOfQuestions": "4",
+                "complexity": "medium"
+            },
+            {
+                "technology": "Java",
+                "numberOfQuestions": "4",
+                "complexity": "hard"
+            }
+        ]
     }
 ]

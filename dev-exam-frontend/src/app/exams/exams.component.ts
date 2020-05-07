@@ -58,8 +58,8 @@ export class ExamsComponent implements OnInit {
       .subscribe(questions => {
         this.questions = questions
         for (let question of questions) {
-          this.technologys.add(question.technology)
-          this.complexity.add(question.complexity)
+          this.technologys.add(questions.tecnologia)
+          //this.complexity.add(questions.complexity)
         }
       });  
   }

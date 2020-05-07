@@ -2,13 +2,19 @@ import { QuestionsComponent } from './../questions/questions.component';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+const httpOptions = {
 
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+
+};
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class QuestionsService {
 
-  private apiUrl = 'http://127.0.0.1:3000/'
+  private apiUrl = 'http://bralpsvvwas02:8083/'
 
   constructor(private http: HttpClient) { }
 
@@ -16,26 +22,26 @@ export class QuestionsService {
     return this.http.request('GET', this.apiUrl + 'exam?code=' + examCode);
   }
   questions(): Observable<any> {
-    return this.http.request('GET', this.apiUrl + 'questions');
+    return this.http.request('GET', this.apiUrl + 'tecnologia/', httpOptions);
   }
 
-  sendAnswers(body: any){
+  sendAnswers(body: any) {
 
     this.http.post(this.apiUrl + 'answers', JSON.parse(body), {
-        headers: new HttpHeaders().set('Content-Type', 'application/json')
+      headers: new HttpHeaders().set('Content-Type', 'application/json')
     }).subscribe(
       res => {
-          console.log(res)
+        console.log(res)
       }
     );
     console.log(this.apiUrl + 'answers' + ' ' + body)
   }
 
-  sendExam(body:any){
+  sendExam(body: any) {
     this.http.post(this.apiUrl + 'newExam', JSON.parse(body), {
       headers: new HttpHeaders().set('Content-Type', 'application/json')
     }).subscribe(
-      res=> {
+      res => {
         console.log(res)
       }
     );
