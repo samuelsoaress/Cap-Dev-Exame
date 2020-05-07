@@ -2,8 +2,9 @@ const fs = require('fs')
 const path = require('path')
 const _ = require('lodash');
 const email = require('./email')
-const conversion = require("phantom-html-to-pdf")()
-const Promise = require("bluebird");
+const conversion = require("phantom-html-to-pdf")
+const EventEmitter = require('events');
+
 
 const getQuestions = (maxQuestions) => {
     let questions = loadQuestionsFromfile()
@@ -189,12 +190,7 @@ const validateAnswers = (requestData) => {
 
     emailBody2 += emailBody
 
-    conversion({ html: emailBody2 }, function (err, pdf) {
-        console.log(1);
-        let output = fs.createWriteStream('./Anexos/' + candidateName + '.pdf')
-        pdf.stream.pipe(output);
-        transformEmail(candidateName)
-    });
+    
 
 
 
