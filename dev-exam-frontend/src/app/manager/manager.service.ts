@@ -16,7 +16,7 @@ export class ManagerService {
 
     private apiUrl = 'http://bralpsvvwas02:8083/'
 
-    constructor(http: HttpClient){ }
+    constructor(private http: HttpClient){ }
 
     autorizator(body: any) {
         

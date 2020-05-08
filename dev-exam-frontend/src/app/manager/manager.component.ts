@@ -18,7 +18,7 @@ export class ManagerComponent implements OnInit {
   }
 
   onSubmit(body:any){
-    this.managerService.autorizator(JSON.stringfy(body))
+    this.managerService.autorizator(JSON.stringify(body))
   }
 
 }
