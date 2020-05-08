@@ -63,7 +63,7 @@
                     <div class="p-sm">
                         <div class="row">
                             <section class="tela">
-                                <form action="#">
+                                <form #questionsForm="ngForm" ng-submit="submitForm()" (submit)="onSubmit(questionsForm.value)" novalidate>
                                     <table class="tableDesign">
                                         <tr>
                                             <td>
