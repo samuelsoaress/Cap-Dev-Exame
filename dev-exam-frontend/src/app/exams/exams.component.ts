@@ -57,10 +57,11 @@ export class ExamsComponent implements OnInit {
     this.questionsService.questions()
       .subscribe(questions => {
         this.questions = questions
-        for (let question of questions) {
-          this.technologys.add(questions.tecnologia)
+        console.log(questions)
+        // for (let question of questions) {
+        //   this.technologys.add(questions.tecnologia)
           //this.complexity.add(questions.complexity)
-        }
+        //}
       });  
   }
   

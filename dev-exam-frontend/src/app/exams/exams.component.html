@@ -16,10 +16,10 @@
                                 <label for="technology">Tecnologia:</label>
                             </td>
                             <td>
-                                <select id="technology" class="form-control" ngModel [(ngModel)]="exame.technology">
-                                    <!--script> console.log(questions)</script-->
-                                    <option value="{{technology}}" *ngFor="let technology of technologys">
-                                        {{ technology }}</option>
+                                <select id="technology" class="form-control">
+                                    <script> console.log(questions);</script>
+                                    <option value="{{question.tecnologia}}" *ngFor="let question of questions">
+                                        {{ question.tecnologia }}</option>
                                 </select>
                             </td>
                         </tr>
@@ -28,7 +28,7 @@
                                 <label for="complexity">Complexidade:</label>
                             </td>
                             <td>
-                                <select id="complexity" class="form-control" ngModel [(ngModel)]="exame.complexity">
+                                <select id="complexity" class="form-control" ngModel [(ngModel)]="questions.tecnologia">
                                     <option value="{{complexity}}" *ngFor="let complexity of complexity" >
                                         {{ complexity }}</option>
                                 </select>
