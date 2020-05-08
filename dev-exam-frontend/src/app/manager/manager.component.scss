@@ -1028,6 +1028,9 @@ table.table-mail tr td {
   width: 100%;
   height: auto;
   max-height: 100px;
+}
+.tela{
+  margin: 0 auto;
 }   
 
 .row {
@@ -1040,4 +1043,13 @@ table.table-mail tr td {
 .nav>li>a {
     position: relative;
     display: block;
+}
+.tableDesign {
+  margin: 0 auto;
+}
+.form-control {
+  width: 25em;
+}
+.label-control{
+  margin-right: 2em;
 }
