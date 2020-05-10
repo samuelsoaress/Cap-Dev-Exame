@@ -13,14 +13,14 @@ import { NgForm } from '@angular/forms';
 })
 export class ManagerComponent implements OnInit {
 
-  tipoProva: any 
+  nomeProva: any;
 
    
 
   constructor(private managerService:ManagerService, private service: QuestionsService) { }
 
   ngOnInit() {
-    this.service.listProva().subscribe(console.log);
+    this.nomeProva = this.service.listProva()
   }
 
   onSubmit(body:any){

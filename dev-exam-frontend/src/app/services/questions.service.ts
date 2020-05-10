@@ -14,17 +14,19 @@ const httpOptions = {
 
 export class QuestionsService {
 
+  private backendUrl = 'http://localhost:3000/'
   private apiUrl = 'http://bralpsvvwas02:8083/'
 
   constructor(private http: HttpClient) { }
 
   getQuestions(examCode: string): Observable<any> {
-    return this.http.request('GET', this.apiUrl + 'exam?code=' + examCode);
+    return this.http.request('GET', this.backendUrl + 'exam?code=' + examCode);
   }
   
   questions(): Observable<any> {
     return this.http.request('GET', this.apiUrl + 'tecnologia/', httpOptions);
   }
+  
   listProva(): Observable<any> {
     return this.http.request('GET', this.apiUrl + 'composicao-prova/', httpOptions);
 
