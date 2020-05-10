@@ -4,28 +4,41 @@ import { Observable } from 'rxjs';
 
 const httpOptions = {
 
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 
 };
 
 @Injectable({
     providedIn: 'root'
-  })
+})
 
 export class ManagerService {
 
     private apiUrl = 'http://bralpsvvwas02:8083/'
 
-    constructor(private http: HttpClient){ }
+    private backendUrl = 'http://localhost:3000/'
+
+    constructor(private http: HttpClient) { }
 
     autorizator(body: any) {
-        
-            this.http.post(this.apiUrl + 'autorizador/add', JSON.parse(body), httpOptions)
+
+        this.http.post(this.apiUrl + 'autorizador/add', JSON.parse(body), httpOptions)
             .subscribe(
-              res => {
+            res => {
                 console.log(res)
-              }
+            }
             );
-            console.log(this.apiUrl + 'autorizador/add' + ' ' + body)
-          }
+        console.log(this.apiUrl + 'autorizador/add' + ' ' + body)
+    }
+
+    sendCandidate(body: any) {
+
+        this.http.post(this.backendUrl + 'candidate', JSON.parse(body), httpOptions)
+            .subscribe(
+            res => {
+                console.log(res)
+            }
+            );
+        console.log(this.apiUrl + 'candidate' + ' ' + body)
+    }
 }

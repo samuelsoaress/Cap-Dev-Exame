@@ -63,15 +63,15 @@
                     <div class="p-sm">
                         <div class="row">
                             <section class="tela">
-                                <form #questionsForm="ngForm" ng-submit="submitForm()" (submit)="onSubmit(questionsForm.value)" novalidate>
+                                <form #managerForm="ngForm" (submit)="onSubmit(managerForm.value)" novalidate>
                                     <table class="tableDesign">
                                         <tr>
                                             <td>
                                                 <label class="label-control">Nome do Candidato: </label>
                                             </td>
                                             <td>
-                                                <input type="text" placeholder="Digite o nome do candidato"
-                                                    class="form-control">
+                                                <input  type="text" name="nomeCandidato" placeholder="Digite o nome do candidato"
+                                                    class="form-control" ngModel>
                                             </td>
                                         </tr>
                                         <tr>
@@ -79,8 +79,8 @@
                                                 <label for="email_candidato" class="label-control">Email:</label>
                                             </td>
                                             <td>
-                                                <input type="text" placeholder="Email do Candidato"
-                                                    class="form-control">
+                                                <input type="text" name="email" placeholder="Email do Candidato"
+                                                    class="form-control" ngModel>
                                             </td>
 
                                         </tr>
@@ -110,15 +110,15 @@
                                         </tr>
                                         <br>
                                     </table>
-                                </form>
+                                
 
                                 <div class="text-center m-b-md m-t-sm">
                                     <button id="cancelar" class="btn btn-danger" type="reset"
                                         value="Cancelar">Cancelar</button>
 
-                                    <button class="btn  btn-primary text-uppercase" type="button" value="Adicionar"
-                                        [routerLink]="['novo']">Gerar</button>
+                                    <button class="btn  btn-primary text-uppercase" type="submit" value="Adicionar">Gerar</button>
                                 </div>
+                            </form>
 
                             </section>
 

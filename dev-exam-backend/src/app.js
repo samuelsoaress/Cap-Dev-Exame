@@ -1,5 +1,6 @@
 const questions = require('./questions')
 const exams = require('./exams')
+const email = require('./email')
 const session = require('express-session')
 const cors = require('cors')
 const bodyParser = require('body-parser')
@@ -19,19 +20,19 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.options('*', cors())
 
 passport.use(new LocalStrategy(
-    function(username, password, done) {
-        if(username === "admin" && password === "admin"){
+    function (username, password, done) {
+        if (username === "admin" && password === "admin") {
             return done(null, username);
         } else {
             return done("unauthorized access", false);
         }
     }
 ));
-passport.serializeUser(function(user, done) {
-    if(user) done(null, user);
+passport.serializeUser(function (user, done) {
+    if (user) done(null, user);
 });
-  
-passport.deserializeUser(function(id, done) {
+
+passport.deserializeUser(function (id, done) {
     done(null, id);
 });
 
@@ -42,8 +43,8 @@ app.use(passport.session());
 const auth = () => {
     return (req, res, next) => {
         passport.authenticate('local', (error, user, info) => {
-            if(error) res.status(400).json({"statusCode" : 200 ,"message" : error});
-            req.login(user, function(error) {
+            if (error) res.status(400).json({ "statusCode": 200, "message": error });
+            req.login(user, function (error) {
                 if (error) return next(error);
                 next();
             });
@@ -51,17 +52,21 @@ const auth = () => {
     }
 }
 
-app.post('/authenticate', auth() , (req, res) => {
-    res.status(200).json({"statusCode" : 200 ,"user" : req.user});
+app.use(cors({origin: 'http://localhost:4200'}));
+    
+
+
+app.post('/authenticate', auth(), (req, res) => {
+    res.status(200).json({ "statusCode": 200, "user": req.user });
 });
 
 const isLoggedIn = (req, res, next) => {
     console.log('session ', req.session);
-    if(req.isAuthenticated()){
+    if (req.isAuthenticated()) {
         //console.log('user ', req.session.passport.user)
         return next()
     }
-    return res.status(400).json({"statusCode" : 400, "message" : "not authenticated"})
+    return res.status(400).json({ "statusCode": 400, "message": "not authenticated" })
 }
 
 app.get('/getData', isLoggedIn, (req, res) => {
@@ -96,6 +101,27 @@ app.post('/newExam', cors(), (req, res, next) => {
 app.post('/user/login', cors(), (req, res, next) => {
     let request = req.body
     let autorized = login.getCredentials(request)
-})  
+})
+
+const getCandidate = (request) =>{
+    console.log("entrou na getcandidate")
+    let nome = request['nomeCandidato']
+    let emailbody = "<p>Prezado "+ nome +" NOME DO CANDIDATO,<p>"
+    emailbody += "<p>Você está recebendo este e-mail pois foi indicado para realizar o teste nomeTeste  por XXXXX NOME DO GESTOR RESPONSAVEL XXXXXX </p>"
+    emailbody += "<p>Abaixo segue as informações para realizar a prova</p"
+    emailbody += "<p>Código de autorização:  XXFFDSFDsdfsdf </p>"
+    emailbody += "<p>Ou se preferir, acessar o link abaixo.</p>"
+    emailbody += "<p>https://wwww.sdafdfasdfasd.com/codigoautorizacao</p>"
+    emailbody += "<p>Atenciosamente</p>"
+    return emailbody
+}
+
+app.post('/candidate', cors(), (req, res, next) => {
+    let request = req.body
+    
+    let emailbody = getCandidate(request)
+    email.sendCandidate(emailbody,request['email']);    
+
+})
 
 app.listen(3000, () => console.log('Server listening on port 3000'))
