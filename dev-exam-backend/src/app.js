@@ -9,6 +9,10 @@ const express = require('express')
 const app = express()
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const http = require('follow-redirects').http;
+const { Client } = require('node-rest-client-promise');
+
+const client = new Client();
 
 const MAX_QUESTIONS = config.get('Config.api.maxQuestions')
 
@@ -52,8 +56,8 @@ const auth = () => {
     }
 }
 
-app.use(cors({origin: 'http://localhost:4200'}));
-    
+app.use(cors({ origin: 'http://localhost:4200' }));
+
 
 
 app.post('/authenticate', auth(), (req, res) => {
@@ -103,11 +107,12 @@ app.post('/user/login', cors(), (req, res, next) => {
     let autorized = login.getCredentials(request)
 })
 
-const getCandidate = (request) =>{
+const getCandidate = (request,codeAcess) => {
     console.log("entrou na getcandidate")
-    let nome = request['nomeCandidato']
-    let emailbody = "<p>Prezado "+ nome +" NOME DO CANDIDATO,<p>"
-    emailbody += "<p>Você está recebendo este e-mail pois foi indicado para realizar o teste nomeTeste  por XXXXX NOME DO GESTOR RESPONSAVEL XXXXXX </p>"
+    let name = request['nomeCandidato']
+    let nameGestor = request['emailGestor']
+    let emailbody = "<p>Prezado " + name + " ,<p>"
+    emailbody += "<p>Você está recebendo este e-mail pois foi indicado para realizar o teste nomeTeste  por " + nameGestor + " </p>"
     emailbody += "<p>Abaixo segue as informações para realizar a prova</p"
     emailbody += "<p>Código de autorização:  XXFFDSFDsdfsdf </p>"
     emailbody += "<p>Ou se preferir, acessar o link abaixo.</p>"
@@ -116,11 +121,77 @@ const getCandidate = (request) =>{
     return emailbody
 }
 
+const requestAuthorizator = (request) => {
+    let data = {}
+    data['email'] = request.email
+    data['emailGestor'] = request.emailGestor
+    let options = {
+        data: {"email":"anderson.bisio@capgemini.com", "emailGestor":"teste@bisio.com"},
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    };
+
+    return client.postPromise('http://bralpsvvwas02:8083/autorizador/', options).then((response) => (response));
+
+    // let requestPost = http.request(options, (res) => {
+    //     console.log(`STATUS: ${res.statusCode.toString()}`);
+    //     console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
+    //     res.setEncoding('utf8');
+    //     res.on('data', (chunk) => {
+    //         console.log(`BODY: ${chunk}`); 
+            
+    //     });
+        
+    //     res.on('end', () => {
+    //         console.log('No more data in response.');
+    //     });
+
+    // });
+    // requestPost.on('error', (e) => {
+    //     console.error(`problem with request: ${e.message}`);
+    // });
+    // // aqui podes enviar data no POST
+    
+    // requestPost.write(JSON.stringify(data));
+    // requestPost.end();
+}
+
+// const EventEmitter = {
+//     events: new Map(),
+//     listen: (requestAuthorizator, sendCandidate) => {
+//         const oldEvents = EventEmitter.events.get(requestAuthorizator)
+//         if (EventEmitter.events.has(requestAuthorizator)) {
+//             return EventEmitter.events.set(requestAuthorizator, [oldEvents, sendCandidate ])
+//         }
+//         return EventEmitter.events.set(requestAuthorizator, [ sendCandidate ]) 
+//     },
+//     emit: (requestAuthorizator, request) => {
+//         const myListeners = EventEmitter.events.get(requestAuthorizator)
+//         if (Array.isArray(myListeners) && myListeners.length) {
+//             myListeners.forEach(event => event(request))
+//         }
+//     }
+// }
+
+app.post('/autorizador', cors(),async(req, res, next) => {
+    let request = req.body
+
+    let emailbody = getCandidate(request)
+    const response = await requestAuthorizator(request)
+    console.log(response.data)
+    if(response !== undefined){
+        console.log(response.data.autorizador)
+        email.sendCandidate(request['email'], emailbody)
+    }
+    
+})
+
 app.post('/candidate', cors(), (req, res, next) => {
     let request = req.body
-    
+
     let emailbody = getCandidate(request)
-    email.sendCandidate(emailbody,request['email']);    
+    //email.sendCandidate(emailbody, request['email']);
 
 })
 
