@@ -16,6 +16,7 @@ import {
 } from './auth-guard.service';
 import { RootComponent } from './root/root.component';
 import { AuthService } from 'src/app/core/auth/auth.service';
+import { LayoutComponent } from './layout/layout.component';
 
 
 const appRoutes: Routes = [
@@ -41,6 +42,7 @@ const appRoutes: Routes = [
     ExamsComponent,
     LoginComponent,
     RootComponent,
+    LayoutComponent,
   ],
   imports: [
     BrowserModule,

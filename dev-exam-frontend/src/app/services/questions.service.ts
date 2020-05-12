@@ -26,11 +26,6 @@ export class QuestionsService {
   questions(): Observable<any> {
     return this.http.request('GET', this.apiUrl + 'tecnologia/', httpOptions);
   }
-  
-  listProva(): Observable<any> {
-    return this.http.request('GET', this.apiUrl + 'composicao-prova/', httpOptions);
-
-  }
 
   sendAnswers(body: any) {
 

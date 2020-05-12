@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Dev Exam</title>
@@ -7,9 +8,146 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Teko&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />  
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
 </head>
+
 <body>
-  <app-root></app-root>
+  <div id="wrapper">
+    <nav class="navbar-default navbar-static-side" role="navigation">
+      <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+          <li class="nav-header">
+            <div class="dropdown profile-element">
+              <a>
+
+                <div class="content_img">
+                  <img src="./assets/img/capgemini-logo.jpg" alt="" class="logo-responsive">
+                </div>
+              </a>
+            </div>
+          </li>
+          <li>
+            <a style="margin-top:15px;" href="#"><i class="fa fa-user"></i> <span
+                              class="nav-label">Exames</span></a>
+            <ul class="nav nav-second-level collapse">
+              <li><a href="#">Criar</a></li>
+              <li><a href="#">Solicitar</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-shield"></i> <span class="nav-label">Questões</span> </a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-shield"></i> <span class="nav-label">Tecnologias</span> </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div id="page-wrapper" class="gray-bg">
+      <div class="row border-bottom">
+        <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+          <div class="navbar-header">
+          </div>
+
+          <ul class="nav navbar-top-links navbar-right">
+
+            <li>
+              <a href="#">
+                              <i class="fa fa-sign-out"></i> Sair
+                          </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!--parte superior da tela-->
+      <div class="wrapper wrapper-content animated fadeInRight">
+
+        <div class="row m-b-lg">
+
+          <div class="ibox-content panel-body">
+
+            <div class="col-sm-12 m-b-lg">
+              <h2 class="text-uppercase text-center">
+                Cadastrar Autorização Teste
+              </h2>
+            </div>
+            <br>
+
+            <div class="p-sm">
+              <div class="row">
+                <section class="tela">
+
+                    <app-root></app-root>
+
+                </section>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Rodapé -->
+      <div class="footer">
+        <strong>Capgemini </strong> &copy; - Copyright
+        <div class="pull-right">
+          Todos os Direitos reservados- 2020.
+        </div>
+      </div>
+      <!--FIM - Rodapé -->
+
+    </div>
+  </div>
+
+  <!-- Mainly scripts -->
+  <script src="js/jquery-2.1.1.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+  <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+
+  <!-- Switchery -->
+  <script src="js/plugins/switchery/switchery.js"></script>
+
+  <script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+  <!-- Chosen -->
+  <script src="js/plugins/chosen/chosen.jquery.js"></script>
+
+  <!-- Jquery Validate -->
+  <script src="js/plugins/validate/jquery.validate.min.js"></script>
+  <script src="js/plugins/jqmask/jquery_mask.js"></script>
+  <script src="js/pages/validator.js"></script>
+
+  <!-- Custom and plugin javascript -->
+  <script src="js/inspinia.js"></script>
+  <script src="js/plugins/pace/pace.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+
+      $('#data_1 .input-group.date').datepicker({
+        todayBtn: "linked",
+        keyboardNavigation: false,
+        forceParse: false,
+        calendarWeeks: true,
+        autoclose: true
+      });
+
+      var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': { allow_single_deselect: true },
+        '.chosen-select-no-single': { disable_search_threshold: 30 },
+        '.chosen-select-no-results': { no_results_text: 'Não encontrado' },
+        '.chosen-select-width': { width: "100%" },
+      }
+      for (var selector in config) {
+        $(selector).chosen(config[selector]);
+      }
+
+    })
+  </script>
 </body>
+
 </html>

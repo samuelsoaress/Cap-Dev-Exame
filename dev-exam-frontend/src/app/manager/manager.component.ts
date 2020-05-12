@@ -20,7 +20,11 @@ export class ManagerComponent implements OnInit {
   constructor(private managerService:ManagerService, private service: QuestionsService) { }
 
   ngOnInit() {
-    this.nomeProva = this.service.listProva()
+    this.managerService.examPart()
+    .subscribe(nomeProva => {
+      console.log(nomeProva)
+      this.nomeProva = nomeProva
+    });
   }
 
   onSubmit(body:any){

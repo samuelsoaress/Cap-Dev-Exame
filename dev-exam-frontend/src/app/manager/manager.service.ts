@@ -1,34 +1,38 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ManagerComponent } from './manager.component'
 
 const httpOptions = {
 
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 
 };
-
 @Injectable({
     providedIn: 'root'
 })
 
 export class ManagerService {
 
-    private apiUrl = 'http://bralpsvvwas02:8083/'
+    private apiUrl = '/2api'
 
-    private backendUrl = 'http://localhost:3000/'
+    private backendUrl = '/1api'
 
     constructor(private http: HttpClient) { }
 
     autorizator(body: any) {
 
-        this.http.post(this.apiUrl + 'autorizador/add', JSON.parse(body), httpOptions)
+        this.http.post(this.backendUrl + 'autorizador', JSON.parse(body), httpOptions)
             .subscribe(
             res => {
                 console.log(res)
             }
             );
-        console.log(this.apiUrl + 'autorizador/add' + ' ' + body)
+        console.log(this.backendUrl + 'autorizador' + ' ' + body)
+    }
+
+    examPart(): Observable<any> {
+        return this.http.request('GET',this.apiUrl + 'composicao-prova/', httpOptions)
     }
 
     sendCandidate(body: any) {
