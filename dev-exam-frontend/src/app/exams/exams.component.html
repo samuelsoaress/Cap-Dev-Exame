@@ -1,51 +1,50 @@
 <div class="container-fluid">
-    <header class="row">
-        <div class="avalicao col-md-4 offset-md-4">Cadastrar novo teste</div>
-        <div class="logo-container col-md-3 offset-md-1">
-            <img src="../../assets/img/capgemini-logo.jpg" alt="Capgemini logo" class="logo">
-        </div>
+    <header class="">
+        <div class="avalicao" id="titulo">Cadastrar novo teste</div>
     </header>
 
+    
     <section class="sectionPrin">
         <form #questionsForm="ngForm" ng-submit="submitForm()" (submit)="onSubmit(questionsForm.value)" novalidate>
             <div class="">
                 <div class="">
                     <table class="tableDesign">
                         <div>
-                        <tr>
-                            <td>
-                                <label for="technology">Tecnologia:</label>
-                            </td>
-                            <td>
-                                <select id="technology" class="form-control">
-                                    <script> console.log(questions);</script>
-                                    <option value="{{question.tecnologia}}" *ngFor="let question of questions">
-                                        {{ question.tecnologia }}</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="complexity">Complexidade:</label>
-                            </td>
-                            <td>
-                                <select id="complexity" class="form-control" ngModel [(ngModel)]="questions.tecnologia">
-                                    <option value="{{complexity}}" *ngFor="let complexity of complexity" >
-                                        {{ complexity }}</option>
-                                </select>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td>
+                                    <label for="technology">Tecnologia:</label>
+                                </td>
+                                <td>
+                                    <select id="technology" class="form-control">
+                                        <script> console.log(questions);</script>
+                                        <option value="{{question.tecnologia}}" *ngFor="let question of questions">
+                                            {{ question.tecnologia }}</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="complexity">Complexidade:</label>
+                                </td>
+                                <td>
+                                    <select id="complexity" class="form-control" ngModel
+                                        [(ngModel)]="questions.tecnologia">
+                                        <option value="{{complexity}}" *ngFor="let complexity of complexity">
+                                            {{ complexity }}</option>
+                                    </select>
+                                </td>
+                            </tr>
 
-                        <tr>
-                            <td>
-                                <label for="testAmount">Quantidade de questões:</label>
-                            </td>
-                            <td>
-                                <input id="testAmount" type="number" min="0" name="testAmount" class="form-control"
-                                    ngModel [(ngModel)]="exame.testAmount">
-                            </td>
-                        </tr>
-                    </div>
+                            <tr>
+                                <td>
+                                    <label for="testAmount">Quantidade de questões:</label>
+                                </td>
+                                <td>
+                                    <input id="testAmount" type="number" min="0" name="testAmount" class="form-control"
+                                        ngModel [(ngModel)]="exame.testAmount">
+                                </td>
+                            </tr>
+                        </div>
                     </table>
                 </div>
             </div>
@@ -79,10 +78,6 @@
 
 
     </section>
-    <footer class="row">
-        <div class="footer-text col-md-8 offset-md-2">Capgemini - Todos direitos reservados</div>
-    </footer>
-
-
+    
 
 </div>

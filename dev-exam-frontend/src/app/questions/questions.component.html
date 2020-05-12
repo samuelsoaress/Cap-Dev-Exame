@@ -2,13 +2,10 @@
 
     <header class="row">
         <div class="avalicao col-md-4 offset-md-4">Avaliação Técnica</div>
-        <div class="logo-container col-md-3 offset-md-1">
-            <img src="../../assets/img/capgemini-logo.jpg" alt="Capgemini logo" class="logo">
-        </div>
     </header>
 
-    
-    <a id="timer" class="timer"><i>{{time}}</i></a>  
+
+    <a id="timer" class="timer"><i>{{time}}</i></a>
 
     <section class="form-section">
         <form #questionsForm="ngForm" ng-submit="submitForm()" (submit)="onSubmit(questionsForm.value)" novalidate>

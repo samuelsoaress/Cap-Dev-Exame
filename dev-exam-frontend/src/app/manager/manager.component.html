@@ -1,56 +1,66 @@
-<form #managerForm="ngForm" (submit)="onSubmit(managerForm.value)" novalidate>
-        <table class="tableDesign">
-            <tr>
-                <td>
-                    <label class="label-control">Nome do Candidato: </label>
-                </td>
-                <td>
-                    <input  type="text" name="nomeCandidato" placeholder="Digite o nome do candidato"
-                        class="form-control" ngModel>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="email_candidato" class="label-control">Email:</label>
-                </td>
-                <td>
-                    <input type="text" name="email" placeholder="Email do Candidato"
-                        class="form-control" ngModel>
-                </td>
-
-            </tr>
-
-            <tr>
-                <td>
-
-                    <label class="label-control" for="curso_descricao">Tipo de Prova:
-                    </label>
-                </td>
-                <td>
-                    <select name="" id="" class="form-control">
-                        <option value="">{{nomeTeste}}</option>
-                    </select>
-
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <label for="emailGestor">Email gestor: </label>
-                </td>
-                <td>
-                    <input id="emailGestor" type="email" name="emailGestor"
-                        class="form-control" placeholder="Email do gestor" ngModel>
-                </td>
-            </tr>
-            <br>
-        </table>
-    
-
-    <div class="text-center m-b-md m-t-sm">
-        <button id="cancelar" class="btn btn-danger" type="reset"
-            value="Cancelar">Cancelar</button>
-
-        <button class="btn  btn-primary text-uppercase" type="submit" value="Adicionar">Gerar</button>
+<div class="row col-sm-12">
+    <app-menuSuperior></app-menuSuperior>
+    <div class="col-sm-2" style="background-color: #f3f6fb;">
+        <app-menuLateral></app-menuLateral>
     </div>
-</form>
+    <div class="col-sm-10">
+        <form #managerForm="ngForm" (submit)="onSubmit(managerForm.value)" novalidate>
+            <app-titulo titulo="Cadastrar Autorização Teste"> </app-titulo>
+            <table class="tableDesign">
+
+                <tr>
+                    <td>
+                        <label class="label-control">Nome do Candidato: </label>
+                    </td>
+                    <td>
+                        <input type="text" name="nomeCandidato" placeholder="Digite o nome do candidato"
+                            class="form-control" ngModel>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="email_candidato" class="label-control">Email:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="email" placeholder="Email do Candidato" class="form-control" ngModel>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+
+                        <label class="label-control" for="curso_descricao">Tipo de Prova:
+                        </label>
+                    </td>
+                    <td>
+                        <select name="" id="" class="form-control">
+                            <option value="">{{nomeTeste}}</option>
+                        </select>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="emailGestor">Email gestor: </label>
+                    </td>
+                    <td>
+                        <input id="emailGestor" type="email" name="emailGestor" class="form-control"
+                            placeholder="Email do gestor" ngModel>
+                    </td>
+                </tr>
+                <br>
+            </table>
+
+
+            <div class="text-center m-b-md m-t-sm">
+                <button id="cancelar" class="btn btn-danger" type="reset" value="Cancelar">Cancelar</button>
+
+                <button class="btn  btn-primary text-uppercase" type="submit" value="Adicionar">Gerar</button>
+            </div>
+        </form>
+        
+    </div>
+</div>
+<app-rodape></app-rodape>

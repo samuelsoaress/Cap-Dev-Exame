@@ -29,24 +29,24 @@ export class QuestionsService {
 
   sendAnswers(body: any) {
 
-    this.http.post(this.apiUrl + 'answers', JSON.parse(body), {
+    this.http.post(this.backendUrl + 'answers', JSON.parse(body), {
       headers: new HttpHeaders().set('Content-Type', 'application/json')
     }).subscribe(
       res => {
         console.log(res)
       }
     );
-    console.log(this.apiUrl + 'answers' + ' ' + body)
+    console.log(this.backendUrl + 'answers' + ' ' + body)
   }
 
   sendExam(body: any) {
-    this.http.post(this.apiUrl + 'newExam', JSON.parse(body), {
+    this.http.post(this.backendUrl + 'newExam', JSON.parse(body), {
       headers: new HttpHeaders().set('Content-Type', 'application/json')
     }).subscribe(
       res => {
         console.log(res)
       }
     );
-    console.log(this.apiUrl + 'newExam' + ' ' + body)
+    console.log(this.backendUrl + 'newExam' + ' ' + body)
   }
 }
