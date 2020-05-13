@@ -2,6 +2,8 @@ const fs = require('fs')
 const path = require('path')
 const uuid = require('uuid/v4');
 const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+
 
 
 var user = {}
@@ -9,48 +11,47 @@ var user = {}
 module.exports = (app) => {
 
     passport.use(new LocalStrategy(
-        {
-            usernameField: 'userName',
-            passwordField: 'senha'
-        },
-        (email, senha, done) => {
-            users = loadUsersFromfile()
-            let autorizado = false
-            for (let i = 0; i < users.length; i++) {
-
-                if (response['userName'] === users[i].login && response['password'] === users[i].password) {
-                    return done(null, users[i]);
-                    user['userName'] = users[i].login
-                }
+        function (username, password, done) {
+            if (username === "admin" && password === "admin") {
+                return done(null, username);
+            } else {
+                return done("unauthorized access", false);
             }
-            return done(null, false, {
-                mensagem: 'Login e/ou senha incorretos!'
-            });
-
         }
     ));
-
-    passport.serializeUser((usuario, done) => {
-
-        const usuarioSessao = {
-            nome: user['userName']
-        };
-
-        done(null, usuarioSessao);
+    passport.serializeUser(function (user, done) {
+        if (user) done(null, user);
     });
-
-    passport.deserializeUser((usuarioSessao, done) => {
-        done(null, usuarioSessao);
+    
+    passport.deserializeUser(function (id, done) {
+        done(null, id);
     });
+    
+    app.use(session({ secret: 'anything', resave: true, saveUninitialized: true }));
+    app.use(passport.initialize());
+    app.use(passport.session());
+    
+    const auth = () => {
+        return (req, res, next) => {
+            passport.authenticate('local', (error, user, info) => {
+                if (error) res.status(400).json({ "statusCode": 200, "message": error });
+                req.login(user, function (error) {
+                    if (error) return next(error);
+                    next();
+                });
+            })(req, res, next);
+        }
+    }
 
-    app.use(sessao({
-        secret: 'cap exame',
-        genid: function(req) {
-            return uuid();
-        }, 
-        resave: false,
-        saveUninitialized: false
-    }));
+    const isLoggedIn = (req, res, next) => {
+        console.log('session ', req.session);
+        if (req.isAuthenticated()) {
+            //console.log('user ', req.session.passport.user)
+            return next()
+        }
+        return res.status(400).json({ "statusCode": 400, "message": "not authenticated" })
+    }
+    
 
     app.use(passport.initialize());
     app.use(passport.session());

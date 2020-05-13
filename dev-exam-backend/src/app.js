@@ -72,7 +72,7 @@ app.post('/answers', cors(), (req, res, next) => {
         console.log("entrou")
         let requestData = req.body
         questions.validateAnswers(requestData)
-        return res.status(200).json({ "statusCode": 200, "message": "authenticated" })
+        return res.status(200).json({ "statusCode": 200, "message": "email sent" })
         next()
     }
     catch(error){

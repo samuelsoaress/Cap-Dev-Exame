@@ -30,7 +30,6 @@ export class ManagerComponent implements OnInit {
   onSubmit(body:any){
     console.log(JSON.stringify(body))
     this.managerService.autorizator(JSON.stringify(body))
-    this.managerService.sendCandidate(JSON.stringify(body))
   }
 
 }

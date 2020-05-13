@@ -14,9 +14,9 @@ const httpOptions = {
 
 export class ManagerService {
 
-    private apiUrl = '/2api'
+    private apiUrl = 'http://bralpsvvwas02:8083/'
 
-    private backendUrl = '/1api'
+    private backendUrl = 'http://localhost:3000/'
 
     constructor(private http: HttpClient) { }
 
