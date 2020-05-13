@@ -1,1303 +1,6 @@
 [
     {
         "code": "1",
-        "technology": "Java",
-        "complexity": "basic",
-        "firstPart": "Java basic enunciado",
-        "codeParts": [
-            "public static synchronized void(String[] args) throws",
-            "InterruptedException {",
-            "   Thread t = new Thread();",
-            "   t.start();",
-            "   System.out.println(\"X\")",
-            "   t.wait(10000);",
-            "   System.out.println(\"Y\")",
-            "}"
-        ],
-        "lastPart": "Qual é o resultado?",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "Exibe X e finaliza."
-            },
-            {
-                "letter": "B",
-                "text": "Exibe X e nunca finaliza"
-            },
-            {
-                "letter": "C",
-                "text": "Exibe XY e finaliza quase imediatamente."
-            },
-            {
-                "letter": "D",
-                "text": "Exibe XY com um atraso de 10 segundos entre X e Y."
-            },
-            {
-                "letter": "E",
-                "text": "Exibe XY com um atraso de 10000 segundos entre X e Y."
-            },
-            {
-                "letter": "F",
-                "text": "O código não compila."
-            },
-            {
-                "letter": "G",
-                "text": "É lançada uma exceção no tempo de execução."
-            }
-        ],
-        "correctAnswer": "G"
-    },
-    {
-        "code": "2",
-        "technology": "Spring",
-        "complexity": "basic",
-        "firstPart": "Spring basic enunciado",
-        "codeParts": [
-            "public static synchronized void(String[] args) throws",
-            "InterruptedException {",
-            "   Thread t = new Thread();",
-            "   t.start();",
-            "   System.out.println(\"X\")",
-            "   t.wait(10000);",
-            "   System.out.println(\"Y\")",
-            "}"
-        ],
-        "lastPart": "Qual é o resultado desse código?",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "Exibe X e finaliza."
-            },
-            {
-                "letter": "B",
-                "text": "Exibe X e nunca finaliza"
-            },
-            {
-                "letter": "C",
-                "text": "Exibe XY e finaliza quase imediatamente."
-            },
-            {
-                "letter": "D",
-                "text": "Exibe XY com um atraso de 10 segundos entre X e Y."
-            },
-            {
-                "letter": "E",
-                "text": "Exibe XY com um atraso de 10000 segundos entre X e Y."
-            },
-            {
-                "letter": "F",
-                "text": "O código não compila."
-            },
-            {
-                "letter": "G",
-                "text": "É lançada uma exceção no tempo de execução."
-            }
-        ],
-        "correctAnswer": "A"
-    },
-    {
-        "code": "3",
-        "technology": "Java",
-        "complexity": "basic",
-        "firstPart": "Java basic enunciado",
-        "codeParts": [
-            "public class Jogo {",
-            "//Código omitido",
-            "   private Componente comp;",
-            "   public Jogo(Usuario usuario){",
-            "   this.comp = usuario;",
-            "   }",
-            "}"
-        ],
-        "lastPart": "Qual dos motivos abaixo explica a razão desse acontecimento?",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "Não podemos atribuir porque é um elemento privado."
-            },
-            {
-                "letter": "B",
-                "text": "O uso da palavra reservada this está errado."
-            },
-            {
-                "letter": "C",
-                "text": "Os atributos não podem ter o mesmo nome"
-            },
-            {
-                "letter": "D",
-                "text": "Está sendo feita uma atribuição de objetos de tipos diferentes."
-            },
-            {
-                "letter": "E",
-                "text": "Nenhuma das alternativas."
-            }
-        ],
-        "correctAnswer": "D"
-    },
-    {
-        "code": "4",
-        "technology": "Java",
-        "complexity": "medium",
-        "firstPart": "Java medium enunciado",
-        "codeParts": [
-            "public class Teste {",
-            "   public static void main(String [] args) {",
-            "       Conta minhaConta = new Conta();",
-            "       minhaConta.saldo = 500.0;",
-            "       Conta outraConta = minhaConta;",
-            "       outraConta.saldo += 1000.0;",
-            "       System.out.println(minhaConta.saldo);",
-            "   }",
-            "}"
-        ],
-        "lastPart": "",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "Imprime 1500.0"
-            },
-            {
-                "letter": "B",
-                "text": "Imprime 500.0"
-            },
-            {
-                "letter": "C",
-                "text": "Imprime 1000.0"
-            },
-            {
-                "letter": "D",
-                "text": "Imprime 2000.0"
-            },
-            {
-                "letter": "E",
-                "text": "Imprime 5000.0"
-            }
-        ],
-        "correctAnswer": "A"
-    },
-    {
-        "code": "5",
-        "technology": "Spring",
-        "complexity": "medium",
-        "firstPart": "Spring medium enunciado",
-        "codeParts": [
-            "public class Teste {",
-            "   public static void main(String [] args) {",
-            "       Conta minhaConta = new Conta();",
-            "       minhaConta.saldo = 500.0;",
-            "       Conta outraConta = minhaConta;",
-            "       outraConta.saldo += 1000.0;",
-            "       System.out.println(minhaConta.saldo);",
-            "   }",
-            "}"
-        ],
-        "lastPart": "",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "Imprime 1500.0"
-            },
-            {
-                "letter": "B",
-                "text": "Imprime 500.0"
-            },
-            {
-                "letter": "C",
-                "text": "Imprime 1000.0"
-            },
-            {
-                "letter": "D",
-                "text": "Imprime 2000.0"
-            },
-            {
-                "letter": "E",
-                "text": "Imprime 5000.0"
-            }
-        ],
-        "correctAnswer": "A"
-    },
-    {
-        "code": "6",
-        "technology": "Java",
-        "complexity": "medium",
-        "firstPart": "Java medium enunciado",
-        "codeParts": [
-            "public class Teste {",
-            "   public static void main(String [] args) {",
-            "       Conta minhaConta = new Conta();",
-            "       minhaConta.saldo = 500.0;",
-            "       Conta outraConta = minhaConta;",
-            "       outraConta.saldo += 1000.0;",
-            "       System.out.println(minhaConta.saldo);",
-            "   }",
-            "}"
-        ],
-        "lastPart": "",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "Imprime 1500.0"
-            },
-            {
-                "letter": "B",
-                "text": "Imprime 500.0"
-            },
-            {
-                "letter": "C",
-                "text": "Imprime 1000.0"
-            },
-            {
-                "letter": "D",
-                "text": "Imprime 2000.0"
-            },
-            {
-                "letter": "E",
-                "text": "Imprime 5000.0"
-            }
-        ],
-        "correctAnswer": "A"
-    },
-    {
-        "code": "7",
-        "technology": "Java",
-        "complexity": "hard",
-        "firstPart": "Java hard enunciado",
-        "codeParts": [
-            "public class Teste {",
-            "   public static void main(String [] args) {",
-            "       Conta minhaConta = new Conta();",
-            "       minhaConta.saldo = 500.0;",
-            "       Conta outraConta = minhaConta;",
-            "       outraConta.saldo += 1000.0;",
-            "       System.out.println(minhaConta.saldo);",
-            "   }",
-            "}"
-        ],
-        "lastPart": "",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "Imprime 1500.0"
-            },
-            {
-                "letter": "B",
-                "text": "Imprime 500.0"
-            },
-            {
-                "letter": "C",
-                "text": "Imprime 1000.0"
-            },
-            {
-                "letter": "D",
-                "text": "Imprime 2000.0"
-            },
-            {
-                "letter": "E",
-                "text": "Imprime 5000.0"
-            }
-        ],
-        "correctAnswer": "A"
-    },
-    {
-        "code": "8",
-        "technology": "Spring",
-        "complexity": "hard",
-        "firstPart": "Spring hard enunciado",
-        "codeParts": [
-            "public class Teste {",
-            "   public static void main(String [] args) {",
-            "       Conta minhaConta = new Conta();",
-            "       minhaConta.saldo = 500.0;",
-            "       Conta outraConta = minhaConta;",
-            "       outraConta.saldo += 1000.0;",
-            "       System.out.println(minhaConta.saldo);",
-            "   }",
-            "}"
-        ],
-        "lastPart": "",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "Imprime 1500.0"
-            },
-            {
-                "letter": "B",
-                "text": "Imprime 500.0"
-            },
-            {
-                "letter": "C",
-                "text": "Imprime 1000.0"
-            },
-            {
-                "letter": "D",
-                "text": "Imprime 2000.0"
-            },
-            {
-                "letter": "E",
-                "text": "Imprime 5000.0"
-            }
-        ],
-        "correctAnswer": "A"
-    },
-    {
-        "code": "10",
-        "technology": "Java",
-        "complexity": "basic",
-        "firstPart": "Java basic 2 enunciado",
-        "codeParts": [
-            "public static synchronized void(String[] args) throws",
-            "InterruptedException {",
-            "   Thread t = new Thread();",
-            "   t.start();",
-            "   System.out.println(\"X\")",
-            "   t.wait(10000);",
-            "   System.out.println(\"Y\")",
-            "}"
-        ],
-        "lastPart": "Qual é o resultado desse código?",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "Exibe X e finaliza."
-            },
-            {
-                "letter": "B",
-                "text": "Exibe X e nunca finaliza"
-            },
-            {
-                "letter": "C",
-                "text": "Exibe XY e finaliza quase imediatamente."
-            },
-            {
-                "letter": "D",
-                "text": "Exibe XY com um atraso de 10 segundos entre X e Y."
-            },
-            {
-                "letter": "E",
-                "text": "Exibe XY com um atraso de 10000 segundos entre X e Y."
-            },
-            {
-                "letter": "F",
-                "text": "O código não compila."
-            },
-            {
-                "letter": "G",
-                "text": "É lançada uma exceção no tempo de execução."
-            }
-        ],
-        "correctAnswer": "A"
-    },
-    {
-        "code": "11",
-        "technology": "Spring",
-        "complexity": "basic",
-        "firstPart": "Spring basic 2 enunciado",
-        "codeParts": [
-            "public static synchronized void(String[] args) throws",
-            "InterruptedException {",
-            "   Thread t = new Thread();",
-            "   t.start();",
-            "   System.out.println(\"X\")",
-            "   t.wait(10000);",
-            "   System.out.println(\"Y\")",
-            "}"
-        ],
-        "lastPart": "Qual é o resultado desse código?",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "Exibe X e finaliza."
-            },
-            {
-                "letter": "B",
-                "text": "Exibe X e nunca finaliza"
-            },
-            {
-                "letter": "C",
-                "text": "Exibe XY e finaliza quase imediatamente."
-            },
-            {
-                "letter": "D",
-                "text": "Exibe XY com um atraso de 10 segundos entre X e Y."
-            },
-            {
-                "letter": "E",
-                "text": "Exibe XY com um atraso de 10000 segundos entre X e Y."
-            },
-            {
-                "letter": "F",
-                "text": "O código não compila."
-            },
-            {
-                "letter": "G",
-                "text": "É lançada uma exceção no tempo de execução."
-            }
-        ],
-        "correctAnswer": "A"
-    },
-    {
-        "code": "12",
-        "technology": "Java",
-        "complexity": "basic",
-        "firstPart": "Java basic 2 enunciado",
-        "codeParts": [
-            "public static synchronized void(String[] args) throws",
-            "InterruptedException {",
-            "   Thread t = new Thread();",
-            "   t.start();",
-            "   System.out.println(\"X\")",
-            "   t.wait(10000);",
-            "   System.out.println(\"Y\")",
-            "}"
-        ],
-        "lastPart": "Qual é o resultado desse código?",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "Exibe X e finaliza."
-            },
-            {
-                "letter": "B",
-                "text": "Exibe X e nunca finaliza"
-            },
-            {
-                "letter": "C",
-                "text": "Exibe XY e finaliza quase imediatamente."
-            },
-            {
-                "letter": "D",
-                "text": "Exibe XY com um atraso de 10 segundos entre X e Y."
-            },
-            {
-                "letter": "E",
-                "text": "Exibe XY com um atraso de 10000 segundos entre X e Y."
-            },
-            {
-                "letter": "F",
-                "text": "O código não compila."
-            },
-            {
-                "letter": "G",
-                "text": "É lançada uma exceção no tempo de execução."
-            }
-        ],
-        "correctAnswer": "A"
-    },
-    {
-        "code": "13",
-        "technology": "Java",
-        "complexity": "basic",
-        "firstPart": "Java basic enunciado",
-        "codeParts": [
-            "public static synchronized void(String[] args) throws",
-            "InterruptedException {",
-            "   Thread t = new Thread();",
-            "   t.start();",
-            "   System.out.println(\"X\")",
-            "   t.wait(10000);",
-            "   System.out.println(\"Y\")",
-            "}"
-        ],
-        "lastPart": "Qual é o resultado?",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "Exibe X e finaliza."
-            },
-            {
-                "letter": "B",
-                "text": "Exibe X e nunca finaliza"
-            },
-            {
-                "letter": "C",
-                "text": "Exibe XY e finaliza quase imediatamente."
-            },
-            {
-                "letter": "D",
-                "text": "Exibe XY com um atraso de 10 segundos entre X e Y."
-            },
-            {
-                "letter": "E",
-                "text": "Exibe XY com um atraso de 10000 segundos entre X e Y."
-            },
-            {
-                "letter": "F",
-                "text": "O código não compila."
-            },
-            {
-                "letter": "G",
-                "text": "É lançada uma exceção no tempo de execução."
-            }
-        ],
-        "correctAnswer": "G"
-    },
-    {
-        "code": "14",
-        "technology": "Spring",
-        "complexity": "basic",
-        "firstPart": "Spring basic enunciado",
-        "codeParts": [
-            "public static synchronized void(String[] args) throws",
-            "InterruptedException {",
-            "   Thread t = new Thread();",
-            "   t.start();",
-            "   System.out.println(\"X\")",
-            "   t.wait(10000);",
-            "   System.out.println(\"Y\")",
-            "}"
-        ],
-        "lastPart": "Qual é o resultado desse código?",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "Exibe X e finaliza."
-            },
-            {
-                "letter": "B",
-                "text": "Exibe X e nunca finaliza"
-            },
-            {
-                "letter": "C",
-                "text": "Exibe XY e finaliza quase imediatamente."
-            },
-            {
-                "letter": "D",
-                "text": "Exibe XY com um atraso de 10 segundos entre X e Y."
-            },
-            {
-                "letter": "E",
-                "text": "Exibe XY com um atraso de 10000 segundos entre X e Y."
-            },
-            {
-                "letter": "F",
-                "text": "O código não compila."
-            },
-            {
-                "letter": "G",
-                "text": "É lançada uma exceção no tempo de execução."
-            }
-        ],
-        "correctAnswer": "A"
-    },
-    {
-        "code": "15",
-        "technology": "Java",
-        "complexity": "basic",
-        "firstPart": "Java basic enunciado",
-        "codeParts": [
-            "public class Jogo {",
-            "//Código omitido",
-            "   private Componente comp;",
-            "   public Jogo(Usuario usuario){",
-            "   this.comp = usuario;",
-            "   }",
-            "}"
-        ],
-        "lastPart": "Qual dos motivos abaixo explica a razão desse acontecimento?",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "Não podemos atribuir porque é um elemento privado."
-            },
-            {
-                "letter": "B",
-                "text": "O uso da palavra reservada this está errado."
-            },
-            {
-                "letter": "C",
-                "text": "Os atributos não podem ter o mesmo nome"
-            },
-            {
-                "letter": "D",
-                "text": "Está sendo feita uma atribuição de objetos de tipos diferentes."
-            },
-            {
-                "letter": "E",
-                "text": "Nenhuma das alternativas."
-            }
-        ],
-        "correctAnswer": "D"
-    },
-    {
-        "code": "16",
-        "technology": "Java",
-        "complexity": "medium",
-        "firstPart": "Java medium enunciado",
-        "codeParts": [
-            "TESTE16 MEDIUM",
-            "TESTE16 MEDIUM",
-            "TESTE16 MEDIUM",
-            "TESTE16 MEDIUM",
-            "TESTE16 MEDIUM",
-            "TESTE16 MEDIUM",
-            "TESTE16 MEDIUM",
-            "TESTE16 MEDIUM",
-            "TESTE16 MEDIUM"
-        ],
-        "lastPart": "",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "TESTE16 MEDIUM"
-            },
-            {
-                "letter": "B",
-                "text": "Imprime 500.0"
-            },
-            {
-                "letter": "C",
-                "text": "Imprime 1000.0"
-            },
-            {
-                "letter": "D",
-                "text": "Imprime 2000.0"
-            },
-            {
-                "letter": "E",
-                "text": "Imprime 5000.0"
-            }
-        ],
-        "correctAnswer": "A"
-    },
-    {
-        "code": "17",
-        "technology": "Spring",
-        "complexity": "medium",
-        "firstPart": "Spring medium enunciado",
-        "codeParts": [
-            "TESTE17 MEDIUM",
-            "TESTE17 MEDIUM",
-            "TESTE17 MEDIUM",
-            "TESTE17 MEDIUM",
-            "TESTE17 MEDIUM",
-            "TESTE17 MEDIUM",
-            "TESTE17 MEDIUM",
-            "TESTE17 MEDIUM",
-            "TESTE17 MEDIUM"
-        ],
-        "lastPart": "",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "Imprime 1500.0"
-            },
-            {
-                "letter": "B",
-                "text": "TESTE17 MEDIUM"
-            },
-            {
-                "letter": "C",
-                "text": "Imprime 1000.0"
-            },
-            {
-                "letter": "D",
-                "text": "Imprime 2000.0"
-            },
-            {
-                "letter": "E",
-                "text": "Imprime 5000.0"
-            }
-        ],
-        "correctAnswer": "B"
-    },
-    {
-        "code": "18",
-        "technology": "Java",
-        "complexity": "medium",
-        "firstPart": "Java medium enunciado",
-        "codeParts": [
-            "TESTE18 MEDIUM",
-            "TESTE18 MEDIUM",
-            "TESTE18 MEDIUM",
-            "TESTE18 MEDIUM",
-            "TESTE18 MEDIUM",
-            "TESTE18 MEDIUM",
-            "TESTE18 MEDIUM",
-            "TESTE18 MEDIUM",
-            "TESTE18 MEDIUM"
-        ],
-        "lastPart": "",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "Imprime 1500.0"
-            },
-            {
-                "letter": "B",
-                "text": "Imprime 500.0"
-            },
-            {
-                "letter": "C",
-                "text": "TESTE18 MEDIUM"
-            },
-            {
-                "letter": "D",
-                "text": "Imprime 2000.0"
-            },
-            {
-                "letter": "E",
-                "text": "Imprime 5000.0"
-            }
-        ],
-        "correctAnswer": "C"
-    },
-    {
-        "code": "19",
-        "technology": "Java",
-        "complexity": "hard",
-        "firstPart": "Java hard enunciado",
-        "codeParts": [
-            "TESTE19 HARD",
-            "TESTE19 HARD",
-            "TESTE19 HARD",
-            "TESTE19 HARD",
-            "TESTE19 HARD",
-            "TESTE19 HARD",
-            "TESTE19 HARD",
-            "TESTE19 HARD",
-            "TESTE19 HARD"
-        ],
-        "lastPart": "",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "TESTE19 HARD"
-            },
-            {
-                "letter": "B",
-                "text": "Imprime 500.0"
-            },
-            {
-                "letter": "C",
-                "text": "Imprime 1000.0"
-            },
-            {
-                "letter": "D",
-                "text": "Imprime 2000.0"
-            },
-            {
-                "letter": "E",
-                "text": "Imprime 5000.0"
-            }
-        ],
-        "correctAnswer": "A"
-    },
-    {
-        "code": "20",
-        "technology": "Spring",
-        "complexity": "hard",
-        "firstPart": "Spring hard enunciado",
-        "codeParts": [
-            "TESTE20 HARD",
-            "TESTE20 HARD",
-            "TESTE20 HARD",
-            "TESTE20 HARD",
-            "TESTE20 HARD",
-            "TESTE20 HARD",
-            "TESTE20 HARD",
-            "TESTE20 HARD",
-            "TESTE20 HARD"
-        ],
-        "lastPart": "",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "Imprime 1500.0"
-            },
-            {
-                "letter": "B",
-                "text": "TESTE20 HARD"
-            },
-            {
-                "letter": "C",
-                "text": "Imprime 1000.0"
-            },
-            {
-                "letter": "D",
-                "text": "Imprime 2000.0"
-            },
-            {
-                "letter": "E",
-                "text": "Imprime 5000.0"
-            }
-        ],
-        "correctAnswer": "B"
-    },
-    {
-        "code": "21",
-        "technology": "Java",
-        "complexity": "hard",
-        "firstPart": "Java hard enunciado",
-        "codeParts": [
-            "TESTE21 HARD",
-            "TESTE21 HARD",
-            "TESTE21 HARD",
-            "TESTE21 HARD",
-            "TESTE21 HARD",
-            "TESTE21 HARD",
-            "TESTE21 HARD",
-            "TESTE21 HARD",
-            "TESTE21 HARD"
-        ],
-        "lastPart": "",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "Imprime 1500.0"
-            },
-            {
-                "letter": "B",
-                "text": "Imprime 500.0"
-            },
-            {
-                "letter": "C",
-                "text": "TESTE21 HARD"
-            },
-            {
-                "letter": "D",
-                "text": "Imprime 2000.0"
-            },
-            {
-                "letter": "E",
-                "text": "Imprime 5000.0"
-            }
-        ],
-        "correctAnswer": "C"
-    },
-    {
-        "code": "22",
-        "technology": "Java",
-        "complexity": "basic",
-        "firstPart": "Java basic 2 enunciado",
-        "codeParts": [
-            "TESTE22 BASIC",
-            "TESTE22 BASIC",
-            "TESTE22 BASIC",
-            "TESTE22 BASIC",
-            "TESTE22 BASIC",
-            "TESTE22 BASIC",
-            "TESTE22 BASIC",
-            "TESTE22 BASIC"
-        ],
-        "lastPart": "Qual é o resultado desse código?",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "TESTE22 BASIC"
-            },
-            {
-                "letter": "B",
-                "text": "Exibe X e nunca finaliza"
-            },
-            {
-                "letter": "C",
-                "text": "Exibe XY e finaliza quase imediatamente."
-            },
-            {
-                "letter": "D",
-                "text": "Exibe XY com um atraso de 10 segundos entre X e Y."
-            },
-            {
-                "letter": "E",
-                "text": "Exibe XY com um atraso de 10000 segundos entre X e Y."
-            },
-            {
-                "letter": "F",
-                "text": "O código não compila."
-            },
-            {
-                "letter": "G",
-                "text": "É lançada uma exceção no tempo de execução."
-            }
-        ],
-        "correctAnswer": "A"
-    },
-    {
-        "code": "23",
-        "technology": "Spring",
-        "complexity": "basic",
-        "firstPart": "Spring basic 2 enunciado",
-        "codeParts": [
-            "TESTE23 BASIC",
-            "TESTE23 BASIC",
-            "TESTE23 BASIC",
-            "TESTE23 BASIC",
-            "TESTE23 BASIC",
-            "TESTE23 BASIC",
-            "TESTE23 BASIC",
-            "TESTE23 BASIC"
-        ],
-        "lastPart": "Qual é o resultado desse código?",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "Exibe X e finaliza."
-            },
-            {
-                "letter": "B",
-                "text": "TESTE23 BASIC"
-            },
-            {
-                "letter": "C",
-                "text": "Exibe XY e finaliza quase imediatamente."
-            },
-            {
-                "letter": "D",
-                "text": "Exibe XY com um atraso de 10 segundos entre X e Y."
-            },
-            {
-                "letter": "E",
-                "text": "Exibe XY com um atraso de 10000 segundos entre X e Y."
-            },
-            {
-                "letter": "F",
-                "text": "O código não compila."
-            },
-            {
-                "letter": "G",
-                "text": "É lançada uma exceção no tempo de execução."
-            }
-        ],
-        "correctAnswer": "B"
-    },
-    {
-        "code": "24",
-        "technology": "Java",
-        "complexity": "basic",
-        "firstPart": "Java basic 2 enunciado",
-        "codeParts": [
-            "TESTE24 BASIC",
-            "TESTE24 BASIC",
-            "TESTE24 BASIC",
-            "TESTE24 BASIC",
-            "TESTE24 BASIC",
-            "TESTE24 BASIC",
-            "TESTE24 BASIC",
-            "TESTE24 BASIC"
-        ],
-        "lastPart": "Qual é o resultado desse código?",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "Exibe X e finaliza."
-            },
-            {
-                "letter": "B",
-                "text": "Exibe X e nunca finaliza"
-            },
-            {
-                "letter": "C",
-                "text": "TESTE24 BASIC"
-            },
-            {
-                "letter": "D",
-                "text": "Exibe XY com um atraso de 10 segundos entre X e Y."
-            },
-            {
-                "letter": "E",
-                "text": "Exibe XY com um atraso de 10000 segundos entre X e Y."
-            },
-            {
-                "letter": "F",
-                "text": "O código não compila."
-            },
-            {
-                "letter": "G",
-                "text": "É lançada uma exceção no tempo de execução."
-            }
-        ],
-        "correctAnswer": "C"
-    },
-    {
-        "code": "25",
-        "technology": "Spring",
-        "complexity": "basic",
-        "firstPart": "Spring basic 2 enunciado",
-        "codeParts": [
-            "TESTE25 BASIC",
-            "TESTE25 BASIC",
-            "TESTE25 BASIC",
-            "TESTE25 BASIC",
-            "TESTE25 BASIC",
-            "TESTE25 BASIC",
-            "TESTE25 BASIC",
-            "TESTE25 BASIC"
-        ],
-        "lastPart": "Qual é o resultado desse código?",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "Exibe X e finaliza."
-            },
-            {
-                "letter": "B",
-                "text": "TESTE25 BASIC"
-            },
-            {
-                "letter": "C",
-                "text": "Exibe XY e finaliza quase imediatamente."
-            },
-            {
-                "letter": "D",
-                "text": "Exibe XY com um atraso de 10 segundos entre X e Y."
-            },
-            {
-                "letter": "E",
-                "text": "Exibe XY com um atraso de 10000 segundos entre X e Y."
-            },
-            {
-                "letter": "F",
-                "text": "O código não compila."
-            },
-            {
-                "letter": "G",
-                "text": "É lançada uma exceção no tempo de execução."
-            }
-        ],
-        "correctAnswer": "B"
-    },
-    {
-        "code": "26",
-        "technology": "Java",
-        "complexity": "basic",
-        "firstPart": "Java basic 2 enunciado",
-        "codeParts": [
-            "TESTE26 BASIC",
-            "TESTE26 BASIC",
-            "TESTE26 BASIC",
-            "TESTE26 BASIC",
-            "TESTE26 BASIC",
-            "TESTE26 BASIC",
-            "TESTE26 BASIC",
-            "TESTE26 BASIC"
-        ],
-        "lastPart": "Qual é o resultado desse código?",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "Exibe X e finaliza."
-            },
-            {
-                "letter": "B",
-                "text": "Exibe X e nunca finaliza"
-            },
-            {
-                "letter": "C",
-                "text": "TESTE26 BASIC"
-            },
-            {
-                "letter": "D",
-                "text": "Exibe XY com um atraso de 10 segundos entre X e Y."
-            },
-            {
-                "letter": "E",
-                "text": "Exibe XY com um atraso de 10000 segundos entre X e Y."
-            },
-            {
-                "letter": "F",
-                "text": "O código não compila."
-            },
-            {
-                "letter": "G",
-                "text": "É lançada uma exceção no tempo de execução."
-            }
-        ],
-        "correctAnswer": "C"
-    },
-    {
-        "code": "27",
-        "technology": "Spring",
-        "complexity": "basic",
-        "firstPart": "Spring basic 2 enunciado",
-        "codeParts": [
-            "TESTE27 BASIC",
-            "TESTE27 BASIC",
-            "TESTE27 BASIC",
-            "TESTE27 BASIC",
-            "TESTE27 BASIC",
-            "TESTE27 BASIC",
-            "TESTE27 BASIC",
-            "TESTE27 BASIC"
-        ],
-        "lastPart": "Qual é o resultado desse código?",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "Exibe X e finaliza."
-            },
-            {
-                "letter": "B",
-                "text": "TESTE27 BASIC"
-            },
-            {
-                "letter": "C",
-                "text": "Exibe XY e finaliza quase imediatamente."
-            },
-            {
-                "letter": "D",
-                "text": "Exibe XY com um atraso de 10 segundos entre X e Y."
-            },
-            {
-                "letter": "E",
-                "text": "Exibe XY com um atraso de 10000 segundos entre X e Y."
-            },
-            {
-                "letter": "F",
-                "text": "O código não compila."
-            },
-            {
-                "letter": "G",
-                "text": "É lançada uma exceção no tempo de execução."
-            }
-        ],
-        "correctAnswer": "B"
-    },
-    {
-        "code": "28",
-        "technology": "Java",
-        "complexity": "basic",
-        "firstPart": "Java basic 2 enunciado",
-        "codeParts": [
-            "TESTE28 BASIC",
-            "TESTE28 BASIC",
-            "TESTE28 BASIC",
-            "TESTE28 BASIC",
-            "TESTE28 BASIC",
-            "TESTE28 BASIC",
-            "TESTE28 BASIC",
-            "TESTE28 BASIC"
-        ],
-        "lastPart": "Qual é o resultado desse código?",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "Exibe X e finaliza."
-            },
-            {
-                "letter": "B",
-                "text": "Exibe X e nunca finaliza"
-            },
-            {
-                "letter": "C",
-                "text": "TESTE28 BASIC"
-            },
-            {
-                "letter": "D",
-                "text": "Exibe XY com um atraso de 10 segundos entre X e Y."
-            },
-            {
-                "letter": "E",
-                "text": "Exibe XY com um atraso de 10000 segundos entre X e Y."
-            },
-            {
-                "letter": "F",
-                "text": "O código não compila."
-            },
-            {
-                "letter": "G",
-                "text": "É lançada uma exceção no tempo de execução."
-            }
-        ],
-        "correctAnswer": "C"
-    },
-    {
-        "code": "29",
-        "technology": "Cobol",
-        "complexity": "basic",
-        "firstPart": "Spring basic 2 enunciado",
-        "codeParts": [
-            "TESTE29 Cobol",
-            "TESTE29 BASIC",
-            "TESTE29 BASIC",
-            "TESTE29 BASIC",
-            "TESTE29 BASIC",
-            "TESTE29 BASIC",
-            "TESTE29 BASIC",
-            "TESTE29 BASIC"
-        ],
-        "lastPart": "Qual é o resultado desse código?",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "Exibe X e finaliza."
-            },
-            {
-                "letter": "B",
-                "text": "TESTE29 BASIC"
-            },
-            {
-                "letter": "C",
-                "text": "Exibe XY e finaliza quase imediatamente."
-            },
-            {
-                "letter": "D",
-                "text": "Exibe XY com um atraso de 10 segundos entre X e Y."
-            },
-            {
-                "letter": "E",
-                "text": "Exibe XY com um atraso de 10000 segundos entre X e Y."
-            },
-            {
-                "letter": "F",
-                "text": "O código não compila."
-            },
-            {
-                "letter": "G",
-                "text": "É lançada uma exceção no tempo de execução."
-            }
-        ],
-        "correctAnswer": "B"
-    },
-    {
-        "code": "30",
-        "technology": "Java",
-        "complexity": "basic",
-        "firstPart": "Java basic 2 enunciado",
-        "codeParts": [
-            "TESTE30 BASIC",
-            "TESTE30 BASIC",
-            "TESTE30 BASIC",
-            "TESTE30 BASIC",
-            "TESTE30 BASIC",
-            "TESTE30 BASIC",
-            "TESTE30 BASIC",
-            "TESTE30 BASIC"
-        ],
-        "lastPart": "Qual é o resultado desse código?",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "Exibe X e finaliza."
-            },
-            {
-                "letter": "B",
-                "text": "Exibe X e nunca finaliza"
-            },
-            {
-                "letter": "C",
-                "text": "TESTE30 BASIC"
-            },
-            {
-                "letter": "D",
-                "text": "Exibe XY com um atraso de 10 segundos entre X e Y."
-            },
-            {
-                "letter": "E",
-                "text": "Exibe XY com um atraso de 10000 segundos entre X e Y."
-            },
-            {
-                "letter": "F",
-                "text": "O código não compila."
-            },
-            {
-                "letter": "G",
-                "text": "É lançada uma exceção no tempo de execução."
-            }
-        ],
-        "correctAnswer": "C"
-    },
-    {
-        "code": "31",
         "technology": "JSF",
         "complexity": "medium",
         "firstPart": "Como é possível acessar o valor de um managed bean em uma página XHTML?",
@@ -1324,7 +27,7 @@
         "correctAnswer": "B"
     },
     {
-        "code": "32",
+        "code": "2",
         "technology": "JSF",
         "complexity": "medium",
         "firstPart": "Quais das seguintes formas não é uma maneira válida de declarar um bean JSF?",
@@ -1351,7 +54,7 @@
         "correctAnswer": "D"
     },
     {
-        "code": "33",
+        "code": "3",
         "technology": "JSF",
         "complexity": "medium",
         "firstPart": "Qual dos seguintes componentes abaixo é um componente de entrada no JSF?",
@@ -1378,7 +81,7 @@
         "correctAnswer": "B"
     },
     {
-        "code": "34",
+        "code": "4",
         "technology": "JSF",
         "complexity": "medium",
         "firstPart": "Action e actionListener são elementos JSF utilizados para execução de comandos da aplicação. Qual deles aciona navegação?",
@@ -1405,7 +108,7 @@
         "correctAnswer": "A"
     },
     {
-        "code": "35",
+        "code": "5",
         "technology": "JSF",
         "complexity": "medium",
         "firstPart": "JSF possui diferente escopos para seus managed beans. Qual escopo dentre os listados abaixo é o mais duradouro (ou seja, permanece mais tempo ativo na aplicação)?",
@@ -1432,7 +135,7 @@
         "correctAnswer": "C"
     },
     {
-        "code": "36",
+        "code": "6",
         "technology": "JSF",
         "complexity": "medium",
         "firstPart": "Qual a forma mais simples de tornar um campo obrigatório no JSF?",
@@ -1459,7 +162,7 @@
         "correctAnswer": "D"
     },
     {
-        "code": "37",
+        "code": "7",
         "technology": "JSF",
         "complexity": "medium",
         "firstPart": "Como é possível redirecionar um usuário durante a execução de um método de “action” da aplicação no JSF?",
@@ -1486,7 +189,7 @@
         "correctAnswer": "C"
     },
     {
-        "code": "38",
+        "code": "8",
         "technology": "JSF",
         "complexity": "medium",
         "firstPart": "É possível desativar a exibição de um componente JSF?",
@@ -1513,7 +216,7 @@
         "correctAnswer": "A"
     },
     {
-        "code": "39",
+        "code": "9",
         "technology": "JSF",
         "complexity": "medium",
         "firstPart": "Que componente é utilizado para exibição de mensagens de erro em páginas JSF?",
@@ -1540,7 +243,7 @@
         "correctAnswer": "D"
     },
     {
-        "code": "40",
+        "code": "10",
         "technology": "JSF",
         "complexity": "medium",
         "firstPart": "Para que serve a tag f:view no JSF?",
@@ -1565,5 +268,1910 @@
             }
         ],
         "correctAnswer": "B"
+    },
+    {
+        "code": "11",
+        "technology": "Java",
+        "complexity": "basic",
+        "firstPart": "Qual é o resultado do código a seguir?",
+        "codeParts": [
+            "int b = 5;",
+            "b *= 10;",
+            "System.out.println(b);"
+        ],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "10"
+            },
+            {
+                "letter": "B",
+                "text": "5"
+            },
+            {
+                "letter": "C",
+                "text": "25"
+            },
+            {
+                "letter": "D",
+                "text": "50"
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "D"
+    },
+    {
+        "code": "12",
+        "technology": "Java",
+        "complexity": "basic",
+        "firstPart": "Marque a opção em que aparecem somente os operadores aritméticos disponíveis em Java:",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "+, >, -, ="
+            },
+            {
+                "letter": "B",
+                "text": "++, --, =="
+            },
+            {
+                "letter": "C",
+                "text": "+, -, *, /, %"
+            },
+            {
+                "letter": "D",
+                "text": "++, --, **, //"
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "C"
+    },
+    {
+        "code": "13",
+        "technology": "Java",
+        "complexity": "basic",
+        "firstPart": "Marque a opção em que aparecem somente os operadores relacionais disponíveis em Java: ",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "||, &&, !, +, -"
+            },
+            {
+                "letter": "B",
+                "text": "==, !=, >, <, >=, <="
+            },
+            {
+                "letter": "C",
+                "text": "==, ++, --"
+            },
+            {
+                "letter": "D",
+                "text": ">, <, =, /, *"
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "B"
+    },
+    {
+        "code": "14",
+        "technology": "Java",
+        "complexity": "basic",
+        "firstPart": "Qual operador lógico retorna verdadeiro apenas quando todas as expressões lógicas são verdadeiras?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "&&"
+            },
+            {
+                "letter": "B",
+                "text": "||"
+            },
+            {
+                "letter": "C",
+                "text": "++"
+            },
+            {
+                "letter": "D",
+                "text": "!"
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "A"
+    },
+    {
+        "code": "15",
+        "technology": "Java",
+        "complexity": "basic",
+        "firstPart": "Qual é a função dos operadores incrementais?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Diminuir o valor de uma variável em 1."
+            },
+            {
+                "letter": "B",
+                "text": "Dobrar o valor de uma variável."
+            },
+            {
+                "letter": "C",
+                "text": "Aumentar o valor de uma variável em 1."
+            },
+            {
+                "letter": "D",
+                "text": "Dividir o valor de uma variável por 10."
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "C"
+    },
+    {
+        "code": "16",
+        "technology": "Java",
+        "complexity": "basic",
+        "firstPart": "Quais estruturas de desvios condicionais estão disponíveis em Java? ",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "do/while, for"
+            },
+            {
+                "letter": "B",
+                "text": "if/else, switch"
+            },
+            {
+                "letter": "C",
+                "text": "if/else, do/while"
+            },
+            {
+                "letter": "D",
+                "text": "do/while, switch/case"
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "B"
+    },
+    {
+        "code": "17",
+        "technology": "Java",
+        "complexity": "basic",
+        "firstPart": "Qual estrutura de repetição executa, pelo menos uma vez, o bloco de instruções?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "while"
+            },
+            {
+                "letter": "B",
+                "text": "for"
+            },
+            {
+                "letter": "C",
+                "text": "do/while"
+            },
+            {
+                "letter": "D",
+                "text": "if/else"
+            },
+            {
+                "letter": "D",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "C"
+    },
+    {
+        "code": "18",
+        "technology": "Java",
+        "complexity": "basic",
+        "firstPart": "Quais são as partes principais do laço de repetição for?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Expressão de inicialização, expressão de iteração e expressão de finalização."
+            },
+            {
+                "letter": "B",
+                "text": "Declaração e inicialização de variáveis, expressão condicional e expressão de iteração."
+            },
+            {
+                "letter": "C",
+                "text": "Declaração de variáveis, expressão de finalização e expressão condicional."
+            },
+            {
+                "letter": "D",
+                "text": "Expressão condicional, declaração de variáveis e verificação lógica."
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "B"
+    },
+    {
+        "code": "19",
+        "technology": "Java",
+        "complexity": "basic",
+        "firstPart": "Quantos números serão exibidos quando o código a seguir for executado?",
+        "codeParts": [
+            "for (int i = 5; i <= 10; i++) { ",
+            "System.out.println(i); ",
+            "}"
+        ],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "5"
+            },
+            {
+                "letter": "B",
+                "text": "6"
+            },
+            {
+                "letter": "C",
+                "text": "10"
+            },
+            {
+                "letter": "D",
+                "text": "15"
+            },
+            {
+                "letter": "E",
+                "text": "50"
+            }
+        ],
+        "correctAnswer": "B"
+    },
+    {
+        "code": "20",
+        "technology": "Java",
+        "complexity": "basic",
+        "firstPart": "Qual é a função do comando break?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Interromper o programa."
+            },
+            {
+                "letter": "B",
+                "text": "Interromper uma variável."
+            },
+            {
+                "letter": "C",
+                "text": "Interromper um laço de repetição."
+            },
+            {
+                "letter": "D",
+                "text": "Interromper todas as ações do programa."
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "C"
+    },
+    {
+        "code": "21",
+        "technology": "Java",
+        "complexity": "basic",
+        "firstPart": "Qual das seguintes alternativas não é um tipo primitivo? ",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "byte"
+            },
+            {
+                "letter": "B",
+                "text": "int"
+            },
+            {
+                "letter": "C",
+                "text": "char"
+            },
+            {
+                "letter": "D",
+                "text": "String"
+            },
+            {
+                "letter": "E",
+                "text": "boolean"
+            }
+        ],
+        "correctAnswer": "D"
+    },
+    {
+        "code": "22",
+        "technology": "Java",
+        "complexity": "basic",
+        "firstPart": "O literal 42.23f representa que tipo primitivo?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "long"
+            },
+            {
+                "letter": "B",
+                "text": "float"
+            },
+            {
+                "letter": "C",
+                "text": "double"
+            },
+            {
+                "letter": "D",
+                "text": "int"
+            },
+            {
+                "letter": "E",
+                "text": "boolean"
+            }
+        ],
+        "correctAnswer": "B"
+    },
+    {
+        "code": "23",
+        "technology": "Java",
+        "complexity": "basic",
+        "firstPart": "Qual sequência de caracteres de escape tem a função de pular uma linha? ",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "\\\\"
+            },
+            {
+                "letter": "B",
+                "text": "\\r"
+            },
+            {
+                "letter": "C",
+                "text": "\\t"
+            },
+            {
+                "letter": "D",
+                "text": "\\n"
+            },
+            {
+                "letter": "E",
+                "text": "\\b"
+            }
+        ],
+        "correctAnswer": "D"
+    },
+    {
+        "code": "24",
+        "technology": "Java",
+        "complexity": "basic",
+        "firstPart": "Qual das seguintes declarações de variáveis não está correta? ",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "int a = 10, b = 30"
+            },
+            {
+                "letter": "B",
+                "text": "boolean a, b, c, d, e"
+            },
+            {
+                "letter": "C",
+                "text": "double a, b = 10"
+            },
+            {
+                "letter": "D",
+                "text": "numero int = 10"
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "D"
+    },
+    {
+        "code": "25",
+        "technology": "Java",
+        "complexity": "basic",
+        "firstPart": "Qual é a função do qualificador final em uma variável?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Finalizar a variável."
+            },
+            {
+                "letter": "B",
+                "text": "Impedir que o valor da variável seja alterado."
+            },
+            {
+                "letter": "C",
+                "text": "Finalizar o programa."
+            },
+            {
+                "letter": "D",
+                "text": "Impedir que o programa utilize a variável."
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "B"
+    },
+    {
+        "code": "26",
+        "technology": "Java",
+        "complexity": "medium",
+        "firstPart": "No campo computacional, o que é um objeto?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "É a implementação de uma operação para uma classe específica."
+            },
+            {
+                "letter": "B",
+                "text": "É um elemento que representa uma entidade, abstrata ou concreta, no domínio de interesse do problema analisado."
+            },
+            {
+                "letter": "C",
+                "text": "É uma característica específica de uma classe."
+            },
+            {
+                "letter": "D",
+                "text": "É um elemento que representa um método, abstrato ou concreto, no domínio de interesse do problema analisado."
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "B"
+    },
+    {
+        "code": "27",
+        "technology": "Java",
+        "complexity": "medium",
+        "firstPart": "O que é um atributo? ",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "É um elemento que representa um método, abstrato ou concreto, no domínio de interesse do problema analisado."
+            },
+            {
+                "letter": "B",
+                "text": "É um elemento que representa uma entidade, abstrata ou concreta, no domínio de interesse do problema analisado."
+            },
+            {
+                "letter": "C",
+                "text": "É uma característica específica de um método."
+            },
+            {
+                "letter": "D",
+                "text": "É uma característica específica de um objeto."
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "D"
+    },
+    {
+        "code": "28",
+        "technology": "Java",
+        "complexity": "medium",
+        "firstPart": "Dentro do paradigma da POO, o que é uma classe? ",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "É um elemento que representa uma entidade, abstrata ou concreta, no domínio de interesse do problema analisado."
+            },
+            {
+                "letter": "B",
+                "text": "É a implementação de uma operação para uma classe específica."
+            },
+            {
+                "letter": "C",
+                "text": "É um conjunto de elementos com características comuns."
+            },
+            {
+                "letter": "D",
+                "text": "É uma característica específica de um objeto."
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "C"
+    },
+    {
+        "code": "29",
+        "technology": "Java",
+        "complexity": "medium",
+        "firstPart": " O que é um pacote? ",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "É um objeto que armazena um conjunto de atributos com características ou uma finalidade em comum."
+            },
+            {
+                "letter": "B",
+                "text": "É uma classe que armazena um conjunto de métodos com características ou uma finalidade em comum."
+            },
+            {
+                "letter": "C",
+                "text": "É um diretório que armazena um conjunto de classes com características ou uma finalidade em comum."
+            },
+            {
+                "letter": "D",
+                "text": "É um programa que armazena um conjunto de comandos com características ou uma finalidade em comum."
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "C"
+    },
+    {
+        "code": "30",
+        "technology": "Java",
+        "complexity": "medium",
+        "firstPart": "Qual das afirmações sobre encapsulamento está correta? ",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Permite ocultar os seus atributos, de modo que eles só possam ser lidos ou alterados pelos métodos da própria classe."
+            },
+            {
+                "letter": "B",
+                "text": "Permite mostrar os seus atributos, de modo que eles possam ser lidos ou alterados pelos métodos de qualquer classe."
+            },
+            {
+                "letter": "C",
+                "text": "Permite ocultar os seus atributos, de modo que eles não possam ser lidos ou alterados. "
+            },
+            {
+                "letter": "D",
+                "text": "Permite mostrar os seus atributos, de modo que eles possam ser lidos ou alterados pelos métodos da própria classe."
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "A"
+    },
+    {
+        "code": "31",
+        "technology": "Java",
+        "complexity": "medium",
+        "firstPart": "O que é instanciação? ",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "É um processo por meio do qual se realiza a implementação de um método existente."
+            },
+            {
+                "letter": "B",
+                "text": ") É um processo por meio do qual se realiza a implementação de uma classe existente."
+            },
+            {
+                "letter": "C",
+                "text": "É um processo por meio do qual se realiza a cópia de um método existente."
+            },
+            {
+                "letter": "D",
+                "text": "É um processo por meio do qual se cria um objeto a partir de uma classe concreta existente."
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "D"
+    },
+    {
+        "code": "32",
+        "technology": "Java",
+        "complexity": "medium",
+        "firstPart": "Qual o tipo de acesso que uma classe deve ter para acessar outra classe de um pacote diferente?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Padrão"
+            },
+            {
+                "letter": "B",
+                "text": "Privado"
+            },
+            {
+                "letter": "C",
+                "text": "Público"
+            },
+            {
+                "letter": "D",
+                "text": "Abstrato"
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "C"
+    },
+    {
+        "code": "33",
+        "technology": "Java",
+        "complexity": "medium",
+        "firstPart": "O que é um método? ",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "É a implementação de uma operação para uma classe específica."
+            },
+            {
+                "letter": "B",
+                "text": "É uma característica específica de um objeto."
+            },
+            {
+                "letter": "C",
+                "text": "É um elemento que representa uma entidade, abstrata ou concreta, no domínio de interesse do problema analisado."
+            },
+            {
+                "letter": "D",
+                "text": "É um conceito central na programação orientada a objetos."
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "A"
+    },
+    {
+        "code": "34",
+        "technology": "Java",
+        "complexity": "medium",
+        "firstPart": "Qual é a sintaxe de um método? ",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "<nomeDoMétodo> <modificador> <tipoRetorno> (<listaDeParâmetros>){ }"
+            },
+            {
+                "letter": "B",
+                "text": "<tipoRetorno> <modificador> <nomeDoMétodo> (<listaDeParâmetros>){ }"
+            },
+            {
+                "letter": "C",
+                "text": "<modificador> <tipoRetorno> <nomeDoMétodo> (<listaDeParâmetros>){ }"
+            },
+            {
+                "letter": "D",
+                "text": "<nomeDoMétodo> <tipoRetorno> <modificador> (<listaDeParâmetros>){ }"
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "C"
+    },
+    {
+        "code": "35",
+        "technology": "Java",
+        "complexity": "basic",
+        "firstPart": "Qual o valor que o método a seguir deve retornar? ",
+        "codeParts": [
+            "public int somar(){ ",
+            "   int a = 15, b = 3; ",
+            "   return a+b; ",
+            "}"
+        ],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "15"
+            },
+            {
+                "letter": "B",
+                "text": "18"
+            },
+            {
+                "letter": "C",
+                "text": "3"
+            },
+            {
+                "letter": "D",
+                "text": "12"
+            },
+            {
+                "letter": "E",
+                "text": "45"
+            }
+        ],
+        "correctAnswer": "B"
+    },
+    {
+        "code": "36",
+        "technology": "Java",
+        "complexity": "basic",
+        "firstPart": "Quais são os modificadores de acesso a métodos disponíveis em Java?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "public, protected, private e void."
+            },
+            {
+                "letter": "B",
+                "text": "public, abstract, private e protected."
+            },
+            {
+                "letter": "C",
+                "text": "public, protected, private e friendly."
+            },
+            {
+                "letter": "D",
+                "text": "public, abstract, void e friendly."
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "B"
+    },
+    {
+        "code": "37",
+        "technology": "Java",
+        "complexity": "medium",
+        "firstPart": "Quais são os modificadores de método disponíveis em Java?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "abstract, static, void, native e final."
+            },
+            {
+                "letter": "B",
+                "text": "abstract, native, synchronized, protected e public. //native: codificação em vários tipos de linguagem"
+            },
+            {
+                "letter": "C",
+                "text": "public, final, private, static e void."
+            },
+            {
+                "letter": "D",
+                "text": "abstract, final, native, synchronized e static."
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "D"
+    },
+    {
+        "code": "38",
+        "technology": "Java",
+        "complexity": "medium",
+        "firstPart": "Em que situação ocorre uma sobrecarga de métodos? ",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Quando dois ou mais métodos tem o mesmo nome e lista de parâmetros diferentes dentro de uma classe."
+            },
+            {
+                "letter": "B",
+                "text": "Quando dois ou mais métodos tem o mesmo nome e a mesma lista de parâmetros dentro de uma classe."
+            },
+            {
+                "letter": "C",
+                "text": "Quando dois ou mais métodos tem a mesma lista de parâmetros e nomes diferentes dentro de uma classe."
+            },
+            {
+                "letter": "D",
+                "text": "Quando dois ou mais métodos tem lista de parâmetros e nomes diferentes dentro de uma classe."
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "A"
+    },
+    {
+        "code": "39",
+        "technology": "Java",
+        "complexity": "medium",
+        "firstPart": "Qual das alternativas a seguir não é um tipo de array?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Unidimensional"
+            },
+            {
+                "letter": "B",
+                "text": "Bidimensional"
+            },
+            {
+                "letter": "C",
+                "text": "Adimensional"
+            },
+            {
+                "letter": "D",
+                "text": "Multidimensional"
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "C"
+    },
+    {
+        "code": "40",
+        "technology": "Java",
+        "complexity": "hard",
+        "firstPart": "Qual é a palavra-chave utilizada para criar um array unidimensional? ",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "array"
+            },
+            {
+                "letter": "B",
+                "text": "create"
+            },
+            {
+                "letter": "C",
+                "text": "malloc"
+            },
+            {
+                "letter": "D",
+                "text": "type"
+            },
+            {
+                "letter": "E",
+                "text": "new"
+            }
+        ],
+        "correctAnswer": "E"
+    },
+    {
+        "code": "41",
+        "technology": "Java",
+        "complexity": "hard",
+        "firstPart": "Sobre as variáveis de referência de arrays, qual alternativa está correta?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "São aquelas que fazem referências aos elementos do array."
+            },
+            {
+                "letter": "B",
+                "text": "São aquelas que fazem referências ao próprio objeto que representa o array."
+            },
+            {
+                "letter": "C",
+                "text": "É impossível atribuir um array a uma variável de referência de array já declarada."
+            },
+            {
+                "letter": "D",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            },
+            {
+                "letter": "E",
+                "text": "Há mais de uma alternativa correta."
+            }
+        ],
+        "correctAnswer": "B"
+    },
+    {
+        "code": "42",
+        "technology": "Java",
+        "complexity": "medium",
+        "firstPart": "Sobre arrays, qual alternativa está correta?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "São objetos em cujo conteúdo encontram-se diversos valores de um mesmo tipo."
+            },
+            {
+                "letter": "B",
+                "text": "Os tipos de valores dentro de um array podem ser básicos ou tipos construídos."
+            },
+            {
+                "letter": "C",
+                "text": "O índice de um array é um valor inteiro responsável por determinar uma posição dentro do array."
+            },
+            {
+                "letter": "D",
+                "text": "Um array pode ter uma ou mais dimensões."
+            },
+            {
+                "letter": "E",
+                "text": "Todas as alternativas anteriores estão corretas."
+            }
+        ],
+        "correctAnswer": "E"
+    },
+    {
+        "code": "43",
+        "technology": "Java",
+        "complexity": "medium",
+        "firstPart": "Qual é o único atributo público dos objetos de array?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "size"
+            },
+            {
+                "letter": "B",
+                "text": "length"
+            },
+            {
+                "letter": "C",
+                "text": "type"
+            },
+            {
+                "letter": "D",
+                "text": "index"
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "B"
+    },
+    {
+        "code": "44",
+        "technology": "Java",
+        "complexity": "medium",
+        "firstPart": "Com relação a herança, qual a alternativa correta?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "A herança possibilita que as classes compartilhem seus atributos e métodos entre si."
+            },
+            {
+                "letter": "B",
+                "text": "A herança possibilita que as classes se comuniquem entre si, mas não compartilhem seus atributos e métodos."
+            },
+            {
+                "letter": "C",
+                "text": "A herança possibilita que uma classe acesse apenas atributos de outra classe."
+            },
+            {
+                "letter": "D",
+                "text": "A herança possibilita que as classes compartilhem apenas seus métodos entre si."
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "A"
+    },
+    {
+        "code": "45",
+        "technology": "Java",
+        "complexity": "medium",
+        "firstPart": "Quais são os dois principais mecanismos que possibilitam a reutilização de código em Java?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Herança e agregação."
+            },
+            {
+                "letter": "B",
+                "text": "Herança e composição."
+            },
+            {
+                "letter": "C",
+                "text": "Composição e agregação."
+            },
+            {
+                "letter": "D",
+                "text": "Herança e generalização."
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "D"
+    },
+    {
+        "code": "46",
+        "technology": "Java",
+        "complexity": "medium",
+        "firstPart": "Qual a função do operador super? ",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Acessar métodos, atributos e construtores da subclasse."
+            },
+            {
+                "letter": "B",
+                "text": "Acessar métodos, atributos e construtores da superclasse."
+            },
+            {
+                "letter": "C",
+                "text": "Acessar apenas métodos e atributos da subclasse."
+            },
+            {
+                "letter": "D",
+                "text": "Acessar apenas métodos e atributos da superclasse."
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "B"
+    },
+    {
+        "code": "47",
+        "technology": "Java",
+        "complexity": "medium",
+        "firstPart": "O que é uma classe abstrata?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "É uma classe que não possui métodos."
+            },
+            {
+                "letter": "B",
+                "text": "É uma classe que não possui construtor."
+            },
+            {
+                "letter": "C",
+                "text": "É uma classe que não pode ser estendida."
+            },
+            {
+                "letter": "D",
+                "text": "É uma classe que não pode ser instanciada."
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "D"
+    },
+    {
+        "code": "48",
+        "technology": "Java",
+        "complexity": "basic",
+        "firstPart": "O que é uma classe final?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "É uma classe que não possui métodos."
+            },
+            {
+                "letter": "B",
+                "text": "É uma classe que não possui construtor."
+            },
+            {
+                "letter": "C",
+                "text": "É uma classe que não pode ser estendida."
+            },
+            {
+                "letter": "D",
+                "text": "É uma classe que não pode ser instanciada."
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "C"
+    },
+    {
+        "code": "49",
+        "technology": "Java",
+        "complexity": "medium",
+        "firstPart": "Qual a função do operador instanceof?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Verificar se uma classe possui instâncias."
+            },
+            {
+                "letter": "B",
+                "text": "Verificar se um objeto é instância de determinada classe."
+            },
+            {
+                "letter": "C",
+                "text": "Verificar se um método pertence a determinado objeto."
+            },
+            {
+                "letter": "D",
+                "text": "Verificar se um objeto pertence a determinado método."
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "B"
+    },
+    {
+        "code": "50",
+        "technology": "Java",
+        "complexity": "medium",
+        "firstPart": "O que é um construtor?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Uma estrutura responsável por construir objetos com valores aleatórios."
+            },
+            {
+                "letter": "B",
+                "text": "Uma estrutura responsável por construir objetos com valores determinados."
+            },
+            {
+                "letter": "C",
+                "text": "Uma estrutura responsável por inicializar os atributos de uma classe."
+            },
+            {
+                "letter": "D",
+                "text": "Uma estrutura responsável por construir objetos nulos."
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "B"
+    },
+    {
+        "code": "51",
+        "technology": "Java",
+        "complexity": "medium",
+        "firstPart": "Qual das alternativas a seguir não está correta?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Os construtores não devem possuir um tipo de retorno."
+            },
+            {
+                "letter": "B",
+                "text": "Os construtores podem utilizar qualquer modificador de acesso, incluindo o private."
+            },
+            {
+                "letter": "C",
+                "text": "Um método com o mesmo nome da classe é válido, mas isso não fará deste método um construtor."
+            },
+            {
+                "letter": "D",
+                "text": "Os construtores não podem ter o mesmo nome da classe."
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "D"
+    },
+    {
+        "code": "52",
+        "technology": "Java",
+        "complexity": "medium",
+        "firstPart": "O que é o construtor padrão?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "É um construtor que o próprio compilador de Java cria sempre que for definido explicitamente um método construtor mais sofisticado para a classe."
+            },
+            {
+                "letter": "B",
+                "text": "É um construtor que o próprio compilador de Java cria caso não seja definido explicitamente um método construtor mais sofisticado para a classe."
+            },
+            {
+                "letter": "C",
+                "text": "É um construtor que o próprio compilador de Java cria caso não seja definida explicitamente uma classe construtora."
+            },
+            {
+                "letter": "D",
+                "text": "É um construtor que o próprio compilador de Java cria sempre que for definido explicitamente um atributo em uma classe."
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "B"
+    },
+    {
+        "code": "53",
+        "technology": "Java",
+        "complexity": "hard",
+        "firstPart": "Com relação a interfaces, qual das alternativas a seguir está incorreta?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Uma classe pode conter características de várias interfaces."
+            },
+            {
+                "letter": "B",
+                "text": "Uma interface não possui atributos, mas pode conter constantes estáticas."
+            },
+            {
+                "letter": "C",
+                "text": "Uma interface pode ser instanciada por um programa."
+            },
+            {
+                "letter": "D",
+                "text": "As interfaces podem ser usadas livremente, pois se encontram em uma hierarquia independente"
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "C"
+    },
+    {
+        "code": "54",
+        "technology": "Java",
+        "complexity": "hard",
+        "firstPart": "Qual assinatura de método não pode existir em uma interface?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "public static void metodo()."
+            },
+            {
+                "letter": "B",
+                "text": "protected void metodo()."
+            },
+            {
+                "letter": "C",
+                "text": "private void metodo()."
+            },
+            {
+                "letter": "D",
+                "text": "default void metodo()."
+            },
+            {
+                "letter": "E",
+                "text": "static void metodo()."
+            }
+        ],
+        "correctAnswer": "B"
+    },
+    {
+        "code": "55",
+        "technology": "Java",
+        "complexity": "hard",
+        "firstPart": "Qual das alternativas a seguir não qualifica as variáveis em uma interface e seus atributos?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "public"
+            },
+            {
+                "letter": "B",
+                "text": "static"
+            },
+            {
+                "letter": "C",
+                "text": "final"
+            },
+            {
+                "letter": "D",
+                "text": "private"
+            },
+            {
+                "letter": "E",
+                "text": "Todas as alternativas anteriores estão corretas."
+            }
+        ],
+        "correctAnswer": "D"
+    },
+    {
+        "code": "56",
+        "technology": "Java",
+        "complexity": "basic",
+        "firstPart": "Qual cláusula utilizamos para indicar que um método pode gerar uma exceção?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "try"
+            },
+            {
+                "letter": "B",
+                "text": "catch"
+            },
+            {
+                "letter": "C",
+                "text": "throws"
+            },
+            {
+                "letter": "D",
+                "text": "finally"
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "C"
+    },
+    {
+        "code": "57",
+        "technology": "Java",
+        "complexity": "basic",
+        "firstPart": "Qual das alternativas a seguir está correta sobre o bloco finally?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Sempre é executado após a finalização de um bloco try."
+            },
+            {
+                "letter": "B",
+                "text": "É impossível colocar um código de depuração ou limpeza dentro dele."
+            },
+            {
+                "letter": "C",
+                "text": "Seu uso é obrigatório."
+            },
+            {
+                "letter": "D",
+                "text": "Se um bloco try aparecer logo depois de um bloco finally, será disparada uma mensagem de erro."
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "A"
+    },
+    {
+        "code": "58",
+        "technology": "Java",
+        "complexity": "basic",
+        "firstPart": "Qual comando utilizamos para efetivar o lançamento de um objeto de exceção na pilha de execução de uma aplicação Java?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "try"
+            },
+            {
+                "letter": "B",
+                "text": "catch"
+            },
+            {
+                "letter": "C",
+                "text": "throws"
+            },
+            {
+                "letter": "D",
+                "text": "catches"
+            },
+            {
+                "letter": "E",
+                "text": "throw"
+            }
+        ],
+        "correctAnswer": "E"
+    },
+    {
+        "code": "59",
+        "technology": "Java",
+        "complexity": "hard",
+        "firstPart": "Qual dessas exceções é uma exceção verificada?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "FileNotFoundException (herdeira de IOException)"
+            },
+            {
+                "letter": "B",
+                "text": "NullPointerException"
+            },
+            {
+                "letter": "C",
+                "text": "AritmeticException"
+            },
+            {
+                "letter": "D",
+                "text": "NumberFormatException"
+            },
+            {
+                "letter": "E",
+                "text": "RuntimeException"
+            }
+        ],
+        "correctAnswer": "A"
+    },
+    {
+        "code": "60",
+        "technology": "Java",
+        "complexity": "medium",
+        "firstPart": "A respeito do comentário Javadoc, indique a opção verdadeira:",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Comentários Javadoc só podem ser criados a partir de comentário de linha."
+            },
+            {
+                "letter": "B",
+                "text": "Colocando um comentário no interior de um método, este é considerado na geração da documentação."
+            },
+            {
+                "letter": "C",
+                "text": "O formato de geração da documentação Javadoc é sempre no formato .TXT."
+            },
+            {
+                "letter": "D",
+                "text": "O comentário Javadoc deve ser colocado imediatamente antes da declaração de classes, métodos, construtores e atributos, para ser considerado pelo gerador de documentação."
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "D"
+    },
+    {
+        "code": "61",
+        "technology": "Java",
+        "complexity": "basic",
+        "firstPart": "Indique o exemplo correto de comentário válido para a geração de documentação Javadoc:",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "// conteúdo da documentação"
+            },
+            {
+                "letter": "B",
+                "text": "/* conteúdo da documentação */"
+            },
+            {
+                "letter": "C",
+                "text": "/** conteúdo da documentação */"
+            },
+            {
+                "letter": "D",
+                "text": "/* conteúdo da documentação **/"
+            },
+            {
+                "letter": "E",
+                "text": "/// conteúdo da documentação ///"
+            }
+        ],
+        "correctAnswer": "C"
+    },
+    {
+        "code": "62",
+        "technology": "Java",
+        "complexity": "medium",
+        "firstPart": "Qual o formato de documento gerado pela ferramenta Javadoc?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "HTML"
+            },
+            {
+                "letter": "B",
+                "text": "PDF"
+            },
+            {
+                "letter": "C",
+                "text": ".DOC"
+            },
+            {
+                "letter": "D",
+                "text": "XML"
+            },
+            {
+                "letter": "E",
+                "text": ".TXT"
+            }
+        ],
+        "correctAnswer": "A"
+    },
+    {
+        "code": "63",
+        "technology": "Java",
+        "complexity": "basic",
+        "firstPart": "Conceitualmente, testes unitários visam testar:",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "A estrutura de uma classe."
+            },
+            {
+                "letter": "B",
+                "text": "Se o sistema funciona corretamente."
+            },
+            {
+                "letter": "C",
+                "text": "Aspectos de usabilidade da aplicação."
+            },
+            {
+                "letter": "D",
+                "text": "O funcionamento adequado de uma classe da aplicação."
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "D"
+    },
+    {
+        "code": "64",
+        "technology": "Java",
+        "complexity": "medium",
+        "firstPart": "O que é um assertion no JUnit?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "É um atributo da classe Teste."
+            },
+            {
+                "letter": "B",
+                "text": "É um parâmetro presente em todos os métodos de teste."
+            },
+            {
+                "letter": "C",
+                "text": "É uma afirmação correta a respeito do código que deve ser atendida nos testes unitários."
+            },
+            {
+                "letter": "D",
+                "text": "É um método que executa apenas no momento do carregamento do JUnit."
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta. "
+            }
+        ],
+        "correctAnswer": "C"
+    },
+    {
+        "code": "65",
+        "technology": "Java",
+        "complexity": "medium",
+        "firstPart": "O que é uma interface funcional?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Um conjunto de janelas com botões, caixas de texto e outros componentes gráficos utilizados pela aplicação."
+            },
+            {
+                "letter": "B",
+                "text": "Uma interface contendo diversos métodos abstratos."
+            },
+            {
+                "letter": "C",
+                "text": "Uma interface que contém um único método abstrato."
+            },
+            {
+                "letter": "D",
+                "text": "Uma interface que possui métodos privados de apoio a outros métodos."
+            },
+            {
+                "letter": "E",
+                "text": "Nenhuma das alternativas anteriores está correta."
+            }
+        ],
+        "correctAnswer": "C"
+    },
+    {
+        "code": "66",
+        "technology": "Java",
+        "complexity": "hard",
+        "firstPart": "Qual das alternativas a seguir NÃO é uma operação de uma coleção?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Adição de objetos."
+            },
+            {
+                "letter": "B",
+                "text": "Verificação de existência de objeto ou grupo de objetos."
+            },
+            {
+                "letter": "C",
+                "text": "Iteração pelo conjunto."
+            },
+            {
+                "letter": "D",
+                "text": "Alteração de endereço de objetos."
+            },
+            {
+                "letter": "E",
+                "text": "Recuperação de um objeto no conjunto."
+            }
+        ],
+        "correctAnswer": "D"
+    },
+    {
+        "code": "67",
+        "technology": "Java",
+        "complexity": "hard",
+        "firstPart": "Qual das alternativas a seguir NÃO é uma interface presente no Collections Framework?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Stack"
+            },
+            {
+                "letter": "B",
+                "text": "Set"
+            },
+            {
+                "letter": "C",
+                "text": "Map"
+            },
+            {
+                "letter": "D",
+                "text": "List"
+            },
+            {
+                "letter": "E",
+                "text": "Collection"
+            }
+        ],
+        "correctAnswer": "A"
+    },
+    {
+        "code": "68",
+        "technology": "Java",
+        "complexity": "medium",
+        "firstPart": "Sobre a coleção Set, qual das afirmativas está correta?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Não possui elementos duplicados."
+            },
+            {
+                "letter": "B",
+                "text": "Possui uma única implementação."
+            },
+            {
+                "letter": "C",
+                "text": "A classe HashSet cria conjuntos ordenados."
+            },
+            {
+                "letter": "D",
+                "text": "Representa uma coleção indexada."
+            },
+            {
+                "letter": "E",
+                "text": "Todas as alternativas anteriores estão corretas."
+            }
+        ],
+        "correctAnswer": "A"
+    },
+    {
+        "code": "69",
+        "technology": "Java",
+        "complexity": "hard",
+        "firstPart": "Sobre a estrutura do tipo Map, qual das afirmativas está correta?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Funciona em conjunto com a classe Dictionary."
+            },
+            {
+                "letter": "B",
+                "text": "Mapeia pares chave-valor."
+            },
+            {
+                "letter": "C",
+                "text": "Aceita chaves duplicadas."
+            },
+            {
+                "letter": "D",
+                "text": "Não pode conter elementos nulos."
+            },
+            {
+                "letter": "E",
+                "text": "Todas as alternativas anteriores estão corretas."
+            }
+        ],
+        "correctAnswer": "B"
+    },
+    {
+        "code": "70",
+        "technology": "Java",
+        "complexity": "hard",
+        "firstPart": "Sobre a coleção List, qual das afirmativas está correta?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Três de suas implementações importantes são ArrayList, LinkedList e Vector."
+            },
+            {
+                "letter": "B",
+                "text": "Existem diversos métodos relacionados ao índice do conjunto."
+            },
+            {
+                "letter": "C",
+                "text": "Para adicionar um elemento na lista, podemos determinar a posição dele informando um índice de inserção."
+            },
+            {
+                "letter": "D",
+                "text": "Permite elementos duplicados na lista."
+            },
+            {
+                "letter": "E",
+                "text": "Todas as alternativas anteriores estão corretas."
+            }
+        ],
+        "correctAnswer": "E"
+    },
+    {
+        "code": "71",
+        "technology": "Java",
+        "complexity": "hard",
+        "firstPart": "Sobre o uso de streams, qual das afirmativas está correta?",
+        "codeParts": [],
+        "lastPart": "",
+        "answers": [
+            {
+                "letter": "A",
+                "text": "Os streams podem ser utilizados para filtrar, ordenar e realizar diversos outros tipos de operações sobre uma coleção."
+            },
+            {
+                "letter": "B",
+                "text": "A partir de um stream, podemos utilizar o método map() para gerar dados de um formato diferente da coleção original."
+            },
+            {
+                "letter": "C",
+                "text": "O método filter() desconsidera todos os elementos da coleção que não satisfaçam o critério especificado pela expressão lambda."
+            },
+            {
+                "letter": "D",
+                "text": "O método skip() desconsidera os primeiros n elementos contidos na stream."
+            },
+            {
+                "letter": "E",
+                "text": "Todas as alternativas anteriores estão corretas."
+            }
+        ],
+        "correctAnswer": "E"
     }
+
 ]
