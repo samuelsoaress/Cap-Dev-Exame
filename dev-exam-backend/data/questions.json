@@ -340,47 +340,6 @@
         "correctAnswer": "A"
     },
     {
-        "code": "9",
-        "technology": "Java",
-        "complexity": "hard",
-        "firstPart": "Java hard enunciado",
-        "codeParts": [
-            "public class Teste {",
-            "   public static void main(String [] args) {",
-            "       Conta minhaConta = new Conta();",
-            "       minhaConta.saldo = 500.0;",
-            "       Conta outraConta = minhaConta;",
-            "       outraConta.saldo += 1000.0;",
-            "       System.out.println(minhaConta.saldo);",
-            "   }",
-            "}"
-        ],
-        "lastPart": "",
-        "answers": [
-            {
-                "letter": "A",
-                "text": "Imprime 1500.0"
-            },
-            {
-                "letter": "B",
-                "text": "Imprime 500.0"
-            },
-            {
-                "letter": "C",
-                "text": "Imprime 1000.0"
-            },
-            {
-                "letter": "D",
-                "text": "Imprime 2000.0"
-            },
-            {
-                "letter": "E",
-                "text": "Imprime 5000.0"
-            }
-        ],
-        "correctAnswer": "A"
-    },
-    {
         "code": "10",
         "technology": "Java",
         "complexity": "basic",

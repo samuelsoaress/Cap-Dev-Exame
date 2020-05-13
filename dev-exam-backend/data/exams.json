@@ -143,18 +143,18 @@
         "code": "344e4b685b44bbc3c717889e01d7e455",
         "questionsConfig": [
             {
-                "technology": "Java",
-                "numberOfQuestions": "4",
-                "complexity": "basic"
-            },
-            {
-                "technology": "Java",
+                "technology": "JSF",
                 "numberOfQuestions": "4",
                 "complexity": "medium"
             },
             {
                 "technology": "Java",
-                "numberOfQuestions": "4",
+                "numberOfQuestions": "1",
+                "complexity": "medium"
+            },
+            {
+                "technology": "Java",
+                "numberOfQuestions": "1",
                 "complexity": "hard"
             }
         ]

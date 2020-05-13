@@ -139,33 +139,6 @@ const getCandidate = (request, codeAcess) => {
 
 }
 
-const sendCandidate = (emailbody, email) => {
-    return new Promise((resolve, reject) => {
-        console.log(emailbody)
-        let transporter = nodeMailer.createTransport({
-            host: 'smtp.gmail.com',
-            port: 465,
-            secure: false,
-            auth: {
-                user: 'dev.exam.email@gmail.com',
-                pass: 'Dev-exam334'
-            }
-        });
-        let mailOptions = {
-            from: '"Avaliação Capgemini" <dev.exam.email@gmail.com>', // sender address
-            to: email, // list of receivers
-            subject: 'Avaliação Skill Capgemini', // Subject line
-            html: emailbody
-        }
-
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-                reject(error);
-            }
-            resolve('Message %s sent: %s', info.messageId, info.response)
-        });
-    });
-}
 
 const requestAuthorizator = (request) => {
     return new Promise((resolve, reject) => {
@@ -192,7 +165,7 @@ app.post('/autorizador', cors(), (req, res, next) => {
         .then(response => {
             getCandidate(request, response.data.autorizador)
                 .then(emailbody => {
-                    sendCandidate(emailbody, request['email'])
+                    email.sendCandidate(emailbody, request['email'])
                 })
         });
 });

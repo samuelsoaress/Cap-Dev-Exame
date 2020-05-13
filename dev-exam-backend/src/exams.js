@@ -44,12 +44,11 @@ const getExam = (examCode) => {
         let complexity = exam.questionsConfig[i].complexity
 
         let counter = 0
-
         for (let j = 0; j < allQuestions.length; j++) {
             let question = allQuestions[j]
             if (technology === question.technology && complexity === question.complexity) {
-                examQuestions.push(question)
-                counter = counter + 1
+                examQuestions.push(question);
+                counter++
                 if (counter === numberOfQuestions) {
                     break;
                 }
