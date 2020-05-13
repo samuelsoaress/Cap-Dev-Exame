@@ -36,17 +36,17 @@ export class QuestionsService {
         console.log(res)
       }
     );
-    console.log(this.apiUrl + 'answers' + ' ' + body)
+    console.log(this.backendUrl + 'answers' + ' ' + body)
   }
 
   sendExam(body: any) {
-    this.http.post(this.apiUrl + 'newExam', JSON.parse(body), {
+    this.http.post(this.backendUrl + 'newExam', JSON.parse(body), {
       headers: new HttpHeaders().set('Content-Type', 'application/json')
     }).subscribe(
       res => {
         console.log(res)
       }
     );
-    console.log(this.apiUrl + 'newExam' + ' ' + body)
+    console.log(this.backendUrl + 'newExam' + ' ' + body)
   }
 }
