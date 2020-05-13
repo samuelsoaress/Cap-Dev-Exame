@@ -89,12 +89,12 @@
         "questionsConfig": [
             {
                 "technology": "Java",
-                "numberOfQuestions": "1",
+                "numberOfQuestions": 1,
                 "complexity": "basic"
             },
             {
                 "technology": "Spring",
-                "numberOfQuestions": "1",
+                "numberOfQuestions": 1,
                 "complexity": "basic"
             }
         ]
@@ -104,22 +104,22 @@
         "questionsConfig": [
             {
                 "technology": "Cobol",
-                "numberOfQuestions": "4",
+                "numberOfQuestions": 4,
                 "complexity": "hard"
             },
             {
                 "technology": "JSF",
-                "numberOfQuestions": "4",
+                "numberOfQuestions": 4,
                 "complexity": "hard"
             },
             {
                 "technology": "Java",
-                "numberOfQuestions": "4",
+                "numberOfQuestions": 4,
                 "complexity": "hard"
             },
             {
                 "technology": "Spring",
-                "numberOfQuestions": "4",
+                "numberOfQuestions": 4,
                 "complexity": "hard"
             }
         ]
@@ -129,12 +129,12 @@
         "questionsConfig": [
             {
                 "technology": "Spring",
-                "numberOfQuestions": "3",
+                "numberOfQuestions": 3,
                 "complexity": "basic"
             },
             {
                 "technology": "Java",
-                "numberOfQuestions": "3",
+                "numberOfQuestions": 3,
                 "complexity": "hard"
             }
         ]
@@ -143,18 +143,18 @@
         "code": "344e4b685b44bbc3c717889e01d7e455",
         "questionsConfig": [
             {
-                "technology": "JSF",
-                "numberOfQuestions": "4",
+                "technology": "Java",
+                "numberOfQuestions": 4,
                 "complexity": "medium"
             },
             {
                 "technology": "Java",
-                "numberOfQuestions": "1",
-                "complexity": "medium"
+                "numberOfQuestions": 4,
+                "complexity": "basic"
             },
             {
                 "technology": "Java",
-                "numberOfQuestions": "1",
+                "numberOfQuestions": 2,
                 "complexity": "hard"
             }
         ]
