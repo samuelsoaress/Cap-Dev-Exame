@@ -144,17 +144,17 @@
         "questionsConfig": [
             {
                 "technology": "Java",
-                "numberOfQuestions": 4,
+                "numberOfQuestions": 10,
                 "complexity": "medium"
             },
             {
                 "technology": "Java",
-                "numberOfQuestions": 4,
+                "numberOfQuestions": 7,
                 "complexity": "basic"
             },
             {
                 "technology": "Java",
-                "numberOfQuestions": 2,
+                "numberOfQuestions": 3,
                 "complexity": "hard"
             }
         ]
