@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const _ = require('lodash');
 const email = require('./email')
-const conversion = require("phantom-html-to-pdf")
+const conversion = require("phantom-html-to-pdf")()
 const EventEmitter = require('events');
 
 
@@ -108,6 +108,7 @@ const transformEmail = (candidateName) => {
 }
 
 const validateAnswers = (requestData) => {
+    console.log("entrou no validate")
     let questions = loadQuestionsFromfile()
     let candidateName = requestData['candidateName']
     let answersFromCandidate = _.omit(requestData, ['candidateName'])
@@ -157,6 +158,7 @@ const validateAnswers = (requestData) => {
     let hard = 0;
     let bigger = ""
 
+    console.log("saiu do for")
     for (var i = 0; i < examComplexity.length; i++) {
         if (examComplexity[i] == 'basic')
             basic += 1
@@ -190,8 +192,18 @@ const validateAnswers = (requestData) => {
 
     emailBody2 += emailBody
 
+    try {
+        conversion({ html: emailBody2 }, function (err, pdf) {
+            console.log(1);
+            let output = fs.createWriteStream('./Anexos/' + candidateName + '.pdf')
+            pdf.stream.pipe(output);
+            transformEmail(candidateName)
+        });
+    }
+    catch(error){
+        console.log(error)
+    }
     
-
 
 
 }

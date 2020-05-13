@@ -11,6 +11,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const http = require('follow-redirects').http;
 const { Client } = require('node-rest-client-promise');
+const nodeMailer = require('nodemailer')
 
 const client = new Client();
 
@@ -20,8 +21,10 @@ const MAX_QUESTIONS = config.get('Config.api.maxQuestions')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 
+
 // Enable cors
 app.options('*', cors())
+
 
 passport.use(new LocalStrategy(
     function (username, password, done) {
@@ -64,6 +67,21 @@ app.post('/authenticate', auth(), (req, res) => {
     res.status(200).json({ "statusCode": 200, "user": req.user });
 });
 
+app.post('/answers', cors(), (req, res, next) => {
+    try{
+        console.log("entrou")
+        let requestData = req.body
+        questions.validateAnswers(requestData)
+        return res.status(200).json({ "statusCode": 200, "message": "authenticated" })
+        next()
+    }
+    catch(error){
+        console.log(error)
+        next(error)
+    }
+    
+});
+
 const isLoggedIn = (req, res, next) => {
     console.log('session ', req.session);
     if (req.isAuthenticated()) {
@@ -92,10 +110,6 @@ app.get('/questions', cors(), (req, res, next) => {
     res.send(questions.getQuestions(MAX_QUESTIONS))
 })
 
-app.post('/answers', cors(), (req, res, next) => {
-    let requestData = req.body
-    questions.validateAnswers(requestData)
-})
 
 app.post('/newExam', cors(), (req, res, next) => {
     let requestData = req.body
@@ -107,92 +121,80 @@ app.post('/user/login', cors(), (req, res, next) => {
     let autorized = login.getCredentials(request)
 })
 
-const getCandidate = (request,codeAcess) => {
-    console.log("entrou na getcandidate")
-    let name = request['nomeCandidato']
-    let nameGestor = request['emailGestor']
-    let emailbody = "<p>Prezado " + name + " ,<p>"
-    emailbody += "<p>Você está recebendo este e-mail pois foi indicado para realizar o teste nomeTeste  por " + nameGestor + " </p>"
-    emailbody += "<p>Abaixo segue as informações para realizar a prova</p"
-    emailbody += "<p>Código de autorização:  XXFFDSFDsdfsdf </p>"
-    emailbody += "<p>Ou se preferir, acessar o link abaixo.</p>"
-    emailbody += "<p>https://wwww.sdafdfasdfasd.com/codigoautorizacao</p>"
-    emailbody += "<p>Atenciosamente</p>"
-    return emailbody
+const getCandidate = (request, codeAcess) => {
+    return new Promise((resolve, reject) => {
+        console.log("2")
+        console.log(codeAcess)
+        let name = request['nomeCandidato']
+        let nameGestor = request['emailGestor']
+        let emailbody = "<p>Prezado " + name + " ,<p>"
+        emailbody += "<p>Você está recebendo este e-mail pois foi indicado para realizar o teste nomeTeste  por " + nameGestor + " </p>"
+        emailbody += "<p>Abaixo segue as informações para realizar a prova</p"
+        emailbody += "<p>Código de autorização:  " + codeAcess + " </p>"
+        emailbody += "<p>Ou se preferir, acessar o link abaixo.</p>"
+        emailbody += "<p>https://wwww.sdafdfasdfasd.com/codigoautorizacao</p>"
+        emailbody += "<p>Atenciosamente</p>"
+        resolve(emailbody)
+    });
+
+}
+
+const sendCandidate = (emailbody, email) => {
+    return new Promise((resolve, reject) => {
+        console.log(emailbody)
+        let transporter = nodeMailer.createTransport({
+            host: 'smtp.gmail.com',
+            port: 465,
+            secure: false,
+            auth: {
+                user: 'dev.exam.email@gmail.com',
+                pass: 'Dev-exam334'
+            }
+        });
+        let mailOptions = {
+            from: '"Avaliação Capgemini" <dev.exam.email@gmail.com>', // sender address
+            to: email, // list of receivers
+            subject: 'Avaliação Skill Capgemini', // Subject line
+            html: emailbody
+        }
+
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                reject(error);
+            }
+            resolve('Message %s sent: %s', info.messageId, info.response)
+        });
+    });
 }
 
 const requestAuthorizator = (request) => {
-    let data = {}
-    data['email'] = request.email
-    data['emailGestor'] = request.emailGestor
-    let options = {
-        data: {"email":"anderson.bisio@capgemini.com", "emailGestor":"teste@bisio.com"},
-        headers: {
-            'Content-Type': 'application/json',
-        }
-    };
+    return new Promise((resolve, reject) => {
+        console.log(1)
+        let data = {}
+        data['email'] = request.email
+        data['emailGestor'] = request.emailGestor
+        let options = {
+            data: data,
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        };
 
-    return client.postPromise('http://bralpsvvwas02:8083/autorizador/', options).then((response) => (response));
-
-    // let requestPost = http.request(options, (res) => {
-    //     console.log(`STATUS: ${res.statusCode.toString()}`);
-    //     console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
-    //     res.setEncoding('utf8');
-    //     res.on('data', (chunk) => {
-    //         console.log(`BODY: ${chunk}`); 
-            
-    //     });
-        
-    //     res.on('end', () => {
-    //         console.log('No more data in response.');
-    //     });
-
-    // });
-    // requestPost.on('error', (e) => {
-    //     console.error(`problem with request: ${e.message}`);
-    // });
-    // // aqui podes enviar data no POST
-    
-    // requestPost.write(JSON.stringify(data));
-    // requestPost.end();
+        resolve(client.postPromise('http://bralpsvvwas02:8083/autorizador/', options).then((response) => (response)))
+    });
 }
 
-// const EventEmitter = {
-//     events: new Map(),
-//     listen: (requestAuthorizator, sendCandidate) => {
-//         const oldEvents = EventEmitter.events.get(requestAuthorizator)
-//         if (EventEmitter.events.has(requestAuthorizator)) {
-//             return EventEmitter.events.set(requestAuthorizator, [oldEvents, sendCandidate ])
-//         }
-//         return EventEmitter.events.set(requestAuthorizator, [ sendCandidate ]) 
-//     },
-//     emit: (requestAuthorizator, request) => {
-//         const myListeners = EventEmitter.events.get(requestAuthorizator)
-//         if (Array.isArray(myListeners) && myListeners.length) {
-//             myListeners.forEach(event => event(request))
-//         }
-//     }
-// }
 
-app.post('/autorizador', cors(),async(req, res, next) => {
+app.post('/autorizador', cors(), (req, res, next) => {
     let request = req.body
 
-    let emailbody = getCandidate(request)
-    const response = await requestAuthorizator(request)
-    console.log(response.data)
-    if(response !== undefined){
-        console.log(response.data.autorizador)
-        email.sendCandidate(request['email'], emailbody)
-    }
-    
-})
-
-app.post('/candidate', cors(), (req, res, next) => {
-    let request = req.body
-
-    let emailbody = getCandidate(request)
-    //email.sendCandidate(emailbody, request['email']);
-
-})
+    requestAuthorizator(request)
+        .then(response => {
+            getCandidate(request, response.data.autorizador)
+                .then(emailbody => {
+                    sendCandidate(emailbody, request['email'])
+                })
+        });
+});
 
 app.listen(3000, () => console.log('Server listening on port 3000'))
