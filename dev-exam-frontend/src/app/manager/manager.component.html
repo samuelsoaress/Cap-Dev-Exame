@@ -34,7 +34,7 @@
                     </td>
                     <td>
                         <select name="" id="" class="form-control">
-                            <option value="">{{nomeTeste}}</option>
+                            <option  *ngFor="let prova of nomeProva" value="">{{prova.nomeTeste}}</option>
                         </select>
 
                     </td>
