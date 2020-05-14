@@ -24,7 +24,7 @@ export class QuestionsService {
   }
   
   questions(): Observable<any> {
-    return this.http.request('GET', this.apiUrl + 'tecnologia/', httpOptions);
+    return this.http.request('GET', this.backendUrl + 'tecnologia', httpOptions);
   }
 
   sendAnswers(body: any,examCode) {
