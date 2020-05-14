@@ -4,7 +4,9 @@ const _ = require('lodash');
 const email = require('./email')
 const conversion = require("phantom-html-to-pdf")()
 const EventEmitter = require('events');
+const { Client } = require('node-rest-client-promise');
 
+const client = new Client();
 
 const getQuestions = (maxQuestions) => {
     let questions = loadQuestionsFromfile()
@@ -103,12 +105,13 @@ const transformEmail = (candidateName) => {
                 path: './Anexos/' + candidateName + '.pdf'
             }]
         }
-        email.sendEmail(email2)
+        console.log("acima do metodo");
+        email.sendEmail(email2,candidateName);
+
     }
 }
 
-const validateAnswers = (requestData) => {
-    console.log("entrou no validate")
+const validateAnswers = async (requestData,code) => {
     let questions = loadQuestionsFromfile()
     let candidateName = requestData['candidateName']
     let answersFromCandidate = _.omit(requestData, ['candidateName'])
@@ -126,6 +129,7 @@ const validateAnswers = (requestData) => {
     let examComplexity = []
 
     _.forOwn(answersFromCandidate, function (value, key) {
+        console.log(key,"",value)
         let correctAnswer = questions.find((question) => question.code === (key.toString())).correctAnswer
         let question = questions.find((question) => question.code === (key.toString())).lastPart
         let firstStatement = questions.find((question) => question.code === (key.toString())).firstPart
@@ -183,14 +187,19 @@ const validateAnswers = (requestData) => {
         technology += " " + item
     }
 
+    let percentual = calculateHitPercentage(totalQuestions, candidateRightAnswers)
+
     emailBody2 += '<p style="font-size: 18px;"><b>Tipo de prova:</b>' + technology + '</p>'
     emailBody2 += '<p style="font-size: 18px;"><b> Complexidade:</b> ' + bigger + '</p>'
     emailBody2 += '<p style="font-size: 18px;"><b/>Total de respostas certas:</b> ' + candidateRightAnswers + '</p>'
     emailBody2 += '<p style="font-size: 18px;"><b>Total de respostas erradas:</b> ' + candidateWrongAnswers + '</p>'
     emailBody2 += '<p style="font-size: 18px;"><b>Porcentagem de acertos:</b> '
-        + calculateHitPercentage(totalQuestions, candidateRightAnswers) + ' %</p><p style="border-top:solid #3770ad;"></p>'
+        + percentual + ' %</p><p style="border-top:solid #3770ad;"></p>'
 
+    
     emailBody2 += emailBody
+    let response = await saveResult(candidateName,percentual,code)
+    console.log(response.data)
 
     try {
         conversion({ html: emailBody2 }, function (err, pdf) {
@@ -206,6 +215,26 @@ const validateAnswers = (requestData) => {
     
 
 
+}
+
+
+const saveResult = async (nomeCandidato,pencentualAcerto,code) => {
+    let options2 = {
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    }
+    let res = await client.getPromise('http://bralpsvvwas02:8083/composicao-prova/codigoProva/'+code, options2).then((response) => (response))
+    let date = new Date()
+    let data = {"nomeTeste":res.data[0].nomeTeste,"dataHora":date,"nomeCandidato": nomeCandidato, "pencentualAcerto":pencentualAcerto}
+    let options = {
+        data: data,
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    };
+
+    return client.postPromise('http://bralpsvvwas02:8083/resultado-teste/', options).then((response) => (response))
 }
 
 const loadQuestionsFromfile = () => {

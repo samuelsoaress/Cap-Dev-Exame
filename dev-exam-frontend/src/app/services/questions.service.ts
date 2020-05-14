@@ -27,9 +27,9 @@ export class QuestionsService {
     return this.http.request('GET', this.apiUrl + 'tecnologia/', httpOptions);
   }
 
-  sendAnswers(body: any) {
+  sendAnswers(body: any,examCode) {
 
-    this.http.post(this.backendUrl + 'answers', JSON.parse(body), {
+    this.http.post(this.backendUrl + 'answers?code=' + examCode, JSON.parse(body), {
       headers: new HttpHeaders().set('Content-Type', 'application/json')
     }).subscribe(
       res => {

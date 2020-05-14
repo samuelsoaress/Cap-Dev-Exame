@@ -71,7 +71,8 @@ export class QuestionsComponent implements OnInit {
   }
 
   onSubmit(value: any) {
-    this.questionsService.sendAnswers(JSON.stringify(value))
+    const examCode: string = this.route.snapshot.queryParamMap.get('code');
+    this.questionsService.sendAnswers(JSON.stringify(value),examCode)
     this.router.navigateByUrl('/success');
   }
 
