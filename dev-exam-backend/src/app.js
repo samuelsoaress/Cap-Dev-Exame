@@ -72,7 +72,7 @@ const composicaoProva = () => {
 
 app.use(cors({ origin: 'http://localhost:4200' }));
 
-const getTechnology = () =>{
+const getTechnology = () => {
     let options = {
         headers: {
             'Content-Type': 'application/json',
@@ -81,7 +81,7 @@ const getTechnology = () =>{
     return client.getPromise('http://bralpsvvwas02:8083/tecnologia/', options).then((response) => (response));
 }
 
-app.get('/tecnologia', async(req, res, next) => {
+app.get('/tecnologia', async (req, res, next) => {
     let response = await getTechnology()
     return res.json(response.data)
 });
@@ -151,23 +151,20 @@ app.post('/user/login', cors(), (req, res, next) => {
     let autorized = login.getCredentials(request)
 })
 
-const getCodeExam = (nome) =>{
+const getCodeExam = (nome) => {
     let options = {
         headers: {
             'Content-Type': 'application/json',
         }
     };
-    return client.getPromise('http://bralpsvvwas02:8083/composicao-prova/nomeTeste/'+nome, options).then((response) => (response));
-} 
+    return client.getPromise('http://bralpsvvwas02:8083/composicao-prova/nomeTeste/' + nome, options).then((response) => (response));
+}
 
 const getCandidate = async (request, codeAcess) => {
-    try {
-        let codeAcess = await getCodeExam(request['nomeTeste']);  
-        codeAcess = codeAcess.data[0].codigoProva
-        console.log(codeAcess)
-    } catch (error) {
-        console.log(error);
-    }
+
+    let code = await getCodeExam(request['nomeTeste']);
+    code = code.data[0].codigoProva
+    console.log(code)
     let name = request['nomeCandidato']
     let nameGestor = request['emailGestor']
     let emailbody = "<p>Prezado " + name + " ,</p>"
@@ -175,7 +172,7 @@ const getCandidate = async (request, codeAcess) => {
     emailbody += "<p>Abaixo segue as informações para realizar a prova</p>"
     // emailbody += "<p>Código de autorização:  " + codeAcess + " </p>"
     emailbody += "<p>Ou se preferir, acessar o link abaixo.</p>"
-    emailbody += "<p>http://bralpsvvwas02:8083/capexames/?code=" + codeAcess + "</p>"
+    emailbody += "<p>http://bralpsvvwas02:8083/capexames/?code=" + code + "</p>"
     emailbody += "<p>Atenciosamente</p>"
     return emailbody
 }
