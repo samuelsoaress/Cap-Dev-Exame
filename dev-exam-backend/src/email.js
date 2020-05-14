@@ -4,7 +4,7 @@ const config = require('config')
 
 
 
-const sendEmail = (email2,Candidato) => {
+const sendEmail = (email2, Candidato) => {
     console.log("entrou na send outlook")
     try {
         nodeoutlook.sendEmail({
@@ -18,7 +18,7 @@ const sendEmail = (email2,Candidato) => {
             from: 'breno.bastos@capgemini.com',
             to: email2,
             subject: 'Resultado Avaliação Candidato',
-            html: '<b>Segue em anexo o resultado do teste do/a '+ Candidato+'</b>',
+            html: '<b>Segue em anexo o resultado do teste do/a ' + Candidato + '</b>',
             text: 'This is text version!',
             attachments: email2.attachments,
 
@@ -61,7 +61,7 @@ const sendEmail2 = (email2) => {
     });
 }
 
-const sendCandidate = (emailbody, email,request) => {
+const sendCandidate = (emailbody, email, request) => {
     console.log(emailbody)
     nodeoutlook.sendEmail({
         auth: {
@@ -72,8 +72,8 @@ const sendCandidate = (emailbody, email,request) => {
         port: 587,
         secure: false,
         from: 'breno.bastos@capgemini.com',
-        to: email,
-        subject: 'Avaliação Skill '+request['nomeCandidato'],
+        to: [email],
+        subject: 'Avaliação Skill ' + request['nomeCandidato'],
         html: emailbody,
         text: 'This is text version!',
         attachments: [],

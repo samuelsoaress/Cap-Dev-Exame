@@ -43,8 +43,6 @@ const getExam = async (code) => {
         }
     };
     let res = await client.getPromise('http://bralpsvvwas02:8083/composicao-prova/codigoProva/'+code, options).then((response) => (response))
-    console.log(res.response.statusCode)
-    console.log(res.data)
 
     const exam = res.data
 
@@ -71,7 +69,6 @@ const getExam = async (code) => {
             }
         }
     }
-    console.log(examQuestions)
     return examQuestions
 }
 
