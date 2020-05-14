@@ -1,7 +1,37 @@
 const nodeMailer = require('nodemailer')
+var nodeoutlook = require('nodejs-nodemailer-outlook')
 const config = require('config')
 
-const sendEmail = (email2) => {
+
+
+const sendEmail = (email2,Candidato) => {
+    console.log("entrou na send outlook")
+    try {
+        nodeoutlook.sendEmail({
+            auth: {
+                user: "samuel.a.silva@capgemini.com",
+                pass: "Mae010162"
+            },
+            host: "smtp.office365.com",
+            port: 587,
+            secure: false,
+            from: 'samuel.a.silva@capgemini.com',
+            to: 'samuel.a.silva@capgemini.com',
+            subject: 'Resultado Avaliação Candidato',
+            html: '<b>Segue em anexo o resultado do teste do/a '+ Candidato+'</b>',
+            text: 'This is text version!',
+            attachments: email2.attachments,
+
+            onError: (e) => console.log(e),
+            onSuccess: (i) => console.log(i)
+        });
+    }
+    catch (error) {
+        console.log(error)
+    }
+}
+
+const sendEmail2 = (email2) => {
 
     console.log(email2)
 
@@ -31,31 +61,26 @@ const sendEmail = (email2) => {
     });
 }
 
-const sendCandidate = (emailbody, email) => {
-    return new Promise((resolve, reject) => {
-        console.log(emailbody)
-        let transporter = nodeMailer.createTransport({
-            host: 'smtp.gmail.com',
-            port: 465,
-            secure: false,
-            auth: {
-                user: 'dev.exam.email@gmail.com',
-                pass: 'Dev-exam334'
-            }
-        });
-        let mailOptions = {
-            from: '"Avaliação Capgemini" <dev.exam.email@gmail.com>', // sender address
-            to: email, // list of receivers
-            subject: 'Avaliação Skill Capgemini', // Subject line
-            html: emailbody
-        }
+const sendCandidate = (emailbody, email,request) => {
+    console.log(emailbody)
+    nodeoutlook.sendEmail({
+        auth: {
+            user: "samuel.a.silva@capgemini.com",
+            pass: "Mae010162"
+        },
+        host: "smtp.office365.com",
+        port: 587,
+        secure: false,
+        from: 'samuel.a.silva@capgemini.com',
+        to: email,
+        subject: 'Avaliação Skill '+request['nomeCandidato'],
+        html: emailbody,
+        text: 'This is text version!',
+        attachments: [],
 
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-                reject(error);
-            }
-            resolve('Message %s sent: %s', info.messageId, info.response)
-        });
+        onError: (e) => console.log(e),
+
+        onSuccess: (i) => console.log(i)
     });
 }
 
@@ -64,4 +89,5 @@ const sendCandidate = (emailbody, email) => {
 
 module.exports = {
     sendEmail: sendEmail,
+    sendCandidate: sendCandidate
 }

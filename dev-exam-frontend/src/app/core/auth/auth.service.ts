@@ -24,6 +24,6 @@ export class AuthService {
   }
 
   public validate(email, password) {
-    return this.http.post('/api/authenticate', {'username' : email, 'password' : password}).toPromise()
+    return this.http.post('http://localhost:3000'+'/authenticate', {'username' : email, 'password' : password}).toPromise()
   }
 }
