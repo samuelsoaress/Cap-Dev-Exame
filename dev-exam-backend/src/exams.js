@@ -62,7 +62,7 @@ const getExam = async (code) => {
         let counter = 0
         for (let j = 0; j < allQuestions.length; j++) {
             let question = allQuestions[j]
-            if (technology === question.technology && complexity === question.complexity) {
+            if (technology.toUpperCase() === question.technology.toUpperCase() && complexity.toUpperCase() === question.complexity.toUpperCase()) {
                 examQuestions.push(question);
                 counter++
                 if (counter === numberOfQuestions) {
