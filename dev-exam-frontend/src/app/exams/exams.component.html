@@ -3,14 +3,23 @@
         <div class="avalicao" id="titulo">Cadastrar novo teste</div>
     </header>
 
-    
+
     <section class="sectionPrin">
-        <form #questionsForm="ngForm" ng-submit="submitForm()" (submit)="onSubmit(questionsForm.value)" novalidate>
+        <form #ExamsForm="ngForm" (submit)="onSubmit(ExamsForm.value)" novalidate>
             <div class="">
                 <div class="">
                     <table class="tableDesign">
                         <div>
                             <tr>
+                                <td>
+                                    <label for="technology">Nome Teste:</label>
+                                </td>
+                                <td>
+                                    <input type="text" name="nomeTeste" class="form-control" ngModel>
+                                </td>
+                            </tr>
+                            <tr>
+
                                 <td>
                                     <label for="technology">Tecnologia:</label>
                                 </td>
@@ -27,10 +36,10 @@
                                     <label for="complexity">Complexidade:</label>
                                 </td>
                                 <td>
-                                    <select id="complexity" class="form-control" ngModel
-                                        [(ngModel)]="questions.tecnologia">
-                                        <option value="{{complexity}}" *ngFor="let complexity of complexity">
-                                            {{ complexity }}</option>
+                                    <select id="complexity" class="form-control" ngModel>
+                                        <option value="basic">basico</option>
+                                        <option value="medium">médio</option>
+                                        <option value="hard">Dificil</option>
                                     </select>
                                 </td>
                             </tr>
@@ -40,8 +49,7 @@
                                     <label for="testAmount">Quantidade de questões:</label>
                                 </td>
                                 <td>
-                                    <input id="testAmount" type="number" min="0" name="testAmount" class="form-control"
-                                        ngModel [(ngModel)]="exame.testAmount">
+                                    <input id="testAmount" type="number" min="0" name="testAmount" class="form-control" ngModel [(ngModel)]="exame.testAmount">
                                 </td>
                             </tr>
                         </div>
@@ -78,6 +86,6 @@
 
 
     </section>
-    
+
 
 </div>
