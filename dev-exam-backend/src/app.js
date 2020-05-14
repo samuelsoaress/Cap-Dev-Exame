@@ -68,18 +68,18 @@ app.post('/authenticate', auth(), (req, res) => {
 });
 
 app.post('/answers', cors(), (req, res, next) => {
-    try{
+    try {
         console.log("entrou")
         let requestData = req.body
-        questions.validateAnswers(requestData)
+        questions.validateAnswers(requestData,req.query.code)
         return res.status(200).json({ "statusCode": 200, "message": "email sent" })
         next()
     }
-    catch(error){
+    catch (error) {
         console.log(error)
         next(error)
     }
-    
+
 });
 
 const isLoggedIn = (req, res, next) => {
@@ -95,7 +95,7 @@ app.get('/getData', isLoggedIn, (req, res) => {
     res.json("data is")
 })
 
-app.get('/exam', cors(), (req, res, next) => {
+app.get('/exam', cors(), async (req, res, next) => {
 
     if (!req.query.code) {
         return res.send({
@@ -103,7 +103,8 @@ app.get('/exam', cors(), (req, res, next) => {
         })
     }
 
-    res.send(exams.getExam(req.query.code))
+    let exam = await exams.getExam(req.query.code)
+    res.send(exam)
 })
 
 app.get('/questions', cors(), (req, res, next) => {
@@ -113,6 +114,7 @@ app.get('/questions', cors(), (req, res, next) => {
 
 app.post('/newExam', cors(), (req, res, next) => {
     let requestData = req.body
+    console.log(requestData)
     exams.getNewExam(requestData)
 })
 
@@ -122,52 +124,47 @@ app.post('/user/login', cors(), (req, res, next) => {
 })
 
 const getCandidate = (request, codeAcess) => {
-    return new Promise((resolve, reject) => {
-        console.log("2")
-        console.log(codeAcess)
-        let name = request['nomeCandidato']
-        let nameGestor = request['emailGestor']
-        let emailbody = "<p>Prezado " + name + " ,<p>"
-        emailbody += "<p>Você está recebendo este e-mail pois foi indicado para realizar o teste nomeTeste  por " + nameGestor + " </p>"
-        emailbody += "<p>Abaixo segue as informações para realizar a prova</p"
-        emailbody += "<p>Código de autorização:  " + codeAcess + " </p>"
-        emailbody += "<p>Ou se preferir, acessar o link abaixo.</p>"
-        emailbody += "<p>https://wwww.sdafdfasdfasd.com/codigoautorizacao</p>"
-        emailbody += "<p>Atenciosamente</p>"
-        resolve(emailbody)
-    });
-
+    console.log("2")
+    console.log(codeAcess)
+    let name = request['nomeCandidato']
+    let nameGestor = request['emailGestor']
+    let emailbody = "<p>Prezado " + name + " ,</p>"
+    emailbody += "<p>Você está recebendo este e-mail pois foi indicado para realizar o teste nomeTeste  por " + nameGestor + " </p>"
+    emailbody += "<p>Abaixo segue as informações para realizar a prova</p>"
+    emailbody += "<p>Código de autorização:  " + codeAcess + " </p>"
+    emailbody += "<p>Ou se preferir, acessar o link abaixo.</p>"
+    emailbody += "<p>https://wwww.sdafdfasdfasd.com/codigoautorizacao</p>"
+    emailbody += "<p>Atenciosamente</p>"
+    return emailbody
 }
 
 
 const requestAuthorizator = (request) => {
-    return new Promise((resolve, reject) => {
-        console.log(1)
-        let data = {}
-        data['email'] = request.email
-        data['emailGestor'] = request.emailGestor
-        let options = {
-            data: data,
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        };
+    console.log(1)
+    let data = {}
+    data['email'] = request.email
+    data['emailGestor'] = request.emailGestor
+    let options = {
+        data: data,
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    };
 
-        resolve(client.postPromise('http://bralpsvvwas02:8083/autorizador/', options).then((response) => (response)))
-    });
+    return client.postPromise('http://bralpsvvwas02:8083/autorizador/', options).then((response) => (response))
+
 }
 
 
-app.post('/autorizador', cors(), (req, res, next) => {
+app.post('/autorizador', cors(), async (req, res, next) => {
     let request = req.body
 
-    requestAuthorizator(request)
-        .then(response => {
-            getCandidate(request, response.data.autorizador)
-                .then(emailbody => {
-                    email.sendCandidate(emailbody, request['email'])
-                })
-        });
+    let response = await requestAuthorizator(request)
+
+    let emailbody = getCandidate(request, response.data.autorizador)
+
+    email.sendCandidate(emailbody,request['email'],request)
+
 });
 
 app.listen(3000, () => console.log('Server listening on port 3000'))

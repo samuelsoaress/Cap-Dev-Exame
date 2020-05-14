@@ -3,45 +3,61 @@ const path = require('path')
 const questions = require('./questions')
 const _ = require('lodash');
 const md5 = require('md5')
+const { Client } = require('node-rest-client-promise');
+const client = new Client();
 
 const dataPath = path.join(__dirname, '../data/exams.json')
 
-const getNewExam = (dataForNewExam) => {
+const getNewExam =  async (dataForNewExam) => {
 
-    const exams = loadExamsFromfile()
-    const examCode = 'Exam' + (exams.length + 1)
 
-    let newExam = {
-        code: md5(examCode),
-        questionsConfig: []
-    }
+    let date = new Date().getTime()
+    const examCode = 'Exam' + date
+    let code = md5(examCode)
 
-    _.forOwn(dataForNewExam, (value, key) => {
-        let questionConfig = {
-            technology: value[1],
-            numberOfQuestions: value[0],
-            complexity: value[2]
+    let cont = 0
+    _.forOwn(dataForNewExam, async (value, key) => {
+        let newExam = {
+            "codigoProva": code,
+            "complexidade": value[2],
+            "nomeTeste": dataForNewExam.nomeTeste,
+            "quantidadeQuestoes": value[0],
+            "sequencialProva": cont++,
+            "tecnologia": value[1]
         }
-
-        newExam.questionsConfig.push(questionConfig)
-    })
-
-    exams.push(newExam)
-    saveExams(exams)
+        let options = {
+            data: newExam,
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        };
+        let response = await client.postPromise('http://bralpsvvwas02:8083/composicao-prova/', options).then((response) => (response))
+        console.log(response.data.status)
+    });
 }
 
-const getExam = (examCode) => {
+const getExam = async (code) => {
+    let options = {
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    };
+    let res = await client.getPromise('http://bralpsvvwas02:8083/composicao-prova/codigoProva/'+code, options).then((response) => (response))
+    console.log(res.response.statusCode)
+    console.log(res.data)
 
-    const exam = getExamByCode(examCode)
+    const exam = res.data
+
     const allQuestions = questions.getAllQuestions()
 
     let examQuestions = []
 
-    for (let i = 0; i < exam.questionsConfig.length; i++) {
 
-        let technology = exam.questionsConfig[i].technology
-        let numberOfQuestions = exam.questionsConfig[i].numberOfQuestions
-        let complexity = exam.questionsConfig[i].complexity
+    for (let i = 0; i < exam.length; i++) {
+
+        let technology = exam[i].tecnologia
+        let numberOfQuestions = exam[i].quantidadeQuestoes
+        let complexity = exam[i].complexidade
 
         let counter = 0
         for (let j = 0; j < allQuestions.length; j++) {
@@ -54,24 +70,14 @@ const getExam = (examCode) => {
                 }
             }
         }
-
     }
-
+    console.log(examQuestions)
     return examQuestions
 }
 
-const getExamByCode = (examCode) => {
-    const exams = loadExamsFromfile()
-    return exams.find((exam) => exam.code === examCode)
-}
 
 const loadExamsFromfile = () => {
     return JSON.parse(fs.readFileSync(dataPath))
-}
-
-const saveExams = (exams) => {
-    const dataJSON = JSON.stringify(exams)
-    fs.writeFileSync(dataPath, dataJSON)
 }
 
 module.exports = {
