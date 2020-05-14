@@ -61,7 +61,20 @@ const auth = () => {
 
 app.use(cors({ origin: 'http://localhost:4200' }));
 
+const getTechnology = () =>{
+    let options = {
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    };
+    return client.getPromise('http://bralpsvvwas02:8083/tecnologia/', options).then((response) => (response));
+}
 
+app.get('/tecnologia', async(req, res, next) => {
+    let response = await getTechnology()
+    console.log(response)
+    return res.json(response.data)
+});
 
 app.post('/authenticate', auth(), (req, res) => {
     res.status(200).json({ "statusCode": 200, "user": req.user });
