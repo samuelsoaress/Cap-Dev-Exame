@@ -14,7 +14,7 @@ const httpOptions = {
 
 export class QuestionsService {
 
-  private backendUrl = 'http://localhost:3000/'
+  private backendUrl = 'http://bralpsvvwas02:3000/'
   private apiUrl = 'http://bralpsvvwas02:8083/'
 
   constructor(private http: HttpClient) { }

@@ -16,7 +16,7 @@ export class ManagerService {
 
     private apiUrl = 'http://bralpsvvwas02:8083/'
 
-    private backendUrl = 'http://localhost:3000/'
+    private backendUrl = 'http://bralpsvvwas02:3000/'
 
     constructor(private http: HttpClient) { }
 
