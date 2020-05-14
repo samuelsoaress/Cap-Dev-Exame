@@ -83,7 +83,6 @@ const getTechnology = () =>{
 
 app.get('/tecnologia', async(req, res, next) => {
     let response = await getTechnology()
-    console.log(response)
     return res.json(response.data)
 });
 
@@ -152,9 +151,23 @@ app.post('/user/login', cors(), (req, res, next) => {
     let autorized = login.getCredentials(request)
 })
 
-const getCandidate = (request, codeAcess) => {
-    console.log("2")
-    console.log(codeAcess)
+const getCodeExam = (nome) =>{
+    let options = {
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    };
+    return client.getPromise('http://bralpsvvwas02:8083/composicao-prova/nomeTeste/'+nome, options).then((response) => (response));
+} 
+
+const getCandidate = async (request, codeAcess) => {
+    try {
+        let codeAcess = await getCodeExam(request['nomeTeste']);  
+        codeAcess = codeAcess.data[0].codigoProva
+        console.log(codeAcess)
+    } catch (error) {
+        console.log(error);
+    }
     let name = request['nomeCandidato']
     let nameGestor = request['emailGestor']
     let emailbody = "<p>Prezado " + name + " ,</p>"
@@ -162,7 +175,7 @@ const getCandidate = (request, codeAcess) => {
     emailbody += "<p>Abaixo segue as informações para realizar a prova</p>"
     // emailbody += "<p>Código de autorização:  " + codeAcess + " </p>"
     emailbody += "<p>Ou se preferir, acessar o link abaixo.</p>"
-    emailbody += "<p>http://bralpsvvwas02:8083/exam?code=" + "bdc73a5c75265ebf15c38e34fe194ce8" + "</p>"
+    emailbody += "<p>http://bralpsvvwas02:8083/capexames/?code=" + codeAcess + "</p>"
     emailbody += "<p>Atenciosamente</p>"
     return emailbody
 }
@@ -187,11 +200,10 @@ const requestAuthorizator = (request) => {
 
 app.post('/autorizador', cors(), async (req, res, next) => {
     let request = req.body
-    console.log(request)
 
     let response = await requestAuthorizator(request)
 
-    let emailbody = getCandidate(request, response.data.autorizador)
+    let emailbody = await getCandidate(request, response.data.autorizador)
 
     email.sendCandidate(emailbody, request['email'], request)
 

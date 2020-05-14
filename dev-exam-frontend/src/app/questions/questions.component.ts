@@ -15,27 +15,29 @@ export class QuestionsComponent implements OnInit {
   candidateName: string
   btndisable = true
   questions: any
-  timeLeft: number = 1800; //300
+  timeLeft: number = 7201; //300
   interval;
-  minute: number
-  second: number
+  minute: any
+  second: any
+  hour: any
   time: any
   constructor(private questionsService: QuestionsService, private router: Router, private route: ActivatedRoute) {
   }
 
+  format(s,with_seg=true) {
+    this.hour = Math.floor( s / 3600 );
+    this.minute = Math.floor( (s% 3600) / 60 )
+    this.second = s % 60
 
-  twoHouses(value) {
-    if (value <= 9) {
-      value = "0" + value
-    }
-    return value
-  }
+    this.minute = this.minute < 10 ? '0' + this.minute : this.minute;      
+    this.second = this.second < 10 ? '0' + this.second : this.second;
+    this.hour = this.hour < 10 ? '0' + this.hour : this.hour;
 
-  format(s) {
-    this.minute = this.twoHouses(Math.trunc((s % 3600) / 60))
-    this.second = this.twoHouses((s % 3600) % 60)
-
-    return this.minute + ":" + this.second;
+    if(with_seg){
+      return  this.hour + ":" + this.minute + ":" + this.second;
+   }
+     
+   return  this.hour + ":" + this.minute;
   }
 
   startTimer() {
@@ -56,6 +58,7 @@ export class QuestionsComponent implements OnInit {
       }
     }, 1000)
   }
+
   habilitarbotao() {
     if (!this.candidateName || this.candidateName.length === 0) {
       this.btndisable = true

@@ -62,16 +62,16 @@ const sendEmail2 = (email2) => {
 }
 
 const sendCandidate = (emailbody, email, request) => {
-    console.log(emailbody)
+    console.log(email)
     nodeoutlook.sendEmail({
         auth: {
-            user: "vagner.leite@capgemini.com",
-            pass: "Capgemini2025"
+            user: "samuel.a.silva@capgemini.com",
+            pass: "Mae010162"
         },
         host: "smtp.office365.com",
         port: 587,
         secure: false,
-        from: 'vagner.leite@capgemini.com',
+        from: 'samuel.a.silva@capgemini.com',
         to: [email],
         subject: 'Avaliação Skill ' + request['nomeCandidato'],
         html: emailbody,
