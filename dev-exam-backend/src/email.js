@@ -10,7 +10,7 @@ const sendEmail = (email2,Candidato) => {
         nodeoutlook.sendEmail({
             auth: {
                 user: "samuel.a.silva@capgemini.com",
-                pass: "Mae010162"
+                pass: ""
             },
             host: "smtp.office365.com",
             port: 587,
@@ -66,7 +66,7 @@ const sendCandidate = (emailbody, email,request) => {
     nodeoutlook.sendEmail({
         auth: {
             user: "samuel.a.silva@capgemini.com",
-            pass: "Mae010162"
+            pass: ""
         },
         host: "smtp.office365.com",
         port: 587,
