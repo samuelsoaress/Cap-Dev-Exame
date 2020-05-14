@@ -13,7 +13,8 @@
                         <label class="label-control">Nome do Candidato: </label>
                     </td>
                     <td>
-                        <input type="text" name="nomeCandidato" placeholder="Digite o nome do candidato" class="form-control" ngModel>
+                        <input type="text" name="nomeCandidato" placeholder="Digite o nome do candidato"
+                            class="form-control" ngModel>
                     </td>
                 </tr>
                 <tr>
@@ -33,8 +34,8 @@
                         </label>
                     </td>
                     <td>
-                        <select name="" id="" class="form-control">
-                            <option  *ngFor="let prova of nomeProva" value="">{{prova.nomeTeste}}</option>
+                        <select name="nomeTeste" id="" class="form-control" ngModel>
+                            <option *ngFor="let prova of nomeProva" value="{{prova.nomeTeste}}">{{prova.nomeTeste}}</option>
                         </select>
 
                     </td>
@@ -45,7 +46,8 @@
                         <label for="emailGestor">Email gestor: </label>
                     </td>
                     <td>
-                        <input id="emailGestor" type="email" name="emailGestor" class="form-control" placeholder="Email do gestor" ngModel>
+                        <input id="emailGestor" type="email" name="emailGestor" class="form-control"
+                            placeholder="Email do gestor" ngModel>
                     </td>
                 </tr>
                 <br>

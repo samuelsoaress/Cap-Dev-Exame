@@ -71,7 +71,7 @@ app.post('/answers', cors(), (req, res, next) => {
     try {
         console.log("entrou")
         let requestData = req.body
-        questions.validateAnswers(requestData,req.query.code)
+        questions.validateAnswers(requestData, req.query.code)
         return res.status(200).json({ "statusCode": 200, "message": "email sent" })
         next()
     }
@@ -129,11 +129,11 @@ const getCandidate = (request, codeAcess) => {
     let name = request['nomeCandidato']
     let nameGestor = request['emailGestor']
     let emailbody = "<p>Prezado " + name + " ,</p>"
-    emailbody += "<p>Você está recebendo este e-mail pois foi indicado para realizar o teste nomeTeste  por " + nameGestor + " </p>"
+    emailbody += "<p>Você está recebendo este e-mail pois foi indicado para realizar o teste " + request["nomeTeste"] + "  por " + nameGestor + " </p>"
     emailbody += "<p>Abaixo segue as informações para realizar a prova</p>"
     emailbody += "<p>Código de autorização:  " + codeAcess + " </p>"
     emailbody += "<p>Ou se preferir, acessar o link abaixo.</p>"
-    emailbody += "<p>https://wwww.sdafdfasdfasd.com/codigoautorizacao</p>"
+    emailbody += "<p>https://wwww.sdafdfasdfasd.com/exam?code=" + codeAcess + "</p>"
     emailbody += "<p>Atenciosamente</p>"
     return emailbody
 }
@@ -158,12 +158,13 @@ const requestAuthorizator = (request) => {
 
 app.post('/autorizador', cors(), async (req, res, next) => {
     let request = req.body
+    console.log(request)
 
     let response = await requestAuthorizator(request)
 
     let emailbody = getCandidate(request, response.data.autorizador)
 
-    email.sendCandidate(emailbody,request['email'],request)
+    email.sendCandidate(emailbody, request['email'], request)
 
 });
 
