@@ -8,7 +8,7 @@ const client = new Client();
 
 const dataPath = path.join(__dirname, '../data/exams.json')
 
-const getNewExam =  async (dataForNewExam) => {
+const getNewExam = async (dataForNewExam) => {
 
 
     let date = new Date().getTime()
@@ -42,7 +42,7 @@ const getExam = async (code) => {
             'Content-Type': 'application/json',
         }
     };
-    let res = await client.getPromise('http://bralpsvvwas02:8083/composicao-prova/codigoProva/'+code, options).then((response) => (response))
+    let res = await client.getPromise('http://bralpsvvwas02:8083/composicao-prova/codigoProva/' + code, options).then((response) => (response))
 
     const exam = res.data
 
@@ -50,24 +50,29 @@ const getExam = async (code) => {
 
     let examQuestions = []
 
-
     for (let i = 0; i < exam.length; i++) {
-
+        let randomQuestions = []
         let technology = exam[i].tecnologia
         let numberOfQuestions = exam[i].quantidadeQuestoes
         let complexity = exam[i].complexidade
 
-        let counter = 0
-        for (let j = 0; j < allQuestions.length; j++) {
-            let question = allQuestions[j]
-            if (technology.toUpperCase() === question.technology.toUpperCase() && complexity.toUpperCase() === question.complexity.toUpperCase()) {
-                examQuestions.push(question);
-                counter++
-                if (counter === numberOfQuestions) {
-                    break;
+
+
+        while (randomQuestions.length < numberOfQuestions) {
+            let randomNumber = Math.floor(Math.random() * allQuestions.length);;
+            let randomQuestion = allQuestions[randomNumber]
+            let found = randomQuestions.find((q) => q.code === randomQuestion.code)
+            if (found === undefined) {
+
+                if (technology.toUpperCase() === randomQuestion.technology.toUpperCase() && complexity.toUpperCase() === randomQuestion.complexity.toUpperCase()) {
+                    randomQuestions.push(randomQuestion);
+                    examQuestions.push(randomQuestion);
+
                 }
             }
+
         }
+
     }
     return examQuestions
 }

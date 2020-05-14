@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="name-container col-md-5">
                     <label for="candidateName">Nome</label>
-                    <input type="text" name="candidateName" class="form-control" ngModel>
+                    <input type="text" name="candidateName" class="form-control" (keyup)="habilitarbotao()" [(ngModel)]="candidateName">
                 </div>
             </div>
             <div class="question-container">
@@ -38,7 +38,7 @@
 
                 </ul>
                 <div class="button-container">
-                    <button id="submit" type="submit" class="btn btn-primary">Enviar respostas</button>
+                    <button id="submit" type="submit" class="btn btn-primary" [disabled]="btndisable">Enviar respostas</button>
                 </div>
             </div>
         </form>

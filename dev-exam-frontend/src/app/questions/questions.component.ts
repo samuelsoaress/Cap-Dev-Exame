@@ -12,6 +12,8 @@ import * as $ from 'jquery';
 })
 export class QuestionsComponent implements OnInit {
 
+  candidateName: string
+  btndisable = true
   questions: any
   timeLeft: number = 1800; //300
   interval;
@@ -48,11 +50,19 @@ export class QuestionsComponent implements OnInit {
         let element: HTMLElement = document.getElementById('submit') as HTMLElement;
         element.click();
       }
-      if (this.timeLeft == 299){
+      if (this.timeLeft == 299) {
         let elementTime: HTMLElement = document.querySelector('#timer') as HTMLElement
         elementTime.classList.add("end-timer");
       }
     }, 1000)
+  }
+  habilitarbotao() {
+    if (!this.candidateName || this.candidateName.length === 0) {
+      this.btndisable = true
+    }else{
+      this.btndisable = false
+    }
+
   }
 
   ngOnInit() {
@@ -65,14 +75,14 @@ export class QuestionsComponent implements OnInit {
     this.startTimer()
 
     $(window).scroll(function () {
-        $('.timer').fadeIn('slow');
+      $('.timer').fadeIn('slow');
     });
 
   }
 
   onSubmit(value: any) {
     const examCode: string = this.route.snapshot.queryParamMap.get('code');
-    this.questionsService.sendAnswers(JSON.stringify(value),examCode)
+    this.questionsService.sendAnswers(JSON.stringify(value), examCode)
     this.router.navigateByUrl('/success');
   }
 

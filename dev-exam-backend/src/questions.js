@@ -106,12 +106,13 @@ const transformEmail = (candidateName) => {
             }]
         }
         console.log("acima do metodo");
-        email.sendEmail(email2,candidateName);
+        email.sendEmail(email2, candidateName);
 
     }
 }
 
-const validateAnswers = async (requestData,code) => {
+const validateAnswers = async (requestData, code) => {
+    console.log(requestData)
     let questions = loadQuestionsFromfile()
     let candidateName = requestData['candidateName']
     let answersFromCandidate = _.omit(requestData, ['candidateName'])
@@ -129,7 +130,7 @@ const validateAnswers = async (requestData,code) => {
     let examComplexity = []
 
     _.forOwn(answersFromCandidate, function (value, key) {
-        console.log(key,"",value)
+        console.log(key, "", value)
         let correctAnswer = questions.find((question) => question.code === (key.toString())).correctAnswer
         let question = questions.find((question) => question.code === (key.toString())).lastPart
         let firstStatement = questions.find((question) => question.code === (key.toString())).firstPart
@@ -196,9 +197,9 @@ const validateAnswers = async (requestData,code) => {
     emailBody2 += '<p style="font-size: 18px;"><b>Porcentagem de acertos:</b> '
         + percentual + ' %</p><p style="border-top:solid #3770ad;"></p>'
 
-    
+    console.log("Verificando percentual " + percentual)
     emailBody2 += emailBody
-    let response = await saveResult(candidateName,percentual,code)
+    let response = await saveResult(candidateName, percentual, code)
     console.log(response.data)
 
     try {
@@ -209,24 +210,24 @@ const validateAnswers = async (requestData,code) => {
             transformEmail(candidateName)
         });
     }
-    catch(error){
+    catch (error) {
         console.log(error)
     }
-    
+
 
 
 }
 
 
-const saveResult = async (nomeCandidato,pencentualAcerto,code) => {
+const saveResult = async (nomeCandidato, pencentualAcerto, code) => {
     let options2 = {
         headers: {
             'Content-Type': 'application/json',
         }
     }
-    let res = await client.getPromise('http://bralpsvvwas02:8083/composicao-prova/codigoProva/'+code, options2).then((response) => (response))
+    let res = await client.getPromise('http://bralpsvvwas02:8083/composicao-prova/codigoProva/' + code, options2).then((response) => (response))
     let date = new Date()
-    let data = {"nomeTeste":res.data[0].nomeTeste,"dataHora":date,"nomeCandidato": nomeCandidato, "pencentualAcerto":pencentualAcerto}
+    let data = { "nomeTeste": res.data[0].nomeTeste, "dataHora": date, "nomeCandidato": nomeCandidato, "pencentualAcerto": pencentualAcerto }
     let options = {
         data: data,
         headers: {

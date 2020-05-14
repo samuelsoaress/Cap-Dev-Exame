@@ -6,13 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { QuestionsComponent } from './questions/questions.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { SuccessComponent } from './success/success.component';
 import { ManagerComponent } from './manager/manager.component';
 import { ExamsComponent } from './exams/exams.component';
 import { LoginComponent } from './login/login.component';
-import { 
-  AuthGuardService as AuthGuard 
+import {
+  AuthGuardService as AuthGuard
 } from './auth-guard.service';
 import { RootComponent } from './root/root.component';
 import { AuthService } from 'src/app/core/auth/auth.service';
@@ -20,22 +20,6 @@ import { MenuSuperiorComponent } from './menu-superior/menu-superior.component';
 import { MenuLateralComponent } from './menu-lateral/menu-lateral.component';
 import { TituloComponent } from './titulo/titulo.component';
 import { RodapeComponent } from './rodape/rodape.component';
-
-
-
-const appRoutes: Routes = [
-  { path: 'login', component : LoginComponent},
-  { path: 'exam', component: QuestionsComponent },
-  { path: 'success', component: SuccessComponent },
-  { path: 'manager', component: ManagerComponent, canActivate : [AuthGuard]},
-  { path: 'newexams', component: ExamsComponent},
-  {
-    path: '',
-    redirectTo: '/exam?code=d59792e19ef574ce662c13f2c6c78de4',
-    pathMatch: 'full'
-  },
-  { path: '**', component: QuestionsComponent }
-];
 
 @NgModule({
   declarations: [
@@ -56,10 +40,8 @@ const appRoutes: Routes = [
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
-    )
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

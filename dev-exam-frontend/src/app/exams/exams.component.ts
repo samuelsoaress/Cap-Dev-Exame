@@ -41,7 +41,7 @@ export class ExamsComponent implements OnInit {
     this.exam = []
   }
 
-  add(event: Event) {
+  add() {
 
     this._inputQuantity = <HTMLInputElement>document.querySelector('#testAmount');
     this._inputTechnology = <HTMLInputElement>document.querySelector('#technology');

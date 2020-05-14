@@ -32,7 +32,7 @@ export class ManagerService {
     }
 
     examPart(): Observable<any> {
-        return this.http.request('GET',this.apiUrl + 'composicao-prova/', httpOptions)
+        return this.http.request('GET',this.backendUrl + 'composicao-prova', httpOptions)
     }
 
     sendCandidate(body: any) {

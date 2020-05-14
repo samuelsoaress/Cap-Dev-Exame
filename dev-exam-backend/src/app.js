@@ -59,6 +59,17 @@ const auth = () => {
     }
 }
 
+const composicaoProva = () => {
+    let options = {
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    };
+
+    return client.getPromise('http://bralpsvvwas02:8083/composicao-prova/', options).then((response) => (response))
+
+}
+
 app.use(cors({ origin: 'http://localhost:4200' }));
 
 
@@ -118,6 +129,11 @@ app.post('/newExam', cors(), (req, res, next) => {
     exams.getNewExam(requestData)
 })
 
+app.get('/composicao-prova', cors(), async (req, res, next) => {
+    let result = await composicaoProva()
+    return res.status(result.response.statusCode).json(result.data);
+})
+
 app.post('/user/login', cors(), (req, res, next) => {
     let request = req.body
     let autorized = login.getCredentials(request)
@@ -133,7 +149,7 @@ const getCandidate = (request, codeAcess) => {
     emailbody += "<p>Abaixo segue as informações para realizar a prova</p>"
     // emailbody += "<p>Código de autorização:  " + codeAcess + " </p>"
     emailbody += "<p>Ou se preferir, acessar o link abaixo.</p>"
-    emailbody += "<p>http://localhost:4200/exam?code=" + "bdc73a5c75265ebf15c38e34fe194ce8" + "</p>"
+    emailbody += "<p>http://bralpsvvwas02:8083/exam?code=" + "bdc73a5c75265ebf15c38e34fe194ce8" + "</p>"
     emailbody += "<p>Atenciosamente</p>"
     return emailbody
 }

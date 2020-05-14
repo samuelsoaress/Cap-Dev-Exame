@@ -9,14 +9,14 @@ const sendEmail = (email2, Candidato) => {
     try {
         nodeoutlook.sendEmail({
             auth: {
-                user: "breno.bastos@capgemini.com",
-                pass: ""
+                user: "vagner.leite@capgemini.com",
+                pass: "Capgemini2025"
             },
             host: "smtp.office365.com",
             port: 587,
             secure: false,
-            from: 'breno.bastos@capgemini.com',
-            to: email2,
+            from: 'vagner.leite@capgemini.com',
+            to: 'breno.bastos@capgemini.com',
             subject: 'Resultado Avaliação Candidato',
             html: '<b>Segue em anexo o resultado do teste do/a ' + Candidato + '</b>',
             text: 'This is text version!',
@@ -65,13 +65,13 @@ const sendCandidate = (emailbody, email, request) => {
     console.log(emailbody)
     nodeoutlook.sendEmail({
         auth: {
-            user: "breno.bastos@capgemini.com",
-            pass: ""
+            user: "vagner.leite@capgemini.com",
+            pass: "Capgemini2025"
         },
         host: "smtp.office365.com",
         port: 587,
         secure: false,
-        from: 'breno.bastos@capgemini.com',
+        from: 'vagner.leite@capgemini.com',
         to: [email],
         subject: 'Avaliação Skill ' + request['nomeCandidato'],
         html: emailbody,
