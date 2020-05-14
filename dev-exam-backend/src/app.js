@@ -131,9 +131,9 @@ const getCandidate = (request, codeAcess) => {
     let emailbody = "<p>Prezado " + name + " ,</p>"
     emailbody += "<p>Você está recebendo este e-mail pois foi indicado para realizar o teste " + request["nomeTeste"] + "  por " + nameGestor + " </p>"
     emailbody += "<p>Abaixo segue as informações para realizar a prova</p>"
-    emailbody += "<p>Código de autorização:  " + codeAcess + " </p>"
+    // emailbody += "<p>Código de autorização:  " + codeAcess + " </p>"
     emailbody += "<p>Ou se preferir, acessar o link abaixo.</p>"
-    emailbody += "<p>https://wwww.sdafdfasdfasd.com/exam?code=" + codeAcess + "</p>"
+    emailbody += "<p>http://localhost:4200/exam?code=" + "bdc73a5c75265ebf15c38e34fe194ce8" + "</p>"
     emailbody += "<p>Atenciosamente</p>"
     return emailbody
 }
