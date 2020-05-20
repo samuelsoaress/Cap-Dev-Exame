@@ -1,5 +1,5 @@
+<app-menuSuperior></app-menuSuperior>
 <div class="row col-sm-12">
-    <app-menuSuperior></app-menuSuperior>
     <div class="col-sm-2" style="background-color: #f3f6fb;">
         <app-menuLateral></app-menuLateral>
     </div>
@@ -35,7 +35,8 @@
                     </td>
                     <td>
                         <select name="nomeTeste" id="" class="form-control" ngModel>
-                            <option *ngFor="let prova of nomeProva" value="{{prova.nomeTeste}}">{{prova.nomeTeste}}</option>
+                            <option *ngFor="let prova of nomeProva" value="{{prova.nomeTeste}}">{{prova.nomeTeste}}
+                            </option>
                         </select>
 
                     </td>
@@ -59,7 +60,16 @@
 
                 <button class="btn  btn-primary text-uppercase" type="submit" value="Adicionar">Gerar</button>
             </div>
+            <div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
         </form>
+
 
     </div>
 </div>

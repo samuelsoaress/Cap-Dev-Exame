@@ -1,61 +1,61 @@
-<div class="container-fluid">
-    <header class="">
-        <div class="avalicao" id="titulo">Cadastrar novo teste</div>
-    </header>
+<div class="row col-sm-12">
+    <app-menuSuperior></app-menuSuperior>
+    <div class="col-sm-2" style="background-color: #f3f6fb;">
+        <app-menuLateral></app-menuLateral>
+    </div>
 
-
-    <section class="sectionPrin">
+    <div class="col-sm-10">
         <form #ExamsForm="ngForm" (submit)="onSubmit(ExamsForm.value)" novalidate>
-            <div class="">
-                <div class="">
-                    <table class="tableDesign">
-                        <div>
-                            <tr>
-                                <td>
-                                    <label for="technology">Nome Teste:</label>
-                                </td>
-                                <td>
-                                    <input type="text" name="nomeTeste" class="form-control" ngModel>
-                                </td>
-                            </tr>
-                            <tr>
+            <app-titulo titulo="Cadastrar novo exame"> </app-titulo>
+            <table class="tableDesign">
+                <div>
+                    <tr>
+                        <td>
+                            <label for="technology">Nome Teste:</label>
+                        </td>
+                        <td>
+                            <input type="text" name="nomeTeste" class="form-control" ngModel>
+                        </td>
+                    </tr>
+                    <tr>
 
-                                <td>
-                                    <label for="technology">Tecnologia:</label>
-                                </td>
-                                <td>
-                                    <select id="technology" class="form-control">
-                                        <script> console.log(questions);</script>
-                                        <option value="{{question.tecnologia}}" *ngFor="let question of questions">
-                                            {{ question.tecnologia }}</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label for="complexity">Complexidade:</label>
-                                </td>
-                                <td>
-                                    <select id="complexity" class="form-control" ngModel>
-                                        <option value="basic">Basico</option>
-                                        <option value="medium">Médio</option>
-                                        <option value="hard">Dificil</option>
-                                    </select>
-                                </td>
-                            </tr>
+                        <td>
+                            <label for="technology">Tecnologia:</label>
+                        </td>
+                        <td>
+                            <select id="technology" class="form-control">
+                                <script> console.log(questions);</script>
+                                <option value="{{question.tecnologia}}" *ngFor="let question of questions">
+                                    {{ question.tecnologia }}</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="complexity">Complexidade:</label>
+                        </td>
+                        <td>
+                            <select id="complexity" class="form-control" ngModel>
+                                <option value="basic">Basico</option>
+                                <option value="medium">Médio</option>
+                                <option value="hard">Dificil</option>
+                            </select>
+                        </td>
+                    </tr>
 
-                            <tr>
-                                <td>
-                                    <label for="testAmount">Quantidade de questões:</label>
-                                </td>
-                                <td>
-                                    <input id="testAmount" type="number" min="0" name="testAmount" class="form-control" ngModel [(ngModel)]="exame.testAmount">
-                                </td>
-                            </tr>
-                        </div>
-                    </table>
+                    <tr>
+                        <td>
+                            <label for="testAmount">Quantidade de questões:</label>
+                        </td>
+                        <td>
+                            <input id="testAmount" type="number" min="0" name="testAmount" class="form-control" ngModel
+                                [(ngModel)]="exame.testAmount">
+                        </td>
+                    </tr>
                 </div>
-            </div>
+            </table>
+
+
             <br>
             <div class="button-container">
                 <button id="append" (click)="add()" class="btn btn-primary" type="button">Adicionar</button>
@@ -78,14 +78,11 @@
             </div>
             <div class="button-container">
                 <button class="btn btn-primary" type="submit">enviar</button>
+
             </div>
+            <br>
         </form>
-        <br>
-
-
-
-
-    </section>
-
-
+    </div>
+    <br>
 </div>
+<app-rodape></app-rodape>
