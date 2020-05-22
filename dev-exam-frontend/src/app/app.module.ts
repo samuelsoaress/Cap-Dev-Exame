@@ -35,7 +35,7 @@ import { AllQuestionsComponent } from './all-questions/all-questions.component';
     MenuLateralComponent,
     TituloComponent,
     RodapeComponent,
-    AllQuestionsComponent,
+    AllQuestionsComponent
   ],
   imports: [
     BrowserModule,

@@ -14,12 +14,18 @@ import { NgForm } from '@angular/forms';
 export class ManagerComponent implements OnInit {
 
   nomeProva: any;
-
+  manager: any;
    
 
   constructor(private managerService:ManagerService, private service: QuestionsService) { }
 
   ngOnInit() {
+    this.managerService.responsibleAll()
+    .subscribe(manager =>{
+      console.log(manager)
+      this.manager = manager
+    })
+
     this.managerService.examPart()
     .subscribe(nomeProva => {
       console.log(nomeProva)
