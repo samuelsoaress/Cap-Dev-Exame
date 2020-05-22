@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'exam', component: QuestionsComponent },
   { path: 'success', component: SuccessComponent },
-  { path: 'manager', component: ManagerComponent, canActivate: [AuthGuardService] },
+  { path: 'manager', component: ManagerComponent},
   { path: 'newexams', component: ExamsComponent },
   { path: 'allquestions', component: AllQuestionsComponent },
   { path: '**', component: QuestionsComponent }];
