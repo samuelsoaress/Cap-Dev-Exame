@@ -73,7 +73,7 @@ const sendCandidate = (emailbody, email, request) => {
         secure: false,
         from: 'samuel.a.silva@capgemini.com',
         to: [email],
-        subject: 'Avaliação Skill ' + request['nomeCandidato'],
+        subject: 'Avaliação Java Reskilling',
         html: emailbody,
         text: 'This is text version!',
         attachments: [],
