@@ -45,6 +45,9 @@ import { AllQuestionsComponent } from './all-questions/all-questions.component';
     ReactiveFormsModule,
     AppRoutingModule
   ],
+  exports:[
+    ExamsComponent
+  ],
   providers: [AuthService],
   bootstrap: [AppComponent]
 })

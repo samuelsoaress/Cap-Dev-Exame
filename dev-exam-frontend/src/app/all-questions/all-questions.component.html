@@ -5,8 +5,8 @@
     </div>
 
     <div class="col-sm-10">
-        <form (submit)="onSubmit(ExamsForm.value)">
-            <app-titulo titulo="Adicionar novas questões"> </app-titulo>
+        <form #AllQuestionForm="ngForm" (submit)="onSubmit(AllQuestionForm.value)" novalidate>
+            <app-titulo titulo="Adicionar novas questões"></app-titulo>
             <table class="tableDesign">
                 <div>
                     <tr>
@@ -14,8 +14,8 @@
                             <label for="technology">Tecnologia:</label>
                         </td>
                         <td>
-                            <input type="text" name="technology" class="form-control"
-                                placeholder="Tecnologia da questão Ex: java">
+                            <input type="text" id="technology" class="form-control"
+                                placeholder="Tecnologia da questão Ex: java" ngModel>
                         </td>
                     </tr>
                     <tr>
@@ -23,7 +23,7 @@
                             <label for="complexity">Complexidade:</label>
                         </td>
                         <td>
-                            <select id="complexity" class="form-control">
+                            <select id="complexity" class="form-control" ngModel>
                                 <option value="basic">Basico</option>
                                 <option value="medium">Médio</option>
                                 <option value="hard">Dificil</option>
@@ -35,7 +35,7 @@
                             <label for="firstPart">Enunciado:</label>
                         </td>
                         <td>
-                            <input type="text" name="firstPart" id="firstPart" class="form-control">
+                            <input type="text" id="firstPart" class="form-control" ngModel>
                         </td>
                     </tr>
                     <tr>
@@ -44,19 +44,27 @@
                             <label for="codeParts">Campo de codigo caso tenha:</label>
                         </td>
                         <td>
-                            <textarea type="text" name="codeParts" class="form-control"
-                                placeholder="EX: int a = 15, b = 3; return a+b;"></textarea>
+                            <textarea type="text" id="codeParts" class="form-control"
+                                placeholder="EX: int a = 15, b = 3; return a+b;" ngModel></textarea>
                         </td>
                     </tr>
                     <br>
                     <div class="col-sm-1">
-                        <label>Alternativas</label>
+                        <tr>
+                            <td>
+                                <label>Alternativas</label>
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+
                         <tr>
                             <td>
                                 <label for="answerLetterA">A)</label>
                             </td>
                             <td>
-                                <input id="answerLetterA" type="text" name="answerLetterA" class="form-control">
+                                <input type="text" id="answerLetterA" class="form-control" ngModel>
                             </td>
                         </tr>
                         <tr>
@@ -64,7 +72,7 @@
                                 <label for="answerLetterB">B)</label>
                             </td>
                             <td>
-                                <input id="answerLetterB" type="text" name="answerLetterB" class="form-control">
+                                <input type="text" id="answerLetterB" class="form-control" ngModel>
                             </td>
                         </tr>
                         <tr>
@@ -72,7 +80,7 @@
                                 <label for="answerLetterC">C)</label>
                             </td>
                             <td>
-                                <input id="answerLetterC" type="text" name="answerLetterC" class="form-control">
+                                <input type="text" id="answerLetterC" class="form-control" ngModel>
                             </td>
                         </tr>
                         <tr>
@@ -80,7 +88,7 @@
                                 <label for="answerLetterD">D)</label>
                             </td>
                             <td>
-                                <input id="answerLetterD" type="text" name="answerLetterD" class="form-control">
+                                <input type="text" id="answerLetterD" class="form-control" ngModel>
                             </td>
                         </tr>
                         <tr>
@@ -88,7 +96,7 @@
                                 <label for="answerLetterE">E)</label>
                             </td>
                             <td>
-                                <input id="answerLetterE" type="text" name="answerLetterE" class="form-control">
+                                <input type="text" id="answerLetterE" class="form-control" ngModel>
                             </td>
                         </tr>
                         <tr>
@@ -96,7 +104,7 @@
                                 <label for="answerLetter">Alternativa correta:</label>
                             </td>
                             <td>
-                                <select name="correctAnswer" id="correctAnswer">
+                                <select name="correctAnswer" id="correctAnswer" ngModel>
                                     <option value="answerLetterA">A</option>
                                     <option value="answerLetterB">B</option>
                                     <option value="answerLetterB">C</option>
@@ -112,9 +120,8 @@
 
             <br>
             <div class="button-container">
-                <button id="append" (click)="add()" class="btn btn-primary" type="button">Adicionar</button>
+                <button class="btn btn-primary" type="submit">Adicionar</button>
             </div><br>
-
             <app-rodape></app-rodape>
         </form>
     </div>
