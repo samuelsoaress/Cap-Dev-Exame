@@ -6,7 +6,7 @@ const url = "http://bralpsvvwas02:8083/"
 
 
 const getTechnology = (req, res) => {
-    const request = req.app.get('hystrix').hystrixRequestHandler(post, 'tecnologia');
+    const request = req.app.get('hystrix').hystrixRequestHandler(get, 'tecnologia');
 
     return request.execute(
         url+"tecnologia/",
