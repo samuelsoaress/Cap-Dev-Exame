@@ -1,0 +1,121 @@
+<div class="row col-sm-12">
+    <app-menuSuperior></app-menuSuperior>
+    <div class="col-sm-2" style="background-color: #f3f6fb;">
+        <app-menuLateral></app-menuLateral>
+    </div>
+
+    <div class="col-sm-10">
+        <form (submit)="onSubmit(ExamsForm.value)">
+            <app-titulo titulo="Adicionar novas questões"> </app-titulo>
+            <table class="tableDesign">
+                <div>
+                    <tr>
+                        <td>
+                            <label for="technology">Tecnologia:</label>
+                        </td>
+                        <td>
+                            <input type="text" name="technology" class="form-control"
+                                placeholder="Tecnologia da questão Ex: java">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="complexity">Complexidade:</label>
+                        </td>
+                        <td>
+                            <select id="complexity" class="form-control">
+                                <option value="basic">Basico</option>
+                                <option value="medium">Médio</option>
+                                <option value="hard">Dificil</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="firstPart">Enunciado:</label>
+                        </td>
+                        <td>
+                            <input type="text" name="firstPart" id="firstPart" class="form-control">
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <td>
+                            <label for="codeParts">Campo de codigo caso tenha:</label>
+                        </td>
+                        <td>
+                            <textarea type="text" name="codeParts" class="form-control"
+                                placeholder="EX: int a = 15, b = 3; return a+b;"></textarea>
+                        </td>
+                    </tr>
+                    <br>
+                    <div class="col-sm-1">
+                        <label>Alternativas</label>
+                        <tr>
+                            <td>
+                                <label for="answerLetterA">A)</label>
+                            </td>
+                            <td>
+                                <input id="answerLetterA" type="text" name="answerLetterA" class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="answerLetterB">B)</label>
+                            </td>
+                            <td>
+                                <input id="answerLetterB" type="text" name="answerLetterB" class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="answerLetterC">C)</label>
+                            </td>
+                            <td>
+                                <input id="answerLetterC" type="text" name="answerLetterC" class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="answerLetterD">D)</label>
+                            </td>
+                            <td>
+                                <input id="answerLetterD" type="text" name="answerLetterD" class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="answerLetterE">E)</label>
+                            </td>
+                            <td>
+                                <input id="answerLetterE" type="text" name="answerLetterE" class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="answerLetter">Alternativa correta:</label>
+                            </td>
+                            <td>
+                                <select name="correctAnswer" id="correctAnswer">
+                                    <option value="answerLetterA">A</option>
+                                    <option value="answerLetterB">B</option>
+                                    <option value="answerLetterB">C</option>
+                                    <option value="answerLetterC">D</option>
+                                    <option value="answerLetterE">E</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </div>
+                </div>
+            </table>
+
+
+            <br>
+            <div class="button-container">
+                <button id="append" (click)="add()" class="btn btn-primary" type="button">Adicionar</button>
+            </div><br>
+
+            <app-rodape></app-rodape>
+        </form>
+    </div>
+</div>

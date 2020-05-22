@@ -42,7 +42,6 @@ export class ExamsComponent implements OnInit {
   }
 
   add() {
-
     this._inputQuantity = <HTMLInputElement>document.querySelector('#testAmount');
     this._inputTechnology = <HTMLInputElement>document.querySelector('#technology');
     this._inputComplexity = <HTMLInputElement>document.querySelector('#complexity');
@@ -59,18 +58,14 @@ export class ExamsComponent implements OnInit {
       .subscribe(questions => {
         this.questions = questions
         console.log(questions)
-        // for (let question of questions) {
-        //   this.technologys.add(questions.tecnologia)
-          //this.complexity.add(questions.complexity)
-        //}
-      });  
+      });
   }
-  
+
   onSubmit(value: any) {
     console.log(value)
-    let dict = {"nomeTeste":value.nomeTeste}
-    for(let i =0;i<this.newExam.length;i++){
-      dict['valor'+i] = this.newExam[i]
+    let dict = { "nomeTeste": value.nomeTeste }
+    for (let i = 0; i < this.newExam.length; i++) {
+      dict['valor' + i] = this.newExam[i]
     }
     this.questionsService.sendExam(JSON.stringify(dict))
     console.log(dict)

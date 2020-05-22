@@ -20,6 +20,7 @@ import { MenuSuperiorComponent } from './menu-superior/menu-superior.component';
 import { MenuLateralComponent } from './menu-lateral/menu-lateral.component';
 import { TituloComponent } from './titulo/titulo.component';
 import { RodapeComponent } from './rodape/rodape.component';
+import { AllQuestionsComponent } from './all-questions/all-questions.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { RodapeComponent } from './rodape/rodape.component';
     MenuLateralComponent,
     TituloComponent,
     RodapeComponent,
+    AllQuestionsComponent,
   ],
   imports: [
     BrowserModule,

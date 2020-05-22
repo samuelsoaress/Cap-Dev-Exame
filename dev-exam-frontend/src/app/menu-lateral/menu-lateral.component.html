@@ -3,14 +3,19 @@
         <ul class="nav metismenu" id="side-menu">
 
             <li>
-                <a style="margin-top:15px;" [routerLink]="['/newexams']"><i class="fa fa-user"></i> <span
-                        class="nav-label">Exames</span></a>
+                <a [routerLink]="['/newexams']"><i class="fa fa-user"></i>
+                    <span class="nav-label">Exames</span>
+                </a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-shield"></i> <span class="nav-label">Questões</span> </a>
+                <a [routerLink]="['/allquestions']"><i class="fa fa-shield"></i>
+                    <span class="nav-label">Questões</span>
+                </a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-shield"></i> <span class="nav-label">Tecnologias</span> </a>
+                <a href="#"><i class="fa fa-shield"></i>
+                    <span class="nav-label">Tecnologias</span>
+                    </a>
             </li>
         </ul>
     </div>
