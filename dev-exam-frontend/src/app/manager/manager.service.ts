@@ -31,6 +31,10 @@ export class ManagerService {
         console.log(this.backendUrl + 'autorizador' + ' ' + body)
     }
 
+    responsibleAll(): Observable<any> {
+        return this.http.request('GET',this.backendUrl + 'responsavelCap', httpOptions)
+    }
+
     examPart(): Observable<any> {
         return this.http.request('GET',this.backendUrl + 'composicao-prova', httpOptions)
     }
