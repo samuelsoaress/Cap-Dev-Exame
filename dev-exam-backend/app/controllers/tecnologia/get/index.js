@@ -3,8 +3,6 @@ const { get } = require('../../../services/request');
 const url = "http://bralpsvvwas02:8083/"
 
 
-
-
 const getTechnology = (req, res) => {
     const request = req.app.get('hystrix').hystrixRequestHandler(get, 'tecnologia');
 
