@@ -4,7 +4,7 @@ const url = "http://bralpsvvwas02:8083/"
 
 
 const composicaoProva = (req,res) => {
-    const request = req.app.get('hystrix').hystrixRequestHandler(post, 'composicao prova');
+    const request = req.app.get('hystrix').hystrixRequestHandler(get, 'composicao prova');
     // return client.getPromise('http://bralpsvvwas02:8083/composicao-prova/', options).then((response) => (response))
     return request.execute(
         url+"/composicao-prova/",
