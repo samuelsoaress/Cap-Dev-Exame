@@ -2,6 +2,10 @@ const { post } = require('../../../services/request');
 
 const url = "http://bralpsvvwas02:8083/"
 
+var md5 = require('md5');
+
+const _ = require('lodash');
+
 const getNewExam = async (dataForNewExam,req,res) => {
 
 
@@ -32,6 +36,7 @@ const getNewExam = async (dataForNewExam,req,res) => {
             url+'composicao-prova/',
             req,
             res,
+            newExam,
         )        
     });
 }
@@ -42,7 +47,7 @@ const handler = async (req, res, next) => {
 
         let requestData = req.body
 
-        await exams.getNewExam(requestData, req, res)
+        await getNewExam(requestData, req, res)
 
         return res.status(200).json({ "statusCode": 200, "message": "email sent" })
 

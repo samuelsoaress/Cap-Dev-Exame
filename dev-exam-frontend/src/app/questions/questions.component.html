@@ -22,9 +22,9 @@
                     <li class="question-first-part">{{question.firstPart}}</li>
 
                     <pre *ngIf="question.codeParts.length">
-                        <li *ngFor="let codePart of question.codeParts">
-                            {{codePart}}
-                        </li>
+                        <code>
+                                <br>{{ question.codeParts }}
+                        </code>
                     </pre>
 
                     <li class="question-last-part">{{question.lastPart}}</li>

@@ -68,7 +68,12 @@ export class ExamsComponent implements OnInit {
       dict['valor' + i] = this.newExam[i]
     }
     this.questionsService.sendExam(JSON.stringify(dict))
+    .subscribe(
+      res => {
+        this.exam = []
+        window.location.reload();
+      }
+    );
     console.log(dict)
-    this.router.navigateByUrl('/success');
   }
 }

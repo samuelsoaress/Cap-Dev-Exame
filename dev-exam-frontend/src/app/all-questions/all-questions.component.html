@@ -14,8 +14,8 @@
                             <label for="technology">Tecnologia:</label>
                         </td>
                         <td>
-                            <input type="text" id="technology" class="form-control"
-                                placeholder="Tecnologia da questão Ex: java" ngModel>
+                            <input name="technology" type="text" id="technology" class="form-control"
+                                placeholder="Tecnologia da questão Ex: java" [(ngModel)]="question.technology">
                         </td>
                     </tr>
                     <tr>
@@ -23,7 +23,8 @@
                             <label for="complexity">Complexidade:</label>
                         </td>
                         <td>
-                            <select id="complexity" class="form-control" ngModel>
+                            <select id="complexity" name="complexity" class="form-control"
+                                [(ngModel)]="question.complexity">
                                 <option value="basic">Basico</option>
                                 <option value="medium">Médio</option>
                                 <option value="hard">Dificil</option>
@@ -35,7 +36,8 @@
                             <label for="firstPart">Enunciado:</label>
                         </td>
                         <td>
-                            <input type="text" id="firstPart" class="form-control" ngModel>
+                            <input type="text" id="firstPart" name="firstPart" class="form-control"
+                                [(ngModel)]="question.firstPart">
                         </td>
                     </tr>
                     <tr>
@@ -44,8 +46,9 @@
                             <label for="codeParts">Campo de codigo caso tenha:</label>
                         </td>
                         <td>
-                            <textarea type="text" id="codeParts" class="form-control"
-                                placeholder="EX: int a = 15, b = 3; return a+b;" ngModel></textarea>
+                            <textarea type="text" id="codeParts" name="codeParts" class="form-control"
+                                placeholder="EX: int a = 15, b = 3; return a+b;"
+                                [(ngModel)]="question.codeParts"></textarea>
                         </td>
                     </tr>
                     <br>
@@ -64,7 +67,8 @@
                                 <label for="answerLetterA">A)</label>
                             </td>
                             <td>
-                                <input type="text" id="answerLetterA" class="form-control" ngModel>
+                                <input type="text" id="answerLetterA" name="answerLetterA" class="form-control"
+                                    [(ngModel)]="question.answerLetterA">
                             </td>
                         </tr>
                         <tr>
@@ -72,7 +76,8 @@
                                 <label for="answerLetterB">B)</label>
                             </td>
                             <td>
-                                <input type="text" id="answerLetterB" class="form-control" ngModel>
+                                <input type="text" id="answerLetterB" name="answerLetterB" class="form-control"
+                                    [(ngModel)]="question.answerLetterB">
                             </td>
                         </tr>
                         <tr>
@@ -80,7 +85,8 @@
                                 <label for="answerLetterC">C)</label>
                             </td>
                             <td>
-                                <input type="text" id="answerLetterC" class="form-control" ngModel>
+                                <input type="text" id="answerLetterC" name="answerLetterC" class="form-control"
+                                    [(ngModel)]="question.answerLetterC">
                             </td>
                         </tr>
                         <tr>
@@ -88,7 +94,8 @@
                                 <label for="answerLetterD">D)</label>
                             </td>
                             <td>
-                                <input type="text" id="answerLetterD" class="form-control" ngModel>
+                                <input type="text" id="answerLetterD" name="answerLetterD" class="form-control"
+                                    [(ngModel)]="question.answerLetterD">
                             </td>
                         </tr>
                         <tr>
@@ -96,7 +103,8 @@
                                 <label for="answerLetterE">E)</label>
                             </td>
                             <td>
-                                <input type="text" id="answerLetterE" class="form-control" ngModel>
+                                <input type="text" id="answerLetterE" name="answerLetterE" class="form-control"
+                                    [(ngModel)]="question.answerLetterE">
                             </td>
                         </tr>
                         <tr>
@@ -104,19 +112,21 @@
                                 <label for="answerLetter">Alternativa correta:</label>
                             </td>
                             <td>
-                                <select name="correctAnswer" id="correctAnswer" ngModel>
-                                    <option value="answerLetterA">A</option>
-                                    <option value="answerLetterB">B</option>
-                                    <option value="answerLetterB">C</option>
-                                    <option value="answerLetterC">D</option>
-                                    <option value="answerLetterE">E</option>
+                                <select name="correctAnswer" id="correctAnswer" [(ngModel)]="question.correctAnswer">
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                    <option value="E">E</option>
                                 </select>
                             </td>
                         </tr>
                     </div>
                 </div>
             </table>
-
+            <pre>
+                <code><br>{{ question.codeParts }}</code>
+            </pre>
 
             <br>
             <div class="button-container">

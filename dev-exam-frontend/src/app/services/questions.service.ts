@@ -39,14 +39,9 @@ export class QuestionsService {
     console.log(this.backendUrl + 'answers' + ' ' + body)
   }
 
-  sendExam(body: any) {
-    this.http.post(this.backendUrl + 'newExam', JSON.parse(body), {
+  sendExam(body: any): Observable<any> {
+    return this.http.post(this.backendUrl + 'newExam', JSON.parse(body), {
       headers: new HttpHeaders().set('Content-Type', 'application/json')
-    }).subscribe(
-      res => {
-        console.log(res)
-      }
-    );
-    console.log(this.backendUrl + 'newExam' + ' ' + body)
+    })    
   }
 }

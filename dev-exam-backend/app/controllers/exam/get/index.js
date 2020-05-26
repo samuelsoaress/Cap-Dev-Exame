@@ -6,33 +6,37 @@ const _ = require('lodash');
 const url = 'http://bralpsvvwas02:8083/'
 
 const removeCorrectAnswer = (questions) => {
-    return questions.map((question) => _.omit(question, ['correctAnswer']))
+    return questions.data.map((question) => _.omit(question, ['correctAnswer']))
 }
 
-const getAllQuestions = () => {
-    let questions = loadQuestionsFromfile()
+const getAllQuestions = async (req, res) => {
+    let questions = await loadQuestions(req, res)
     return questions = removeCorrectAnswer(questions)
 }
 
-const loadQuestionsFromfile = () => {
-    const dataPath = path.join(__dirname, '../../../data/questions.json')
-    return JSON.parse(fs.readFileSync(dataPath))
+const loadQuestions = (req, res) => {
+    const request = req.app.get('hystrix').hystrixRequestHandler(get, 'questao');
+    return request.execute(
+        url + 'questao/',
+        req,
+        res,
+    )
 }
 
-const getExam = async (code,req,res) => {
+const getExam = async (code, req, res) => {
     console.log("entrou na getExam")
 
     // let res = await client.getPromise('http://bralpsvvwas02:8083/composicao-prova/codigoProva/' + code, options).then((response) => (response))
     const request = req.app.get('hystrix').hystrixRequestHandler(get, 'codigo prova');
     let response = await request.execute(
-        url+'composicao-prova/codigoProva/'+code,
+        url + 'composicao-prova/codigoProva/' + code,
         req,
         res,
     )
     console.log(response.data)
     const exam = response.data
 
-    const allQuestions = getAllQuestions()
+    const allQuestions = await getAllQuestions(req, res)
 
     let examQuestions = []
 
@@ -52,7 +56,7 @@ const getExam = async (code,req,res) => {
 
                 if (technology.toUpperCase() === randomQuestion.technology.toUpperCase() && complexity.toUpperCase() === randomQuestion.complexity.toUpperCase()) {
                     randomQuestions.push(randomQuestion);
-                    examQuestions.push(randomQuestion); 
+                    examQuestions.push(randomQuestion);
                 }
             }
 
@@ -64,15 +68,15 @@ const getExam = async (code,req,res) => {
 
 
 const handler = async (req, res, next) => {
-    
+
     try {
         if (!req.query.code) {
             return res.send({
                 error: 'Voce precisa fornecer um codigo de exame.'
             })
         }
-    
-        let exam = await getExam(req.query.code,req,res)
+
+        let exam = await getExam(req.query.code, req, res)
         return res.send(exam)
 
     } catch (error) {
@@ -80,6 +84,6 @@ const handler = async (req, res, next) => {
     }
 };
 
-module.exports ={
-    handler:handler
+module.exports = {
+    handler: handler
 }
