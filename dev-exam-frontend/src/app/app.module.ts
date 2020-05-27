@@ -39,7 +39,7 @@ import { NewtecnologiesComponent } from './newtecnologies/newtecnologies.compone
     TituloComponent,
     RodapeComponent,
     AllQuestionsComponent,
-    AllScreenQuestionsComponent
+    AllScreenQuestionsComponent,
     TecnologiesComponent,
     NewtecnologiesComponent
   ],
