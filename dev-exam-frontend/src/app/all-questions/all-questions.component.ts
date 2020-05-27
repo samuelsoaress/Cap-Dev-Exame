@@ -11,23 +11,31 @@ import { QuestionsService } from 'src/app/services/questions.service';
 })
 export class AllQuestionsComponent implements OnInit {
 
+  questao: any
+
 
   question: AllQuestionsModel
 
-  constructor(private allQuestionsService: AllQuestionsService) {
+  constructor(private allQuestionsService: AllQuestionsService, private quest: QuestionsService) {
     this.question = new AllQuestionsModel()
   }
 
 
 
   ngOnInit() {
+    this.quest.questions()
+    .subscribe(questions => {
+      this.questao = questions
+      console.log(this.questao)
+    });
 
   }
   onSubmit() {
     console.log(this.question)
-    this.allQuestionsService.newQuestion(this.question).subscribe(response => {
-      this.question = new AllQuestionsModel()
-    }, error => { console.log(error) });
+    this.allQuestionsService.newQuestion(this.question)
+      .subscribe(response => {
+        this.question = new AllQuestionsModel()
+      }, error => { console.log(error) });
 
 
   }

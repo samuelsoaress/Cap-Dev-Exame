@@ -14,8 +14,11 @@
                             <label for="technology">Tecnologia:</label>
                         </td>
                         <td>
-                            <input name="technology" type="text" id="technology" class="form-control"
-                                placeholder="Tecnologia da questão Ex: java" [(ngModel)]="question.technology">
+                            <select id="technology" class="form-control">
+                                <script> console.log(questions);</script>
+                                <option value="{{question.tecnologia}}" *ngFor="let questao of questao">
+                                    {{ questao.tecnologia }}</option>
+                            </select>
                         </td>
                     </tr>
                     <tr>
