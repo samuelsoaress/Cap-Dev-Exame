@@ -1,0 +1,36 @@
+<div class="row col-sm-12">
+    <app-menuSuperior></app-menuSuperior>
+    <div class="col-sm-2" style="background-color: #f3f6fb;">
+        <app-menuLateral></app-menuLateral>
+    </div>
+
+    <div class="col-sm-10">
+        <form #AllQuestionForm="ngForm" (submit)="onSubmit(AllQuestionForm.value)" novalidate>
+            <app-titulo titulo="Questões"></app-titulo>
+            <table class="">
+                <div class="col-sm-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Tecnologia</th>
+                                    <th class="text-center">Complexidade</th>
+                                    <th class="text-center">Enunciado</th>
+                                    <th class="text-center">Parte de código</th>
+                                    <th class="text-center">Alternativas</th>
+                                    <th class="text-center">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabela-questoes">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </table>
+
+
+            <app-rodape></app-rodape>
+        </form>
+    </div>
+</div>

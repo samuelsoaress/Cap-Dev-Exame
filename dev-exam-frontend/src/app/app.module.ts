@@ -21,6 +21,7 @@ import { MenuLateralComponent } from './menu-lateral/menu-lateral.component';
 import { TituloComponent } from './titulo/titulo.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { AllQuestionsComponent } from './all-questions/all-questions.component';
+import { AllScreenQuestionsComponent } from './all-screen-questions/all-screen-questions.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AllQuestionsComponent } from './all-questions/all-questions.component';
     MenuLateralComponent,
     TituloComponent,
     RodapeComponent,
-    AllQuestionsComponent
+    AllQuestionsComponent,
+    AllScreenQuestionsComponent
   ],
   imports: [
     BrowserModule,

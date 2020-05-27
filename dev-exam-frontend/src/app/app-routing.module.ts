@@ -1,3 +1,4 @@
+import { AllScreenQuestionsComponent } from './all-screen-questions/all-screen-questions.component';
 import { ExamsComponent } from './exams/exams.component';
 import { AuthGuardService } from './auth-guard.service';
 import { ManagerComponent } from './manager/manager.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'manager', component: ManagerComponent},
   { path: 'newexams', component: ExamsComponent },
   { path: 'allquestions', component: AllQuestionsComponent },
+  { path: 'screenallquestions', component: AllScreenQuestionsComponent },
   { path: '**', component: QuestionsComponent }];
 
 @NgModule({
