@@ -8,6 +8,8 @@ import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AllQuestionsComponent } from './all-questions/all-questions.component';
+import { TecnologiesComponent} from './tecnologies/tecnologies.component';
+import { NewtecnologiesComponent} from './newtecnologies/newtecnologies.component';
 
 
 const routes: Routes = [
@@ -18,6 +20,8 @@ const routes: Routes = [
   { path: 'newexams', component: ExamsComponent },
   { path: 'allquestions', component: AllQuestionsComponent },
   { path: 'screenallquestions', component: AllScreenQuestionsComponent },
+  { path: 'tecnologies', component: TecnologiesComponent },
+  { path: 'tecnologies/new', component: NewtecnologiesComponent },  
   { path: '**', component: QuestionsComponent }];
 
 @NgModule({

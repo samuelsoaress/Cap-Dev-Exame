@@ -1,21 +1,28 @@
 <nav class="navbar-default navbar-static-side" role="">
     <div class="sidebar-collapse">
-        <ul class="nav metismenu" id="side-menu">
+        <ul class="nav metismenu" id="metismenu">
 
             <li>
-                <a [routerLink]="['/newexams']"><i class="fa fa-user"></i>
-                    <span class="nav-label">Exames</span>
-                </a>
+                <a><i class="fa fa-user"></i> <span class="nav-label">Exames</span> <span class="fa arrow"></span></a>
+                <ul>
+                    <li><a [routerLink]="['/newexams']">Criar</a></li>
+                    <li><a href="#">Consulta</a></li>
+                </ul>
             </li>
             <li>
-                <a [routerLink]="['/allquestions']"><i class="fa fa-shield"></i>
-                    <span class="nav-label">Questões</span>
-                </a>
+                <a><i class="fa fa-user"></i> <span class="nav-label">Questões</span> <span class="fa arrow"></span></a>
+                <ul>
+                    <li><a [routerLink]="['/allquestions']">Criar</a></li>
+                    <li><a href="#">Consulta</a></li>
+                </ul>
             </li>
+
             <li>
-                <a href="#"><i class="fa fa-shield"></i>
-                    <span class="nav-label">Tecnologias</span>
-                    </a>
+                <a><i class="fa fa-user"></i> <span class="nav-label">Tecnologias</span> <span class="fa arrow"></span></a>
+                <ul>
+                    <li><a [routerLink]="['/tecnologies']">Criar</a></li>
+                    <li><a [routerLink]="['/tecnologies/new']">Consulta</a></li>
+                </ul>
             </li>
         </ul>
     </div>

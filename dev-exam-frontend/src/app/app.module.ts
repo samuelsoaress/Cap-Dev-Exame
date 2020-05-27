@@ -22,6 +22,8 @@ import { TituloComponent } from './titulo/titulo.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { AllQuestionsComponent } from './all-questions/all-questions.component';
 import { AllScreenQuestionsComponent } from './all-screen-questions/all-screen-questions.component';
+import { TecnologiesComponent } from './tecnologies/tecnologies.component';
+import { NewtecnologiesComponent } from './newtecnologies/newtecnologies.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { AllScreenQuestionsComponent } from './all-screen-questions/all-screen-q
     RodapeComponent,
     AllQuestionsComponent,
     AllScreenQuestionsComponent
+    TecnologiesComponent,
+    NewtecnologiesComponent
   ],
   imports: [
     BrowserModule,

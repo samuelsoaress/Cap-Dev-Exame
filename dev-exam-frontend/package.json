@@ -26,6 +26,7 @@
     "file-saver": "^2.0.2",
     "font-awesome": "^4.7.0",
     "jquery": "^3.5.1",
+    "metismenu": "^3.0.6",
     "rxjs": "~6.4.0",
     "tslib": "^1.11.1",
     "zone.js": "~0.9.1"
