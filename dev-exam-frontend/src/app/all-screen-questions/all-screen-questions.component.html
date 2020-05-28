@@ -5,32 +5,41 @@
     </div>
 
     <div class="col-sm-10">
-        <form #AllQuestionForm="ngForm" (submit)="onSubmit(AllQuestionForm.value)" novalidate>
-            <app-titulo titulo="Questões"></app-titulo>
-            <table class="">
-                <div class="col-sm-12">
-                    <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover">
-                            <thead>
-                                <tr>
-                                    <th class="text-center">Tecnologia</th>
-                                    <th class="text-center">Complexidade</th>
-                                    <th class="text-center">Enunciado</th>
-                                    <th class="text-center">Parte de código</th>
-                                    <th class="text-center">Alternativas</th>
-                                    <th class="text-center">Ações</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tabela-questoes">
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+        <app-titulo titulo="Questões"></app-titulo>
+        <div class="mat-elevation-z8">
 
+            <mat-form-field>
+                <mat-label>Filter</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
+            </mat-form-field>
+            <table mat-table [dataSource]="dataSource">
+
+                <ng-container matColumnDef="technology">
+                    <th mat-header-cell *matHeaderCellDef> Tecnologia </th>
+                    <td mat-cell *matCellDef="let element"> {{element.technology}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="complexity">
+                    <th mat-header-cell *matHeaderCellDef> Complexidade </th>
+                    <td mat-cell *matCellDef="let element"> {{element.complexity}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="firstPart">
+                    <th mat-header-cell *matHeaderCellDef> Enunciado </th>
+                    <td mat-cell *matCellDef="let element"> {{element.firstPart}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="correctAnswer">
+                    <th mat-header-cell *matHeaderCellDef> Resposta correta </th>
+                    <td mat-cell *matCellDef="let element"> {{element.correctAnswer}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
 
-
-            <app-rodape></app-rodape>
-        </form>
+            <mat-paginator [pageSizeOptions]="[10, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
     </div>
+    <app-rodape></app-rodape>
 </div>

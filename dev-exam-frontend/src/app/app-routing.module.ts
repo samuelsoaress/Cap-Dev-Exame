@@ -18,8 +18,8 @@ const routes: Routes = [
   { path: 'success', component: SuccessComponent },
   { path: 'manager', component: ManagerComponent},
   { path: 'newexams', component: ExamsComponent },
-  { path: 'allquestions', component: AllQuestionsComponent },
-  { path: 'screenallquestions', component: AllScreenQuestionsComponent },
+  { path: 'newquestion', component: AllQuestionsComponent },
+  { path: 'allquestions', component: AllScreenQuestionsComponent },
   { path: 'tecnologies', component: TecnologiesComponent },
   { path: 'tecnologies/new', component: NewtecnologiesComponent },  
   { path: '**', component: QuestionsComponent }];

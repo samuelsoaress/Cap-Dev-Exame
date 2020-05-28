@@ -1,6 +1,9 @@
 import { AllScreenQuestionsService } from './all-screen-questions.service';
-import { QuestionsService } from 'src/app/services/questions.service';
-import { Component, OnInit } from '@angular/core';
+import { AllScreenModel } from './all-screen.model';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+
 
 @Component({
   selector: 'app-all-screen-questions',
@@ -8,33 +11,46 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./all-screen-questions.component.scss']
 })
 export class AllScreenQuestionsComponent implements OnInit {
-  exam: Array<any> = []
-  allQuestions: Array<any> = [];
-
-  constructor(private questionsService: QuestionsService, private AllScreenQuestionsService: AllScreenQuestionsService) { }
-
-  addLine(arg1, arg2, arg3, arg4, arg5 ) {
-    var newRow = $("<tr>");
-    var cols = "";
-    cols += '<td readonly>' + arg1 + '</td>';
-    cols += '<td readonly>' + arg2 + '</td>';
-    cols += '<td readonly>' + arg3 + '</td>';
-    cols += '<td readonly>' + arg4 + '</td>';
-    cols += '<td readonly>' + arg5 + '</td>';
-    cols += '<td>';
-    cols += '<button class="btn-danger btn btn-xs" onclick="onDelete(this)" type="button">Remover</button><button type="button" class="btn btn-info">Editar</button>';
-    cols += '</td>';
-    newRow.append(cols);
-    $("#tabela-questoes").append(newRow);
-    this.allQuestions.push(this.exam)
-    this.exam = []
+  constructor(private questionService: AllScreenQuestionsService) {
   }
+  displayedColumns: string[] = ['technology', 'complexity', 'firstPart', 'correctAnswer'];
+  dataSource = new MatTableDataSource<AllScreenModel>();
 
-  
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 
   ngOnInit() {
-    this.AllScreenQuestionsService.getAllQuestions()
-
+    this.loadtable();
   }
 
+  loadtable() {
+    let list = []
+    let item = new AllScreenModel()
+
+    this.questionService.getAllQuestions()
+      .subscribe(response => {
+        response.forEach(element => {
+          item = new AllScreenModel()
+          item.technology = element.technology
+          item.complexity = element.complexity
+          item.firstPart = element.firstPart
+          item.correctAnswer = element.correctAnswer
+
+          list.push(item)
+        });
+        this.dataSource.data = list
+        this.dataSource.paginator = this.paginator;
+
+      }, error => { console.log(error) }
+      );
+  }
 }
+
+
+
+
+
