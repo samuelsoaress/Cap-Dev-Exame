@@ -24,6 +24,8 @@ import { AllQuestionsComponent } from './all-questions/all-questions.component';
 import { AllScreenQuestionsComponent } from './all-screen-questions/all-screen-questions.component';
 import { TecnologiesComponent } from './tecnologies/tecnologies.component';
 import { NewtecnologiesComponent } from './newtecnologies/newtecnologies.component';
+import { MaterialModule } from 'src/app/material-module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { NewtecnologiesComponent } from './newtecnologies/newtecnologies.compone
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule,
+    BrowserAnimationsModule
   ],
   exports:[
     ExamsComponent
