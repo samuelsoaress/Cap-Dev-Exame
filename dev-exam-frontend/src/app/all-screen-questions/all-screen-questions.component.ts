@@ -13,7 +13,7 @@ import { MatTableDataSource } from '@angular/material/table';
 export class AllScreenQuestionsComponent implements OnInit {
   constructor(private questionService: AllScreenQuestionsService) {
   }
-  displayedColumns: string[] = ['technology', 'complexity', 'firstPart', 'correctAnswer'];
+  displayedColumns: string[] = ['technology', 'complexity', 'firstPart', 'correctAnswer', 'delete', 'edit'];
   dataSource = new MatTableDataSource<AllScreenModel>();
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
