@@ -1,12 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { tecnology } from './tecnology';
-
-const ELEMENT_DATA: tecnology[] = [
-  {name: 'Cobol'},
-  {name: 'Java'},
-  {name: 'Angular'},
-  {name: 'Assembler'},
-];
+import { technology } from './technology';
+import {TechnologyService} from '../services/technology.service';
 
 @Component({
   selector: 'app-tecnologies',
@@ -14,10 +8,13 @@ const ELEMENT_DATA: tecnology[] = [
   styleUrls: ['./tecnologies.component.scss']
 })
 
-export class TecnologiesComponent {
+export class TechnologiesComponent {
   displayedColumns: string[] = ['name','editar','excluir'];
-  dataSource = ELEMENT_DATA;
+  dataSource;
 
+  constructor(private technologiesService: TechnologyService){
+    this.dataSource = technologiesService.getTechnologies();
+  }
  
   ngOnInit() {
   }

@@ -8,8 +8,8 @@ import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AllQuestionsComponent } from './all-questions/all-questions.component';
-import { TecnologiesComponent} from './tecnologies/tecnologies.component';
-import { NewtecnologiesComponent} from './newtecnologies/newtecnologies.component';
+import { TechnologiesComponent} from './technologies/technologies.component';
+import { NewtecnologiesComponent} from './newtechnologies/newtechnologies.component';
 
 
 const routes: Routes = [
