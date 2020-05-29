@@ -23,5 +23,8 @@ export class AllScreenQuestionsService {
         return this.http.request('GET', this.backendUrl + 'allquestion', httpOptions)
     }
 
+    deleteQuestion(code: number): Observable<any> {
+        return this.http.request('DELETE', this.backendUrl + 'delquestion/code/' + code, httpOptions)
+    }
 }
 

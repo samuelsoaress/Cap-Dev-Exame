@@ -11,6 +11,8 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./all-screen-questions.component.scss']
 })
 export class AllScreenQuestionsComponent implements OnInit {
+
+
   constructor(private questionService: AllScreenQuestionsService) {
   }
   displayedColumns: string[] = ['technology', 'complexity', 'firstPart', 'correctAnswer', 'delete', 'edit'];
@@ -27,6 +29,18 @@ export class AllScreenQuestionsComponent implements OnInit {
     this.loadtable();
   }
 
+  delete(allScreenModel: AllScreenModel) {
+    this.questionService.deleteQuestion(allScreenModel.code)
+      .subscribe(response => {
+        console.log("Questão excluida")
+      }, error => { console.log(error) }
+      );
+    document.location.reload(true);
+  }
+
+
+
+
   loadtable() {
     let list = []
     let item = new AllScreenModel()
@@ -35,6 +49,7 @@ export class AllScreenQuestionsComponent implements OnInit {
       .subscribe(response => {
         response.forEach(element => {
           item = new AllScreenModel()
+          item.code = element.code
           item.technology = element.technology
           item.complexity = element.complexity
           item.firstPart = element.firstPart

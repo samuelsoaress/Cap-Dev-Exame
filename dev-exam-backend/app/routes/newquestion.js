@@ -4,6 +4,6 @@ const cors = require('cors')
 
 
 module.exports = (app) => {
-  app.post('/newquestion', post.handler);
+  app.post('/newquestion', cors(), post.handler);
   appUse.appUse(app);
 };

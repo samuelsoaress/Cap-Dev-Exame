@@ -21,13 +21,12 @@ export class AllQuestionsComponent implements OnInit {
   }
 
 
-
   ngOnInit() {
     this.quest.questions()
-    .subscribe(questions => {
-      this.questao = questions
-      console.log(this.questao)
-    });
+      .subscribe(questions => {
+        this.questao = questions
+
+      });
 
   }
   onSubmit() {

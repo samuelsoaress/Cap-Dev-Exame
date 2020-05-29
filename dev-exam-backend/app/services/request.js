@@ -11,10 +11,21 @@ const get = (url, req, res) => {
   const options = {
     headers: headers
   };
-  console.log(1)
+  console.log("Teste de GET")
   //req.app.get('logger').info(url);
   //req.app.get('logger').info(options);
   return client.getPromise(url, options).then((response) => (response));
+};
+
+const excluir = (url, req, res, teste) => {
+  const options = {
+    headers: headers
+  };
+  console.log("URL: " + url)
+  console.log("Options: " + options)
+  //req.app.get('logger').info(url);
+  //req.app.get('logger').info(options);
+  return client.deletePromise(url, options).then((response) => (response));
 };
 
 const post = (url, req, res, body = {}) => {
@@ -23,6 +34,8 @@ const post = (url, req, res, body = {}) => {
     data: body,
     headers: headers
   };
+  console.log(url)
+  console.log(options)
   //req.app.get('logger').info('Entrada - Requisição Hystrix');
   // req.app.get('logger').info({
   //   url,
@@ -32,6 +45,7 @@ const post = (url, req, res, body = {}) => {
 };
 
 module.exports = {
-  get:get,
-  post:post
+  get: get,
+  post: post,
+  excluir: excluir
 };

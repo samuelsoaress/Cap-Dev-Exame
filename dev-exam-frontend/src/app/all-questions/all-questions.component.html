@@ -14,9 +14,10 @@
                             <label for="technology">Tecnologia:</label>
                         </td>
                         <td>
-                            <select id="technology" class="form-control">
+                            <select id="technology" class="form-control" name="technology"
+                                [(ngModel)]="question.technology">
                                 <script> console.log(questions);</script>
-                                <option value="{{question.tecnologia}}" *ngFor="let questao of questao">
+                                <option [value]="questao.tecnologia" *ngFor="let questao of questao">
                                     {{ questao.tecnologia }}</option>
                             </select>
                         </td>
