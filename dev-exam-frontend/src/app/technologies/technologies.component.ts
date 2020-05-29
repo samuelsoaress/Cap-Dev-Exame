@@ -3,9 +3,9 @@ import { technology } from './technology';
 import {TechnologyService} from '../services/technology.service';
 
 @Component({
-  selector: 'app-tecnologies',
-  templateUrl: './tecnologies.component.html',
-  styleUrls: ['./tecnologies.component.scss']
+  selector: 'app-technologies',
+  templateUrl: './technologies.component.html',
+  styleUrls: ['./technologies.component.scss']
 })
 
 export class TechnologiesComponent {

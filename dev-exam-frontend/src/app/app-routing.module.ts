@@ -9,19 +9,19 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AllQuestionsComponent } from './all-questions/all-questions.component';
 import { TechnologiesComponent} from './technologies/technologies.component';
-import { NewtecnologiesComponent} from './newtechnologies/newtechnologies.component';
+import { NewtechnologiesComponent} from './newtechnologies/newtechnologies.component';
 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'exam', component: QuestionsComponent },
+  { path: 'exam', component: QuestionsComponent }, 
   { path: 'success', component: SuccessComponent },
   { path: 'manager', component: ManagerComponent},
   { path: 'newexams', component: ExamsComponent },
   { path: 'newquestion', component: AllQuestionsComponent },
   { path: 'allquestions', component: AllScreenQuestionsComponent },
-  { path: 'tecnologies', component: TecnologiesComponent },
-  { path: 'tecnologies/new', component: NewtecnologiesComponent },  
+  { path: 'technologies', component: TechnologiesComponent },
+  { path: 'technologies/new', component: NewtechnologiesComponent },  
   { path: '**', component: QuestionsComponent }];
 
 @NgModule({
