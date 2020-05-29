@@ -38,7 +38,14 @@ export class AllScreenQuestionsComponent implements OnInit {
           item.technology = element.technology
           item.complexity = element.complexity
           item.firstPart = element.firstPart
-          item.correctAnswer = element.correctAnswer
+          let correct = element.correctAnswer
+
+          let array = element.answers
+          for (let index = 0; index < array.length; index++) {
+            if (array[index].letter === correct) {
+              item.correctAnswer = array[index].text
+            }
+          }
 
           list.push(item)
         });
