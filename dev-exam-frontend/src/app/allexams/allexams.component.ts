@@ -36,11 +36,23 @@ export class AllexamsComponent implements OnInit {
         response.forEach(element => {
           item = new AllExamsModel()
           item.nomeTeste = element.nomeTeste
+          let sum;
+          let complexity;
+          let tecnology
           for (let index = 0; index < element.list.length; index++) {
             let exam = element.list[index];
-            item.complexity += exam.complexidade
-            item.tecnology += exam.tecnologia
-            item.qtdQuestions += exam.quantidadeQuestoes
+            if (exam.sequencialProva > 1) {
+              complexity += ", " + exam.complexidade
+              tecnology += ", " + exam.tecnologia
+              sum += parseInt(exam.quantidadeQuestoes)
+            } else {
+              complexity = exam.complexidade
+              tecnology = exam.tecnologia
+              sum = parseInt(exam.quantidadeQuestoes)
+            }
+            item.complexity = complexity
+            item.tecnology = tecnology
+            item.qtdQuestions = sum
 
           }
 
