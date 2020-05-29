@@ -22,12 +22,12 @@ export class QuestionsService {
   getQuestions(examCode: string): Observable<any> {
     return this.http.request('GET', this.backendUrl + 'exam?code=' + examCode);
   }
-    
+
   questions(): Observable<any> {
     return this.http.request('GET', this.backendUrl + 'technology', httpOptions);
   }
 
-  sendAnswers(body: any,examCode) {
+  sendAnswers(body: any, examCode) {
 
     this.http.post(this.backendUrl + 'answers?code=' + examCode, JSON.parse(body), {
       headers: new HttpHeaders().set('Content-Type', 'application/json')
@@ -42,6 +42,6 @@ export class QuestionsService {
   sendExam(body: any): Observable<any> {
     return this.http.post(this.backendUrl + 'newExam', JSON.parse(body), {
       headers: new HttpHeaders().set('Content-Type', 'application/json')
-    })    
+    })
   }
 }

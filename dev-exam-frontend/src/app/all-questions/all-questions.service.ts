@@ -40,5 +40,22 @@ export class AllQuestionsService {
         return this.http.post(this.backendUrl + 'newquestion', body, httpOptions)
     }
 
+    updateQuestion(AllQuestionsModel: AllQuestionsModel): Observable<any> {
+        let body = {
+            "altenativaA": AllQuestionsModel.answerLetterA,
+            "altenativaB": AllQuestionsModel.answerLetterB,
+            "altenativaC": AllQuestionsModel.answerLetterC,
+            "altenativaD": AllQuestionsModel.answerLetterD,
+            "altenativaE": AllQuestionsModel.answerLetterE,
+            "blocoCodigo": AllQuestionsModel.codeParts,
+            "codigoRespostaCorreta": AllQuestionsModel.correctAnswer,
+            "codigoTecnologia": AllQuestionsModel.technology,
+            "complexidade": AllQuestionsModel.complexity,
+            "descricaoQuestao": AllQuestionsModel.firstPart
+        }
+        return this.http.put(this.backendUrl + 'updatequestion', body, httpOptions)
+    }
+
+
 }
 

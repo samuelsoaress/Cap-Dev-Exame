@@ -1,3 +1,4 @@
+import { EditQuestionsComponent } from './edit-questions/edit-questions.component';
 import { AllScreenQuestionsComponent } from './all-screen-questions/all-screen-questions.component';
 import { ExamsComponent } from './exams/exams.component';
 import { AuthGuardService } from './auth-guard.service';
@@ -23,7 +24,9 @@ const routes: Routes = [
   { path: 'newquestion', component: AllQuestionsComponent },
   { path: 'allquestions', component: AllScreenQuestionsComponent },
   { path: 'technologies', component: TechnologiesComponent },
-  { path: 'technologies/new', component: NewtechnologiesComponent },  
+  { path: 'technologies/new', component: NewtechnologiesComponent }, 
+  { path: 'editquestion', component: EditQuestionsComponent }, 
+
   { path: '**', component: QuestionsComponent }];
 
 @NgModule({
