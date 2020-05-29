@@ -10,6 +10,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AllQuestionsComponent } from './all-questions/all-questions.component';
 import { TecnologiesComponent} from './tecnologies/tecnologies.component';
 import { NewtecnologiesComponent} from './newtecnologies/newtecnologies.component';
+import { AllexamsComponent } from 'src/app/allexams/allexams.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'success', component: SuccessComponent },
   { path: 'manager', component: ManagerComponent},
   { path: 'newexams', component: ExamsComponent },
+  { path: 'allexams', component: AllexamsComponent },
   { path: 'newquestion', component: AllQuestionsComponent },
   { path: 'allquestions', component: AllScreenQuestionsComponent },
   { path: 'tecnologies', component: TecnologiesComponent },

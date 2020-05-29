@@ -26,6 +26,7 @@ import { TecnologiesComponent } from './tecnologies/tecnologies.component';
 import { NewtecnologiesComponent } from './newtecnologies/newtecnologies.component';
 import { MaterialModule } from 'src/app/material-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AllexamsComponent } from './allexams/allexams.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AllQuestionsComponent,
     AllScreenQuestionsComponent,
     TecnologiesComponent,
-    NewtecnologiesComponent
+    NewtecnologiesComponent,
+    AllexamsComponent
   ],
   imports: [
     BrowserModule,
