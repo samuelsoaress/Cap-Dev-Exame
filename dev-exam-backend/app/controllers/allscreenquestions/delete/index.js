@@ -4,7 +4,7 @@ const url = "http://bralpsvvwas02:8083/"
 
 const deleteQuestion = async (req, res) => {
 
-    const request = req.app.get('hystrix').hystrixRequestHandler(excluir, 'Excluir questao');
+    const request = req.app.get('hystrix').hystrixRequestHandler(excluir, 'Del question');
     console.log("Codigo da questão: " + req.params.code)
     return request.execute(
         url + 'questao/codigo/' + req.params.code,

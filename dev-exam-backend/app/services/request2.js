@@ -12,6 +12,7 @@ const excluir = (url, req, res, teste) => {
   const options = {
     headers: headers
   };
+  console.log("ONERBsahduashduashduashudhasudhasudhasudhausdhausidhuiasdhiaksdhiasudhaisudhasuidh")
   console.log("URL: " + url)
   console.log("Options: " + options)
   //req.app.get('logger').info(url);

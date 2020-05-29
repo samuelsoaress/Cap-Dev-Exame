@@ -1,10 +1,10 @@
-const { post } = require('../../../services/request');
+const { post } = require('../../../services/post');
 
 const url = "http://bralpsvvwas02:8083/"
 
 const newQuestion = async (body, req, res) => {
 
-    const request = req.app.get('hystrix').hystrixRequestHandler(post, 'new Exame');
+    const request = req.app.get('hystrix').hystrixRequestHandler(post, 'New Question');
     return request.execute(
         url + 'questao/',
         req,
@@ -17,7 +17,7 @@ const newQuestion = async (body, req, res) => {
 
 const handler = async (req, res, next) => {
     try {
-
+        console.log("NewQuestion")
         let requestData = req.body
 
         let question = await newQuestion(requestData, req, res)
