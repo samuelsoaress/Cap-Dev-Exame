@@ -34,6 +34,7 @@ export class AllexamsComponent implements OnInit {
     this.allExamsService.getAllExams()
       .subscribe(response => {
         response.forEach(element => {
+          console.log(response)
           item = new AllExamsModel()
           item.nomeTeste = element.nomeTeste
           let sum;
@@ -41,7 +42,7 @@ export class AllexamsComponent implements OnInit {
           let tecnology
           for (let index = 0; index < element.list.length; index++) {
             let exam = element.list[index];
-            if (exam.sequencialProva > 1) {
+            if (index > 0) {
               complexity += ", " + exam.complexidade
               tecnology += ", " + exam.tecnologia
               sum += parseInt(exam.quantidadeQuestoes)
@@ -53,7 +54,6 @@ export class AllexamsComponent implements OnInit {
             item.complexity = complexity
             item.tecnology = tecnology
             item.qtdQuestions = sum
-
           }
 
           array.push(item)
