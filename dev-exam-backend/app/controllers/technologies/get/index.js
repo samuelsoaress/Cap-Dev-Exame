@@ -3,7 +3,7 @@ const { get } = require('../../../services/request');
 const url = "http://bralpsvvwas02:8083/"
 
 
-const getTechnology = (req, res) => {
+const getTechnologies = (req, res) => {
     const request = req.app.get('hystrix').hystrixRequestHandler(get, 'tecnologia');
 
     return request.execute(
@@ -17,7 +17,7 @@ const getTechnology = (req, res) => {
 const handler = async (req, res, next) => {
     try {
 
-        result = await getTechnology(req, res)
+        result = await getTechnologies(req, res)
 
         return res.status(result.response.statusCode).json(result.data);
 
