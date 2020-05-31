@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { technology } from './technology';
+import { Technology } from '../models/technology';
 import {TechnologyService} from '../services/technology.service';
 
 @Component({
