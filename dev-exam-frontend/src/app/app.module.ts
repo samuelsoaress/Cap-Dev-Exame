@@ -22,13 +22,14 @@ import { TituloComponent } from './titulo/titulo.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { AllQuestionsComponent } from './all-questions/all-questions.component';
 import { AllScreenQuestionsComponent } from './all-screen-questions/all-screen-questions.component';
-import { TechnologiesComponent } from './technologies/technologies.component';
+import { TechnologiesComponent, ConfirmDeleteDialogComponent } from './technologies/technologies.component';
 import { NewtechnologiesComponent } from './newtechnologies/newtechnologies.component';
 import { MaterialModule } from 'src/app/material-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AllexamsComponent } from './allexams/allexams.component';
 import { EditQuestionsComponent } from './edit-questions/edit-questions.component';
 import { DialogContentExampleDialog } from 'src/app/allexams/dialog-content-example-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,7 @@ import { DialogContentExampleDialog } from 'src/app/allexams/dialog-content-exam
     MaterialModule,
     BrowserAnimationsModule
   ],
-  exports:[
+  exports: [
     ExamsComponent
   ],
   providers: [AuthService],

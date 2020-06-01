@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Confirmar Delete</h2>
+<div mat-dialog-content>
+    <p>Tem certeza que deseja deletar a tecnologia <strong>{{data.tecnologia}}</strong> ?</p>
+</div>
+<div mat-dialog-actions>
+  <button class="btn btn-default" [mat-dialog-close]="false">NÃO</button>
+  <button class="btn btn-danger" [mat-dialog-close]="true" cdkFocusInitial>SIM</button>
+</div>
