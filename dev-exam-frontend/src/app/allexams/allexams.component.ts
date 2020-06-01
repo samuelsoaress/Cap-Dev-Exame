@@ -28,6 +28,15 @@ export class AllexamsComponent implements OnInit {
     this.loadtable();
   }
 
+  delete(allExamsModel: AllExamsModel) {
+    this.allExamsService.deleteExam(allExamsModel.codigoProva)
+      .subscribe(response => {
+        console.log("Exame excluida")
+      }, error => { console.log(error) }
+      );
+    document.location.reload(true);
+  }
+
   loadtable() {
     let array = []
     let item = new AllExamsModel()
@@ -51,6 +60,7 @@ export class AllexamsComponent implements OnInit {
               tecnology = exam.tecnologia
               sum = parseInt(exam.quantidadeQuestoes)
             }
+            item.codigoProva = element.codigoProva
             item.complexity = complexity
             item.tecnology = tecnology
             item.qtdQuestions = sum

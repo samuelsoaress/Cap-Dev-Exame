@@ -23,5 +23,8 @@ export class AllExamsService {
         return this.http.request('GET', this.backendUrl + 'allexams', httpOptions)
     }
 
+    deleteExam(code: string): Observable<any> {
+        return this.http.request('DELETE', this.backendUrl + 'delexam/code/' + code, httpOptions)
+    }
 }
 
