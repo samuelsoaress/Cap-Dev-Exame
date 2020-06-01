@@ -22,12 +22,13 @@ import { TituloComponent } from './titulo/titulo.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { AllQuestionsComponent } from './all-questions/all-questions.component';
 import { AllScreenQuestionsComponent } from './all-screen-questions/all-screen-questions.component';
-import { TechnologiesComponent } from './technologies/technologies.component';
+import { TechnologiesComponent, ConfirmDeleteDialogComponent } from './technologies/technologies.component';
 import { NewtechnologiesComponent } from './newtechnologies/newtechnologies.component';
 import { MaterialModule } from 'src/app/material-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AllexamsComponent } from './allexams/allexams.component';
 import { EditQuestionsComponent } from './edit-questions/edit-questions.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { EditQuestionsComponent } from './edit-questions/edit-questions.componen
     TechnologiesComponent,
     NewtechnologiesComponent,
     AllexamsComponent,
-    EditQuestionsComponent
+    EditQuestionsComponent,
+    ConfirmDeleteDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,11 @@ import { EditQuestionsComponent } from './edit-questions/edit-questions.componen
     ReactiveFormsModule,
     AppRoutingModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    ConfirmDeleteDialogComponent
   ],
   exports:[
     ExamsComponent

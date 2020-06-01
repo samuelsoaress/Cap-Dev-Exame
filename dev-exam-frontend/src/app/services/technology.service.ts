@@ -29,4 +29,8 @@ export class TechnologyService {
       headers: new HttpHeaders().set('Content-Type', 'application/json')
     });
   }
+
+  deleteTechnology(codigo: any): Observable<any> {
+    return this.http.delete(this.backendUrl+'technologies/'+codigo);
+  }
 }
