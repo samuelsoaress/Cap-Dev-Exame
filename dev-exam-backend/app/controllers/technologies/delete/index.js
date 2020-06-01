@@ -1,13 +1,13 @@
-const { get } = require('../../../services/request');
+const { excluir } = require('../../../services/request2');
 
 const url = "http://bralpsvvwas02:8083/"
 
 
-const getTechnologies = (req, res) => {
-    const request = req.app.get('hystrix').hystrixRequestHandler(get, 'tecnologia');
+const deleteTechnology = (req, res) => {
+    const request = req.app.get('hystrix').hystrixRequestHandler(excluir, 'Excluir tecnologia');
 
     return request.execute(
-        url+"tecnologia/",
+        url+"tecnologia/codigo/" + req.params.codigo,
         req,
         res
     )
@@ -17,9 +17,9 @@ const getTechnologies = (req, res) => {
 const handler = async (req, res, next) => {
     try {
 
-        result = await getTechnologies(req, res)
+        result = await deleteTechnology(req, res)
 
-        return res.status(result.response.statusCode).json(result.data);
+        return res.status(result.response.statusCode).end();
 
     } catch (error) {
         return next(error, req, res);
