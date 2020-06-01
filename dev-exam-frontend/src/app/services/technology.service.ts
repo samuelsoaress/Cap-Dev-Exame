@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Technology } from '../models/technology';
 
 
 @Injectable({
@@ -13,7 +14,19 @@ export class TechnologyService {
 
   constructor(private http: HttpClient) { }
 
-  getTechnologies() : Observable<any> {
-    return this.http.request('GET', this.backendUrl + '/technologies');
+  getTechnologies() : Observable<Technology[]> {
+    return this.http.get<Technology[]>(this.backendUrl + 'technologies');
+  }
+
+  createTechnology(technology: Technology): Observable<Technology> {
+    return this.http.post<Technology>(this.backendUrl + 'technologies', technology, {
+      headers: new HttpHeaders().set('Content-Type', 'application/json')
+    })
+  }
+
+  updateTechnology(technology: Technology): Observable<Technology> {
+    return this.http.put<Technology>(this.backendUrl+'technologies', technology, {
+      headers: new HttpHeaders().set('Content-Type', 'application/json')
+    });
   }
 }

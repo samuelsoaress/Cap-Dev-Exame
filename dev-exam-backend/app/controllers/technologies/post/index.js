@@ -3,13 +3,14 @@ const { post } = require('../../../services/request');
 const url = "http://bralpsvvwas02:8083/"
 
 
-const postTechnology = (req, res) => {
-    const request = req.app.get('hystrix').hystrixRequestHandler(post, 'tecnologia');
+const postTechnologies = (body, req, res) => {
+    const request = req.app.get('hystrix').hystrixRequestHandler(post, 'Cadastrar Tecnologia');
 
     return request.execute(
-        url+"tecnologia/add",
+        url + 'tecnologia/',
         req,
-        res
+        res,
+        body
     )
     // return client.getPromise('http://bralpsvvwas02:8083/tecnologia/', options).then((response) => (response));
 }
@@ -17,9 +18,9 @@ const postTechnology = (req, res) => {
 const handler = async (req, res, next) => {
     try {
 
-        result = await postTechnology(req, res)
+        result = await postTechnologies(req.body, req, res);
 
-        return res.status(result.response.statusCode).json(result.data);
+        return res.status(result.response.statusCode).json({ codigo: req.body.codigo, tecnologia: req.body.tecnologia });
 
     } catch (error) {
         return next(error, req, res);
