@@ -28,6 +28,7 @@ import { MaterialModule } from 'src/app/material-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AllexamsComponent } from './allexams/allexams.component';
 import { EditQuestionsComponent } from './edit-questions/edit-questions.component';
+import { DialogContentExampleDialog } from 'src/app/allexams/dialog-content-example-dialog.component';
 
 @NgModule({
   declarations: [
@@ -47,8 +48,10 @@ import { EditQuestionsComponent } from './edit-questions/edit-questions.componen
     TechnologiesComponent,
     NewtechnologiesComponent,
     AllexamsComponent,
-    EditQuestionsComponent
+    EditQuestionsComponent,
+    DialogContentExampleDialog
   ],
+  entryComponents: [DialogContentExampleDialog],
   imports: [
     BrowserModule,
     AppRoutingModule,
