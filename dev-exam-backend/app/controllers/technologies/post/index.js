@@ -20,7 +20,7 @@ const handler = async (req, res, next) => {
 
         result = await postTechnologies(req.body, req, res);
 
-        return res.status(result.response.statusCode).json({ message: "Technology created" });
+        return res.status(result.response.statusCode).json({ codigo: req.body.codigo, tecnologia: req.body.tecnologia });
 
     } catch (error) {
         return next(error, req, res);
