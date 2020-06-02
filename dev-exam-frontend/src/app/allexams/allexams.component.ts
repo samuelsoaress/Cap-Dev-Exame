@@ -3,8 +3,8 @@ import { AllExamsModel } from './allexams.model';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatDialog } from '@angular/material/dialog';
-import { DialogContentExampleDialog } from './dialog-content-example-dialog.component'
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { UpdateExam } from './updateExam.component'
 
 @Component({
   selector: 'app-allexams',
@@ -46,7 +46,6 @@ loadtable() {
     this.allExamsService.getAllExams()
     .subscribe(response => {
       response.forEach(element => {
-        console.log(response)
         item = new AllExamsModel()
         item.nomeTeste = element.nomeTeste
         let sum;
@@ -78,9 +77,12 @@ loadtable() {
     );
   }
   
-  openDialog() {
-    const dialogRef = this.dialog.open(DialogContentExampleDialog);
-  
+  update(AllExamsModel:AllExamsModel) {
+    let config = new MatDialogConfig();
+    const dialogRef = this.dialog.open(UpdateExam,{
+      data: AllExamsModel
+    });
+    
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });

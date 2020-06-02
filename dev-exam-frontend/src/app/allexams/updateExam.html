@@ -1,11 +1,14 @@
+<form>        
 <h2 mat-dialog-title>Editar Exame</h2>
 <mat-dialog-content class="mat-typography">
+
     <tr>
+        <script>console.log(nome)</script>
         <td>
-            <label for="technology">Nome:   </label>
+            <label for="technology">Nome:  </label>
         </td>
         <td>
-            <input type="text" name="nomeTeste" class="form-control" ngModel>
+            <input value="{{nome}}" type="text" name="nome" class="form-control" ng-model>
         </td>
     </tr>
     <br>
@@ -14,7 +17,7 @@
             <label for="technology">Tecnologia:</label>
         </td>
         
-        <input type="number" name='nomeTeste' class="form-control" ng-model>
+        <input value="{{tecnology}}" type="text" name='' class="form-control" ng-model>
     </tr>
     <br>
     <tr>
@@ -22,15 +25,15 @@
             <label for="technology">Complexidade:</label>
         </td>
         
-        <input type="number" name='nomeTeste' class="form-control" ng-model>
+        <input value="{{complexity}}" type="text" name='' class="form-control" ng-model>
     </tr>
 
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Atualizar</button>
+    <button mat-button type="submit" [mat-dialog-close]="true" cdkFocusInitial>Atualizar</button>
 </mat-dialog-actions>
-
+</form>
 
 <!-- Copyright 2019 Google LLC. All Rights Reserved.
     Use of this source code is governed by an MIT-style license that

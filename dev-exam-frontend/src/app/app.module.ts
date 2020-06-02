@@ -28,7 +28,7 @@ import { MaterialModule } from 'src/app/material-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AllexamsComponent } from './allexams/allexams.component';
 import { EditQuestionsComponent } from './edit-questions/edit-questions.component';
-import { DialogContentExampleDialog } from 'src/app/allexams/dialog-content-example-dialog.component';
+import { UpdateExam } from 'src/app/allexams/updateExam.component';
 import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
@@ -50,9 +50,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     NewtechnologiesComponent,
     AllexamsComponent,
     EditQuestionsComponent,
-    DialogContentExampleDialog
+    UpdateExam
   ],
-  entryComponents: [DialogContentExampleDialog],
+  entryComponents: [UpdateExam],
   imports: [
     BrowserModule,
     AppRoutingModule,
