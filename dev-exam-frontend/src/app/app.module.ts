@@ -1,3 +1,4 @@
+import { UpdateQuestions } from './all-screen-questions/updateQuestions.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -27,7 +28,6 @@ import { NewtechnologiesComponent } from './newtechnologies/newtechnologies.comp
 import { MaterialModule } from 'src/app/material-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AllexamsComponent } from './allexams/allexams.component';
-import { EditQuestionsComponent } from './edit-questions/edit-questions.component';
 import { UpdateExam } from 'src/app/allexams/updateExam.component';
 import { MatDialogModule } from '@angular/material/dialog';
 
@@ -49,10 +49,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     TechnologiesComponent,
     NewtechnologiesComponent,
     AllexamsComponent,
-    EditQuestionsComponent,
-    UpdateExam
+    UpdateExam,
+    UpdateQuestions
   ],
-  entryComponents: [UpdateExam],
+  entryComponents: [UpdateExam, UpdateQuestions],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -64,7 +64,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     BrowserAnimationsModule
   ],
   exports: [
-    ExamsComponent
+    ExamsComponent,
+    QuestionsComponent
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
