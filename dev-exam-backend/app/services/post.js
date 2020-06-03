@@ -14,8 +14,8 @@ const post = (url, req, res, body = {}) => {
         data: body,
         headers: headers
     };
-    console.log("Breno " + url)
-    console.log("Outro Breno" + options)
+    console.log(url)
+    console.log(options)
     //req.app.get('logger').info('Entrada - Requisição Hystrix');
     // req.app.get('logger').info({
     //   url,

@@ -26,7 +26,6 @@ export class AllScreenQuestionsService {
         return this.http.request('DELETE', this.backendUrl + 'delquestion/code/' + code, httpOptions)
     }
     UpdateQuestion(body: any){
-        console.log('entrou na update question')
         return this.http.put(this.backendUrl + 'updatequestion', JSON.parse(JSON.stringify(body)), httpOptions)
     }
 }

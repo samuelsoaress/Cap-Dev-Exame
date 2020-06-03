@@ -70,10 +70,10 @@ export class ExamsComponent implements OnInit {
     this.questionsService.sendExam(JSON.stringify(dict))
     .subscribe(
       res => {
-        this.exam = []
-        window.location.reload();
+        document.location.reload(true);
       }
     );
+    document.location.reload(true);
     console.log(dict)
   }
 }
