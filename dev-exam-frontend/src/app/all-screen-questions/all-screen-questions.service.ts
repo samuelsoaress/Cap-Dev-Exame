@@ -15,7 +15,6 @@ const httpOptions = {
 
 export class AllScreenQuestionsService {
     private backendUrl = 'http://localhost:3000/'
-    private apiUrl = 'http://bralpsvvwas02:8083/'
     constructor(private http: HttpClient) { }
 
 
@@ -26,8 +25,9 @@ export class AllScreenQuestionsService {
     deleteQuestion(code: number): Observable<any> {
         return this.http.request('DELETE', this.backendUrl + 'delquestion/code/' + code, httpOptions)
     }
-    UpdateQuestion(body: any): Observable<any> {
-        return this.http.request('PUT', this.backendUrl + 'updatequestion' + JSON.parse(body), httpOptions)
+    UpdateQuestion(body: any){
+        console.log('entrou na update question')
+        return this.http.put(this.backendUrl + 'updatequestion', JSON.parse(JSON.stringify(body)), httpOptions)
     }
 }
 

@@ -22,9 +22,9 @@ export class UpdateQuestions implements OnInit {
     correctAnswer: string
     resposta: string
     code: number
+    
 
-
-    constructor(private AllScreenQuestionsService: AllScreenQuestionsService,
+    constructor(public AllScreenQuestionsService: AllScreenQuestionsService,
         public dialogRef: MatDialogRef<UpdateQuestions>,
         @Inject(MAT_DIALOG_DATA) public data: any) {
         console.log('data', this.data);
@@ -47,10 +47,11 @@ export class UpdateQuestions implements OnInit {
 
     }
     onSubmit(body: any) {
-        console.log(body)
         body['codigo'] = this.code
+        console.log(body)
+        
         this.AllScreenQuestionsService.UpdateQuestion(body)
-            .subscribe(question => {
+        .subscribe(res => {
                 console.log("Questão atualizada")
             }, error => { console.log(error) }
             );
