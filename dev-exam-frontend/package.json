@@ -31,8 +31,10 @@
     "jquery": "^3.5.1",
     "metismenu": "^3.0.6",
     "ngx-toastr": "^12.1.0",
+    "ngx-bootstrap": "^5.6.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.11.1",
+    "xlsx": "^0.16.1",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
