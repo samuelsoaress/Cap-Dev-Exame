@@ -2,7 +2,9 @@ import { UpdateQuestions } from './all-screen-questions/updateQuestions.componen
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
+import { CandidateService } from './services/candidate.service';
+import { ToastrModule } from 'ngx-toastr';
+import { InterceptorService } from './core/auth/Interceptor.service';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -63,13 +65,14 @@ import { AllResultTestComponent } from './all-result-test/all-result-test.compon
     ReactiveFormsModule,
     AppRoutingModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   exports: [
     ExamsComponent,
     QuestionsComponent
   ],
-  providers: [AuthService],
+  providers: [CandidateService,{ provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
