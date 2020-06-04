@@ -30,6 +30,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AllexamsComponent } from './allexams/allexams.component';
 import { UpdateExam } from 'src/app/allexams/updateExam.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AllResultTestComponent } from './all-result-test/all-result-test.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     NewtechnologiesComponent,
     AllexamsComponent,
     UpdateExam,
-    UpdateQuestions
+    UpdateQuestions,
+    AllResultTestComponent
   ],
   entryComponents: [UpdateExam, UpdateQuestions],
   imports: [
