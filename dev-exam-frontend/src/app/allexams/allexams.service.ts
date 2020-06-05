@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { environment } from "../../../src/environments/environment";
 
 const httpOptions = {
 
@@ -14,17 +15,15 @@ const httpOptions = {
 
 
 export class AllExamsService {
-    private backendUrl = 'http://localhost:3000/'
-    private apiUrl = 'http://bralpsvvwas02:8083/'
     constructor(private http: HttpClient) { }
 
 
     getAllExams(): Observable<any> {
-        return this.http.request('GET', this.backendUrl + 'allexams', httpOptions)
+        return this.http.request('GET', 'allexams', httpOptions)
     }
 
     deleteExam(code: string): Observable<any> {
-        return this.http.request('DELETE', this.backendUrl + 'delexam/code/' + code, httpOptions)
+        return this.http.request('DELETE','delexam/code/' + code, httpOptions)
     }
 }
 

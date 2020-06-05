@@ -14,32 +14,30 @@ const httpOptions = {
 
 export class QuestionsService {
 
-  private backendUrl = 'http://localhost:3000/'
-  private apiUrl = 'http://bralpsvvwas02:8083/'
 
   constructor(private http: HttpClient) { }
 
   getQuestions(examCode: string): Observable<any> {
-    return this.http.request('GET', this.backendUrl + 'exam?code=' + examCode);
+    return this.http.request('GET','exam?code=' + examCode);
   }
 
   questions(): Observable<any> {
-    return this.http.request('GET', this.backendUrl + 'technologies', httpOptions);
+    return this.http.request('GET','technologies', httpOptions);
   }
 
   sendAnswers(body: any, examCode) {
 
-    this.http.post(this.backendUrl + 'answers?code=' + examCode, JSON.parse(body), {
+    this.http.post('answers?code=' + examCode, JSON.parse(body), {
       headers: new HttpHeaders().set('Content-Type', 'application/json')
     }).subscribe(
       res => {
         console.log(res)
       }
     );
-    console.log(this.backendUrl + 'answers' + ' ' + body)
+    console.log('answers' + ' ' + body)
   }
 
   sendExam(body: any): Observable<any> {
-    return this.http.post(this.backendUrl + 'newExam', JSON.parse(body), httpOptions)
+    return this.http.post('newExam', JSON.parse(body), httpOptions)
   }
 }

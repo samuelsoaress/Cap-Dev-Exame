@@ -14,20 +14,19 @@ const httpOptions = {
 
 
 export class AllResultTestService {
-    private backendUrl = 'http://localhost:3000/'
     constructor(private http: HttpClient) { }
 
 
     GetAllResultTeste(): Observable<any> {
-        return this.http.request('GET', this.backendUrl + 'allresultteste', httpOptions)
+        return this.http.request('GET','allresultteste', httpOptions)
     }
 
     DeleteResultTeste(code: number): Observable<any> {
-        return this.http.request('DELETE', this.backendUrl + 'delteste/code/' + code, httpOptions)
+        return this.http.request('DELETE','delteste/code/' + code, httpOptions)
     }
     UpdateResultTeste(body: any){
         console.log('entrou na update question')
-        return this.http.put(this.backendUrl + 'updateteste', JSON.parse(JSON.stringify(body)), httpOptions)
+        return this.http.put('updateteste', JSON.parse(JSON.stringify(body)), httpOptions)
     }
 }
 

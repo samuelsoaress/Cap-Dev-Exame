@@ -14,39 +14,35 @@ const httpOptions = {
 
 export class ManagerService {
 
-    private apiUrl = 'http://bralpsvvwas02:8083/'
-
-    private backendUrl = 'http://localhost:3000/'
-
     constructor(private http: HttpClient) { }
 
     autorizator(body: any) {
 
-        this.http.post(this.backendUrl + 'autorizador', JSON.parse(body), httpOptions)
+        this.http.post('autorizador', JSON.parse(body), httpOptions)
             .subscribe(
             res => {
                 console.log(res)
             }
             );
-        console.log(this.backendUrl + 'autorizador' + ' ' + body)
+        console.log('autorizador' + ' ' + body)
     }
 
     responsibleAll(): Observable<any> {
-        return this.http.request('GET',this.backendUrl + 'responsavelCap', httpOptions)
+        return this.http.request('GET','responsavelCap', httpOptions)
     }
 
     examPart(): Observable<any> {
-        return this.http.request('GET',this.backendUrl + 'composicao-prova', httpOptions)
+        return this.http.request('GET','composicao-prova', httpOptions)
     }
 
     sendCandidate(body: any) {
 
-        this.http.post(this.backendUrl + 'candidate', JSON.parse(body), httpOptions)
+        this.http.post('candidate', JSON.parse(body), httpOptions)
             .subscribe(
             res => {
                 console.log(res)
             }
             );
-        console.log(this.apiUrl + 'candidate' + ' ' + body)
+        console.log('candidate' + ' ' + body)
     }
 }
