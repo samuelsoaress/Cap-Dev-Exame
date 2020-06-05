@@ -3,11 +3,14 @@ table {
 }
 
 .mat-form-field {
-    font-size: 14px;
+    font-size: 20px;
     width: 80%;
-    box-sizing: border-box;
 }
+.table-mail .mail-date {
+    padding-right: 10px;
+  }
 
-.mat-column-firstPart {
-    max-width: 300px;
+.mat-cell {
+    font-size: 18px;
+    color: black;
 }
