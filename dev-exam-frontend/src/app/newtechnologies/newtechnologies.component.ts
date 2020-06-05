@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TechnologyService } from '../services/technology.service';
 import { Technology } from '../models/technology';
 import { Router, ActivatedRoute } from '@angular/router';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-newtechnologies',
@@ -17,8 +18,7 @@ export class NewtechnologiesComponent implements OnInit {
     this.technology = new Technology();
   }
   onSubmit() {
-    console.log(this.technology)
-    
+    this.technology.tecnologia = this.technology.tecnologia.toUpperCase();
     this.service.createTechnology(this.technology)
     .subscribe(
       res => {

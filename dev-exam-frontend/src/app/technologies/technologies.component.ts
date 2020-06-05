@@ -30,26 +30,11 @@ export class TechnologiesComponent {
     this.dataSource = this.technologiesService.getTechnologies();
     this.technology = new Technology();
   }
-
-
-  openEditor(): void {
-    this.edit = true;
-  }
-
-  onSubmit(): void {
-    this.technologiesService.updateTechnology(this.technology).subscribe(tec => {
-      this.router.navigated = false;
-      this.router.navigate([this.router.url]);
+  editTechnology(technology: Technology): void {
+    const dialogRef = this.dialog.open(UpdateTechnologyDialog, {
+      width: '300px',
+      data: technology
     });
-
-    this.router.navigate(['technologies']);
-  }
-
-  editTechnology(tech: Technology): void {
-    this.technology.codigo = tech.codigo;
-    this.technology.tecnologia = tech.tecnologia
-    this.openEditor();
-
   }
 
   openConfirmDeleteDialog(tech: Technology): void {
@@ -79,4 +64,37 @@ export class ConfirmDeleteDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<ConfirmDeleteDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Technology) { }
+}
+
+
+@Component({
+  selector: 'update-technology-dialog',
+  templateUrl: 'update-technology-dialog.html'
+})
+
+export class UpdateTechnologyDialog {
+  constructor(
+    public dialogRef: MatDialogRef<UpdateTechnologyDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: Technology,
+    private technologiesService: TechnologyService,
+    private router: Router,
+  ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    }
+  }
+
+  onCancelarClick() {
+    this.dialogRef.close();
+  }
+
+  editTechnology(technology: Technology): void {
+    if(technology.tecnologia){
+      this.technologiesService.updateTechnology(technology).subscribe(() => {
+        this.router.navigated = false;
+        this.router.navigate([this.router.url]);
+      });
+    }
+    this.dialogRef.close();
+  }
 }
