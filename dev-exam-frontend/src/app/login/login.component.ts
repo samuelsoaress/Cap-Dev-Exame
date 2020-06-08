@@ -13,7 +13,8 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
   submitted = false;
-  returnUrl: string;
+  returnUrl: any;
+  code:string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -28,7 +29,11 @@ export class LoginComponent implements OnInit {
       email: ['', Validators.required],
       password: ['', Validators.required]
     });
-
+    // this.returnUrl = this.route.snapshot.queryParamMap.get('code');
+    this.route.queryParams
+    .subscribe(params =>{
+      this.code = params.returnUrl.substring(11)
+    })
   }
 
   // for accessing to form fields
@@ -44,9 +49,10 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(this.fval.email.value, this.fval.password.value)
       .subscribe(
         data => {
-          this.router.navigate(['/manager']);
+          this.router.navigate(['/exam'],{ queryParams: { code:this.code }});
         },
         error => {
+          console.log(error.error.message);
           this.toastr.error(error.error.message, 'Error');
           this.loading = false;
         });

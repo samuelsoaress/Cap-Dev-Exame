@@ -23,7 +23,7 @@ export class QuestionsComponent implements OnInit {
   time: any
   public currentUser;
   constructor(private questionsService: QuestionsService, private router: Router, private route: ActivatedRoute) {
-    this.currentUser = localStorage.getItem('currentUser')? JSON.parse(localStorage.getItem('currentUser')) : '';
+    this.currentUser = localStorage.getItem('currentUser')? JSON.parse(JSON.stringify(localStorage.getItem('currentUser'))) : '';
   }
 
   format(s,with_seg=true) {
