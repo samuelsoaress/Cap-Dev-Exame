@@ -3,27 +3,26 @@ const { Client } = require('node-rest-client-promise');
 const client = new Client();
 
 const headers = {
-    'Content-Type': 'application/json',
+  'Content-Type': 'application/json',
 
 };
 
-
-const post = (url, req, res, body = {}) => {
+const put = (url, req, res, body = {}) => {
     //req.app.get('logger').info(url);
     const options = {
-        data: body,
-        headers: headers
+      data: body,
+      headers: headers
     };
-    console.log(url)
-    console.log(options)
+    console.log("Breno "+url)
+    console.log("Outro"+options)
     //req.app.get('logger').info('Entrada - Requisição Hystrix');
     // req.app.get('logger').info({
     //   url,
     //   options,
     // });
-    return client.postPromise(url, options).then((response) => (response));
-};
+    return client.putPromise(url, options).then((response) => (response));
+  }
 
-module.exports = {
-    post: post
-};
+  module.exports = {
+    put: put
+  };

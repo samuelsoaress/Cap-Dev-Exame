@@ -1,30 +1,54 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+
 import { AuthService } from '../core/auth/auth.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
+  loginForm: FormGroup;
+  loading = false;
+  submitted = false;
+  returnUrl: string;
 
-  userEmail : String;
-  userPassword : String;
-
-  constructor(private authService : AuthService, private router : Router) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private authenticationService: AuthService,
+    private toastr: ToastrService
+  ) { }
 
   ngOnInit() {
+    this.loginForm = this.formBuilder.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
 
   }
 
-  login(){
-    this.authService.validate(this.userEmail, this.userPassword)
-    .then((response) => {
-      this.authService.setUserInfo({'user' : response['user']});
-      this.router.navigate(['manager']);
+  // for accessing to form fields
+  get fval() { return this.loginForm.controls; }
 
-    })
+  onFormSubmit() {
+    this.submitted = true;
+    if (this.loginForm.invalid) {
+      return;
+    }
+
+    this.loading = true;
+    this.authenticationService.login(this.fval.email.value, this.fval.password.value)
+      .subscribe(
+        data => {
+          this.router.navigate(['/manager']);
+        },
+        error => {
+          this.toastr.error(error.error.message, 'Error');
+          this.loading = false;
+        });
   }
-
 }

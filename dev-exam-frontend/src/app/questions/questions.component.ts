@@ -21,7 +21,9 @@ export class QuestionsComponent implements OnInit {
   second: any
   hour: any
   time: any
+  public currentUser;
   constructor(private questionsService: QuestionsService, private router: Router, private route: ActivatedRoute) {
+    this.currentUser = localStorage.getItem('currentUser')? JSON.parse(localStorage.getItem('currentUser')) : '';
   }
 
   format(s,with_seg=true) {
@@ -29,14 +31,14 @@ export class QuestionsComponent implements OnInit {
     this.minute = Math.floor( (s% 3600) / 60 )
     this.second = s % 60
 
-    this.minute = this.minute < 10 ? '0' + this.minute : this.minute;      
+    this.minute = this.minute < 10 ? '0' + this.minute : this.minute;
     this.second = this.second < 10 ? '0' + this.second : this.second;
     this.hour = this.hour < 10 ? '0' + this.hour : this.hour;
 
     if(with_seg){
       return  this.hour + ":" + this.minute + ":" + this.second;
    }
-     
+
    return  this.hour + ":" + this.minute;
   }
 

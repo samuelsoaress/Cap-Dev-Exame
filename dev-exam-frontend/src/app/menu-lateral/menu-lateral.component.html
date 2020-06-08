@@ -1,7 +1,13 @@
 <nav class="navbar-default navbar-static-side" role="">
     <div class="sidebar-collapse">
         <ul class="nav metismenu" id="metismenu">
-
+            <li>
+                <a><i class="fa fa-user"></i> <span class="nav-label">Relatorio</span> <span class="fa arrow"></span></a>
+                <ul>
+                    <li><a [routerLink]="['/allresulttest']">Resultado Testes</a></li>
+                    <li><a [routerLink]="['/']">Resultado Candidatos</a></li>
+                </ul>
+            </li>
             <li>
                 <a><i class="fa fa-user"></i> <span class="nav-label">Exames</span> <span class="fa arrow"></span></a>
                 <ul>

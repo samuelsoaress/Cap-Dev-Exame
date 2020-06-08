@@ -1,4 +1,4 @@
-const { post } = require('../../../services/request');
+const { post } = require('../../../services/post');
 
 const url = "http://bralpsvvwas02:8083/"
 
@@ -13,22 +13,18 @@ const getNewExam = async (dataForNewExam,req,res) => {
     const examCode = 'Exam' + date
     let code = md5(examCode)
 
-    let cont = 0
+    let cont = 1
+    let examName = dataForNewExam.nomeTeste
+    delete dataForNewExam.nomeTeste;
     _.forOwn(dataForNewExam, async (value, key) => {
         let newExam = {
             "codigoProva": code,
             "complexidade": value[2],
-            "nomeTeste": dataForNewExam.nomeTeste,
+            "nomeTeste": examName,
             "quantidadeQuestoes": value[0],
             "sequencialProva": cont++,
             "tecnologia": value[1]
         }
-        let options = {
-            data: newExam,
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        };
 
         // let response = await client.postPromise('http://bralpsvvwas02:8083/composicao-prova/', options).then((response) => (response))
         const request = req.app.get('hystrix').hystrixRequestHandler(post, 'new Exame');
@@ -36,7 +32,7 @@ const getNewExam = async (dataForNewExam,req,res) => {
             url+'composicao-prova/',
             req,
             res,
-            newExam,
+            newExam
         )        
     });
 }
@@ -47,9 +43,9 @@ const handler = async (req, res, next) => {
 
         let requestData = req.body
 
-        await getNewExam(requestData, req, res)
+        let result = await getNewExam(requestData, req, res)
 
-        return res.status(200).json({ "statusCode": 200, "message": "email sent" })
+        return res.status(200).json({"success":"data safe"})
 
     } catch (error) {
         return next(error, req, res);

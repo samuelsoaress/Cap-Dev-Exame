@@ -1,7 +1,10 @@
+import { UpdateQuestions } from './all-screen-questions/updateQuestions.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
+import { CandidateService } from './services/candidate.service';
+import { ToastrModule } from 'ngx-toastr';
+import { InterceptorService } from './core/auth/Interceptor.service';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -27,9 +30,9 @@ import { NewtechnologiesComponent } from './newtechnologies/newtechnologies.comp
 import { MaterialModule } from 'src/app/material-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AllexamsComponent } from './allexams/allexams.component';
-import { EditQuestionsComponent } from './edit-questions/edit-questions.component';
 import { UpdateExam } from 'src/app/allexams/updateExam.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AllResultTestComponent } from './all-result-test/all-result-test.component';
 
 @NgModule({
   declarations: [
@@ -49,16 +52,21 @@ import { MatDialogModule } from '@angular/material/dialog';
     TechnologiesComponent,
     NewtechnologiesComponent,
     AllexamsComponent,
-    EditQuestionsComponent,
     UpdateExam,
     UpdateTechnologyDialog,
-    ConfirmDeleteDialogComponent
+    ConfirmDeleteDialogComponent,
+    UpdateExam,
+    UpdateQuestions,
+    AllResultTestComponent
   ],
   entryComponents: [
     UpdateExam,
     UpdateTechnologyDialog,
-    ConfirmDeleteDialogComponent
+    ConfirmDeleteDialogComponent,
+    UpdateExam, 
+    UpdateQuestions
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -67,12 +75,14 @@ import { MatDialogModule } from '@angular/material/dialog';
     ReactiveFormsModule,
     AppRoutingModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   exports: [
-    ExamsComponent
+    ExamsComponent,
+    QuestionsComponent
   ],
-  providers: [AuthService],
+  providers: [CandidateService,{ provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

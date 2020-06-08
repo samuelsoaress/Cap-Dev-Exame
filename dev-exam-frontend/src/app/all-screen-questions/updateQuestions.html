@@ -1,0 +1,120 @@
+<form #UpdateQuestionForm="ngForm" (submit)="onSubmit(UpdateQuestionForm.value)" novalidate>
+    <h2 mat-dialog-title>Editar questão</h2>
+    <mat-dialog-content class="mat-typography">
+
+        <tr>
+            <td>
+                <label for="technology">Tecnologia: </label>
+            </td>
+            <td>
+                <input value="{{technology}}" type="text" name="codigoTecnologia" class="form-control" [(ngModel)]="technology" >
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td>
+                <label for="complexity">Complexidade:</label>
+            </td>
+
+            <input value="{{complexity}}" type="text" name="complexidade" class="form-control" [(ngModel)]="complexity">
+        </tr>
+        <br>
+        <tr>
+            <td>
+                <label for="firstPart">Enunciado:</label>
+            </td>
+
+            <input value="{{firstPart}}" type="text" name="descricaoQuestao" class="form-control" [(ngModel)]="firstPart">
+        </tr>
+        <tr>
+
+            <td>
+                <label for="codeParts">Campo de codigo:</label>
+            </td>
+            <td>
+                <textarea type="text" id="codeParts" name="blocoCodigo" class="form-control"
+                    placeholder="EX: int a = 15, b = 3; return a+b;" value="{{codeParts}}" [(ngModel)]="codeParts"> </textarea>
+            </td>
+        </tr>
+        <div>
+            <tr>
+                <td>
+                    <label>Alternativas</label>
+                </td>
+                <td>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="answerLetterA">A)</label>
+                </td>
+                <td>
+                    <input type="text" id="answerLetterA" name="altenativaA" class="form-control"
+                        value="{{answerLetterA}}" [(ngModel)]="answerLetterA">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="answerLetterB">B)</label>
+                </td>
+                <td>
+                    <input type="text" id="answerLetterB" name="altenativaB" class="form-control"
+                        value="{{answerLetterB}}" [(ngModel)]="answerLetterB">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="answerLetterC">C)</label>
+                </td>
+                <td>
+                    <input type="text" id="answerLetterC" name="altenativaC" class="form-control"
+                        value="{{answerLetterC}}" [(ngModel)]="answerLetterC">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="answerLetterD">D)</label>
+                </td>
+                <td>
+                    <input type="text" id="answerLetterD" name="altenativaD" class="form-control"
+                        value="{{answerLetterD}}" [(ngModel)]="answerLetterD">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="answerLetterE">E)</label>
+                </td>
+                <td>
+                    <input type="text" id="answerLetterE" name="altenativaE" class="form-control"
+                        value="{{answerLetterE}}" [(ngModel)]="answerLetterE">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="resposta">Alternativa correta:</label>
+                </td>
+                <td>
+                    <select name="codigoRespostaCorreta" id="resposta" value="resposta" [(ngModel)]="resposta">
+                        <option value="{{resposta}}">{{resposta}}</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="E">E</option>
+                    </select>
+                </td>
+            </tr>
+        </div>
+
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button type="submit" [mat-dialog-close]="true" cdkFocusInitial>Atualizar</button>
+    </mat-dialog-actions>
+</form>
+
+<!-- Copyright 2019 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
