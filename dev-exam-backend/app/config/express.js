@@ -15,12 +15,14 @@ app.use(express.json());
 
 app.use(requestHandler);
 app.use(responseHandler);
+
+app.disable('etag');
     
 app.use(cors({ origin: 'http://localhost:4200' }));
 
-app.use(session({ secret: 'anything', resave: true, saveUninitialized: true }));
-app.use(passport.initialize());     
-app.use(passport.session());
+// app.use(session({ secret: 'anything', resave: true, saveUninitialized: true }));
+// app.use(passport.initialize());     
+// app.use(passport.session());
 
 app.use(health.ping('/health'));
 
