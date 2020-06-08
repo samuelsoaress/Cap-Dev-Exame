@@ -8,10 +8,11 @@ const headers = {
 };
 
 const get = (url, req, res) => {
+  console.log("Entrou na get com a url: "+url)
   const options = {
     headers: headers
   };
-  console.log("Teste de GET")
+  console.log("GET na"+url)
   //req.app.get('logger').info(url);
   //req.app.get('logger').info(options);
   return client.getPromise(url, options).then((response) => (response));

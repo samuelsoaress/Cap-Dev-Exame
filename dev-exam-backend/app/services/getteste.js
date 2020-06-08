@@ -11,7 +11,7 @@ const get = (url, req, res) => {
     const options = {
         headers: headers
     };
-    console.log("Get Resultado dos testes")
+    console.log("Get Resultado dos testes"+url)
     //req.app.get('logger').info(url);
     //req.app.get('logger').info(options);
     return client.getPromise(url, options).then((response) => (response));

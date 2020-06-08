@@ -18,32 +18,46 @@ const getCodeExam = (nome,req,res) => {
     )
 }
 
-const getCandidate = async (request, req, res) => {
+const getCode = (email,req,res) => {
+    const urlForName = url+"autorizador/"+nome
+    const request = req.app.get('hystrix').hystrixRequestHandler(get, 'composicao prova');
+    
+    
+    // return client.getPromise(url+'composicao-prova/nomeTeste/' + nome, options).then((response) => (response));
+    return request.execute(
+        urlForName,
+        req,
+        res
+    )
+}
+
+const getCandidate = async (codeAcess,request, req, res) => {
 
     let code = await getCodeExam(request['nomeTeste'],req,res);
     code = code.data[0].codigoProva
     console.log(code)
     let name = request['nomeCandidato']
     let nameGestor = request['emailGestor']
-    let emailbody = "<p>Prezado,</p>"
+    let emailbody = "<p>Prezado, "+name+"</p>"
     emailbody += "<p>Você está recebendo este e-mail pois foi indicado para realizar o teste " + request["nomeTeste"] + "  por Rodrigo Conti Costa </p>"
     emailbody += "<p>Abaixo segue o link para realizar a prova</p>"
     emailbody += "<p>http://bralpsvvwas02:8083/capexames/?code=" + code + "</p>"
+    emailbody += "<p>esse " + codeAcess + " é o seu codigo de acesso use para acessar a prova junto com seu email!</p>"
     emailbody += "<p>Peço gentilmente que preencha com o seu nome completo, Obrigado!</p>"
     emailbody += "<p>Atenciosamente</p>"
     return emailbody
 }
 
 const requestAuthorizator = (body,req,res) => {
-    console.log(1)
     let data = {}
+    const autorizador = url+"autorizador/"
     data['email'] = body.email
     data['emailGestor'] = body.emailGestor
     
     const request = req.app.get('hystrix').hystrixRequestHandler(post, 'autorizador');
     // return client.postPromise(url+'autorizador/', options).then((response) => (response))
     return request.execute(
-        url,
+        autorizador,
         req,
         res,
         data
@@ -57,7 +71,7 @@ const handler = async (req, res, next) => {
 
         let response = await requestAuthorizator(request,req,res)
 
-        let emailbody = await getCandidate(request, req,res)
+        let emailbody = await getCandidate(response.data.autorizador,request, req,res)
 
         email.sendCandidate(emailbody, request['email'], request)
 
