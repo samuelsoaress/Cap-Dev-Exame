@@ -25,7 +25,7 @@ import { TituloComponent } from './titulo/titulo.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { AllQuestionsComponent } from './all-questions/all-questions.component';
 import { AllScreenQuestionsComponent } from './all-screen-questions/all-screen-questions.component';
-import { TechnologiesComponent, ConfirmDeleteDialogComponent } from './technologies/technologies.component';
+import { TechnologiesComponent, ConfirmDeleteDialogComponent, UpdateTechnologyDialog } from './technologies/technologies.component';
 import { NewtechnologiesComponent } from './newtechnologies/newtechnologies.component';
 import { MaterialModule } from 'src/app/material-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -53,10 +53,20 @@ import { AllResultTestComponent } from './all-result-test/all-result-test.compon
     NewtechnologiesComponent,
     AllexamsComponent,
     UpdateExam,
+    UpdateTechnologyDialog,
+    ConfirmDeleteDialogComponent,
+    UpdateExam,
     UpdateQuestions,
     AllResultTestComponent
   ],
-  entryComponents: [UpdateExam, UpdateQuestions],
+  entryComponents: [
+    UpdateExam,
+    UpdateTechnologyDialog,
+    ConfirmDeleteDialogComponent,
+    UpdateExam, 
+    UpdateQuestions
+  ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,

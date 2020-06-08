@@ -9,6 +9,8 @@ import { Technology } from '../models/technology';
 })
 export class TechnologyService {
 
+  private apiUrl = 'http://bralpsvvwas02:8083/'
+
   constructor(private http: HttpClient) { }
 
   getTechnologies() : Observable<Technology[]> {
