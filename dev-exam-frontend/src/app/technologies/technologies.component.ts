@@ -12,7 +12,7 @@ import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dial
 })
 
 export class TechnologiesComponent {
-  displayedColumns: string[] = ['name', 'editar', 'excluir'];
+  displayedColumns: string[] = ['name', 'excluir', 'editar'];
   dataSource: Observable<Technology[]>;
   edit: boolean = false
   technology: Technology;
