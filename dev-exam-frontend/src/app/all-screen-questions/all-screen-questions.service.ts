@@ -14,19 +14,18 @@ const httpOptions = {
 
 
 export class AllScreenQuestionsService {
-    private backendUrl = 'http://localhost:3000/'
     constructor(private http: HttpClient) { }
 
 
     getAllQuestions(): Observable<any> {
-        return this.http.request('GET', this.backendUrl + 'allquestion', httpOptions)
+        return this.http.request('GET','allquestion', httpOptions)
     }
 
     deleteQuestion(code: number): Observable<any> {
-        return this.http.request('DELETE', this.backendUrl + 'delquestion/code/' + code, httpOptions)
+        return this.http.request('DELETE','delquestion/code/' + code, httpOptions)
     }
     UpdateQuestion(body: any){
-        return this.http.put(this.backendUrl + 'updatequestion', JSON.parse(JSON.stringify(body)), httpOptions)
+        return this.http.put('updatequestion', JSON.parse(JSON.stringify(body)), httpOptions)
     }
 }
 

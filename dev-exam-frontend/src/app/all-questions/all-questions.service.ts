@@ -16,10 +16,6 @@ const httpOptions = {
 
 export class AllQuestionsService {
 
-
-    private backendUrl = 'http://localhost:3000/'
-    private apiUrl = 'http://bralpsvvwas02:8083/'
-
     constructor(private http: HttpClient) {
 
     }
@@ -37,7 +33,7 @@ export class AllQuestionsService {
             "complexidade": AllQuestionsModel.complexity,
             "descricaoQuestao": AllQuestionsModel.firstPart
         }
-        return this.http.post(this.backendUrl + 'newquestion', body, httpOptions)
+        return this.http.post('newquestion', body, httpOptions)
     }
 
     updateQuestion(AllQuestionsModel: AllQuestionsModel): Observable<any> {
@@ -53,7 +49,7 @@ export class AllQuestionsService {
             "complexidade": AllQuestionsModel.complexity,
             "descricaoQuestao": AllQuestionsModel.firstPart
         }
-        return this.http.put(this.backendUrl + 'updatequestion', body, httpOptions)
+        return this.http.put('updatequestion', body, httpOptions)
     }
 
 
