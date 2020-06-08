@@ -20,7 +20,7 @@ export class AllResultTestComponent implements OnInit {
   list = []
   item = new AllResultModel()
 
-  displayedColumns: string[] = ['nomeTeste', 'nomeCandidato', 'pencentualAcerto', 'dataHora', 'delete'];
+  displayedColumns: string[] = ['nomeTeste', 'nomeCandidato', 'pencentualAcerto', 'dataHora'];
   dataSource = new MatTableDataSource<AllResultModel>();
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
