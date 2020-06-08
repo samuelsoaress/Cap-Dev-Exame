@@ -3,7 +3,7 @@ import { AllExamsModel } from './allexams.model';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { UpdateExam } from './updateExam.component'
 
 @Component({
@@ -21,19 +21,19 @@ export class AllexamsComponent implements OnInit {
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
-  
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  
+
   ngOnInit() {
     this.loadtable();
   }
-  
+
   delete(allExamsModel: AllExamsModel) {
     this.allExamsService.deleteExam(allExamsModel.codigoProva)
-    .subscribe(response => {
+    .subscribe(() => {
       console.log("Exame excluida")
     }, error => { console.log(error) }
   );
@@ -67,7 +67,7 @@ loadtable() {
             item.tecnology = tecnology
             item.qtdQuestions = sum
           }
-          
+
           array.push(item)
         });
         this.dataSource.data = array
@@ -76,13 +76,12 @@ loadtable() {
       }, error => { console.log(error) }
     );
   }
-  
+
   update(AllExamsModel:AllExamsModel) {
-    let config = new MatDialogConfig();
     const dialogRef = this.dialog.open(UpdateExam,{
       data: AllExamsModel
     });
-    
+
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });

@@ -25,15 +25,15 @@ export class UpdateUsers implements OnInit {
         this.nome = this.data.nome
         this.admin = this.data.nome
     }
-    onSubmit(body: any) {
-        body['codigo'] = this.code
-        console.log(body)
+    // onSubmit(body: any) {
+    //     body['codigo'] = this.code
+    //     console.log(body)
 
-        this.service.UpdateUser(body)
-            .subscribe(res => {
-                console.log("Usuario atualizado")
-            }, error => { console.log(error) }
-            );
+    //     this.service.UpdateUser(body)
+    //         .subscribe(res => {
+    //             console.log("Usuario atualizado")
+    //         }, error => { console.log(error) }
+    //         );
 
-    }
+    // }
 }
