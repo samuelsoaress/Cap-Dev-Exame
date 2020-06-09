@@ -1,0 +1,37 @@
+<form #UpdateUserForm="ngForm" (submit)="onSubmit(UpdateUserForm.value)" novalidate>
+    <h2 mat-dialog-title>Editar usuário</h2>
+    <mat-dialog-content class="mat-typography">
+
+        <tr>
+            <td>
+                <label for="nome">Nome: </label>
+            </td>
+            <td>
+                <input id="nome" value="{{nome}}" type="text" name="nome" class="form-control" [(ngModel)]="nome">
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td>
+                <label for="admin">Administrador:</label>
+            </td>
+            <td>
+                <select id="admin" value="{{admin}}" name="admin" class="form-control"
+                    [(ngModel)]="admin">
+                <option value="Sim">Sim</option>
+                <option value="Nao">Não</option>
+                </select>
+            </td>
+        </tr>
+
+
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button type="submit" [mat-dialog-close]="true" cdkFocusInitial>Atualizar</button>
+    </mat-dialog-actions>
+</form>
+
+<!-- Copyright 2019 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

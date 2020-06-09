@@ -1,3 +1,5 @@
+import { NewUserComponent } from './new-user/new-user.component';
+import { UsersComponent } from './users/users.component';
 import { AllResultTestComponent } from './all-result-test/all-result-test.component';
 import { AllScreenQuestionsComponent } from './all-screen-questions/all-screen-questions.component';
 import { ExamsComponent } from './exams/exams.component';
@@ -26,6 +28,8 @@ const routes: Routes = [
   { path: 'technologies', component: TechnologiesComponent },
   { path: 'technologies/new', component: NewtechnologiesComponent },
   { path: 'allresulttest', component: AllResultTestComponent },
+  { path: 'users', component: UsersComponent },
+  { path: 'newuser', component: NewUserComponent },
 
 
   { path: '**', component: QuestionsComponent }];

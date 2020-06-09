@@ -33,6 +33,9 @@ import { AllexamsComponent } from './allexams/allexams.component';
 import { UpdateExam } from 'src/app/allexams/updateExam.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AllResultTestComponent } from './all-result-test/all-result-test.component';
+import { UsersComponent } from './users/users.component';
+import { UpdateUsers } from './users/updateusers.component';
+import { NewUserComponent } from './new-user/new-user.component';
 
 @NgModule({
   declarations: [
@@ -53,17 +56,20 @@ import { AllResultTestComponent } from './all-result-test/all-result-test.compon
     NewtechnologiesComponent,
     AllexamsComponent,
     UpdateExam,
-    UpdateTechnologyDialog,
     ConfirmDeleteDialogComponent,
+    UpdateTechnologyDialog,
     UpdateExam,
     UpdateQuestions,
-    AllResultTestComponent
+    AllResultTestComponent,
+    UsersComponent,
+    UpdateUsers,
+    NewUserComponent
   ],
   entryComponents: [
     UpdateExam,
     UpdateTechnologyDialog,
     ConfirmDeleteDialogComponent,
-    UpdateExam, 
+    UpdateExam,
     UpdateQuestions
   ],
 
@@ -80,9 +86,10 @@ import { AllResultTestComponent } from './all-result-test/all-result-test.compon
   ],
   exports: [
     ExamsComponent,
-    QuestionsComponent
+    QuestionsComponent,
+    UsersComponent
   ],
-  providers: [CandidateService,{ provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }],
+  providers: [CandidateService, { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
