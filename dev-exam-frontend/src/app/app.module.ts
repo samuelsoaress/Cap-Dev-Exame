@@ -87,7 +87,8 @@ import { NewUserComponent } from './new-user/new-user.component';
   exports: [
     ExamsComponent,
     QuestionsComponent,
-    UsersComponent
+    UsersComponent,
+    UpdateTechnologyDialog
   ],
   providers: [CandidateService, { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }],
   bootstrap: [AppComponent]
