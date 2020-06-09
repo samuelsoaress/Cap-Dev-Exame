@@ -35,6 +35,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { AllResultTestComponent } from './all-result-test/all-result-test.component';
 import { UsersComponent } from './users/users.component';
 import { UpdateUsers } from './users/updateusers.component';
+import { NewUserComponent } from './new-user/new-user.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { UpdateUsers } from './users/updateusers.component';
     UpdateQuestions,
     AllResultTestComponent,
     UsersComponent,
-    UpdateUsers
+    UpdateUsers,
+    NewUserComponent
   ],
   entryComponents: [UpdateExam, UpdateQuestions, UpdateUsers],
   imports: [

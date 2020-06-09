@@ -15,11 +15,16 @@
             <td>
                 <label for="admin">Administrador:</label>
             </td>
-
-            <input id="admin" value="{{admin}}" type="checkbox" name="admin" class="form-control" [(ngModel)]="admin"> 
+            <td>
+                <select id="admin" value="{{admin}}" name="admin" class="form-control"
+                    [(ngModel)]="admin">
+                <option value="Sim">Sim</option>
+                <option value="Nao">Não</option>
+                </select>
+            </td>
         </tr>
-        <br>
-        
+
+
     </mat-dialog-content>
     <mat-dialog-actions align="end">
         <button mat-button mat-dialog-close>Cancel</button>

@@ -41,8 +41,8 @@ const put = (url, req, res, body = {}) => {
         headers: headers
     };
     console.log("put")
-    return client.put(url, options).then((response) => (response));
-}
+    return client.putPromise(url, options).then((response) => (response));
+};
 
 module.exports = {
     get: get,

@@ -10,7 +10,6 @@ const DeleteUser = async (req, res) => {
         url + 'usuario/codigo/' + req.params.code,
         req,
         res,
-        "teste",
     )
 }
 

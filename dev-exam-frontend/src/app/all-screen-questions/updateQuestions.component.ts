@@ -10,7 +10,7 @@ import { NgForm } from '@angular/forms';
     templateUrl: './updateQuestions.html'
 })
 export class UpdateQuestions implements OnInit {
-    codeParts: number
+    codeParts: string
     technology: string
     complexity: string
     firstPart: string

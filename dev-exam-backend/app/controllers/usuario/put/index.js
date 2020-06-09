@@ -9,7 +9,7 @@ const UpdateUser = (req,res,body) => {
         url+"usuario/",
         req,
         res,
-        body
+        body,
     )
 
 }

@@ -68,11 +68,11 @@ export class ExamsComponent implements OnInit {
       dict['valor' + i] = this.newExam[i]
     }
     this.questionsService.sendExam(JSON.stringify(dict))
-    .subscribe(
-      res => {
-        document.location.reload(true);
-      }
-    );
+      .subscribe(
+        res => {
+          document.location.reload(true);
+        }
+      );
     document.location.reload(true);
     console.log(dict)
   }

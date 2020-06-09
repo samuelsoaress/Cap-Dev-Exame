@@ -23,7 +23,7 @@ export class UpdateUsers implements OnInit {
     ngOnInit() {
         this.code = this.data.code
         this.nome = this.data.nome
-        this.admin = this.data.nome
+        this.admin = this.data.admin
     }
     onSubmit(body: any) {
         body['codigo'] = this.code

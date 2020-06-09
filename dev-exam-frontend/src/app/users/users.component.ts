@@ -1,4 +1,4 @@
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { UsersService } from './users.service';
 import { MatTableDataSource } from '@angular/material/table';
@@ -19,9 +19,9 @@ export class UsersComponent implements OnInit {
   constructor(private service: UsersService, public dialog: MatDialog) { }
 
   list = []
-  item = new UsersModel()
+  user = new UsersModel()
 
-  displayedColumns: string[] = ['nome', 'admin', 'delete','edit'];
+  displayedColumns: string[] = ['nome', 'admin', 'delete', 'edit'];
   dataSource = new MatTableDataSource<UsersModel>();
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -35,19 +35,26 @@ export class UsersComponent implements OnInit {
     this.loadtable();
   }
 
+  delete(UsersModel: UsersModel) {
+    this.service.DeleteUser(UsersModel.code)
+      .subscribe(response => {
+        console.log("Usuário excluido.")
+      }, error => { console.log(error) }
+      );
+    document.location.reload(true);
+  }
+
   loadtable() {
-
-
     this.service.GetAllUsers()
       .subscribe(response => {
         response.forEach(element => {
-          this.item = new UsersModel()
-          this.item.code = element.code
-          this.item.nome = element.nome
-          this.item.admin = element.admin
+          this.user = new UsersModel()
+          this.user.code = element.codigo
+          this.user.nome = element.nome
+          this.user.admin = element.admin
 
 
-          this.list.push(this.item)
+          this.list.push(this.user)
         });
         this.dataSource.data = this.list
         this.dataSource.paginator = this.paginator;
@@ -56,13 +63,15 @@ export class UsersComponent implements OnInit {
       );
   }
 
-  update(model: UsersModel) {
+  update(UsersModel: UsersModel) {
+    let config = new MatDialogConfig();
     const dialogRef = this.dialog.open(UpdateUsers, {
-      data: model
+      data: UsersModel
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+      document.location.reload(true);
     });
   }
 
