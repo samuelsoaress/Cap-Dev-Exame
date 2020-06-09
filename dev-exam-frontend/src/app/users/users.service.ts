@@ -28,7 +28,7 @@ export class UsersService {
         return this.http.request('DELETE', 'usuario/codigo/' + code, httpOptions)
     }
 
-    UpdateUser(body: any) {
+    UpdateUser(body: any): Observable<any> {
         return this.http.put('update', JSON.parse(JSON.stringify(body)), httpOptions)
     }
 }
