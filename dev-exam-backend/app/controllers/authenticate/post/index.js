@@ -57,7 +57,7 @@ const auth = async (req, res) => {
                 console.log(checkEmail)
                 console.log(checkPassword)
                 if ((checkEmail) && (checkPassword)) {
-                    return res.status(200).json({ message: 'Logged in successfully!', token: 'dummy-jwt-token-for-now' });
+                    return res.status(200).json({ message: 'Logged in successfully!', token: 'token-for-'+element.email+'-'+element.autorizador });
                 }
             }
             return res.status(401).json({ message: 'Incorrect code or email' });

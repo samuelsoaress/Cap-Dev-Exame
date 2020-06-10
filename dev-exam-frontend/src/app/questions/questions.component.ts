@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { QuestionsService } from 'src/app/services/questions.service'
 import { ActivatedRoute } from '@angular/router'
 import { NgForm } from '@angular/forms';
+import { AuthService } from '../core/auth/auth.service';
 import * as $ from 'jquery';
 
 @Component({
@@ -22,7 +23,8 @@ export class QuestionsComponent implements OnInit {
   hour: any
   time: any
   public currentUser;
-  constructor(private questionsService: QuestionsService, private router: Router, private route: ActivatedRoute) {
+  constructor(private questionsService: QuestionsService, private router: Router, private route: ActivatedRoute,
+    private authenticationService: AuthService) {
     this.currentUser = localStorage.getItem('currentUser')? JSON.parse(JSON.stringify(localStorage.getItem('currentUser'))) : '';
   }
 
@@ -88,6 +90,7 @@ export class QuestionsComponent implements OnInit {
   onSubmit(value: any) {
     const examCode: string = this.route.snapshot.queryParamMap.get('code');
     this.questionsService.sendAnswers(JSON.stringify(value), examCode)
+    this.authenticationService.logout();
     this.router.navigateByUrl('/success');
   }
 
