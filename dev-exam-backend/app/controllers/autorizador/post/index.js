@@ -18,8 +18,8 @@ const getCodeExam = (nome,req,res) => {
     )
 }
 
-const getCode = (email,req,res) => {
-    const urlForName = url+"autorizador/"+nome
+const getCodeByName = (nomeTeste,req,res) => {
+    const urlForName = url+"composicao-prova/nomeTeste/"+nomeTeste
     const request = req.app.get('hystrix').hystrixRequestHandler(get, 'composicao prova');
     
     
@@ -36,7 +36,7 @@ const getCandidate = async (codeAcess,request, req, res) => {
     let code = await getCodeExam(request['nomeTeste'],req,res);
     code = code.data[0].codigoProva
     console.log(code)
-    let name = request['nomeCandidato']
+    let name = request['nome']
     let nameGestor = request['emailGestor']
     let emailbody = "<p>Prezado, "+name+"</p>"
     emailbody += "<p>Você está recebendo este e-mail pois foi indicado para realizar o teste " + request["nomeTeste"] + "  por Rodrigo Conti Costa </p>"
@@ -48,12 +48,14 @@ const getCandidate = async (codeAcess,request, req, res) => {
     return emailbody
 }
 
-const requestAuthorizator = (body,req,res) => {
+const requestAuthorizator = async (body,req,res) => {
     let data = {}
+    let codeExam = await getCodeByName(body['nomeTeste'],req,res)
     const autorizador = url+"autorizador/"
     data['email'] = body.email
     data['emailGestor'] = body.emailGestor
-    
+    data['nome'] = body.nome
+    data['codigoProva'] = codeExam.data[0].codigo
     const request = req.app.get('hystrix').hystrixRequestHandler(post, 'autorizador');
     // return client.postPromise(url+'autorizador/', options).then((response) => (response))
     return request.execute(

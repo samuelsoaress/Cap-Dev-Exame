@@ -4,7 +4,7 @@
         <app-menuLateral></app-menuLateral>
     </div>
     <div class="col-sm-10">
-        <form #managerForm="ngForm" (submit)="onSubmit(managerForm.value)" novalidate>
+        <form [formGroup]="formCandidate" (ngSubmit)="onSubmit()">
             <app-titulo titulo="Cadastrar Autorização Teste"> </app-titulo>
             <table class="tableDesign">
 
@@ -13,7 +13,7 @@
                         <label class="label-control">Nome do Candidato: </label>
                     </td>
                     <td>
-                        <input type="text" name="nomeCandidato" placeholder="Digite o nome do candidato" class="form-control" ngModel>
+                        <input type="text" id="nomeCandidato" name="nome" placeholder="Digite o nome do candidato" class="form-control" formControlName="nome">
                     </td>
                 </tr>
                 <tr>
@@ -21,7 +21,7 @@
                         <label for="email_candidato" class="label-control">Email:</label>
                     </td>
                     <td>
-                        <input type="text" name="email" placeholder="Email do Candidato" class="form-control" ngModel>
+                        <input type="text" name="email" placeholder="Email do Candidato" class="form-control" formControlName="email">
                     </td>
 
                 </tr>
@@ -33,7 +33,7 @@
                         </label>
                     </td>
                     <td>
-                        <select name="nomeTeste" id="" class="form-control" ngModel>
+                        <select name="nomeTeste" id="" class="form-control" formControlName="nomeTeste">
                             <option *ngFor="let prova of nomeProva" value="{{prova.nomeTeste}}">{{prova.nomeTeste}}
                             </option>
                         </select>
@@ -46,7 +46,7 @@
                         <label for="emailGestor">Email gestor: </label>
                     </td>
                     <td>
-                        <select name="emailGestor" id="emailGestor" class="form-control" ngModel>
+                        <select name="emailGestor" id="emailGestor" class="form-control" formControlName="emailGestor">
                                     <option *ngFor="let gestor of manager" value="{{gestor.emailResponsavel}}">{{gestor.emailResponsavel}}
                                     </option>
                                 </select>

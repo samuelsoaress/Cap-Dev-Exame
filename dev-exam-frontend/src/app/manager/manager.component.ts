@@ -1,9 +1,9 @@
 import { QuestionsService } from 'src/app/services/questions.service';
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
 import { preserveWhitespacesDefault } from '@angular/compiler';
 import { ManagerService } from './manager.service';
-import { NgForm } from '@angular/forms';
+import { Candidate } from './manager.model'
+import { FormControl,FormGroup,FormBuilder } from '@angular/forms'
 
 @Component({
   selector: 'app-manager',
@@ -15,11 +15,15 @@ export class ManagerComponent implements OnInit {
 
   nomeProva: any;
   manager: any;
-   
+  formCandidate: FormGroup;
 
-  constructor(private managerService:ManagerService, private service: QuestionsService) { }
+
+  constructor(private managerService:ManagerService,
+     private service: QuestionsService,
+     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.createForm(new Candidate);
     this.managerService.responsibleAll()
     .subscribe(manager =>{
       console.log(manager)
@@ -32,10 +36,19 @@ export class ManagerComponent implements OnInit {
       this.nomeProva = nomeProva
     });
   }
+  createForm(candidate: Candidate) {
+    this.formCandidate= this.formBuilder.group({
+      nome: [candidate.nome],
+      email: [candidate.email],
+      nomeTeste: [candidate.nomeTeste],
+      emailGestor: [candidate.emailGestor]
+    })
+  }
 
-  onSubmit(body:any){
-    console.log(JSON.stringify(body))
-    this.managerService.autorizator(JSON.stringify(body))
+  onSubmit(){
+    console.log(JSON.stringify(this.formCandidate.value))
+    this.managerService.autorizator(JSON.stringify(this.formCandidate.value))
+    this.formCandidate.reset(new Candidate());
   }
 
 }
