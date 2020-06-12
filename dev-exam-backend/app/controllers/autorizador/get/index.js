@@ -3,7 +3,7 @@ const { get } = require('../../../services/request');
 const url = "http://bralpsvvwas02:8083/";
 
 const dataCandidate = (req,res) =>{
-    const allResponsible = url+"autorizador/"
+    const allResponsible = url+"autorizador/"+req.query.autorizador+"/email/"+req.query.user
     const request = req.app.get('hystrix').hystrixRequestHandler(get, 'gestor responsavel');
     
     
@@ -20,6 +20,11 @@ const dataCandidate = (req,res) =>{
 
 const handler = async (req, res, next) => {
     try {
+        if (!req.query.user || !req.query.autorizador) {
+            return res.send({
+                error: 'Voce precisa fornecer um user e codigo de acesso.'
+            })
+        }
         let response = await dataCandidate(req,res)
         console.log(response.data)
 
