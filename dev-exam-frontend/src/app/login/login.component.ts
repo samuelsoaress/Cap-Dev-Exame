@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-
 import { AuthService } from '../core/auth/auth.service';
 
 @Component({
@@ -49,7 +48,7 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(this.fval.email.value, this.fval.password.value)
       .subscribe(
         data => {
-          this.router.navigate(['/exam'],{ queryParams: { code:this.code }});
+          this.router.navigate(['/exam'],{ queryParams: { code:this.code , user:this.fval.email.value,autorizador:this.fval.password.value}});
         },
         error => {
           console.log(error.error.message);

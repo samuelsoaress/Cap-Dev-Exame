@@ -6,6 +6,7 @@ import { NgForm } from '@angular/forms';
 import { AuthService } from '../core/auth/auth.service';
 import * as $ from 'jquery';
 
+
 @Component({
   selector: 'app-questions',
   templateUrl: './questions.component.html',
@@ -23,7 +24,10 @@ export class QuestionsComponent implements OnInit {
   hour: any
   time: any
   public currentUser;
-  constructor(private questionsService: QuestionsService, private router: Router, private route: ActivatedRoute,
+  constructor(
+    private questionsService: QuestionsService,
+    private router: Router,
+    private route: ActivatedRoute,
     private authenticationService: AuthService) {
     this.currentUser = localStorage.getItem('currentUser')? JSON.parse(JSON.stringify(localStorage.getItem('currentUser'))) : '';
   }
@@ -73,10 +77,15 @@ export class QuestionsComponent implements OnInit {
   }
 
   ngOnInit() {
+    const user: string = this.route.snapshot.queryParamMap.get('user');
+    const autorizador: string = this.route.snapshot.queryParamMap.get('autorizador');
+    this.questionsService.getCandidate(user,autorizador)
+    .subscribe(data =>{
+      this.candidateName = data[0].nome
+    });
     const examCode: string = this.route.snapshot.queryParamMap.get('code');
     this.questionsService.getQuestions(examCode)
       .subscribe(questions => {
-        console.log(questions)
         this.questions = questions
       });
     this.startTimer()

@@ -17,6 +17,10 @@ export class QuestionsService {
 
   constructor(private http: HttpClient) { }
 
+  getCandidate(user:string,autorizador:string): Observable<any> {
+    return this.http.request('GET','autorizador?user='+user+'&'+'autorizador='+autorizador)
+  }
+
   getQuestions(examCode: string): Observable<any> {
     return this.http.request('GET','exam?code=' + examCode);
   }
