@@ -67,15 +67,6 @@ export class QuestionsComponent implements OnInit {
     }, 1000)
   }
 
-  habilitarbotao() {
-    if (!this.candidateName || this.candidateName.length === 0) {
-      this.btndisable = true
-    }else{
-      this.btndisable = false
-    }
-
-  }
-
   ngOnInit() {
     const user: string = this.route.snapshot.queryParamMap.get('user');
     const autorizador: string = this.route.snapshot.queryParamMap.get('autorizador');
@@ -93,9 +84,7 @@ export class QuestionsComponent implements OnInit {
     $(window).scroll(function () {
       $('.timer').fadeIn('slow');
     });
-
   }
-
   onSubmit(value: any) {
     const examCode: string = this.route.snapshot.queryParamMap.get('code');
     this.questionsService.sendAnswers(JSON.stringify(value), examCode)
