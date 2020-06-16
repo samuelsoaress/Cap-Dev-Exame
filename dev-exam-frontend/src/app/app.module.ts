@@ -36,6 +36,7 @@ import { AllResultTestComponent } from './all-result-test/all-result-test.compon
 import { UsersComponent } from './users/users.component';
 import { UpdateUsers } from './users/updateusers.component';
 import { NewUserComponent } from './new-user/new-user.component';
+import { DialogQuestions } from './questions/dialog-questions';
 
 @NgModule({
   declarations: [
@@ -63,14 +64,16 @@ import { NewUserComponent } from './new-user/new-user.component';
     AllResultTestComponent,
     UsersComponent,
     UpdateUsers,
-    NewUserComponent
+    NewUserComponent,
+    DialogQuestions
   ],
   entryComponents: [
     UpdateExam,
     UpdateTechnologyDialog,
     ConfirmDeleteDialogComponent,
     UpdateExam,
-    UpdateQuestions
+    UpdateQuestions,
+    DialogQuestions
   ],
 
   imports: [

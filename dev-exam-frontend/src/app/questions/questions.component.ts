@@ -5,7 +5,8 @@ import { ActivatedRoute } from '@angular/router'
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../core/auth/auth.service';
 import * as $ from 'jquery';
-
+import { MatDialog } from '@angular/material/dialog';
+import { DialogQuestions } from './dialog-questions';
 
 @Component({
   selector: 'app-questions',
@@ -28,24 +29,33 @@ export class QuestionsComponent implements OnInit {
     private questionsService: QuestionsService,
     private router: Router,
     private route: ActivatedRoute,
-    private authenticationService: AuthService) {
-    this.currentUser = localStorage.getItem('currentUser')? JSON.parse(JSON.stringify(localStorage.getItem('currentUser'))) : '';
+    private authenticationService: AuthService,
+    public dialog: MatDialog) {
+    this.currentUser = localStorage.getItem('currentUser') ? JSON.parse(JSON.stringify(localStorage.getItem('currentUser'))) : '';
   }
 
-  format(s,with_seg=true) {
-    this.hour = Math.floor( s / 3600 );
-    this.minute = Math.floor( (s% 3600) / 60 )
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogQuestions);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  format(s, with_seg = true) {
+    this.hour = Math.floor(s / 3600);
+    this.minute = Math.floor((s % 3600) / 60)
     this.second = s % 60
 
     this.minute = this.minute < 10 ? '0' + this.minute : this.minute;
     this.second = this.second < 10 ? '0' + this.second : this.second;
     this.hour = this.hour < 10 ? '0' + this.hour : this.hour;
 
-    if(with_seg){
-      return  this.hour + ":" + this.minute + ":" + this.second;
-   }
+    if (with_seg) {
+      return this.hour + ":" + this.minute + ":" + this.second;
+    }
 
-   return  this.hour + ":" + this.minute;
+    return this.hour + ":" + this.minute;
   }
 
   startTimer() {
@@ -70,10 +80,11 @@ export class QuestionsComponent implements OnInit {
   ngOnInit() {
     const user: string = this.route.snapshot.queryParamMap.get('user');
     const autorizador: string = this.route.snapshot.queryParamMap.get('autorizador');
-    this.questionsService.getCandidate(user,autorizador)
-    .subscribe(data =>{
-      this.candidateName = data[0].nome
-    });
+    this.questionsService.getCandidate(user, autorizador)
+      .subscribe(data => {
+        this.candidateName = data[0].nome
+      });
+    this.openDialog()
     const examCode: string = this.route.snapshot.queryParamMap.get('code');
     this.questionsService.getQuestions(examCode)
       .subscribe(questions => {
