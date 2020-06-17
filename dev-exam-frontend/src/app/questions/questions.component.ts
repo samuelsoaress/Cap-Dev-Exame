@@ -34,8 +34,10 @@ export class QuestionsComponent implements OnInit {
     this.currentUser = localStorage.getItem('currentUser') ? JSON.parse(JSON.stringify(localStorage.getItem('currentUser'))) : '';
   }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(DialogQuestions);
+  openDialog(name:any) {
+    const dialogRef = this.dialog.open(DialogQuestions, {
+      data: {"nome":name,"time":"2:00"}
+    });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -83,8 +85,9 @@ export class QuestionsComponent implements OnInit {
     this.questionsService.getCandidate(user, autorizador)
       .subscribe(data => {
         this.candidateName = data[0].nome
+        this.openDialog(data[0].nome)
       });
-    this.openDialog()
+
     const examCode: string = this.route.snapshot.queryParamMap.get('code');
     this.questionsService.getQuestions(examCode)
       .subscribe(questions => {
