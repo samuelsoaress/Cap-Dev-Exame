@@ -56,6 +56,7 @@ const requestAuthorizator = async (body,req,res) => {
     data['emailGestor'] = body.emailGestor
     data['nome'] = body.nome
     data['codigoProva'] = codeExam.data[0].codigo
+    data['tempoRestante'] = body.tempoRestante
     const request = req.app.get('hystrix').hystrixRequestHandler(post, 'autorizador');
     // return client.postPromise(url+'autorizador/', options).then((response) => (response))
     return request.execute(
