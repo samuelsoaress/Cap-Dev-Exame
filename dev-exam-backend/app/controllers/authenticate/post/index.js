@@ -57,6 +57,11 @@ const auth = async (req, res) => {
                 console.log(checkEmail)
                 console.log(checkPassword)
                 if ((checkEmail) && (checkPassword)) {
+                    let dateValidate = new Date(element.tempoRestante)
+                    let dateActual = new Date().getTime()
+                    if (dateActual > dateValidate){
+                        return res.status(401).json({message:'o prazo do seu exame expirou entre em contato com RH'})
+                    }
                     return res.status(200).json({ message: 'Logged in successfully!', token: 'token-for-'+element.email+'-'+element.autorizador });
                 }
             }
