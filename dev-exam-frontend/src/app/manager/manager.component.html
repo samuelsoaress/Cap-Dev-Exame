@@ -1,76 +1,88 @@
 <div class="row col-sm-12">
-    <app-menuSuperior></app-menuSuperior>
-    <div class="col-sm-2" style="background-color: #f3f6fb;">
-        <app-menuLateral></app-menuLateral>
-    </div>
-    <div class="col-sm-10">
-        <form [formGroup]="formCandidate" (ngSubmit)="onSubmit()">
-            <app-titulo titulo="Cadastrar Autorização Teste"> </app-titulo>
-            <table class="tableDesign">
+  <app-menuSuperior></app-menuSuperior>
+  <div class="col-sm-2" style="background-color: #f3f6fb;">
+    <app-menuLateral></app-menuLateral>
+  </div>
+  <div class="col-sm-10">
+    <form [formGroup]="formCandidate" (ngSubmit)="onSubmit()">
+      <app-titulo titulo="Cadastrar Autorização Teste"> </app-titulo>
+      <table class="tableDesign">
 
-                <tr>
-                    <td>
-                        <label class="label-control">Nome do Candidato: </label>
-                    </td>
-                    <td>
-                        <input type="text" id="nomeCandidato" name="nome" placeholder="Digite o nome do candidato" class="form-control" formControlName="nome">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="email_candidato" class="label-control">Email:</label>
-                    </td>
-                    <td>
-                        <input type="text" name="email" placeholder="Email do Candidato" class="form-control" formControlName="email">
-                    </td>
+        <tr>
+          <td>
+            <label class="label-control">Nome do Candidato: </label>
+          </td>
+          <td>
+            <input type="text" id="nomeCandidato" name="nome" placeholder="Digite o nome do candidato"
+              class="form-control" formControlName="nome">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="email_candidato" class="label-control">Email:</label>
+          </td>
+          <td>
+            <input type="text" name="email" placeholder="Email do Candidato" class="form-control"
+              formControlName="email">
+          </td>
 
-                </tr>
+        </tr>
 
-                <tr>
-                    <td>
+        <tr>
+          <td>
 
-                        <label class="label-control" for="curso_descricao">Tipo de Prova:
-                        </label>
-                    </td>
-                    <td>
-                        <select name="nomeTeste" id="" class="form-control" formControlName="nomeTeste">
-                            <option *ngFor="let prova of nomeProva" value="{{prova.nomeTeste}}">{{prova.nomeTeste}}
-                            </option>
-                        </select>
+            <label class="label-control" for="nomeTeste">Tipo de Prova:
+            </label>
+          </td>
+          <td>
+            <select name="nomeTeste" id="" class="form-control" formControlName="nomeTeste">
+              <option *ngFor="let prova of nomeProva" value="{{prova.nomeTeste}}">{{prova.nomeTeste}}
+              </option>
+            </select>
 
-                    </td>
-                </tr>
+          </td>
+        </tr>
 
-                <tr>
-                    <td>
-                        <label for="emailGestor">Email gestor: </label>
-                    </td>
-                    <td>
-                        <select name="emailGestor" id="emailGestor" class="form-control" formControlName="emailGestor">
-                                    <option *ngFor="let gestor of manager" value="{{gestor.emailResponsavel}}">{{gestor.emailResponsavel}}
-                                    </option>
-                                </select>
-                    </td>
-                </tr>
-                <br>
-            </table>
+        <tr>
+          <td>
+            <label for="emailGestor">Email gestor: </label>
+          </td>
+          <td>
+            <select name="emailGestor" id="emailGestor" class="form-control" formControlName="emailGestor">
+              <option *ngFor="let gestor of manager" value="{{gestor.emailResponsavel}}">{{gestor.emailResponsavel}}
+              </option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="tempo" class="label-control">Validade Exame:</label>
+          </td>
+          <td>
+            <input type="datetime-local" id="tempo" name="tempoRestante" value="{{year}}-{{month}}-{{day}}T{{hour}}:{{minute}}" class="form-control"
+              formControlName="tempoRestante">
+          </td>
+
+        </tr>
+        <br>
+      </table>
 
 
-            <div class="text-center m-b-md m-t-sm">
-                <button id="cancelar" class="btn btn-danger" type="reset" value="Cancelar">Cancelar</button>
+      <div class="text-center m-b-md m-t-sm">
+        <button id="cancelar" class="btn btn-danger" type="reset" value="Cancelar">Cancelar</button>
 
-                <button class="btn  btn-primary text-uppercase" type="submit" value="Adicionar">Gerar</button>
-            </div>
-            <div>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-            </div>
-        </form>
-    </div>
+        <button class="btn  btn-primary text-uppercase" type="submit" value="Adicionar">Gerar</button>
+      </div>
+      <div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+      </div>
+    </form>
+  </div>
 </div>
 <app-rodape></app-rodape>
