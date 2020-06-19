@@ -83,9 +83,9 @@ export class QuestionsComponent implements OnInit {
     const user: string = this.route.snapshot.queryParamMap.get('user');
     const autorizador: string = this.route.snapshot.queryParamMap.get('autorizador');
     this.questionsService.getCandidate(user, autorizador)
-      .subscribe(data => {
+      .subscribe(async data => {
         this.candidateName = data[0].nome
-        this.openDialog(data[0].nome)
+        await this.openDialog(data[0].nome)
       });
 
     const examCode: string = this.route.snapshot.queryParamMap.get('code');
