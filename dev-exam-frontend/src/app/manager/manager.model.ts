@@ -3,4 +3,5 @@ export class Candidate {
   email: string ;
   nomeTeste: string ;
   emailGestor: string;
+  tempoRestante: Date;
 }
