@@ -14,11 +14,9 @@ import { SuccessComponent } from './success/success.component';
 import { ManagerComponent } from './manager/manager.component';
 import { ExamsComponent } from './exams/exams.component';
 import { LoginComponent } from './login/login.component';
-import {
-  AuthGuardService as AuthGuard
-} from './auth-guard.service';
+import { OwlDateTimeModule, OWL_DATE_TIME_FORMATS} from 'ng-pick-datetime';
+import { OwlMomentDateTimeModule } from 'ng-pick-datetime-moment';
 import { RootComponent } from './root/root.component';
-import { AuthService } from 'src/app/core/auth/auth.service';
 import { MenuSuperiorComponent } from './menu-superior/menu-superior.component';
 import { MenuLateralComponent } from './menu-lateral/menu-lateral.component';
 import { TituloComponent } from './titulo/titulo.component';
@@ -65,7 +63,8 @@ import { DialogQuestions } from './questions/dialog-questions';
     UsersComponent,
     UpdateUsers,
     NewUserComponent,
-    DialogQuestions
+    DialogQuestions,
+
   ],
   entryComponents: [
     UpdateExam,
