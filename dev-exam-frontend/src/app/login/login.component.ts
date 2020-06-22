@@ -52,7 +52,11 @@ export class LoginComponent implements OnInit {
         },
         error => {
           console.log(error.error.message);
-          this.toastr.error(error.error.message, 'Error');
+          this.toastr.error(error.error.message, 'Error',
+          {timeOut:3500,
+          progressBar:true,
+          progressAnimation:'decreasing'
+          });
           this.loading = false;
         });
   }
