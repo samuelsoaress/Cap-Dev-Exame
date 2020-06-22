@@ -41,6 +41,7 @@ export class QuestionsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+      this.startTimer()
     });
   }
 
@@ -93,7 +94,6 @@ export class QuestionsComponent implements OnInit {
       .subscribe(questions => {
         this.questions = questions
       });
-    this.startTimer()
 
     $(window).scroll(function () {
       $('.timer').fadeIn('slow');
