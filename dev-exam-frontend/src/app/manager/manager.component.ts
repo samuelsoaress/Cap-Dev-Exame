@@ -25,7 +25,9 @@ export class ManagerComponent implements OnInit {
 
   constructor(private managerService: ManagerService,
     private service: QuestionsService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder) {
+
+    }
 
   ngOnInit() {
     this.day = this.now.getDate() + 3
@@ -34,7 +36,7 @@ export class ManagerComponent implements OnInit {
     this.hour = this.now.getHours()
     this.minute = this.now.getMinutes()
 
-    console.log(this.day + "/" + this.month + "/" + this.year)
+    let date = this.year+"-"+this.month+"-"+this.day+"T"+this.hour+":"+this.minute
     this.managerService.responsibleAll()
       .subscribe(manager => {
         console.log(manager)
@@ -55,7 +57,7 @@ export class ManagerComponent implements OnInit {
       nomeTeste: [candidate.nomeTeste],
       emailGestor: [candidate.emailGestor],
       tempoRestante: [candidate.tempoRestante]
-    })
+    });
   }
 
   onSubmit() {
