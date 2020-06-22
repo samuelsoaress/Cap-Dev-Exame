@@ -14,8 +14,6 @@ import { SuccessComponent } from './success/success.component';
 import { ManagerComponent } from './manager/manager.component';
 import { ExamsComponent } from './exams/exams.component';
 import { LoginComponent } from './login/login.component';
-import { OwlDateTimeModule, OWL_DATE_TIME_FORMATS} from 'ng-pick-datetime';
-import { OwlMomentDateTimeModule } from 'ng-pick-datetime-moment';
 import { RootComponent } from './root/root.component';
 import { MenuSuperiorComponent } from './menu-superior/menu-superior.component';
 import { MenuLateralComponent } from './menu-lateral/menu-lateral.component';

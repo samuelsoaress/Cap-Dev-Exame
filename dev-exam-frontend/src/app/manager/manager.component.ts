@@ -4,8 +4,6 @@ import { preserveWhitespacesDefault } from '@angular/compiler';
 import { ManagerService } from './manager.service';
 import { Candidate } from './manager.model'
 import { FormControl, FormGroup, FormBuilder } from '@angular/forms'
-import { DateTimeAdapter } from 'ng-pick-datetime';
-import { now } from 'jquery';
 
 @Component({
   selector: 'app-manager',
@@ -56,7 +54,7 @@ export class ManagerComponent implements OnInit {
       email: [candidate.email],
       nomeTeste: [candidate.nomeTeste],
       emailGestor: [candidate.emailGestor],
-      tempoRestante: [candidate.tempoRestante.valueOf()]
+      tempoRestante: [candidate.tempoRestante]
     })
   }
 
