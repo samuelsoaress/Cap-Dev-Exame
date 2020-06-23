@@ -6,7 +6,8 @@ import { AuthService } from '../core/auth/auth.service';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html'
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
@@ -52,7 +53,7 @@ export class LoginComponent implements OnInit {
         },
         error => {
           console.log(error.error.message);
-          this.toastr.error(error.error.message, 'Error',
+          this.toastr.error(error.error.message, 'Erro',
           {timeOut:3500,
           progressBar:true,
           progressAnimation:'decreasing'

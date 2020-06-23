@@ -1,24 +1,28 @@
-<h3>Candidate Access</h3>
-<form [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
-<div class="form-group">
-<label for="email">Email</label>
-<input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.email.errors }" placeholder="Enter email here"/>
-<div *ngIf="submitted && fval.email.errors" class="invalid-feedback">
-<div *ngIf="fval.email.errors.required">Email is required</div>
-<div *ngIf="fval.email.errors.email">Enter valid email address</div>
-</div>
-</div>
-<div class="form-group">
-<label for="password">Code Access</label>
-<input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.password.errors }" placeholder="Enter your code access here" />
-<div *ngIf="submitted && fval.password.errors" class="invalid-feedback">
-<div *ngIf="fval.password.errors.required">Code access is required</div>
-</div>
-</div>
-<div class="form-group">
-<button [disabled]="loading" class="btn btn-primary">
-<span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-Login
-</button>
-</div>
+<form [formGroup]="loginForm" class="form-signin" (ngSubmit)="onFormSubmit()">
+  <h1 class="h3 mb-3 font-weight-normal">Candidate Access</h1>
+  <div class="form-group">
+    <label for="email" class="sr-only">Email</label>
+    <input type="text" formControlName="email" class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && fval.email.errors }" placeholder="Enter email here" />
+    <div *ngIf="submitted && fval.email.errors" class="invalid-feedback">
+      <div *ngIf="fval.email.errors.required">Email is required</div>
+      <div *ngIf="fval.email.errors.email">Enter valid email address</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password" class="sr-only">Code Access</label>
+    <input type="password" formControlName="password" class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && fval.password.errors }" placeholder="Enter your code access here" au>
+
+    <div *ngIf="submitted && fval.password.errors" class="invalid-feedback">
+      <div *ngIf="fval.password.errors.required">Code access is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button [disabled]="loading" class="btn btn-primary">
+      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+      Login
+    </button>
+    <p class="mt-5 mb-3 text-muted">&copy; Capgemini 2020</p>
+  </div>
 </form>
