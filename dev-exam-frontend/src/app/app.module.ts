@@ -33,6 +33,7 @@ import { UsersComponent } from './users/users.component';
 import { UpdateUsers } from './users/updateusers.component';
 import { NewUserComponent } from './new-user/new-user.component';
 import { DialogQuestions } from './questions/dialog-questions';
+import { DetailQuestion } from './all-screen-questions/detailQuestion.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { DialogQuestions } from './questions/dialog-questions';
     UpdateUsers,
     NewUserComponent,
     DialogQuestions,
+    DetailQuestion
 
   ],
   entryComponents: [
@@ -70,7 +72,8 @@ import { DialogQuestions } from './questions/dialog-questions';
     ConfirmDeleteDialogComponent,
     UpdateExam,
     UpdateQuestions,
-    DialogQuestions
+    DialogQuestions,
+    DetailQuestion,
   ],
 
   imports: [
