@@ -5,6 +5,7 @@ import { AllScreenModel } from './all-screen.model';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { DetailQuestion } from './detailQuestion.component';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class AllScreenQuestionsComponent implements OnInit {
 
   constructor(private questionService: AllScreenQuestionsService, public dialog: MatDialog) {
   }
-  displayedColumns: string[] = ['technology', 'complexity', 'firstPart', 'correctAnswer', 'delete', 'edit','detail'];
+  displayedColumns: string[] = ['technology', 'complexity', 'firstPart', 'correctAnswer', 'delete', 'edit', 'detail'];
   dataSource = new MatTableDataSource<AllScreenModel>();
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -90,6 +91,16 @@ export class AllScreenQuestionsComponent implements OnInit {
       }, error => { console.log(error) }
       );
   }
+  detail(AllScreenModel: AllScreenModel) {
+    const dialogRef = this.dialog.open(DetailQuestion, {
+      data: AllScreenModel
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
   update(AllScreenModel: AllScreenModel) {
     const dialogRef = this.dialog.open(UpdateQuestions, {
       data: AllScreenModel
