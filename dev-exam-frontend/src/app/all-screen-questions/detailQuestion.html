@@ -6,7 +6,7 @@
               <label for="technology">Tecnologia: </label>
           </td>
           <td>
-              <input value="{{technology}}" type="text" name="codigoTecnologia" class="form-control" [(ngModel)]="technology" >
+              <p>{{technology}}</p>
           </td>
       </tr>
       <br>
@@ -15,7 +15,7 @@
               <label for="complexity">Complexidade:</label>
           </td>
 
-          <input value="{{complexity}}" type="text" name="complexidade" class="form-control" [(ngModel)]="complexity">
+          <p> {{complexity}}</p>
       </tr>
       <br>
       <tr>
@@ -23,22 +23,21 @@
               <label for="firstPart">Enunciado:</label>
           </td>
 
-          <input value="{{firstPart}}" type="text" name="descricaoQuestao" class="form-control" [(ngModel)]="firstPart">
+          <p>{{firstPart}}</p>
       </tr>
-      <tr>
-
+      <tr *ngIf="codeParts">
           <td>
               <label for="codeParts">Campo de codigo:</label>
-          </td>
+          </td><br>
           <td>
-              <textarea type="text" id="codeParts" name="blocoCodigo" class="form-control"
-                  placeholder="EX: int a = 15, b = 3; return a+b;" value="{{codeParts}}" [(ngModel)]="codeParts"> </textarea>
+            <br>
+              <pre>{{codeParts}}</pre>
           </td>
       </tr>
       <div>
           <tr>
               <td>
-                  <label>Alternativas</label>
+                  <h4>Alternativas</h4>
               </td>
               <td>
 
@@ -50,8 +49,7 @@
                   <label for="answerLetterA">A)</label>
               </td>
               <td>
-                  <input type="text" id="answerLetterA" name="altenativaA" class="form-control"
-                      value="{{answerLetterA}}" [(ngModel)]="answerLetterA">
+                  <p>{{answerLetterA}}</p>
               </td>
           </tr>
           <tr>
@@ -59,8 +57,7 @@
                   <label for="answerLetterB">B)</label>
               </td>
               <td>
-                  <input type="text" id="answerLetterB" name="altenativaB" class="form-control"
-                      value="{{answerLetterB}}" [(ngModel)]="answerLetterB">
+                  <p>{{answerLetterB}}</p>
               </td>
           </tr>
           <tr>
@@ -68,8 +65,7 @@
                   <label for="answerLetterC">C)</label>
               </td>
               <td>
-                  <input type="text" id="answerLetterC" name="altenativaC" class="form-control"
-                      value="{{answerLetterC}}" [(ngModel)]="answerLetterC">
+                  <p>{{answerLetterC}}</p>
               </td>
           </tr>
           <tr>
@@ -77,17 +73,15 @@
                   <label for="answerLetterD">D)</label>
               </td>
               <td>
-                  <input type="text" id="answerLetterD" name="altenativaD" class="form-control"
-                      value="{{answerLetterD}}" [(ngModel)]="answerLetterD">
+                  <p>{{answerLetterD}}</p>
               </td>
           </tr>
-          <tr>
+          <tr *ngIf="answerLetterE">
               <td>
                   <label for="answerLetterE">E)</label>
               </td>
               <td>
-                  <input type="text" id="answerLetterE" name="altenativaE" class="form-control"
-                      value="{{answerLetterE}}" [(ngModel)]="answerLetterE">
+                  <p>{{answerLetterE}}</p>
               </td>
           </tr>
           <tr>
@@ -95,13 +89,8 @@
                   <label for="resposta">Alternativa correta:</label>
               </td>
               <td>
-                  <select name="codigoRespostaCorreta" id="resposta" value="resposta" [(ngModel)]="resposta">
-                      <option value="{{resposta}}">Resposta atual: {{resposta}}</option>
-                      <option value="A">A</option>
-                      <option value="B">B</option>
-                      <option value="C">C</option>
-                      <option value="D">D</option>
-                      <option value="E">E</option>
+                  <select name="codigoRespostaCorreta" readonly id="resposta" value="resposta" [(ngModel)]="resposta">
+                      <option value="{{resposta}}">Resposta: {{resposta}}</option>
                   </select>
               </td>
           </tr>
