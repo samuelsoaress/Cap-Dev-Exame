@@ -1,0 +1,19 @@
+<div class="row col-sm-12">
+    <app-menuSuperior></app-menuSuperior>
+    <div class="col-sm-2" style="background-color: #f3f6fb;">
+        <app-menuLateral></app-menuLateral>
+    </div>
+    <div class="col-sm-10">
+        <app-titulo titulo="Cadastrar Tecnologia"> </app-titulo>
+
+        <div id="formNewTechnology">
+            <form #NewTechnologiesForm="ngForm" (submit)="onSubmit(NewTechnologiesForm.value)" novalidate>
+                <div class="form-group row">
+                    <input type="text" name="tecnologia" class="form-control" id="input" aria-describedby="emailHelp"
+                        placeholder="Nova Tecnologia" [(ngModel)]="technology.tecnologia">
+                    <button class="btn btn-primary" type="submit">Cadastrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

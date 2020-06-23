@@ -1,0 +1,10 @@
+{
+    "Config": {
+        "email": {
+            "emailTo": "dev.exam.email@gmail.com;samuelsoares177778@gmail.com;breno.bastos@capgemini.com"
+        },
+        "api": {
+            "maxQuestions": 72
+        }
+    }
+}

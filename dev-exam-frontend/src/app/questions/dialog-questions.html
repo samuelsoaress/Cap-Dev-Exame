@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Bem Vindo {{nome}} </h2>
+<mat-dialog-content class="mat-typography">
+  <h3>voce foi selecionado pra fazer esse exame então se atente aos seguintes detalhes:</h3>
+
+  <h3>Tempo:</h3>
+  <p>sua prova tem a duração total de {{time}} horas então quando o tempo
+    se esgotar sua prova será enviada automaticamente tendo respodido todas as questões ou não.
+  </p>
+
+  <h3>Respostas:</h3>
+  <p>revise sua prova e garanta ter respondido todas as questões. Após enviada a prova
+    as questões não preenchidas serão anuladas.
+  </p>
+
+  <h3>Erros &amp; Bugs</h3>
+  <p>Somos uma plataforma nova e estamos em constante evolução, qualquer problema
+    reporte ao nosso email support@capexames.com, seu feedback é essencial para nosso crescimento.
+  </p>
+
+  <h3>Sem mais delongas, desejamos Boa Sorte!</h3>
+  <p>quando apertar o botão Estou Pronto a contagem do cronometro começará, uma vez iniciado ele não ira parar mais,
+    então certifique-se de ter tempo hábil para concluir a prova.
+  </p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Estou Pronto</button>
+</mat-dialog-actions>

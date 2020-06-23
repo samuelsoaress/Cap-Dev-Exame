@@ -1,0 +1,63 @@
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../core/auth/auth.service';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html'
+})
+export class LoginComponent implements OnInit {
+  loginForm: FormGroup;
+  loading = false;
+  submitted = false;
+  returnUrl: any;
+  code:string;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private authenticationService: AuthService,
+    private toastr: ToastrService
+  ) { }
+
+  ngOnInit() {
+    this.loginForm = this.formBuilder.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+    // this.returnUrl = this.route.snapshot.queryParamMap.get('code');
+    this.route.queryParams
+    .subscribe(params =>{
+      this.code = params.returnUrl.substring(11)
+    })
+  }
+
+  // for accessing to form fields
+  get fval() { return this.loginForm.controls; }
+
+  onFormSubmit() {
+    this.submitted = true;
+    if (this.loginForm.invalid) {
+      return;
+    }
+
+    this.loading = true;
+    this.authenticationService.login(this.fval.email.value, this.fval.password.value)
+      .subscribe(
+        data => {
+          this.router.navigate(['/exam'],{ queryParams: { code:this.code , user:this.fval.email.value,autorizador:this.fval.password.value}});
+        },
+        error => {
+          console.log(error.error.message);
+          this.toastr.error(error.error.message, 'Error',
+          {timeOut:3500,
+          progressBar:true,
+          progressAnimation:'decreasing'
+          });
+          this.loading = false;
+        });
+  }
+}

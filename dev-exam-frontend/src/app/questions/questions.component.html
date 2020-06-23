@@ -2,20 +2,17 @@
 
     <header class="row">
         <div class="avalicao col-md-4 offset-md-4">Avaliação Técnica</div>
-        <div class="logo-container col-md-3 offset-md-1">
-            <img src="../../assets/img/capgemini-logo.jpg" alt="Capgemini logo" class="logo">
-        </div>
     </header>
 
-    
-    <a id="timer" class="timer"><i>{{time}}</i></a>  
+
+    <a id="timer" class="timer"><i>{{time}}</i></a>
 
     <section class="form-section">
         <form #questionsForm="ngForm" ng-submit="submitForm()" (submit)="onSubmit(questionsForm.value)" novalidate>
             <div class="row">
                 <div class="name-container col-md-5">
                     <label for="candidateName">Nome</label>
-                    <input type="text" name="candidateName" class="form-control" ngModel>
+                    <input readonly type="text" name="candidateName" class="form-control" (keyup)="habilitarbotao()" [(ngModel)]="candidateName">
                 </div>
             </div>
             <div class="question-container">
@@ -25,9 +22,9 @@
                     <li class="question-first-part">{{question.firstPart}}</li>
 
                     <pre *ngIf="question.codeParts.length">
-                        <li *ngFor="let codePart of question.codeParts">
-                            {{codePart}}
-                        </li>
+                        <code>
+                                <br>{{ question.codeParts }}
+                        </code>
                     </pre>
 
                     <li class="question-last-part">{{question.lastPart}}</li>
@@ -41,7 +38,7 @@
 
                 </ul>
                 <div class="button-container">
-                    <button id="submit" type="submit" class="btn btn-primary">Enviar respostas</button>
+                    <button id="submit" type="submit" class="btn btn-primary" >Enviar respostas</button>
                 </div>
             </div>
         </form>

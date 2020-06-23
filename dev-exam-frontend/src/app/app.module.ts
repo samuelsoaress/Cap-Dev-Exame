@@ -1,31 +1,38 @@
+import { UpdateQuestions } from './all-screen-questions/updateQuestions.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
+import { CandidateService } from './services/candidate.service';
+import { ToastrModule } from 'ngx-toastr';
+import { InterceptorService } from './core/auth/Interceptor.service';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { QuestionsComponent } from './questions/questions.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { SuccessComponent } from './success/success.component';
 import { ManagerComponent } from './manager/manager.component';
 import { ExamsComponent } from './exams/exams.component';
-import { SignInComponent } from './home/signin/signin.component'
-import { HomeModule } from './home/home.module'
-
-const appRoutes: Routes = [
-  { path: 'login', component: SignInComponent },
-  { path: 'exam', component: QuestionsComponent },
-  { path: 'success', component: SuccessComponent },
-  { path: 'manager', component: ManagerComponent},
-  { path: 'newexams', component: ExamsComponent},
-  {
-    path: '',
-    redirectTo: '/exam?code=d59792e19ef574ce662c13f2c6c78de4',
-    pathMatch: 'full'
-  },
-  { path: '**', component: QuestionsComponent }
-];
+import { LoginComponent } from './login/login.component';
+import { RootComponent } from './root/root.component';
+import { MenuSuperiorComponent } from './menu-superior/menu-superior.component';
+import { MenuLateralComponent } from './menu-lateral/menu-lateral.component';
+import { TituloComponent } from './titulo/titulo.component';
+import { RodapeComponent } from './rodape/rodape.component';
+import { AllQuestionsComponent } from './all-questions/all-questions.component';
+import { AllScreenQuestionsComponent } from './all-screen-questions/all-screen-questions.component';
+import { TechnologiesComponent, ConfirmDeleteDialogComponent, UpdateTechnologyDialog } from './technologies/technologies.component';
+import { NewtechnologiesComponent } from './newtechnologies/newtechnologies.component';
+import { MaterialModule } from 'src/app/material-module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AllexamsComponent } from './allexams/allexams.component';
+import { UpdateExam } from 'src/app/allexams/updateExam.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { AllResultTestComponent } from './all-result-test/all-result-test.component';
+import { UsersComponent } from './users/users.component';
+import { UpdateUsers } from './users/updateusers.component';
+import { NewUserComponent } from './new-user/new-user.component';
+import { DialogQuestions } from './questions/dialog-questions';
 
 @NgModule({
   declarations: [
@@ -34,19 +41,56 @@ const appRoutes: Routes = [
     SuccessComponent,
     ManagerComponent,
     ExamsComponent,
+    LoginComponent,
+    RootComponent,
+    MenuSuperiorComponent,
+    MenuLateralComponent,
+    TituloComponent,
+    RodapeComponent,
+    AllQuestionsComponent,
+    AllScreenQuestionsComponent,
+    TechnologiesComponent,
+    NewtechnologiesComponent,
+    AllexamsComponent,
+    UpdateExam,
+    ConfirmDeleteDialogComponent,
+    UpdateTechnologyDialog,
+    UpdateExam,
+    UpdateQuestions,
+    AllResultTestComponent,
+    UsersComponent,
+    UpdateUsers,
+    NewUserComponent,
+    DialogQuestions,
+
   ],
+  entryComponents: [
+    UpdateExam,
+    UpdateTechnologyDialog,
+    ConfirmDeleteDialogComponent,
+    UpdateExam,
+    UpdateQuestions,
+    DialogQuestions
+  ],
+
   imports: [
-    HomeModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
-    )
+    ReactiveFormsModule,
+    AppRoutingModule,
+    MaterialModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
-  providers: [],
+  exports: [
+    ExamsComponent,
+    QuestionsComponent,
+    UsersComponent,
+    UpdateTechnologyDialog
+  ],
+  providers: [CandidateService, { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
