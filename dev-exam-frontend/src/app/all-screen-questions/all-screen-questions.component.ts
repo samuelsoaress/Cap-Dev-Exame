@@ -17,7 +17,7 @@ export class AllScreenQuestionsComponent implements OnInit {
 
   constructor(private questionService: AllScreenQuestionsService, public dialog: MatDialog) {
   }
-  displayedColumns: string[] = ['technology', 'complexity', 'firstPart', 'correctAnswer', 'delete', 'edit'];
+  displayedColumns: string[] = ['technology', 'complexity', 'firstPart', 'correctAnswer', 'delete', 'edit','detail'];
   dataSource = new MatTableDataSource<AllScreenModel>();
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
