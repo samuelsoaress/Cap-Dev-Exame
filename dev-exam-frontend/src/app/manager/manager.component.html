@@ -45,11 +45,11 @@
 
         <tr>
           <td>
-            <label for="emailGestor">Email gestor: </label>
+            <label for="emailGestor">Nome gestor: </label>
           </td>
           <td>
             <select name="emailGestor" id="emailGestor" class="form-control" formControlName="emailGestor">
-              <option *ngFor="let gestor of manager" value="{{gestor.emailResponsavel}}">{{gestor.emailResponsavel}}
+              <option *ngFor="let gestor of manager" value="{{gestor.emailResponsavel}}">{{gestor.nomeResponsavel}}
               </option>
             </select>
           </td>
