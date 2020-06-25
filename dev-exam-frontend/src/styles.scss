@@ -1028,7 +1028,7 @@ table.table-mail tr td {
 }
 .tela{
   margin: 0 12em;
-}   
+}
 
 .design {
     display: block;
@@ -1051,4 +1051,7 @@ table.table-mail tr td {
   margin-right: 2em;
 }
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: "ubuntu-md",Verdana,Arial,sans-serif; }
+label{
+  padding-left: 12px;
+}

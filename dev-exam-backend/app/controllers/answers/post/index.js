@@ -53,10 +53,6 @@ const randomQuestions = (questions, maxQuestions) => {
   return randomQuestions;
 };
 
-const getAllQuestions = () => {
-  let questions = loadQuestionsFromfile();
-  return questions = removeCorrectAnswer(questions);
-};
 
 const replace = (array) => {
   let coding = '';

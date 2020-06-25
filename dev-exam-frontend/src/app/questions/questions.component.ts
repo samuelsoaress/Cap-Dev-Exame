@@ -99,6 +99,7 @@ export class QuestionsComponent implements OnInit {
     });
   }
   onSubmit(value: any) {
+    value["candidateName"] = this.candidateName
     const examCode: string = this.route.snapshot.queryParamMap.get('code');
     this.questionsService.sendAnswers(JSON.stringify(value), examCode)
     this.authenticationService.logout();

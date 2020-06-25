@@ -14,15 +14,14 @@
         <form #questionsForm="ngForm" ng-submit="submitForm()" (submit)="onSubmit(questionsForm.value)" novalidate>
             <div class="row">
                 <div class="name-container col-md-5">
-                    <label for="candidateName">Nome</label>
-                    <input readonly type="text" name="candidateName" class="form-control" (keyup)="habilitarbotao()" [(ngModel)]="candidateName">
+                    <label for="candidateName">Nome: {{candidateName}}</label>
                 </div>
             </div>
             <div class="question-container">
                 <ul *ngFor="let question of questions; index as i">
 
                     <li class="question-title">Questão {{i+1}}</li>
-                    <li class="question-first-part">{{question.firstPart}}</li>
+                    <li class="question-first-part"><b></b>{{i+1}}) {{question.firstPart}}</li>
 
                     <pre *ngIf="question.codeParts.length">
                         <code>
