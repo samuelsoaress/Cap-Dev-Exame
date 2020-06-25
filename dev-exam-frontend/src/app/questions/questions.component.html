@@ -20,8 +20,7 @@
             <div class="question-container">
                 <ul *ngFor="let question of questions; index as i">
 
-                    <li class="question-title">Questão {{i+1}}</li>
-                    <li class="question-first-part"><b></b>{{i+1}}) {{question.firstPart}}</li>
+                    <li class="question-first-part"><b>{{i+1}}) {{question.firstPart}}</b></li>
 
                     <pre *ngIf="question.codeParts.length">
                         <code>
