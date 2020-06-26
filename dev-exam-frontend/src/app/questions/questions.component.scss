@@ -136,6 +136,28 @@ footer{
     padding: 15px;
     background-size: 300px 84px;
     margin-top: 30px;
+    display: block;
+    position: relative;
+}
+@media (min-width: 1200px){
+  .container-full {
+      margin-left: 50px;
+      margin-right: 50px;
+  }
+}
+.footer {
+  background: #f3f3f3;
+}
+
+@media (min-width: 1200px){
+  .container {
+      width: 1140px;
+      max-width: 100%;
+  }
+}
+
+.footer__top {
+  padding: 76px 0 13px;
 }
 
 footer .footer-text{
@@ -146,7 +168,34 @@ footer .footer-text{
     font-weight: bold;
 }
 
+.section--grey .section__button {
+  background: #ececec;
+}
 
+.section__button {
+  margin-bottom: 24px;
+  display: inline-block;
+  font: 1rem/1 "ubuntu-md",Verdana,Arial,sans-serif;
+  min-width: 195px;
+  border-radius: 100px;
+  text-align: center;
+  white-space: nowrap;
+  transition: all .5s ease;
+  padding: 0 20px;
+  color: #0070ad;
+  border: 2px solid #0070ad;
+  line-height: 48px;
+  background: 0 0;
+}
+
+.section--grey .section__button:hover, .section--grey .section__button:focus {
+  background: #0070ad;
+}
+.section__button:hover, .section__button:focus {
+  background: #0070ad;
+  color: #fff;
+  border-color: #0070ad;
+}
 
 .timer {
     position: fixed;
