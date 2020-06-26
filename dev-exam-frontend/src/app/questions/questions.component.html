@@ -14,7 +14,9 @@
         <form #questionsForm="ngForm" ng-submit="submitForm()" (submit)="onSubmit(questionsForm.value)" novalidate>
             <div class="row">
                 <div class="name-container col-md-5">
-                    <label for="candidateName">Nome: {{candidateName}}</label>
+                    <br>
+                    <h6> <b> Nome: </b>{{candidateName}}</h6>
+                    <h6> <b> Prova: </b>{{examName}}</h6>
                 </div>
             </div>
             <div class="question-container">

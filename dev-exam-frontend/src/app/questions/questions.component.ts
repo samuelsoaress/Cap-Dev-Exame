@@ -7,6 +7,7 @@ import { AuthService } from '../core/auth/auth.service';
 import * as $ from 'jquery';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogQuestions } from './dialog-questions';
+import { data } from 'jquery';
 
 @Component({
   selector: 'app-questions',
@@ -14,7 +15,8 @@ import { DialogQuestions } from './dialog-questions';
   styleUrls: ['./questions.component.scss']
 })
 export class QuestionsComponent implements OnInit {
-
+  examCode: string = this.route.snapshot.queryParamMap.get('code');
+  examName: string
   candidateName: string
   btndisable = true
   questions: any
@@ -34,16 +36,16 @@ export class QuestionsComponent implements OnInit {
     this.currentUser = localStorage.getItem('currentUser') ? JSON.parse(JSON.stringify(localStorage.getItem('currentUser'))) : '';
   }
 
-  openDialog(name: any) {
+  openDialog(name: any,examName) {
     const dialogRef = this.dialog.open(DialogQuestions, {
-      data: { "nome": name, "time": "2:00" }
+      data: { "nome": name, "time": "2:00","exam":examName }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
       this.startTimer()
-      const examCode: string = this.route.snapshot.queryParamMap.get('code');
-      this.questionsService.getQuestions(examCode)
+
+      this.questionsService.getQuestions(this.examCode)
         .subscribe(questions => {
           this.questions = questions
         });
@@ -88,10 +90,14 @@ export class QuestionsComponent implements OnInit {
   ngOnInit() {
     const user: string = this.route.snapshot.queryParamMap.get('user');
     const autorizador: string = this.route.snapshot.queryParamMap.get('autorizador');
+    this.questionsService.getExam(this.examCode)
+    .subscribe(data=>{
+      this.examName = data[0].nomeTeste
+    })
     this.questionsService.getCandidate(user, autorizador)
       .subscribe(async data => {
         this.candidateName = data[0].nome
-        await this.openDialog(data[0].nome)
+        await this.openDialog(data[0].nome,this.examName)
       });
 
     $(window).scroll(function () {
