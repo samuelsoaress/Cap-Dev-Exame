@@ -25,6 +25,10 @@ export class QuestionsService {
     return this.http.request('GET','exam?code=' + examCode);
   }
 
+  getExam(examCode: string): Observable<any>{
+    return this.http.request('GET','getExam?code='+ examCode);
+  }
+
   questions(): Observable<any> {
     return this.http.request('GET','technologies', httpOptions);
   }
