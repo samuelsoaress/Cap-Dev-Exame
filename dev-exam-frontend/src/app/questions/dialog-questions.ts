@@ -10,6 +10,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class DialogQuestions {
   nome:string;
   time:string;
+  exam:string
   constructor(
     public dialogRef: MatDialogRef<DialogQuestions>,
         @Inject(MAT_DIALOG_DATA) public data: any) {
@@ -19,5 +20,6 @@ export class DialogQuestions {
   ngOnInit() {
     this.nome = this.data.nome
     this.time = this.data.time
+    this.exam = this.data.exam
 }
 }
