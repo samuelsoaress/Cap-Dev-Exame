@@ -1,105 +1,97 @@
 <h2 mat-dialog-title>questão {{code}}</h2>
-  <mat-dialog-content class="mat-typography">
+<mat-dialog-content class="mat-typography">
 
+  <tr>
+    <td>
+      <label for="technology"> <b> Tecnologia: </b></label>
+    </td>
+    <td>
+      <p>{{technology}}</p>
+    </td>
+  </tr>
+  <br>
+  <tr>
+    <td>
+      <label for="complexity"><b> Complexidade: </b></label>
+    </td>
+
+    <p> {{complexity}}</p>
+  </tr>
+  <br>
+  <div class="container format">
+    <tr>
+      <td>
+        <label for="firstPart">Enunciado:</label>
+      </td>
+
+      <p>{{firstPart}}</p>
+    </tr>
+    <tr *ngIf="codeParts">
+      <td>
+        <label for="codeParts">Campo de codigo:</label>
+      </td><br>
+      <td>
+        <br>
+        <pre>{{codeParts}}</pre>
+      </td>
+    </tr>
+    <div>
       <tr>
-          <td>
-              <label for="technology">Tecnologia: </label>
-          </td>
-          <td>
-              <p>{{technology}}</p>
-          </td>
+        <td>
+          <h4>Alternativas</h4>
+        </td>
+        <td>
+
+        </td>
       </tr>
-      <br>
-      <tr>
-          <td>
-              <label for="complexity">Complexidade:</label>
-          </td>
 
-          <p> {{complexity}}</p>
+      <tr id="a">
+        <td>
+          <label for="answerLetterA"> <b>A)</b></label>
+        </td>
+        <td>
+          <p>{{answerLetterA}}</p>
+        </td>
       </tr>
-      <br>
-      <tr>
-          <td>
-              <label for="firstPart">Enunciado:</label>
-          </td>
-
-          <p>{{firstPart}}</p>
+      <tr id="b">
+        <td>
+          <label for="answerLetterB"><b> B)</b></label>
+        </td>
+        <td>
+          <p>{{answerLetterB}}</p>
+        </td>
       </tr>
-      <tr *ngIf="codeParts">
-          <td>
-              <label for="codeParts">Campo de codigo:</label>
-          </td><br>
-          <td>
-            <br>
-              <pre>{{codeParts}}</pre>
-          </td>
+      <tr id="c">
+        <td>
+          <label for="answerLetterC"><b> C)</b></label>
+        </td>
+        <td>
+          <p>{{answerLetterC}}</p>
+        </td>
       </tr>
-      <div>
-          <tr>
-              <td>
-                  <h4>Alternativas</h4>
-              </td>
-              <td>
+      <tr id="d">
+        <td>
+          <label for="answerLetterD"><b> D)</b></label>
+        </td>
+        <td>
+          <p>{{answerLetterD}}</p>
+        </td>
+      </tr>
+      <tr id="e" *ngIf="answerLetterE">
+        <td>
+          <label for="answerLetterE"><b> E)</b></label>
+        </td>
+        <td>
+          <p>{{answerLetterE}}</p>
+        </td>
+      </tr>
+    </div>
+  </div>
 
-              </td>
-          </tr>
-
-          <tr>
-              <td>
-                  <label for="answerLetterA">A)</label>
-              </td>
-              <td>
-                  <p>{{answerLetterA}}</p>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <label for="answerLetterB">B)</label>
-              </td>
-              <td>
-                  <p>{{answerLetterB}}</p>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <label for="answerLetterC">C)</label>
-              </td>
-              <td>
-                  <p>{{answerLetterC}}</p>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <label for="answerLetterD">D)</label>
-              </td>
-              <td>
-                  <p>{{answerLetterD}}</p>
-              </td>
-          </tr>
-          <tr *ngIf="answerLetterE">
-              <td>
-                  <label for="answerLetterE">E)</label>
-              </td>
-              <td>
-                  <p>{{answerLetterE}}</p>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <label for="resposta">Alternativa correta:</label>
-              </td>
-              <td>
-                  <select name="codigoRespostaCorreta" readonly id="resposta" value="resposta" [(ngModel)]="resposta">
-                      <option value="{{resposta}}">Resposta: {{resposta}}</option>
-                  </select>
-              </td>
-          </tr>
-      </div>
-
-  </mat-dialog-content>
-  <mat-dialog-actions align="end">
-      <button mat-button mat-dialog-close>Okay</button>
-  </mat-dialog-actions>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Okay</button>
+</mat-dialog-actions>
 
 <!-- Copyright 2019 Google LLC. All Rights Reserved.
   Use of this source code is governed by an MIT-style license that
