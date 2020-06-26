@@ -1,54 +1,64 @@
 <div class="container-fluid">
 
-    <header class="row">
-        <div class="avalicao col-md-4 offset-md-4">Avaliação Técnica</div>
-        <div class="logo-container col-md-3 offset-md-1">
+  <header class="header">
+    <div class="avalicao header__window--top">
+      <!-- Avaliação Técnica -->
+      <div class="header__window--logo">
+        <a href="#" class="header__logo">
           <img src="../../assets/img/capgemini-logo.jpg" alt="Capgemini logo" class="logo">
+        </a>
       </div>
-    </header>
+      <div class="header__window">
+        <div class="header-title">
+          <b> Avaliação Técnica </b>
+        </div>
+      </div>
+    </div>
+  </header>
+  <hr class="divider-primary">
 
 
-    <a id="timer" class="timer"><i>{{time}}</i></a>
+  <a id="timer" class="timer"><i>{{time}}</i></a>
 
-    <section class="form-section">
-        <form #questionsForm="ngForm" ng-submit="submitForm()" (submit)="onSubmit(questionsForm.value)" novalidate>
-            <div class="row">
-                <div class="name-container col-md-5">
-                    <br>
-                    <h6> <b> Nome: </b>{{candidateName}}</h6>
-                    <h6> <b> Prova: </b>{{examName}}</h6>
-                </div>
-            </div>
-            <div class="question-container">
-                <ul *ngFor="let question of questions; index as i">
+  <section class="form-section">
+    <form #questionsForm="ngForm" ng-submit="submitForm()" (submit)="onSubmit(questionsForm.value)" novalidate>
+      <div class="row">
+        <div class="name-container col-md-5">
+          <br>
+          <h6> <b> Nome: </b>{{candidateName}}</h6>
+          <h6> <b> Prova: </b>{{examName}}</h6>
+        </div>
+      </div>
+      <div class="question-container">
+        <ul *ngFor="let question of questions; index as i">
 
-                    <li class="question-first-part"><b>{{i+1}}) {{question.firstPart}}</b></li>
+          <li class="question-first-part"><b>{{i+1}}) {{question.firstPart}}</b></li>
 
-                    <pre *ngIf="question.codeParts.length">
+          <pre *ngIf="question.codeParts.length">
                         <code>
                                 <br>{{ question.codeParts }}
                         </code>
                     </pre>
 
-                    <li class="question-last-part">{{question.lastPart}}</li>
+          <li class="question-last-part">{{question.lastPart}}</li>
 
-                    <li *ngFor="let answer of question.answers">
-                        <div>
-                            <input type="radio" value="{{answer.letter}}" name="{{question.code}}" ngModel>
-                            <label for="female">{{answer.text}}</label>
-                        </div>
-                    </li>
-
-                </ul>
-                <div class="button-container">
-                    <button id="submit" type="submit" class="btn btn-primary" >Enviar respostas</button>
-                </div>
+          <li *ngFor="let answer of question.answers">
+            <div>
+              <input type="radio" value="{{answer.letter}}" name="{{question.code}}" ngModel>
+              <label for="female">{{answer.text}}</label>
             </div>
-        </form>
-    </section>
+          </li>
 
-    <footer class="row">
-        <div class="footer-text col-md-8 offset-md-2">Capgemini - Todos direitos reservados</div>
-    </footer>
+        </ul>
+        <div class="button-container">
+          <button id="submit" type="submit" class="btn btn-primary">Enviar respostas</button>
+        </div>
+      </div>
+    </form>
+  </section>
+
+  <footer class="row">
+    <div class="footer-text col-md-8 offset-md-2">Capgemini - Todos direitos reservados</div>
+  </footer>
 
 </div>
