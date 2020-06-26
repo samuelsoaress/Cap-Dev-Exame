@@ -7,7 +7,8 @@ import { NgForm } from '@angular/forms';
 
 @Component({
     selector: 'detail-question',
-    templateUrl: './detailQuestion.html'
+    templateUrl: './detailQuestion.html',
+    styleUrls: ['./all-screen-questions.component.scss']
 })
 export class DetailQuestion implements OnInit {
     codeParts: string
@@ -43,6 +44,21 @@ export class DetailQuestion implements OnInit {
         this.answerLetterC = this.data.answerLetterC
         this.answerLetterD = this.data.answerLetterD
         this.answerLetterE = this.data.answerLetterE
-
+        if(this.answerLetterA === this.correctAnswer){
+          let elementCorrect: HTMLElement = document.querySelector('#a') as HTMLElement
+          elementCorrect.classList.add("correctAnswer");
+        }else if(this.answerLetterB === this.correctAnswer){
+          let elementCorrect: HTMLElement = document.querySelector('#b') as HTMLElement
+          elementCorrect.classList.add("correctAnswer");
+        }else if(this.answerLetterC === this.correctAnswer){
+          let elementCorrect: HTMLElement = document.querySelector('#c') as HTMLElement
+          elementCorrect.classList.add("correctAnswer");
+        }else if(this.answerLetterD === this.correctAnswer){
+          let elementCorrect: HTMLElement = document.querySelector('#d') as HTMLElement
+          elementCorrect.classList.add("correctAnswer");
+        }else if(this.answerLetterE === this.correctAnswer){
+          let elementCorrect: HTMLElement = document.querySelector('#e') as HTMLElement
+          elementCorrect.classList.add("correctAnswer");
+        }
     }
 }
