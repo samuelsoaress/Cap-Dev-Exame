@@ -12,10 +12,30 @@ table {
 }
 
 .format{
-  border: solid 2px #2b0a3d;
+  border: solid 2px #380d50;
   padding: 25px;
 }
 
 .correctAnswer{
   color: green;
+}
+
+pre{
+  background-color: rgb(238, 239, 245);
+  width: 700px;
+  line-height: 1.0em;
+  overflow: hidden;
+  color: rgb(66, 66, 66);
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+}
+pre {
+  display: block;
+  font-size: 100.5%;
+  padding: 21px;
+  float: left;
 }
