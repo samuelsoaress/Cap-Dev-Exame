@@ -13,6 +13,12 @@ h5 {
   font-weight: 600;
   padding: 14px 20px 14px 25px;
 }
+
+.nav>li>a {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
 .nav.navbar-right > li > a {
   color: #999c9e;
 }
@@ -1029,3 +1035,23 @@ label{
   padding-left: 12px;
 }
 body{ font-family:"ubuntu-md",Verdana,Arial,sans-serif;}
+
+.metismenu .fa.arrow:before {
+  content: "\f104";
+}
+.fa.arrow:before {
+  content: "\f104";
+}
+
+@media (min-width: 768px){
+.navbar-static-side {
+    z-index: 2001;
+    position: absolute;
+    width: 220px;
+}
+}
+
+.navbar-default {
+  background-color: transparent;
+  border-color: #2f4050;
+}
